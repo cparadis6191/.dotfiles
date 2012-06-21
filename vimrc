@@ -11,6 +11,8 @@ set nocompatible
 set autoindent		"Copy indent from current line when starting a new line
 set smartindent		"Do smart indenting when starting a new line. Works with supported c-like languages
 
+syntax on			"Turns on syntax highlighting
+
 "-- Spaces/Tabs --
 set noexpandtab		"Strictly use tabs when tab is pressed (this is the default)
 set shiftwidth=4	"Sets tabs to be 4 characters wide
