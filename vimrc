@@ -30,4 +30,4 @@ set backspace=indent,eol,start	"Add tweak for better backspace support
 
 "-- File Format --
 set fileformats=unix,dos,mac	"Allows all file formats to be read
-autocmd BufWritePre * set fileformats=unix	"Always writes files with unix line endings
+autocmd BufWritePre * set fileformat=unix	"Always writes files with unix line endings
