@@ -113,6 +113,7 @@ alias dir='ls --color=auto --format=vertical'
 alias ll='ls -l'                              # long list
 # alias la='ls -A'                              # all but . and ..
 # alias l='ls -CF'                              #
+alias vim='vim -p'
 
 # Umask
 #
