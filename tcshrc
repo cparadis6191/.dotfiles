@@ -7,28 +7,28 @@
 
 # base-files version 4.1-1
 
-# ~/.bashrc: executed by bash(1) for interactive shells.
+# ~/.tcshrc: executed by tcsh(1) for interactive shells.
 
 # The latest version as installed by the Cygwin Setup program can
-# always be found at /etc/defaults/etc/skel/.bashrc
+# always be found at /etc/defaults/etc/skel/.tcshrc
 
-# Modifying /etc/skel/.bashrc directly will prevent
+# Modifying /etc/skel/.tcshrc directly will prevent
 # setup from updating it.
 
-# The copy in your home directory (~/.bashrc) is yours, please
+# The copy in your home directory (~/.tcshrc) is yours, please
 # feel free to customise it to create a shell
 # environment to your liking.  If you feel a change
 # would be benifitial to all, please feel free to send
 # a patch to the cygwin mailing list.
 
-# User dependent .bashrc file
+# User dependent .tcshrc file
 
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
 # Shell Options
 #
-# See man bash for more options...
+# See man tcsh for more options...
 #
 # Don't wait for job termination notification
 # set -o notify
@@ -39,16 +39,16 @@
 # Use case-insensitive filename globbing
 # shopt -s nocaseglob
 #
-# Make bash append rather than overwrite the history on disk
+# Make tcsh append rather than overwrite the history on disk
 # shopt -s histappend
 #
-# When changing directory small typos can be ignored by bash
+# When changing directory small typos can be ignored by tcsh
 # for example, cd /vr/lgo/apaache would find /var/log/apache
 # shopt -s cdspell
 
 # Completion options
 #
-# These completion tuning parameters change the default behavior of bash_completion:
+# These completion tuning parameters change the default behavior of tcsh_completion:
 #
 # Define to access remotely checked-out files over passwordless ssh for CVS
 # COMP_CVS_REMOTE=1
@@ -60,8 +60,8 @@
 # COMP_TAR_INTERNAL_PATHS=1
 #
 # Uncomment to turn on programmable completion enhancements.
-# Any completions you add in ~/.bash_completion are sourced last.
-# [[ -f /etc/bash_completion ]] && . /etc/bash_completion
+# Any completions you add in ~/.tcsh_completion are sourced last.
+# [[ -f /etc/tcsh_completion ]] && . /etc/tcsh_completion
 
 # History Options
 #
@@ -80,8 +80,8 @@
 # Aliases
 #
 # Some people use a different file for aliases
-# if [ -f "${HOME}/.bash_aliases" ]; then
-#   source "${HOME}/.bash_aliases"
+# if [ -f "${HOME}/.tcsh_aliases" ]; then
+#   source "${HOME}/.tcsh_aliases"
 # fi
 #
 # Some example alias instructions
@@ -125,8 +125,8 @@ alias ll='ls -l'                              # long list
 # Functions
 #
 # Some people use a different file for functions
-# if [ -f "${HOME}/.bash_functions" ]; then
-#   source "${HOME}/.bash_functions"
+# if [ -f "${HOME}/.tcsh_functions" ]; then
+#   source "${HOME}/.tcsh_functions"
 # fi
 #
 # Some example functions:
