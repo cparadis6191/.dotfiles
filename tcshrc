@@ -9,7 +9,7 @@
 
 # -- Shell Options --
 # See man bash for more options...
-setenv prompt '[%n@m %~]\$'				# Custom tcsh prompt
+set prompt='[%n@%m %c]\$'				# Custom tcsh prompt
 
 # -- Completion options --
 
@@ -18,28 +18,23 @@ setenv prompt '[%n@m %~]\$'				# Custom tcsh prompt
 # -- Aliases --
 
 # Interactive operation...
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm 'rm -i'
+alias cp 'cp -i'
+alias mv 'mv -i'
 
-alias grep='grep --color'				# show differences in colour
-alias egrep='egrep --color=auto'		# show differences in colour
-alias fgrep='fgrep --color=auto'		# show differences in colour
+alias grep 'grep --color'				# show differences in colour
+alias egrep 'egrep --color=auto'		# show differences in colour
+alias fgrep 'fgrep --color=auto'		# show differences in colour
 
 # Some shortcuts for different directory listings
-alias ls='ls -hF --color=tty'			# classify files in colour
-alias dir='ls --color --format=vertical'
-# alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'						# long list
-# alias la='ls -A'						# all but . and ..
-# alias l='ls -CF'
-alias vim='vim -p'
+alias ls 'ls -hF --color=tty'			# classify files in colour
+alias dir 'ls --color --format=vertical'
+# alias vdir 'ls --color=auto --format=long'
+alias ll 'ls -l'						# long list
+# alias la 'ls -A'						# all but . and ..
+# alias l 'ls -CF'
+alias vim 'vim -p'
 
 # -- Umask --
 
 # -- Functions --
-
-# Soruce global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
