@@ -1,7 +1,7 @@
 BoldAsFont=no
 ForegroundColour=0,0,0
-BackgroundColour=255,255,255
-Transparency=off
 CursorType=block
-Font=Terminal
-ClicksPlaceCursor=yes
+BackgroundColour=255,255,255
+Font=Lucida Console
+FontIsBold=yes
+FontHeight=9
