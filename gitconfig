@@ -1,0 +1,12 @@
+[gui]
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+[user]
+	name = Chad Paradis
+[credential]
+	helper = cache --timeout=3600
+[diff]
+	renames = true
