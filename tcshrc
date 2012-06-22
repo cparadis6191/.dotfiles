@@ -24,7 +24,7 @@
 # User dependent .tcshrc file
 
 # If not running interactively, don't do anything
-[[ "$-" != *i* ]] && return
+#[[ "$-" != *i* ]] && return
 
 # Shell Options
 #
