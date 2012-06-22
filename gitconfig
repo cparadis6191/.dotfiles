@@ -1,0 +1,13 @@
+[gui]
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+[user]
+	name = Chad Paradis
+	email = cparadis6191@gmail.com
+[credential]
+	helper = cache --timeout=3600
+[diff]
+	renames = true
