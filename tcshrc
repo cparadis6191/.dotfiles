@@ -5,10 +5,11 @@
 # User dependent .bashrc file
 
 # If not running interactively, don't do anything
-[[ "$-" != *i* ]] && return
+#[[ "$-" != *i* ]] && return
 
 # -- Shell Options --
 # See man bash for more options...
+setenv prompt '[%n@m %~]\$'				# Custom tcsh prompt
 
 # -- Completion options --
 
