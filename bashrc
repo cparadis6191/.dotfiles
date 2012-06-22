@@ -9,7 +9,7 @@
 
 # -- Shell Options --
 # See man bash for more options...
-export PS1='[\u@\h \W]\$'				# Custom bash prompt
+export PS1='[\u@\h \W]\$ '				# Custom bash prompt
 
 # -- Completion options --
 

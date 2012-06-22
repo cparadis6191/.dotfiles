@@ -9,7 +9,7 @@
 
 # -- Shell Options --
 # See man bash for more options...
-set prompt='[%n@%m %c]\$'				# Custom tcsh prompt
+set prompt='[%n@%m %c]\$ '				# Custom tcsh prompt
 
 # -- Completion options --
 
