@@ -94,7 +94,7 @@
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-#
+
 # Default to human readable figures
 # alias df='df -h'
 # alias du='du -h'
@@ -108,7 +108,7 @@ alias mv='mv -i'
 #
 # Some shortcuts for different directory listings
 alias ls='ls -hF --color=tty'                 # classify files in colour
-alias dir='ls --color=auto --format=vertical'
+alias dir='ls --color --format=vertical'
 # alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'                              # long list
 # alias la='ls -A'                              # all but . and ..
