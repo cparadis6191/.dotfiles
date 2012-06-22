@@ -197,3 +197,8 @@ alias vim='vim -p'
 # }
 # 
 # alias cd=cd_func
+
+# Soruce global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
