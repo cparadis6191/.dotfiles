@@ -1,15 +1,16 @@
-# .bashrc file - Save this file as .bashrc in your home directory. (e.g. /home/user/.bashrc)
+# .tcshrc file - Save this file as .tcshrc in your home directory. (e.g. /home/user/.tcshrc)
 
 # Author: Chad Paradis
 
-# User dependent .bashrc file
+# User dependent .tcshrc file
 
 # If not running interactively, don't do anything
 #[[ "$-" != *i* ]] && return
 
 # -- Shell Options --
 # See man bash for more options...
-set prompt='[%n@%m %c]\$ '				# Custom tcsh prompt
+set prompt='[%{\033[32m%}%n@%m%{\033[33m%} %c%{\033[0m%}]$ '	# Custom colorful tcsh prompt
+
 
 # -- Completion options --
 
