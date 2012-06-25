@@ -9,7 +9,7 @@
 
 # -- Shell Options --
 # See man bash for more options...
-PS1='[\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]]\$ '	# Custom colorful bash prompt
+PS1='[\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\W\[\e[0m\]]\$ '	# Custom colorful bash prompt
 
 # -- Completion options --
 
