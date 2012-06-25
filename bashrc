@@ -28,18 +28,18 @@ alias fgrep='fgrep --color=auto'		# show differences in colour
 
 # Some shortcuts for different directory listings
 alias ls='ls -hF --color=tty'			# classify files in colour
-alias dir='ls --color --format=vertical'
-# alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'						# long list
-# alias la='ls -A'						# all but . and ..
-# alias l='ls -CF'
+alias la='ls -A'						# all but . and ..
+alias lt='ls -t'
+alias dir='ls --color --format=vertical'
+
 alias vim='vim -p'
 
 # -- Umask --
 
 # -- Functions --
 
-# Soruce global definitions
+# Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
