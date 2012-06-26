@@ -1,7 +1,6 @@
 # .bash_profile file - Save this file as .bash_profile in your home directory. (e.g. /home/user/.bash_profile)
 
 # Author: Chad Paradis
-
 # User dependent .bash_profile file
 
 # source the users bashrc if it exists

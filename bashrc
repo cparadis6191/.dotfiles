@@ -1,7 +1,6 @@
 # .bashrc file - Save this file as .bashrc in your home directory. (e.g. /home/user/.bashrc)
 
 # Author: Chad Paradis
-
 # User dependent .bashrc file
 
 # If not running interactively, don't do anything
