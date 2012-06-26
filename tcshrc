@@ -1,7 +1,6 @@
 # .tcshrc file - Save this file as .tcshrc in your home directory. (e.g. /home/user/.tcshrc)
 
 # Author: Chad Paradis
-
 # User dependent .tcshrc file
 
 # If not running interactively, don't do anything
