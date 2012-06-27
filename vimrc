@@ -20,7 +20,6 @@ set tabstop=4
 set hlsearch		"Highlight search results
 set ignorecase		"When doing a search, ignore the case of letters
 set smartcase		"Override the ignorecase option if the search pattern contains upper case letters
-set nowrapscan		"Prevents searches from wrapping around to the top
 
 " -- Tabbed Editing --
 
