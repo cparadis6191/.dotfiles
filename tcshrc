@@ -27,13 +27,13 @@ alias egrep 'egrep --color=auto'		# show differences in colour
 alias fgrep 'fgrep --color=auto'		# show differences in colour
 
 # Some shortcuts for different directory listings
-alias ls='ls -h --color=tty'			# classify files in colour
-alias ll='ls -l'						# long list
-alias la='ls -A'						# all but . and ..
-alias lt='ls -t'
-alias dir='ls --color --format=vertical'
+alias ls 'ls -h --color=tty'			# classify files in colour
+alias ll 'ls -l'						# long list
+alias la 'ls -A'						# all but . and ..
+alias lt 'ls -t'
+alias dir 'ls --color --format=vertical'
 
-alias vim='vim -p'
+alias vim 'vim -p'						# make vim open with tabs
 
 # -- Umask --
 
