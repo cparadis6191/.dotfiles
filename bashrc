@@ -32,7 +32,7 @@ alias la='ls -A'						# all but . and ..
 alias lt='ls -t'
 alias dir='ls --color --format=vertical'
 
-alias vim='vim -p'
+alias vim='vim -p'						# make vim open with tabs
 
 # -- Umask --
 
