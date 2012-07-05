@@ -1,7 +1,7 @@
 #!/bin/bash
 ############################
-# .make.sh
-# This script restores old dotfiles from the home directory to any desired dotfiles in ~/dotfiles
+# .unlink.sh
+# This script restores old dotfiles from the dotfiles_old folder back to the home directory and removes the dotfile_old folder
 ############################
 
 ########## Variables
@@ -12,7 +12,7 @@ files="vimrc bashrc bash_profile tcshrc gitk gitconfig minttyrc"	# list of files
 
 ##########
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
+# remove any symbolic links to dotfiles and then move any dotfiles in dotfiles_old back to the home directory, then remove the dotfile_old folder
 for file in $files; do
 	if [ -h ~/.$file ]; then
 		echo "Removing link for $file in ~"
