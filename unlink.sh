@@ -1,7 +1,7 @@
 #!/bin/bash
 ############################
 # .make.sh
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
+# This script restores old dotfiles from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
 ########## Variables
@@ -25,10 +25,15 @@ echo "...done"
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
 	if [ -e ~/.$file ]; then
-		echo "Moving $file from ~/ to $olddir"
-		mv ~/.$file $olddir/$file
+		echo "Removing link for $file in ~/"
+		rm -f ~/.$file
 	fi
 
-	echo "Creating symlink to $file in home directory."
-	ln -s $dir/$file ~/.$file
+	if [ -e $olddir/.$file ]; then
+		echo "Restoring $file from $olddir to ~"
+		mv $olddir/$file ~/.$file
+	fi
+
+	echo "Removing $olddir and $dir"
+	rm -rf $olddir
 done
