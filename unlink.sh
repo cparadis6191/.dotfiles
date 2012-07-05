@@ -12,28 +12,20 @@ files="vimrc bashrc bash_profile tcshrc gitk gitconfig minttyrc"	# list of files
 
 ##########
 
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
-
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
-
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
-	if [ -e ~/.$file ]; then
-		echo "Removing link for $file in ~/"
+	if [ -h ~/.$file ]; then
+		echo "Removing link for $file in ~"
 		rm -f ~/.$file
+	else
+		echo ".$file is not a link"
 	fi
 
 	if [ -e $olddir/.$file ]; then
 		echo "Restoring $file from $olddir to ~"
 		mv $olddir/$file ~/.$file
 	fi
-
-	echo "Removing $olddir and $dir"
-	rm -rf $olddir
 done
+
+echo "Removing $olddir"
+rm -rf $olddir
