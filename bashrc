@@ -34,6 +34,8 @@ alias dir='ls --color --format=vertical'
 
 alias vim='vim -p'						# make vim open with tabs
 
+alias less='less -P "line %l of %L"'		# make less display line number
+
 # -- Umask --
 
 # -- Functions --
