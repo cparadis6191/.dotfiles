@@ -1,9 +1,9 @@
 [gui]
 [color]
 	status = auto
-	diff = auto
 	branch = auto
 	interactive = auto
+	diff = auto
 [user]
 	name = Chad Paradis
 [credential]
