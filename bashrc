@@ -8,7 +8,11 @@
 
 # -- Shell Options --
 # See man bash for more options...
-PS1='[\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\W\[\e[0m\]]\$ '	# Custom colorful bash prompt
+PS1="[\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\W\[\033[0;33m\]\$(parse_git_branch)\[\033[0m\]]\$ "	# Custom colorful bash prompt
+
+function parse_git_branch () {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 
 # -- Completion options --
 
