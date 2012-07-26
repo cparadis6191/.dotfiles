@@ -5,3 +5,4 @@ BackgroundColour=255,255,255
 Font=Lucida Console
 FontIsBold=yes
 FontHeight=9
+FontSmoothing=default
