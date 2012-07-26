@@ -8,7 +8,14 @@
 
 # -- Shell Options --
 # See man bash for more options...
+<<<<<<< HEAD
 PS1="[\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\W\[\033[0;33m\]\$(__git_ps1)\[\033[0m\]]\$ "	# Custom colorful bash prompt
+=======
+PS1="[\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\W\[\033[0;33m\]\$(parse_git_branch)\[\033[0m\]]\$ "	# Custom colorful bash prompt
+
+# Updates the window if its size changes
+shopt -s checkwinsize
+>>>>>>> 779c8bbcf41a51609fea4adbeaee9497a2041615
 
 # -- Completion options --
 
@@ -39,6 +46,11 @@ alias less='less -P "line %l of %L"'	# make less display line number
 # -- Umask --
 
 # -- Functions --
+
+# Function to return branch of git repository in current directory
+function parse_git_branch () {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
