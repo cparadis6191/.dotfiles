@@ -8,9 +8,9 @@ if [ -f "${HOME}/.bashrc" ]; then
 	source "${HOME}/.bashrc"
 fi
 
-if [ -f "/etc/bashrc" ]; then
-	source "/etc/bashrc"
-fi
+#if [ -f "/etc/bashrc" ]; then
+#	source "/etc/bashrc"
+#fi
 
 # Set PATH so it includes user's private bin if it exists
 # if [ -d "${HOME}/bin" ] ; then
