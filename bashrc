@@ -16,6 +16,7 @@ shopt -s checkwinsize
 # -- Completion options --
 
 # -- History Options --
+HISTSIZE=10000
 
 # -- Aliases --
 
