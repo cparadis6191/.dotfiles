@@ -11,3 +11,5 @@
 	helper = cache --timeout=3600
 [diff]
 	renames = true
+[core]
+	editor = vim
