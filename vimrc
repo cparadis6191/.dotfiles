@@ -26,6 +26,7 @@ set smartcase		"Override the ignorecase option if the search pattern contains up
 " -- Tweaks --
 set backspace=indent,eol,start	"Add tweak for better backspace support
 set ruler			"Information about cursor placement
+set scrolloff=3		"Keep the cursor at least three lines from the bottom
 
 " -- File Format --
 "set fileformats=unix,dos,mac	"Allows all file formats to be read
