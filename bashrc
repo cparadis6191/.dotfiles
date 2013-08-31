@@ -8,7 +8,7 @@
 
 # -- Shell Options --
 # See man bash for more options...
-PS1="[\[\e[32m\]\u@\h \[\e[33m\]\W\[\e[0;33m\]\[\e[0m\]]\$ "	# Custom colorful bash prompt
+PS1="\[\e[32m\]\u@\h \[\e[33m\]\W\[\e[0;33m\]\[\e[0m\]\$ "	# Custom colorful bash prompt
 
 # Updates the window if its size changes
 shopt -s checkwinsize
