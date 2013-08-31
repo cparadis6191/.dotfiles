@@ -5,7 +5,7 @@
 	interactive = auto
 	diff = auto
 [user]
-	name = Chad Paradis
+	name = Chad M. Paradis
 [credential]
 	helper = cache --timeout=3600
 [diff]
