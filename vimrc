@@ -7,7 +7,6 @@ set nocompatible
 
 " -- Programming --
 set autoindent		"Copy indent from current line when starting a new line
-set smartindent		"Do smart indenting when starting a new line. Works with supported c-like languages
 
 syntax on			"Turns on syntax highlighting
 
@@ -21,12 +20,18 @@ set hlsearch		"Highlight search results
 set ignorecase		"When doing a search, ignore the case of letters
 set smartcase		"Override the ignorecase option if the search pattern contains upper case letters
 
-" -- Tabbed Editing --
-
 " -- Tweaks --
 set backspace=indent,eol,start	"Add tweak for better backspace support
 set ruler			"Information about cursor placement
 set scrolloff=3		"Keep the cursor at least three lines from the bottom
+
+" -- Tabbed Editing --
+nnoremap <C-S-tab> :tabprevious<CR>		"Add browser-like bindings for tabs
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
 
 " -- File Format --
 "set fileformats=unix,dos,mac	"Allows all file formats to be read
