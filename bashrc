@@ -31,8 +31,8 @@ alias fgrep='fgrep --color=auto'		# show differences in colour
 
 # Some shortcuts for different directory listings
 alias ls='ls -h --color=tty'			# classify files in colour
-alias ll='ls -l'						# long list
 alias la='ls -A'						# all but . and ..
+alias ll='la -l'						# long list
 alias lt='ls -t'
 alias dir='ls --color --format=vertical'
 
