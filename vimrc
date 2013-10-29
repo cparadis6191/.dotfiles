@@ -4,6 +4,7 @@
 
 " -- General --
 set nocompatible
+filetype plugin on
 
 " -- Programming --
 set autoindent		"Copy indent from current line when starting a new line
@@ -25,7 +26,3 @@ set smartcase		"Override the ignorecase option if the search pattern contains up
 set backspace=indent,eol,start	"Add tweak for better backspace support
 set ruler			"Information about cursor placement
 set scrolloff=3		"Keep the cursor at least three lines from the bottom
-
-" -- File Format --
-"set fileformats=unix,dos,mac	"Allows all file formats to be read
-"autocmd BufWritePre * set fileformat=unix	"Always writes files with unix line endings
