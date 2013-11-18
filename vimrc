@@ -2,27 +2,45 @@
 
 " Author: Chad Paradis
 
+
 " -- General --
 set nocompatible
-filetype plugin on
 
-" -- Programming --
-set autoindent		"Copy indent from current line when starting a new line
-set smartindent		"Do smart indenting when starting a new line. Works with supported c-like languages
+set title			" Set the window title properly when running in certain shells
+set backspace=indent,eol,start	" Allow backspace in insert mode
+set history=1000	" Increase history size for commands and search patterns
+set undolevels=1000	" Increase history size for undoing edits
 
-syntax on			"Turns on syntax highlighting
+set ruler			" Information about cursor placement
+set showcmd			" Show incomplete commands at the bottom
+
+set hidden			" Hide buffers instead of closing them
+
+
+" -- Syntax and Indenting --
+syntax on			" Turns on syntax highlighting
+set autoindent		" Copy indent from current line when starting a new line
+filetype plugin on	" Enable filetype specific plugins
+filetype indent on	" Do smart indenting when starting a new line
+
+set linebreak		" Wrap lines at a convenient place
+
 
 " -- Spaces/Tabs --
-set noexpandtab		"Strictly use tabs when tab is pressed (this is the default)
-set shiftwidth=4	"Sets tabs to be 4 characters wide
-set tabstop=4
+set noexpandtab		" Strictly use tabs when tab is pressed (this is the default)
+set tabstop=4		" Tab size is 4 spaces
+set shiftwidth=4	" Sets << and >> shifts to be 4 characters
+set shiftround		" When using << and >> rounds to the nearest multiple of shiftwidth
+
 
 " -- Searching --
-set hlsearch		"Highlight search results
-set ignorecase		"When doing a search, ignore the case of letters
-set smartcase		"Override the ignorecase option if the search pattern contains upper case letters
+set hlsearch		" Highlight search results
+set incsearch		" Jumps to the first match while typing
+set ignorecase		" When doing a search, ignore the case of letters
+set smartcase		" Override the ignorecase option if the search pattern contains upper case letters
 
-" -- Tweaks --
-set backspace=indent,eol,start	"Add tweak for better backspace support
-set ruler			"Information about cursor placement
-set scrolloff=3		"Keep the cursor at least three lines from the bottom
+
+" -- Scrolling --
+set scrolloff=3		" Keep the cursor at least three lines from the bottom
+set sidescrolloff=5
+set sidescroll=1
