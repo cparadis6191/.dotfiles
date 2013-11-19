@@ -33,10 +33,11 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
 
-nnoremap <C-H> gT	" Use <C-H> and <C-L> to cycle through tabs
-nnoremap <C-L> gt
+nnoremap <c-h> gT	" Use <C-H> and <C-L> to cycle through tabs
+nnoremap <c-l> gt
 
-nnoremap gf <C-W>gf	" Open file under cursor in new tab
+nnoremap gf <c-w>gf	" Open file under cursor in new tab
+nnoremap gF <c-w>gF	" Open file under cursor in new tab and jump to line number
 
 set scrolloff=5		" Keep the cursor at least five lines from the bottom or top
 
