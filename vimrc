@@ -4,7 +4,8 @@
 
 
 " -- General --
-set nocompatible
+set nocompatible	" Use the full power of Vim
+set hidden			" Hide buffers instead of closing them
 
 set title			" Set the window title properly when running in certain shells
 set backspace=indent,eol,start	" Allow backspace in insert mode
@@ -14,7 +15,7 @@ set undolevels=1000	" Increase history size for undoing edits
 set ruler			" Information about cursor placement
 set showcmd			" Show incomplete commands at the bottom
 
-set hidden			" Hide buffers instead of closing them
+set wildmenu		" List external files instead of just autocompleting
 
 
 " -- Syntax and Indenting --
@@ -23,7 +24,17 @@ set autoindent		" Copy indent from current line when starting a new line
 filetype plugin on	" Enable filetype specific plugins
 filetype indent on	" Do smart indenting when starting a new line
 
+
+" -- Formatting and Navigation --
 set linebreak		" Wrap lines at a convenient place
+
+nnoremap j gj		" Navigate wrapped lines in a sane way
+nnoremap k gk
+
+nnoremap <C-H> gT	" Use <C-H> and <C-L> to cycle through tabs
+nnoremap <C-L> gt
+
+set scrolloff=5		" Keep the cursor at least five lines from the bottom or top
 
 
 " -- Spaces/Tabs --
@@ -38,9 +49,3 @@ set hlsearch		" Highlight search results
 set incsearch		" Jumps to the first match while typing
 set ignorecase		" When doing a search, ignore the case of letters
 set smartcase		" Override the ignorecase option if the search pattern contains upper case letters
-
-
-" -- Scrolling --
-set scrolloff=3		" Keep the cursor at least three lines from the bottom
-set sidescrolloff=5
-set sidescroll=1
