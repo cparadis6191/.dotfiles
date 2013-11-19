@@ -30,6 +30,8 @@ set linebreak		" Wrap lines at a convenient place
 
 nnoremap j gj		" Navigate wrapped lines in a sane way
 nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
 
 nnoremap <C-H> gT	" Use <C-H> and <C-L> to cycle through tabs
 nnoremap <C-L> gt
