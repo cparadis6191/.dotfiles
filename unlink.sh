@@ -4,7 +4,7 @@
 # This script restores old dotfiles from the dotfiles_old folder back to the home directory and removes the dotfile_old folder
 ################################################################################
 
-########## Variables
+########## Variables ###########################################################
 
 dir=~/.dotfiles					# dotfiles directory
 olddir=~/.dotfiles_old			# old dotfiles backup directory
@@ -13,7 +13,6 @@ files="vimrc bashrc bash_profile gitconfig minttyrc"	# list of files/folders to 
 ################################################################################
 
 # remove any symbolic links to dotfiles and then move any dotfiles in dotfiles_old back to the home directory, then remove the dotfile_old folder
-
 if [ -d $olddir ]; then
 	echo "Old dotfiles detected. Starting restore procedure"
 
@@ -27,7 +26,7 @@ if [ -d $olddir ]; then
 
 		if [ -f $olddir/$file ]; then
 			echo "Restoring $file from $olddir to ~"
-			mv $olddir/$file ~/.$file
+			mv -p $olddir/$file ~/.$file
 		fi
 	done
 

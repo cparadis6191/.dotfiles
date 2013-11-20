@@ -1,16 +1,16 @@
 #!/bin/bash
-###############################################################################
+################################################################################
 # .link.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
-###############################################################################
+################################################################################
 
-########## Variables ##########################################################
+########## Variables ###########################################################
 
 dir=~/.dotfiles					# dotfiles directory
 olddir=~/.dotfiles_old			# old dotfiles backup directory
 files="vimrc bashrc bash_profile gitconfig minttyrc"	# list of files/folders to symlink in homedir
 
-###############################################################################
+################################################################################
 
 # create dotfiles_old in homedir
 if [ ! -d $olddir ]; then
@@ -29,7 +29,7 @@ for file in $files; do
 	else
 		if [ -f ~/.$file ]; then
 			echo "Moving .$file from ~/ to $olddir"
-			mv ~/.$file $olddir/$file
+			mv -p ~/.$file $olddir/$file
 		fi
 	fi
 
