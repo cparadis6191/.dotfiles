@@ -16,12 +16,12 @@ set ruler			" Information about cursor placement
 set showcmd			" Show incomplete commands at the bottom
 
 set wildmenu		" List external files instead of just autocompleting
+set wildoptions=tagfile	" List autocomplete for command line options
 
 
 " -- Syntax and Indenting --
 syntax on			" Turns on syntax highlighting
 set autoindent		" Copy indent from current line when starting a new line
-filetype plugin on	" Enable filetype specific plugins
 filetype indent on	" Do smart indenting when starting a new line
 
 
