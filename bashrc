@@ -43,8 +43,3 @@ alias less='less -P "line %l of %L"'	# make less display line number
 # -- Umask --
 
 # -- Functions --
-
-# Source global definitions
-#if [ -f /etc/bashrc ]; then
-	#. /etc/bashrc
-#fi
