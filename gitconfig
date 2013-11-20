@@ -3,6 +3,7 @@
 	diff = true
 	interactive = true
 	status = true
+	ui = true
 [core]
 	editor = vim
 [credential]
