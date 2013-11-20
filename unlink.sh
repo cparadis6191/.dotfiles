@@ -7,8 +7,8 @@
 ########## Variables
 
 dir=~/dotfiles					# dotfiles directory
-olddir=~/dotfiles_old			 # old dotfiles backup directory
-files="vimrc bashrc bash_profile tcshrc gitconfig minttyrc"	# list of files/folders to symlink in homedir
+olddir=~/dotfiles_old			# old dotfiles backup directory
+files="vimrc bashrc bash_profile gitconfig minttyrc"	# list of files/folders to symlink in homedir
 
 ##########
 
