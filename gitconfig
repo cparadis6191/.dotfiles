@@ -1,14 +1,13 @@
-[gui]
 [color]
-	status = auto
-	branch = auto
-	interactive = auto
-	diff = auto
-[user]
-	name = Chad M. Paradis
-[credential]
-	helper = cache --timeout=3600
-[diff]
-	renames = true
+	branch = true
+	diff = true
+	interactive = true
+	status = true
 [core]
 	editor = vim
+[credential]
+	helper = cache --timeout=1800
+[diff]
+	renames = true
+[user]
+	name = Chad Paradis
