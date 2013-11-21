@@ -4,7 +4,7 @@
 # User dependent .bashrc file
 
 # If not running interactively, don't do anything
-[[ "$-" != *i* ]] && return
+[[ $- != *i* ]] && return
 
 # -- Shell Options --
 # See man bash for more options...
@@ -25,20 +25,18 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias grep='grep --color'				# show differences in colour
-alias egrep='egrep --color=auto'		# show differences in colour
-alias fgrep='fgrep --color=auto'		# show differences in colour
+alias grep='grep --color=auto'			# Show differences in colour
+alias egrep='grep -e'					# Extended regexp support
 
 # Some shortcuts for different directory listings
-alias ls='ls -h --color=tty'			# classify files in colour
-alias la='ls -A'						# all but . and ..
-alias ll='la -l'						# long list
-alias lt='ls -t'
-alias dir='ls --color --format=vertical'
+alias ls='ls -h --color=auto'			# Classify files in colour
+alias la='ls -A'						# All but . and ..
+alias ll='ls -lA'						# Long list
+alias lt='ls -Lt'						# Long list sorted by time
 
-alias vim='vim -p'						# make vim open with tabs
+alias vim='vim -p'						# Make vim open with tabs
 
-alias less='less -P "line %l of %L"'	# make less display line number
+alias less='less -P "line %l of %L"'	# Make less display line number
 
 # -- Umask --
 
