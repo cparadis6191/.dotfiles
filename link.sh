@@ -7,12 +7,12 @@
 ########## Variables ###########################################################
 
 dir=~/.dotfiles					# dotfiles directory
-olddir=~/.dotfiles_old			# old dotfiles backup directory
+olddir=~/.dotfiles.bak			# old dotfiles backup directory
 files="vimrc bashrc bash_profile gitconfig minttyrc"	# list of files/folders to symlink in homedir
 
 ################################################################################
 
-# create dotfiles_old in homedir
+# create .dotfiles.bak in homedir
 if [ ! -d $olddir ]; then
 	echo "Creating $olddir for backup of any existing dotfiles in ~"
 	mkdir -p $olddir
@@ -21,18 +21,18 @@ else
 fi
 
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
+# move any existing dotfiles in ~ to ~/.dotfiles.bak, then create symlinks from ~ to any files in the ~/.dotfiles directory specified in $files
 for file in $files; do
 	if [ -h ~/.$file ]; then
-		echo "Link already exists"
+		echo "Symlink for .$file already exists"
 		continue
 	else
 		if [ -f ~/.$file ]; then
-			echo "Moving .$file from ~/ to $olddir"
+			echo "Moving ~/.$file to $olddir/.$file"
 			mv -p ~/.$file $olddir/$file
 		fi
 	fi
 
-	echo "Creating symlink to $file in home directory"
+	echo "Making symlink from ~/.$file to $olddir/$file"
 	ln -s $dir/$file ~/.$file
 done
