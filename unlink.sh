@@ -7,7 +7,7 @@
 ########## Variables ###########################################################
 
 dir=~/.dotfiles					# dotfiles directory
-olddir=~/.dotfiles_old			# old dotfiles backup directory
+olddir=~/.dotfiles.bak			# old dotfiles backup directory
 files="vimrc bashrc bash_profile gitconfig minttyrc"	# list of files/folders to symlink in homedir
 
 ################################################################################
@@ -18,14 +18,14 @@ if [ -d $olddir ]; then
 
 	for file in $files; do
 		if [ -h ~/.$file ]; then
-			echo "Removing link for $file in ~"
+			echo "Removing symlink for ~/.$file"
 			rm -f ~/.$file
 		else
-			echo ".$file is not a link"
+			echo "~/.$file is not a symlink"
 		fi
 
 		if [ -f $olddir/$file ]; then
-			echo "Restoring $file from $olddir to ~"
+			echo "Restoring $olddir/$file to ~/.$file"
 			mv -p $olddir/$file ~/.$file
 		fi
 	done
