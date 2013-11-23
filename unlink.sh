@@ -1,8 +1,9 @@
 #!/bin/bash
 ################################################################################
-# .unlink.sh
-# This script restores old dotfiles from the dotfiles_old folder back to the home directory and removes the dotfile_old folder
+# unlink.sh - This script restores old dotfiles from the dotfiles_old folder back to the home directory and removes the dotfile_old folder
+# Author: Chad Paradis
 ################################################################################
+
 
 ########## Variables ###########################################################
 
@@ -37,4 +38,3 @@ if [ -d $olddir ]; then
 else
 	echo "Old dotfiles not detected. Aborting restore procedure"
 fi
-
