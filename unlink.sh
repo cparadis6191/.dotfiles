@@ -1,17 +1,14 @@
 #!/bin/bash
-################################################################################
 # unlink.sh - This script restores old dotfiles from the dotfiles_old folder back to the home directory and removes the dotfile_old folder
 # Author: Chad Paradis
-################################################################################
 
 
-########## Variables ###########################################################
+# -- Variables --
 
 dir=~/.dotfiles					# dotfiles directory
 olddir=~/.dotfiles.bak			# old dotfiles backup directory
 files="vimrc bashrc bash_profile gitconfig minttyrc"	# list of files/folders to symlink in homedir
 
-################################################################################
 
 # remove any symbolic links to dotfiles and then move any dotfiles in dotfiles_old back to the home directory, then remove the dotfile_old folder
 if [ -d $olddir ]; then

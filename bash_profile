@@ -1,7 +1,5 @@
-################################################################################
 # .bash_profile - Save this file as .bash_profile in your home directory. (e.g. /home/user/.bash_profile)
 # Author: Chad Paradis
-################################################################################
 
 
 # source the users bashrc if it exists

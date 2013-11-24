@@ -1,7 +1,5 @@
-################################################################################
 # .bashrc - Save this file as .bashrc in your home directory. (e.g. /home/user/.bashrc)
 # Author: Chad Paradis
-################################################################################
 
 
 # If not running interactively, don't do anything
