@@ -63,11 +63,16 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
 
+nnoremap Y y$		" Make Y behave more like C and D
+
 nnoremap <c-h> gT	" Use <C-H> and <C-L> to cycle through tabs
 nnoremap <c-l> gt
 
 nnoremap gf <c-w>gf	" Open file under cursor in new tab
 nnoremap gF <c-w>gF	" Open file under cursor in new tab and jump to line number
+
+vmap > >gv			" Shifting in visual mode now reselects the block
+vmap < <gv
 
 " -- reading and writing files --
 
