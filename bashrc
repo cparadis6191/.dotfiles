@@ -7,7 +7,7 @@
 
 # -- Shell Options --
 # See man bash for more options...
-PS1="\[\e[32m\]\u@\h \[\e[33m\]\W\[\e[33m\]\[\e[0m\]\$ "	# Custom colorful bash prompt
+PS1="\[\e[32m\]\u@\h \[\e[33m\]\W\[\e[33m\]\[\e[0m\]\$ "    # Custom colorful bash prompt
 
 # Updates the window if its size changes
 shopt -s checkwinsize
@@ -24,18 +24,18 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias grep='grep --color=auto'			# Show differences in colour
-alias egrep='grep -e'					# Extended regexp support
+alias grep='grep --color=auto'          # Show differences in colour
+alias egrep='grep -e'                   # Extended regexp support
 
 # Some shortcuts for different directory listings
-alias ls='ls -h --color=auto'			# Classify files in colour
-alias la='ls -A'						# All but . and ..
-alias ll='ls -lA'						# Long list
-alias lt='ls -Lt'						# Long list sorted by time
+alias ls='ls -h --color=auto'           # Classify files in colour
+alias la='ls -A'                        # All but . and ..
+alias ll='ls -lA'                       # Long list
+alias lt='ls -Lt'                       # Long list sorted by time
 
-alias vim='vim -p'						# Make vim open with tabs
+alias vim='vim -p'                      # Make vim open with tabs
 
-alias less='less -P "line %l of %L"'	# Make less display line number
+alias less='less -P "line %l of %L"'    # Make less display line number
 
 # -- Umask --
 
