@@ -58,18 +58,24 @@ set foldlevelstart=99    " Buffers start with all folds open
 " -- diff mode --
 
 " -- mapping --
-nnoremap j gj       " Navigate wrapped lines in a sane way
+" Comments CANNOT be on the same line as a map
+" Navigate wrapped lines in a sane way
+nnoremap j gj
 nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
 
-nnoremap Y y$       " Make Y behave more like C and D
+" Make Y behave more like C and D
+nnoremap Y y$
 
-nnoremap <c-h> gT   " Use <C-H> and <C-L> to cycle through tabs
+" Use <C-H> and <C-L> to cycle through tabs
+nnoremap <c-h> gT
 nnoremap <c-l> gt
 
-nnoremap gf <c-w>gf " Open file under cursor in new tab
-nnoremap gF <c-w>gF " Open file under cursor in new tab and jump to line number
+" Open file under cursor in new tab
+nnoremap gf <c-w>gf
+" Open file under cursor in new tab and jump to line number
+nnoremap gF <c-w>gF
 
 vmap > >gv          " Shifting in visual mode now reselects the block
 vmap < <gv
