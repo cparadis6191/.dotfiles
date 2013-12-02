@@ -77,8 +77,9 @@ nnoremap gf <c-w>gf
 " Open file under cursor in new tab and jump to line number
 nnoremap gF <c-w>gF
 
-vmap > >gv          " Shifting in visual mode now reselects the block
-vmap < <gv
+" Shifting in visual mode now reselects the block
+vnoremap > >gv
+vnoremap < <gv
 
 " -- reading and writing files --
 
@@ -95,4 +96,3 @@ set wildoptions=tagfile    " List autocomplete for command line options
 " -- language specific --
 " -- multi-byte characters --
 " -- various --
-
