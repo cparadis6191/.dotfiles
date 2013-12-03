@@ -82,7 +82,6 @@ vnoremap > >gv
 vnoremap < <gv
 
 " -- reading and writing files --
-
 " -- the swap file --
 
 " -- command line editing --
