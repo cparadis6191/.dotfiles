@@ -7,7 +7,8 @@
 
 dir=~/.dotfiles                 # dotfiles directory
 olddir=~/.dotfiles.bak          # old dotfiles backup directory
-files="vimrc bashrc bash_profile gitconfig minttyrc"    # list of files/folders to symlink in homedir
+                                # list of files/folders to symlink in homedir
+files="bash_profile bashrc gitconfig gitignore_global minttyrc vimrc"
 
 
 # remove any symbolic links to dotfiles and then move any dotfiles in dotfiles_old back to the home directory, then remove the dotfile_old folder
