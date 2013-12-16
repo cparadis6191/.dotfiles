@@ -35,8 +35,7 @@ alias lt='ls -Lt'                       # Long list sorted by time
 
 alias vim='vim -p'                      # Make vim open with tabs
 
-alias less='less -P "line %l of %L"'    # Make less display line number
+alias less='less -P "line %lb of %L"'   # Make less display line number
 
 # -- Umask --
-
 # -- Functions --
