@@ -28,7 +28,7 @@ for file in $files; do
 	else
 		if [ -f ~/.$file ]; then
 			echo "Moving ~/.$file to $olddir/.$file"
-			mv -p ~/.$file $olddir/$file
+			mv ~/.$file $olddir/$file
 		fi
 	fi
 
