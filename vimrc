@@ -69,8 +69,8 @@ nnoremap $ g$
 nnoremap Y y$
 
 " Use <C-H> and <C-L> to cycle through tabs
-nnoremap <c-h> gT
 nnoremap <c-l> gt
+nnoremap <c-h> gT
 
 " Open file under cursor in new tab
 nnoremap gf <c-w>gf
