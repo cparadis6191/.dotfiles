@@ -39,3 +39,8 @@ alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?
 
 # -- Umask --
 # -- Functions --
+
+# -- Local Environment --
+if [ -f ~/.bashrc.local ]; then
+	source ~/.bashrc.local
+fi
