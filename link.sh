@@ -8,7 +8,7 @@
 dir=~/.dotfiles                 # dotfiles directory
 olddir=~/.dotfiles.bak          # old dotfiles backup directory
                                 # list of files/folders to symlink in homedir
-files="bash_profile bashrc gitconfig gitignore_global minttyrc vimrc"
+files="bash_profile bashrc gitconfig gitignore_global minttyrc vimrc vim"
 
 
 # create .dotfiles.bak in homedir
