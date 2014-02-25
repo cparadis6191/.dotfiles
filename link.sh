@@ -32,6 +32,6 @@ for file in $files; do
 		fi
 	fi
 
-	echo "Making symlink from ~/.$file to $olddir/$file"
+	echo "Making symlink from ~/.$file to $dir/$file"
 	ln -s $dir/$file ~/.$file
 done
