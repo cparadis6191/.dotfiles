@@ -95,3 +95,6 @@ set wildoptions=tagfile    " List autocomplete for command line options
 " -- language specific --
 " -- multi-byte characters --
 " -- various --
+
+" -- plugins --
+execute pathogen#infect()
