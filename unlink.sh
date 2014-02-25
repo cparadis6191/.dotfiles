@@ -23,9 +23,9 @@ if [ -d $olddir ]; then
 			echo "~/.$file is not a symlink"
 		fi
 
-		if [ -f $olddir/$file ]; then
+		if [ -f $olddir/$file ] || [ -d $olddir/$file ]; then
 			echo "Restoring $olddir/$file to ~/.$file"
-			mv -p $olddir/$file ~/.$file
+			mv $olddir/$file ~/.$file
 		fi
 	done
 

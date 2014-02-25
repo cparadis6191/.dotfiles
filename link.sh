@@ -26,7 +26,7 @@ for file in $files; do
 		echo "Symlink for .$file already exists"
 		continue
 	else
-		if [ -f ~/.$file ]; then
+		if [ -f ~/.$file ] || [ -d ~/.$file ]; then
 			echo "Moving ~/.$file to $olddir/.$file"
 			mv ~/.$file $olddir/$file
 		fi
