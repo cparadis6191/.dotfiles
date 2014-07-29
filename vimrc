@@ -25,6 +25,7 @@ filetype indent on  " Do smart indenting when starting a new line
 set hidden          " Hide buffers instead of closing them
 
 " -- multiple tab pages --
+set tabpagemax=99	" Increase the max number of tabs opened at once
 
 " -- terminal --
 set title           " Set the window title properly when running in certain shells
