@@ -100,14 +100,6 @@ set wildoptions=tagfile    " List autocomplete for command line options
 " -- plugins --
 execute pathogen#infect()
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-\ }
-
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
