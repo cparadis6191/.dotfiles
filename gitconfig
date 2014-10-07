@@ -13,3 +13,5 @@
 	renames = true
 [user]
 	name = Chad Paradis
+[push]
+	default = simple
