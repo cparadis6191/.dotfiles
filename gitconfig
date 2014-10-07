@@ -14,3 +14,5 @@
 [user]
 	name = Chad Paradis
 	email = cparadis6191@gmail.com
+[push]
+	default = simple
