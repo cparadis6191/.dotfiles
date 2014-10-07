@@ -20,7 +20,7 @@ HISTSIZE=10000
 # -- Aliases --
 
 # Interactive operation...
-alias rm='rm -i'
+alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -pv'
