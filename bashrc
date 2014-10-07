@@ -23,6 +23,7 @@ HISTSIZE=10000
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias mkdir='mkdir -pv'
 
 alias grep='grep --color=auto'          # Show differences in colour
 alias egrep='grep -e'                   # Extended regexp support
