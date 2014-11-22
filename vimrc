@@ -25,7 +25,7 @@ filetype indent on  " Do smart indenting when starting a new line
 set hidden          " Hide buffers instead of closing them
 
 " -- multiple tab pages --
-set tabpagemax=99	" Increase the max number of tabs opened at once
+set tabpagemax=99   " Increase the max number of tabs opened at once
 
 " -- terminal --
 set title           " Set the window title properly when running in certain shells
@@ -89,6 +89,7 @@ vnoremap < <gv
 set history=1000    " Increase history size for commands and search patterns
 
 set wildmenu        " List external files instead of just autocompleting
+set wildmode=longest:full  " Make autocomplete more bash-like
 set wildoptions=tagfile    " List autocomplete for command line options
 
 " -- executing external commands --
