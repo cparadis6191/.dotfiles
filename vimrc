@@ -42,7 +42,7 @@ set showcmd         " Show incomplete commands at the bottom
 " -- editing text --
 set backspace=indent,eol,start  " Allow backspace in insert mode
 
-set undolevels=1000 " Increase history size for undoing edits
+set undolevels=999  " Increase history size for undoing edits
 
 " -- tabs and indenting --
 set noexpandtab     " Strictly use tabs when tab is pressed (this is the default)
@@ -86,7 +86,7 @@ vnoremap < <gv
 " -- the swap file --
 
 " -- command line editing --
-set history=1000    " Increase history size for commands and search patterns
+set history=999     " Increase history size for commands and search patterns
 
 set wildmenu        " List external files instead of just autocompleting
 set wildmode=longest:full  " Make autocomplete more bash-like
