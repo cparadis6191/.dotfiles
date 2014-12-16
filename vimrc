@@ -11,6 +11,8 @@ set incsearch       " Jumps to the first match while typing
 set ignorecase      " When doing a search, ignore the case of letters
 set smartcase       " Override the ignorecase option if the search pattern contains upper case letters
 
+autocmd BufEnter *.c,*.h,*.cpp set path+=src,inc,lib/**/src,lib/**/inc    " Adds typical c project heirarchy to the path
+
 " -- tags --
 
 " -- displaying text --
