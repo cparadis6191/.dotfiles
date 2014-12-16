@@ -34,6 +34,9 @@ alias la='ls -A'                        # All but . and ..
 alias ll='ls -lA'                       # Long list
 alias lt='ls -Lt'                       # Long list sorted by time
 
+alias defindent='indent'
+alias indent='indent -linux -br -brf -brs'
+
 alias vim='vim -p'                      # Make vim open with tabs
 
 alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'   # Make less display line number
