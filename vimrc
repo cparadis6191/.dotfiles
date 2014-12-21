@@ -11,7 +11,8 @@ set incsearch       " Jumps to the first match while typing
 set ignorecase      " When doing a search, ignore the case of letters
 set smartcase       " Override the ignorecase option if the search pattern contains upper case letters
 
-autocmd BufEnter *.c,*.h,*.cpp set path+=src,inc,lib/**/src,lib/**/inc    " Adds typical c project heirarchy to the path
+autocmd BufEnter *.c,*.h,*.cpp set path+=src,inc,lib/**/src,lib/**/inc    " Adds typical C project heirarchy to the path
+autocmd BufEnter *.tex set suffixesadd+=.tex,.bib    " Lets gf assume .tex or .bib extensions
 
 " -- tags --
 
@@ -21,7 +22,9 @@ set linebreak       " Wrap lines at a convenient place
 
 " -- syntax, highlighting and spelling --
 syntax enable       " Turns on syntax highlighting
-filetype indent on  " Do smart indenting when starting a new line
+filetype plugin indent on    " Turns on filetype plugins and indenting
+
+let g:tex_flavor="latex"    " Default to latex over tex for *.tex files
 
 " -- multiple windows --
 set hidden          " Hide buffers instead of closing them
@@ -30,8 +33,6 @@ set hidden          " Hide buffers instead of closing them
 set tabpagemax=99   " Increase the max number of tabs opened at once
 
 " -- terminal --
-set title           " Set the window title properly when running in certain shells
-
 " -- using the mouse --
 " -- printing --
 
@@ -49,13 +50,13 @@ set undolevels=999  " Increase history size for undoing edits
 " -- tabs and indenting --
 set noexpandtab     " Strictly use tabs when tab is pressed (this is the default)
 set tabstop=4       " Tab size is 4 spaces
-set shiftwidth=4    " Sets << and >> shifts to be 4 characters
-set shiftround      " When using << and >> rounds to the nearest multiple of shiftwidth
+set shiftwidth=4    " Sets < and > shifts to be 4 characters
+set shiftround      " When using < and > rounds to the nearest multiple of shiftwidth
 
 set autoindent      " Copy indent from current line when starting a new line
 
 " -- folding --
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevelstart=99    " Buffers start with all folds open
 
 " -- diff mode --
