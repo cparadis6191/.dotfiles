@@ -66,8 +66,13 @@ set foldlevelstart=99    " Buffers start with all folds open
 " Navigate wrapped lines in a sane way
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
 nnoremap 0 g0
 nnoremap $ g$
+nnoremap g0 0
+nnoremap g$ $
 
 " Make Y behave more like C and D
 nnoremap Y y$
