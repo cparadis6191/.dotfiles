@@ -1,15 +1,16 @@
 #!/bin/bash
-# unlink.sh - This script restores old dotfiles from the dotfiles_old folder back to the home directory and removes the dotfile_old folder
+# unlink.sh - This script restores old dotfiles from the $olddir folder back to the home directory and removes the $olddir folder
 # Author: Chad Paradis
 
 
 dir=~/.dotfiles                 # dotfiles directory
 olddir=~/.dotfiles.bak          # old dotfiles backup directory
-                                # list of files/folders to symlink in homedir
-files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc vim"
+
+files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc vim"    # list of files/folders to symlink in homedir
+oldfiles=`ls $olddir`
 
 
-# remove any symbolic links to dotfiles and then move any dotfiles in dotfiles_old back to the home directory, then remove the dotfile_old folder
+# remove any symbolic links to dotfiles and then move any dotfiles in $olddir back to the home directory, then remove the $olddir folder
 if [ -d $olddir ]; then
 	echo "Old dotfiles detected. Starting restore procedure"
 
@@ -20,10 +21,14 @@ if [ -d $olddir ]; then
 		else
 			echo "~/.$file is not a symlink"
 		fi
+	done
 
-		if [ -f $olddir/$file ] || [ -d $olddir/$file ]; then
-			echo "Restoring $olddir/$file to ~/.$file"
-			mv $olddir/$file ~/.$file
+
+# restore all files and folders from olddir
+	for oldfile in $oldfiles; do
+		if [ -f $olddir/$oldfile ] || [ -d $olddir/$oldfile ]; then
+			echo "Restoring $olddir/$oldfile to ~/.$oldfile"
+			mv $olddir/$oldfile ~/.$oldfile
 		fi
 	done
 
