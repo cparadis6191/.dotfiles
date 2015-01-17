@@ -1,12 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # link.sh - This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 # Author: Chad Paradis
 
 
 dir=~/.dotfiles                 # dotfiles directory
 olddir=~/.dotfiles.bak          # old dotfiles backup directory
-                                # list of files/folders to symlink in homedir
-files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc vim"
+files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc vim"    # list of files/folders to symlink in homedir
 
 
 # create .dotfiles.bak in homedir
