@@ -3,8 +3,6 @@
 # Author: Chad Paradis
 
 
-# -- Variables --
-
 dir=~/.dotfiles                 # dotfiles directory
 olddir=~/.dotfiles.bak          # old dotfiles backup directory
                                 # list of files/folders to symlink in homedir
