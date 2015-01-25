@@ -107,10 +107,7 @@ set wildoptions=tagfile    " List autocomplete for command line options
 " -- various --
 
 " -- plugins --
-call plug#begin('~/.vim/bundle')
-Plug 'https://github.com/scrooloose/syntastic.git'
-Plug 'https://github.com/kien/rainbow_parentheses.vim.git'
-call plug#end()
+execute pathogen#infect()
 
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
