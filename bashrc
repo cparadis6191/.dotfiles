@@ -11,8 +11,8 @@ PS1="\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\
 PS2="  > "    # Another custom prompt if a quote is not closed
 
 # If running in a nice gui terminal emulator try to set the window title
-if [ ! $TERM = 'linux' ] && [ ! $TERM = 'console' ]; then
-	PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
+if [ ! "$TERM" == "linux" ] && [ ! "$TERM" == "console" ]; then
+	PROMPT_COMMAND='echo -ne "\033]0;$TERM $SHELL $PWD\007"'
 fi
 
 shopt -s autocd          # Change directory if just inputting a directory name
