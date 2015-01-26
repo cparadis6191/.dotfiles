@@ -7,7 +7,7 @@
 
 # -- Shell Options --
 # See man bash for more options...
-PS1="\[\e[32m\]\u@\h \[\e[33m\]\W\[\e[33m\]\[\e[0m\]\$ "    # Custom colorful bash prompt
+PS1="\[\e[32m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\\$ "    # Custom colorful bash prompt
 
 # Updates the window if its size changes
 shopt -s checkwinsize
@@ -15,7 +15,7 @@ shopt -s checkwinsize
 # -- Completion options --
 
 # -- History Options --
-HISTSIZE=10000
+HISTSIZE=9999
 
 # -- Aliases --
 
