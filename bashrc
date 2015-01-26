@@ -7,10 +7,13 @@
 
 # -- Shell Options --
 # See man bash for more options...
-PS1="\[\e[32m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\\$ "    # Custom colorful bash prompt
-PS2="$PS1  > "    # Another custom prompt if a quote isn't closed
+PS1="\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ "
+PS2="  > "    # Another custom prompt if a quote is not closed
 
-PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
+# If running in a nice gui terminal emulator try to set the window title
+if [ ! $TERM = 'linux' ] && [ ! $TERM = 'console' ]; then
+	PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
+fi
 
 shopt -s autocd          # Change directory if just inputting a directory name
 shopt -s cdable_vars     # If cd argument is not a directory it is assumed to be a variable and expanded
@@ -27,7 +30,7 @@ shopt -s histappend      # Append to history instead of overwriting it
 HISTSIZE=9999
 
 # -- Aliases --
-alias rm='rm -I'    # Interactive operation
+alias rm='rm -I'                  # Interactive operation
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -pv'
@@ -45,7 +48,7 @@ alias indent='indent -linux -br -brf -brs'
 
 alias vim='vim -p'                # Make vim open with tabs
 
-alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'    # Make less display line number like systemctl
+alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'            # Make less display line number like systemctl
 
 # -- Umask --
 # -- Functions --
