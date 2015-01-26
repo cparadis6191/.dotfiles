@@ -12,8 +12,14 @@ PS2="$PS1  > "    # Another custom prompt if a quote isn't closed
 
 PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 
+shopt -s autocd          # Change directory if just inputting a directory name
+shopt -s cdable_vars     # If cd argument is not a directory it is assumed to be a variable and expanded
+shopt -s cdspell         # Errors in cd will be corrected
 shopt -s checkwinsize    # Updates the window if its size changes
-shopt -s autocd          # change directory if just inputting a directory name
+shopt -s dirspell        # Tab corrects misspelled directories
+shopt -s globstar        # Let ** be used to glob files and directories recursively and **/ for directories
+shopt -s histappend      # Append to history instead of overwriting it
+
 
 # -- Completion options --
 
