@@ -16,8 +16,12 @@ set smartcase       " Override the ignorecase option if the search pattern conta
 " -- displaying text --
 set scrolloff=5     " Keep the cursor at least five lines from the bottom or top
 set linebreak       " Wrap lines at a convenient place
-set breakindent
-set breakindentopt=shift:4,sbr
+
+if has("breakindent")
+	set breakindent
+	set breakindentopt=shift:4,sbr
+endif
+
 set number
 
 " -- syntax, highlighting and spelling --
