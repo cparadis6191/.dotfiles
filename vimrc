@@ -6,25 +6,26 @@
 set nocompatible    " Use the full power of Vim
 
 " -- moving around, searching and patterns --
-set hlsearch        " Highlight search results
+autocmd BufEnter *.c,*.h,*.cpp set path+=src,inc,lib/**/src,lib/**/inc    " Adds typical C project heirarchy to the path
 set incsearch       " Jumps to the first match while typing
 set ignorecase      " When doing a search, ignore the case of letters
 set smartcase       " Override the ignorecase option if the search pattern contains upper case letters
-
-autocmd BufEnter *.c,*.h,*.cpp set path+=src,inc,lib/**/src,lib/**/inc    " Adds typical C project heirarchy to the path
-autocmd BufEnter *.tex set suffixesadd+=.tex,.bib    " Lets gf assume .tex or .bib extensions
 
 " -- tags --
 
 " -- displaying text --
 set scrolloff=5     " Keep the cursor at least five lines from the bottom or top
 set linebreak       " Wrap lines at a convenient place
+set breakindent
+set breakindentopt=shift:4,sbr
+set number
 
 " -- syntax, highlighting and spelling --
-syntax enable       " Turns on syntax highlighting
 filetype plugin indent on    " Turns on filetype plugins and indenting
-
-let g:tex_flavor="latex"    " Default to latex over tex for *.tex files
+syntax enable       " Turns on syntax highlighting
+set hlsearch        " Highlight search results
+set cursorcolumn             " Highlight the current column
+let g:tex_flavor="latex"     " Default to latex over tex for *.tex files
 
 " -- multiple windows --
 set hidden          " Hide buffers instead of closing them
@@ -37,27 +38,26 @@ set tabpagemax=99   " Increase the max number of tabs opened at once
 " -- printing --
 
 " -- messages and info --
-set ruler           " Information about cursor placement
+let &showbreak='  > '
 set showcmd         " Show incomplete commands at the bottom
+set ruler           " Information about cursor placement
 
 " -- selecting text --
 
 " -- editing text --
 set backspace=indent,eol,start  " Allow backspace in insert mode
-
 set undolevels=999  " Increase history size for undoing edits
 
 " -- tabs and indenting --
-set noexpandtab     " Strictly use tabs when tab is pressed (this is the default)
 set tabstop=4       " Tab size is 4 spaces
 set shiftwidth=4    " Sets < and > shifts to be 4 characters
 set shiftround      " When using < and > rounds to the nearest multiple of shiftwidth
-
+set noexpandtab     " Strictly use tabs when tab is pressed (this is the default)
 set autoindent      " Copy indent from current line when starting a new line
 
 " -- folding --
-set foldmethod=syntax
 set foldlevelstart=99    " Buffers start with all folds open
+set foldmethod=syntax
 
 " -- diff mode --
 
@@ -95,9 +95,9 @@ vnoremap < <gv
 
 " -- command line editing --
 set history=999     " Increase history size for commands and search patterns
-
-set wildmenu        " List external files instead of just autocompleting
+autocmd BufEnter *.tex set suffixesadd+=.tex,.bib    " Lets gf assume .tex or .bib extensions
 set wildmode=longest:full  " Make autocomplete more bash-like
+set wildmenu        " List external files instead of just autocompleting
 set wildoptions=tagfile    " List autocomplete for command line options
 
 " -- executing external commands --
