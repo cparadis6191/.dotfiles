@@ -39,7 +39,7 @@ alias indent='indent -linux -br -brf -brs'
 
 alias vim='vim -p'                # Make vim open with tabs
 
-alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'   # Make less display line number
+alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'    # Make less display line number like systemctl
 
 # -- Umask --
 # -- Functions --
