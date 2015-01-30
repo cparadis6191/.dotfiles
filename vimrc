@@ -6,7 +6,6 @@
 set nocompatible    " Use the full power of Vim
 
 " -- moving around, searching and patterns --
-autocmd BufEnter *.c,*.h,*.cpp set path+=src,inc,lib/**/src,lib/**/inc    " Adds typical C project heirarchy to the path
 set incsearch       " Jumps to the first match while typing
 set ignorecase      " When doing a search, ignore the case of letters
 set smartcase       " Override the ignorecase option if the search pattern contains upper case letters
@@ -109,6 +108,8 @@ set wildoptions=tagfile    " List autocomplete for command line options
 " -- language specific --
 " -- multi-byte characters --
 " -- various --
+set exrc
+set secure
 
 " -- plugins --
 execute pathogen#infect()
