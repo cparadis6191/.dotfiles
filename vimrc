@@ -25,10 +25,9 @@ set number
 
 " -- syntax, highlighting and spelling --
 filetype plugin indent on    " Turns on filetype plugins and indenting
-syntax enable       " Turns on syntax highlighting
-set hlsearch        " Highlight search results
+syntax enable                " Turns on syntax highlighting
+set hlsearch                 " Highlight search results
 set cursorcolumn             " Highlight the current column
-let g:tex_flavor="latex"     " Default to latex over tex for *.tex files
 
 " -- multiple windows --
 set hidden          " Hide buffers instead of closing them
@@ -41,7 +40,7 @@ set tabpagemax=99   " Increase the max number of tabs opened at once
 " -- printing --
 
 " -- messages and info --
-let &showbreak='  > '
+let &showbreak="  > "
 set showcmd         " Show incomplete commands at the bottom
 set ruler           " Information about cursor placement
 
@@ -81,13 +80,13 @@ nnoremap g$ $
 nnoremap Y y$
 
 " Use <C-H> and <C-L> to cycle through tabs
-nnoremap <c-l> gt
-nnoremap <c-h> gT
+nnoremap <C-L> gt
+nnoremap <C-H> gT
 
 " Open file under cursor in new tab
-nnoremap gf <c-w>gf
+nnoremap gf <C-W>gf
 " Open file under cursor in new tab and jump to line number
-nnoremap gF <c-w>gF
+nnoremap gF <C-W>gF
 
 " Shifting in visual mode now reselects the block
 vnoremap > >gv
@@ -97,11 +96,10 @@ vnoremap < <gv
 " -- the swap file --
 
 " -- command line editing --
-set history=999     " Increase history size for commands and search patterns
-autocmd BufEnter *.tex set suffixesadd+=.tex,.bib    " Lets gf assume .tex or .bib extensions
-set wildmode=longest:full  " Make autocomplete more bash-like
-set wildmenu        " List external files instead of just autocompleting
-set wildoptions=tagfile    " List autocomplete for command line options
+set history=999              " Increase history size for commands and search patterns
+set wildmode=longest:full    " Make autocomplete more bash-like
+set wildmenu                 " List external files instead of just autocompleting
+set wildoptions=tagfile      " List autocomplete for command line options
 
 " -- executing external commands --
 " -- running make and jumping to errors --
@@ -112,21 +110,31 @@ set exrc
 set secure
 
 " -- plugins --
-execute pathogen#infect()
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !mkdir -p ~/.vim/autoload
+	silent !curl -fLo ~/.vim/autoload/plug.vim
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
 
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
+call plug#begin()
+Plug 'https://github.com/kien/rainbow_parentheses.vim.git'
+Plug 'https://github.com/scrooloose/syntastic.git', { 'on': ['SyntasticCheck', 'SyntasticInfo', 'SyntasticReset', 'SyntasticSetLoclist', 'SyntasticToggleMode'] }
+Plug 'https://github.com/tpope/vim-fugitive.git'
+call plug#end()
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound    " ()
-au Syntax * RainbowParenthesesLoadSquare   " []
-au Syntax * RainbowParenthesesLoadBraces   " {}
+let g:rbpt_max=16
+let g:rbpt_loadcmd_toggle=0
+
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound     " ()
+autocmd Syntax * RainbowParenthesesLoadSquare    " []
+autocmd Syntax * RainbowParenthesesLoadBraces    " {}
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_wq=0
