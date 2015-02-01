@@ -6,9 +6,10 @@
 dir=~/.dotfiles                 # dotfiles directory
 olddir=~/.dotfiles.bak          # old dotfiles backup directory
 
-files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc vim"    # list of files/folders to symlink in homedir
+files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc"    # list of files/folders to symlink in homedir
+folders="vim"
+files+=" $folders"
 oldfiles=`ls $olddir`
-
 
 # remove any symbolic links to dotfiles and then move any dotfiles in $olddir back to the home directory, then remove the $olddir folder
 if [ -d $olddir ]; then
@@ -22,7 +23,6 @@ if [ -d $olddir ]; then
 			echo "~/.$file is not a symlink"
 		fi
 	done
-
 
 # restore all files and folders from olddir
 	for oldfile in $oldfiles; do

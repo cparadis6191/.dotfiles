@@ -5,8 +5,10 @@
 
 dir=~/.dotfiles                 # dotfiles directory
 olddir=~/.dotfiles.bak          # old dotfiles backup directory
-files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc vim"    # list of files/folders to symlink in homedir
 
+files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc"    # list of files/folders to symlink in homedir
+folders="vim"
+files+=" $folders"
 
 # create .dotfiles.bak in homedir
 if [ ! -d $olddir ]; then
@@ -16,6 +18,13 @@ else
 	echo "$olddir already exists"
 fi
 
+# create all necessary local folders
+for folder in $folders; do
+	if [ ! -d ./$folders ]; then
+		echo "Creating $folder to link to from ~"
+		mkdir -p $folder
+	fi
+done
 
 # move any existing dotfiles in ~ to ~/.dotfiles.bak, then create symlinks from ~ to any files in the ~/.dotfiles directory specified in $files
 for file in $files; do
