@@ -16,9 +16,9 @@ set smartcase       " Override the ignorecase option if the search pattern conta
 set scrolloff=5     " Keep the cursor at least five lines from the bottom or top
 set linebreak       " Wrap lines at a convenient place
 
-if has('breakindent')
+if has('patch-7.4.338')
 	set breakindent
-	set breakindentopt=shift:4,sbr
+	let &showbreak='  > '
 endif
 
 set number
@@ -40,15 +40,14 @@ set tabpagemax=99   " Increase the max number of tabs opened at once
 " -- printing --
 
 " -- messages and info --
-let &showbreak='  > '
 set showcmd         " Show incomplete commands at the bottom
 set ruler           " Information about cursor placement
 
 " -- selecting text --
 
 " -- editing text --
-set backspace=indent,eol,start  " Allow backspace in insert mode
-set undolevels=999  " Increase history size for undoing edits
+set undolevels=999                " Increase history size for undoing edits
+set backspace=indent,eol,start    " Allow backspace in insert mode
 
 " -- tabs and indenting --
 set tabstop=4       " Tab size is 4 spaces
