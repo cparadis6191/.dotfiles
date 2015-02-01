@@ -16,7 +16,7 @@ set smartcase       " Override the ignorecase option if the search pattern conta
 set scrolloff=5     " Keep the cursor at least five lines from the bottom or top
 set linebreak       " Wrap lines at a convenient place
 
-if has("breakindent")
+if has('breakindent')
 	set breakindent
 	set breakindentopt=shift:4,sbr
 endif
@@ -40,7 +40,7 @@ set tabpagemax=99   " Increase the max number of tabs opened at once
 " -- printing --
 
 " -- messages and info --
-let &showbreak="  > "
+let &showbreak='  > '
 set showcmd         " Show incomplete commands at the bottom
 set ruler           " Information about cursor placement
 
@@ -118,18 +118,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'https://github.com/kien/rainbow_parentheses.vim.git'
-Plug 'https://github.com/scrooloose/syntastic.git', { 'on': ['SyntasticCheck', 'SyntasticInfo', 'SyntasticReset', 'SyntasticSetLoclist', 'SyntasticToggleMode'] }
-Plug 'https://github.com/tpope/vim-fugitive.git'
+	Plug 'https://github.com/kien/rainbow_parentheses.vim.git'
+	Plug 'https://github.com/scrooloose/syntastic.git', { 'on': ['SyntasticCheck', 'SyntasticInfo', 'SyntasticReset', 'SyntasticSetLoclist', 'SyntasticToggleMode'] }
+	Plug 'https://github.com/tpope/vim-fugitive.git'
 call plug#end()
 
 let g:rbpt_max=16
 let g:rbpt_loadcmd_toggle=0
 
 autocmd VimEnter * RainbowParenthesesToggle
-autocmd Syntax * RainbowParenthesesLoadRound     " ()
-autocmd Syntax * RainbowParenthesesLoadSquare    " []
-autocmd Syntax * RainbowParenthesesLoadBraces    " {}
+autocmd Syntax   * RainbowParenthesesLoadRound     " ()
+autocmd Syntax   * RainbowParenthesesLoadSquare    " []
+autocmd Syntax   * RainbowParenthesesLoadBraces    " {}
 
 set statusline+=%#warningmsg#
 set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
