@@ -23,7 +23,6 @@ shopt -s dirspell        # Tab corrects misspelled directories
 shopt -s globstar        # Let ** be used to glob files and directories recursively and **/ for directories
 shopt -s histappend      # Append to history instead of overwriting it
 
-
 # -- Completion options --
 
 # -- History Options --
@@ -54,6 +53,6 @@ alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?
 # -- Functions --
 
 # -- Local Environment --
-if [ -f ~/.bashrc.local ]; then
-	source ~/.bashrc.local
+if [ -f $HOME/.bashrc.local ]; then
+	source $HOME/.bashrc.local
 fi
