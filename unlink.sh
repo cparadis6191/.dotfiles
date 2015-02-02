@@ -3,37 +3,36 @@
 # Author: Chad Paradis
 
 
-dir=~/.dotfiles                 # dotfiles directory
-olddir=~/.dotfiles.bak          # old dotfiles backup directory
+dir="$HOME/.dotfiles"           # dotfiles directory
+olddir="$HOME/.dotfiles.bak"    # old dotfiles backup directory
 
 files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc"    # list of files/folders to symlink in homedir
 folders="vim"
 files+=" $folders"
-oldfiles=`ls $olddir`
 
 # remove any symbolic links to dotfiles and then move any dotfiles in $olddir back to the home directory, then remove the $olddir folder
-if [ -d $olddir ]; then
+for file in $files; do
+	if [ -h "$HOME/.$file" ]; then
+		echo "Removing symlink for $HOME/.$file"
+		rm -f "$HOME/.$file"
+	else
+		echo "$HOME/.$file is not a symlink"
+	fi
+done
+
+if [ -d "$olddir" ]; then
 	echo "Old dotfiles detected. Starting restore procedure"
 
-	for file in $files; do
-		if [ -h ~/.$file ]; then
-			echo "Removing symlink for ~/.$file"
-			rm -f ~/.$file
-		else
-			echo "~/.$file is not a symlink"
-		fi
-	done
-
-# restore all files and folders from olddir
-	for oldfile in $oldfiles; do
-		if [ -f $olddir/$oldfile ] || [ -d $olddir/$oldfile ]; then
-			echo "Restoring $olddir/$oldfile to ~/.$oldfile"
-			mv $olddir/$oldfile ~/.$oldfile
+	# restore all files and folders from olddir
+	for oldfile in $olddir/* $olddir/.[^.]*; do
+		if [ -f "$oldfile" ] || [ -d "$oldfile" ]; then
+			echo "Restoring $oldfile to $HOME/`basename $oldfile`"
+			mv "$oldfile" "$HOME/`basename $oldfile`"
 		fi
 	done
 
 	echo "Removing $olddir"
-	rm -rf $olddir
+	rmdir "$olddir"
 
 	echo "Original dotfiles restored"
 else
