@@ -7,11 +7,11 @@
 
 # -- Shell Options --
 # See man bash for more options...
-PS1="\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ "
-PS2="  > "    # Another custom prompt if a quote is not closed
+PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ '
+PS2='  > '    # Another custom prompt if a quote is not closed
 
-# If running in a nice gui terminal emulator try to set the window title
-if [ ! "$TERM" == "linux" ] && [ ! "$TERM" == "console" ]; then
+# If running in a nice gui terminal emulator set the window title
+if [ ! "$TERM" == 'linux' ] && [ ! "$TERM" == 'console' ]; then
 	PROMPT_COMMAND='echo -ne "\033]0;$TERM $SHELL $PWD\007"'
 fi
 
@@ -29,9 +29,11 @@ shopt -s histappend      # Append to history instead of overwriting it
 HISTSIZE=9999
 
 # -- Aliases --
-alias rm='rm -I'                  # Interactive operation
+# Interactive operation
+alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
+
 alias mkdir='mkdir -pv'
 
 alias grep='grep --color=auto'    # Show differences in colour
@@ -44,10 +46,8 @@ alias ll='ls -lA'                 # Long list
 alias lt='ls -Lt'                 # Long list sorted by time
 
 alias indent='indent -linux -br -brf -brs'
-
+alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'    # Make less display line number like systemctl
 alias vim='vim -p'                # Make vim open with tabs
-
-alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'            # Make less display line number like systemctl
 
 # -- Umask --
 # -- Functions --
