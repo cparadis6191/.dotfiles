@@ -30,7 +30,8 @@ set hlsearch                 " Highlight search results
 set cursorcolumn             " Highlight the current column
 
 " -- multiple windows --
-set hidden    " Hide buffers instead of closing them
+set laststatus=2    " Always show the statusline
+set hidden          " Hide buffers instead of closing them
 
 " -- multiple tab pages --
 set showtabline=2    " Always show the tabline
