@@ -16,7 +16,7 @@ set smartcase     " Override the ignorecase option if the search pattern contain
 set scrolloff=5    " Keep the cursor at least five lines from the bottom or top
 set linebreak      " Wrap lines at a convenient place
 
-if has('patch-7.4.338')
+if exists('+breakindent')
 	set breakindent
 	let &showbreak='  > '
 endif
