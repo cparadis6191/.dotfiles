@@ -46,6 +46,7 @@ set showcmd    " Show incomplete commands at the bottom
 set ruler      " Information about cursor placement
 
 " -- selecting text --
+set clipboard=unnamed    " Default to the system clipboard
 
 " -- editing text --
 set undolevels=999                " Increase history size for undoing edits
