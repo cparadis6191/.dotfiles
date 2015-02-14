@@ -1,1 +1,5 @@
+# .gitignore - Ignores the automatically created vim/ directory
+# Author: Chad Paradis
+
+
 vim/
