@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# unlink.sh - Restores old dotfiles from $olddir back to $HOME
+# unlink.sh - Restore old dotfiles from $olddir back to $HOME
 # Author: Chad Paradis
 
 
@@ -10,7 +10,7 @@ files="bash_profile bashrc gitconfig gitignore_global minttyrc tmux.conf vimrc" 
 folders="vim"
 files+=" $folders"
 
-# remove any symbolic links to dotfiles and then move any dotfiles in $olddir back to the home directory, then remove the $olddir folder
+# remove any symlinks to dotfiles and then move any dotfiles in $olddir back to the home directory, then remove the $olddir folder
 for file in $files; do
 	if [ -h "$HOME/.$file" ]; then
 		echo "Removing symlink for $HOME/.$file"
