@@ -1,4 +1,4 @@
-# .bash_profile - Save this file as .bash_profile in your home directory. (e.g. /home/user/.bash_profile)
+# .bash_profile - Use link.sh to create a symbolic link in $HOME
 # Author: Chad Paradis
 
 

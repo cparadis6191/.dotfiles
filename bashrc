@@ -1,4 +1,4 @@
-# .bashrc - Save this file as .bashrc in your home directory. (e.g. /home/user/.bashrc)
+# .bashrc - Use link.sh to create a symbolic link in $HOME
 # Author: Chad Paradis
 
 

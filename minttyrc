@@ -1,3 +1,7 @@
+# .minttyrc - Use link.sh to create a symbolic link in $HOME
+# Author: Chad Paradis
+
+
 BoldAsFont=yes
 CursorType=block
 Font=Lucida Console

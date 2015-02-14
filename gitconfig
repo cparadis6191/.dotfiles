@@ -1,3 +1,7 @@
+# .gitconfig - Use link.sh to create a symbolic link in $HOME
+# Author: Chad Paradis
+
+
 [color]
 	branch = true
 	diff = true
