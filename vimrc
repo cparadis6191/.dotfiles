@@ -95,16 +95,16 @@ vnoremap > >gv
 vnoremap < <gv
 
 " -- reading and writing files --
-if empty(glob('~/.vim/backup'))
-	silent !mkdir -p ~/.vim/backup
+if empty(glob('$HOME/.vim/backup'))
+	silent !mkdir -p $HOME/.vim/backup
 endif
-set backupdir^=~/.vim/backup//
+set backupdir^=$HOME/.vim/backup//
 
 " -- the swap file --
-if empty(glob('~/.vim/swap'))
-	silent !mkdir -p ~/.vim/swap
+if empty(glob('$HOME/.vim/swap'))
+	silent !mkdir -p $HOME/.vim/swap
 endif
-set directory^=~/.vim/swap//
+set directory^=$HOME/.vim/swap//
 
 " -- command line editing --
 set history=999              " Increase history size for commands and search patterns
@@ -113,10 +113,10 @@ set wildmenu                 " List external files instead of just autocompletin
 set wildoptions=tagfile      " List autocomplete for command line options
 
 set undofile
-if empty(glob('~/.vim/undo'))
-	silent !mkdir -p ~/.vim/undo
+if empty(glob('$HOME/.vim/undo'))
+	silent !mkdir -p $HOME/.vim/undo
 endif
-set undodir^=~/.vim/undo//
+set undodir^=$HOME/.vim/undo//
 
 " -- executing external commands --
 " -- running make and jumping to errors --
@@ -127,9 +127,9 @@ set exrc
 set secure
 
 " -- plugins --
-if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !mkdir -p ~/.vim/autoload
-	silent !curl -fLo ~/.vim/autoload/plug.vim
+if empty(glob('$HOME/.vim/autoload/plug.vim'))
+	silent !mkdir -p $HOME/.vim/autoload
+	silent !curl -fLo $HOME/.vim/autoload/plug.vim
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
