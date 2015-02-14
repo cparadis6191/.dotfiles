@@ -1,5 +1,5 @@
-#!/bin/bash
-# unlink.sh - This script restores old dotfiles from the $olddir folder back to the home directory and removes the $olddir folder
+#!/usr/bin/env bash
+# unlink.sh - Restores old dotfiles from $olddir back to $HOME
 # Author: Chad Paradis
 
 

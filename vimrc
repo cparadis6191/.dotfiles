@@ -1,4 +1,4 @@
-" .vimrc - Save this file as .vimrc in your home directory. (e.g. /home/user/.vimrc)
+" .vimrc - Use link.sh to create a symbolic link in $HOME
 " Author: Chad Paradis
 
 
