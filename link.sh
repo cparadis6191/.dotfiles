@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# link.sh - Creates symbolic links from $HOME to the specified dotfiles in $HOME/.dotfiles
+# link.sh - Create symlinks from $HOME to the specified dotfiles in $HOME/.dotfiles
 # Author: Chad Paradis
 
 
