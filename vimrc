@@ -95,13 +95,28 @@ vnoremap > >gv
 vnoremap < <gv
 
 " -- reading and writing files --
+if empty(glob('~/.vim/backup'))
+	silent !mkdir -p ~/.vim/backup
+endif
+set backupdir^=~/.vim/backup//
+
 " -- the swap file --
+if empty(glob('~/.vim/swap'))
+	silent !mkdir -p ~/.vim/swap
+endif
+set directory^=~/.vim/swap//
 
 " -- command line editing --
 set history=999              " Increase history size for commands and search patterns
 set wildmode=longest:full    " Make autocomplete more bash-like
 set wildmenu                 " List external files instead of just autocompleting
 set wildoptions=tagfile      " List autocomplete for command line options
+
+set undofile
+if empty(glob('~/.vim/undo'))
+	silent !mkdir -p ~/.vim/undo
+endif
+set undodir^=~/.vim/undo//
 
 " -- executing external commands --
 " -- running make and jumping to errors --
