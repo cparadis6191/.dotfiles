@@ -51,7 +51,6 @@ Term=xterm-256color
 #White=            238, 232, 213
 #BoldWhite=        253, 246, 227
 
-
 # base16 bright
 ForegroundColour=   0,   0,   0
 BackgroundColour= 255, 255, 255
