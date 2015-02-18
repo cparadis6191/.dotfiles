@@ -2,13 +2,10 @@
 # Author: Chad Paradis
 
 
-BoldAsFont=yes
 CursorType=block
-Font=Lucida Console
 FontIsBold=yes
-FontHeight=9
-FontSmoothing=default
 BoldAsColour=yes
+Term=xterm-256color
 
 # Solarized light
 ForegroundColour=101, 123, 131
