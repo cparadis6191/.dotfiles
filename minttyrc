@@ -8,45 +8,68 @@ BoldAsColour=yes
 Term=xterm-256color
 
 # Solarized light
-ForegroundColour=101, 123, 131
-BackgroundColour=253, 246, 227
-CursorColour=    220,  50,  47
-
-Black=             7,  54,  66
-BoldBlack=         0,  43,  54
-Red=             220,  50,  47
-BoldRed=         203,  75,  22
-Green=           133, 153,   0
-BoldGreen=        88, 110, 117
-Yellow=          181, 137,   0
-BoldYellow=      101, 123, 131
-Blue=             38, 139, 210
-BoldBlue=        131, 148, 150
-Magenta=         211,  54, 130
-BoldMagenta=     108, 113, 196
-Cyan=             42, 161, 152
-BoldCyan=        147, 161, 161
-White=           238, 232, 213
-BoldWhite=       253, 246, 227
+#ForegroundColour= 101, 123, 131
+#BackgroundColour= 253, 246, 227
+#CursorColour=     220,  50,  47
+#
+#Black=              7,  54,  66
+#BoldBlack=          0,  43,  54
+#Red=              220,  50,  47
+#BoldRed=          203,  75,  22
+#Green=            133, 153,   0
+#BoldGreen=         88, 110, 117
+#Yellow=           181, 137,   0
+#BoldYellow=       101, 123, 131
+#Blue=              38, 139, 210
+#BoldBlue=         131, 148, 150
+#Magenta=          211,  54, 130
+#BoldMagenta=      108, 113, 196
+#Cyan=              42, 161, 152
+#BoldCyan=         147, 161, 161
+#White=            238, 232, 213
+#BoldWhite=        253, 246, 227
 
 # Solarized dark
-#ForegroundColour=131, 148, 150
-#BackgroundColour=  0,  43,  54
-#CursorColour=    220,  50,  47
+#ForegroundColour= 131, 148, 150
+#BackgroundColour=   0,  43,  54
+#CursorColour=     220,  50,  47
 
-#Black=             7,  54,  66
-#BoldBlack=         0,  43,  54
-#Red=             220,  50,  47
-#BoldRed=         203,  75,  22
-#Green=           133, 153,   0
-#BoldGreen=        88, 110, 117
-#Yellow=          181, 137,   0
-#BoldYellow=      101, 123, 131
-#Blue=             38, 139, 210
-#BoldBlue=        131, 148, 150
-#Magenta=         211,  54, 130
-#BoldMagenta=     108, 113, 196
-#Cyan=             42, 161, 152
-#BoldCyan=        147, 161, 161
-#White=           238, 232, 213
-#BoldWhite=       253, 246, 227
+#Black=              7,  54,  66
+#BoldBlack=          0,  43,  54
+#Red=              220,  50,  47
+#BoldRed=          203,  75,  22
+#Green=            133, 153,   0
+#BoldGreen=         88, 110, 117
+#Yellow=           181, 137,   0
+#BoldYellow=       101, 123, 131
+#Blue=              38, 139, 210
+#BoldBlue=         131, 148, 150
+#Magenta=          211,  54, 130
+#BoldMagenta=      108, 113, 196
+#Cyan=              42, 161, 152
+#BoldCyan=         147, 161, 161
+#White=            238, 232, 213
+#BoldWhite=        253, 246, 227
+
+
+# base16 bright
+ForegroundColour=   0,   0,   0
+BackgroundColour= 255, 255, 255
+CursorColour=       0,   0,   0
+
+Black=              0,   0,   0
+BoldBlack=        176, 176, 176
+Red=              251,   1,  32
+BoldRed=          252, 109,  36
+Green=            161, 198,  89
+BoldGreen=         48,  48,  48
+Yellow=           253, 163,  49
+BoldYellow=        80,  80,  80
+Blue=             111, 179, 210
+BoldBlue=         208, 208, 208
+Magenta=          211, 129, 195
+BoldMagenta=      245, 245, 245
+Cyan=             118, 199, 183
+BoldCyan=         190, 100,  60
+White=            224, 224, 224
+BoldWhite=        255, 255, 255
