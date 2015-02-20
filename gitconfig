@@ -10,7 +10,7 @@
 	ui = true
 [core]
 	editor = vim
-	excludesfile = $HOME/gitignore_global
+	excludesfile = ~/.gitignore_global
 [credential]
 	helper = cache --timeout=1800
 [diff]
