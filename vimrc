@@ -21,6 +21,9 @@ if exists('+breakindent')
 	let &showbreak='  > '
 endif
 
+set list    " Used to position the cursor at the left edge of a tab
+let &listchars='tab:  '
+
 set number
 
 " -- syntax, highlighting and spelling --
