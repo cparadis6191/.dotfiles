@@ -78,8 +78,10 @@ nnoremap gk k
 
 nnoremap 0 g0
 nnoremap $ g$
+nnoremap ^ g^
 nnoremap g0 0
 nnoremap g$ $
+nnoremap g^ ^
 
 " Make Y behave more like C and D
 nnoremap Y y$
