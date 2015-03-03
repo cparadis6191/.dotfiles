@@ -100,6 +100,7 @@ vnoremap > >gv
 vnoremap < <gv
 
 " -- reading and writing files --
+set backup
 if empty(glob('$HOME/.vim/backup'))
 	silent !mkdir -p $HOME/.vim/backup
 endif
