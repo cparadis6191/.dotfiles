@@ -61,6 +61,7 @@ set shiftwidth=4    " Sets < and > shifts to be 4 characters
 set shiftround      " When using < and > rounds to the nearest multiple of shiftwidth
 set noexpandtab     " Strictly use tabs when tab is pressed (this is the default)
 set autoindent      " Copy indent from current line when starting a new line
+set copyindent      " Copy whitespace for indenting from previous line
 
 " -- folding --
 set foldlevelstart=99    " Buffers start with all folds open
