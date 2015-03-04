@@ -74,14 +74,17 @@ set foldmethod=syntax
 " Navigate wrapped lines in a sane way
 nnoremap j gj
 nnoremap k gk
+
 nnoremap gj j
 nnoremap gk k
 
 nnoremap 0 g0
-nnoremap $ g$
-nnoremap ^ g^
 nnoremap g0 0
+
+nnoremap $ g$
 nnoremap g$ $
+
+nnoremap ^ g^
 nnoremap g^ ^
 
 " Make Y behave more like C and D
@@ -93,7 +96,10 @@ nnoremap <C-H> gT
 
 " Open file under cursor in new tab
 nnoremap gf <C-W>gf
+nnoremap <C-W>gf gf
+
 " Open file under cursor in new tab and jump to line number
+nnoremap <C-W>gF gF
 nnoremap gF <C-W>gF
 
 " Shifting in visual mode now reselects the block
