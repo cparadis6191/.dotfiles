@@ -106,6 +106,12 @@ nnoremap gF <C-W>gF
 vnoremap > >gv
 vnoremap < <gv
 
+" Navigate buffers similar to tabs
+nnoremap gb :bnext<CR>
+nnoremap gB :bprev<CR>
+nnoremap <C-K> :bnext<CR>
+nnoremap <C-J> :bprev<CR>
+
 " -- reading and writing files --
 set backup
 if empty(glob('$HOME/.vim/backup'))
