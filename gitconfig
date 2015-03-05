@@ -12,6 +12,7 @@
 	editor = vim
 	excludesfile = ~/.gitignore_global
 	filemode = false
+	ignorecase = false
 [credential]
 	helper = cache --timeout=1800
 [diff]
