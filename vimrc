@@ -27,7 +27,6 @@ let &listchars='tab:  '
 set number
 
 " -- syntax, highlighting and spelling --
-filetype plugin indent on    " Turns on filetype plugins and indenting
 syntax enable                " Turns on syntax highlighting
 set hlsearch                 " Highlight search results
 set cursorcolumn             " Highlight the current column
@@ -153,6 +152,8 @@ if empty(glob('$HOME/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall
 endif
 
+" plug#begin() automatically calls
+filetype plugin indent on
 call plug#begin()
 	Plug 'https://github.com/kien/rainbow_parentheses.vim.git'
 	Plug 'https://github.com/scrooloose/syntastic.git', { 'on': ['SyntasticCheck', 'SyntasticInfo', 'SyntasticReset', 'SyntasticSetLoclist', 'SyntasticToggleMode'] }
