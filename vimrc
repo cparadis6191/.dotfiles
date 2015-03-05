@@ -140,6 +140,7 @@ set undodir^=$HOME/.vim/undo//
 " -- running make and jumping to errors --
 " -- language specific --
 " -- multi-byte characters --
+
 " -- various --
 set exrc
 set secure
