@@ -159,6 +159,7 @@ call plug#begin()
 	Plug 'https://github.com/kien/rainbow_parentheses.vim.git'
 	Plug 'https://github.com/scrooloose/syntastic.git', { 'on': ['SyntasticCheck', 'SyntasticInfo', 'SyntasticReset', 'SyntasticSetLoclist', 'SyntasticToggleMode'] }
 	Plug 'https://github.com/tpope/vim-fugitive.git'
+	Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
 
 let g:rbpt_max=16
