@@ -154,7 +154,7 @@ if empty(glob('$HOME/.vim/autoload/plug.vim'))
 endif
 
 " plug#begin() automatically calls
-filetype plugin indent on
+" filetype plugin indent on
 call plug#begin()
 	Plug 'https://github.com/kien/rainbow_parentheses.vim.git'
 	Plug 'https://github.com/scrooloose/syntastic.git', { 'on': ['SyntasticCheck', 'SyntasticInfo', 'SyntasticReset', 'SyntasticSetLoclist', 'SyntasticToggleMode'] }
