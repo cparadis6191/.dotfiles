@@ -144,6 +144,7 @@ set undodir^=$HOME/.vim/undo//
 " -- various --
 set exrc
 set secure
+set sessionoptions-=options    " Do not save options in a session
 
 " -- plugins --
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
