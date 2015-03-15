@@ -142,7 +142,7 @@ set undodir^=$HOME/.vim/undo//
 " -- multi-byte characters --
 
 " -- various --
-set exrc
+set exrc                       " Use project specific .exrc files
 set secure
 set sessionoptions-=options    " Do not save options in a session
 
