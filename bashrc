@@ -23,6 +23,9 @@ shopt -s dirspell        # Tab corrects misspelled directories
 shopt -s globstar        # Let ** be used to glob files and directories recursively and **/ for directories
 shopt -s histappend      # Append to history instead of overwriting it
 
+# Enable vi style input
+set -o vi
+
 # -- Completion options --
 
 # -- History Options --
