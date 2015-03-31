@@ -123,6 +123,9 @@ nnoremap gB :bprev<CR>
 nnoremap <C-K> :bnext<CR>
 nnoremap <C-J> :bprev<CR>
 
+" Use Q for executing last macro
+nnoremap Q @q
+
 " -- reading and writing files --
 set backup
 if empty(glob('$HOME/.vim/backup'))
