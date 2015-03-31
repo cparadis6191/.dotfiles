@@ -71,23 +71,39 @@ set foldmethod=syntax
 " -- mapping --
 " Comments CANNOT be on the same line as a map
 " Navigate wrapped lines in a sane way
-nnoremap j gj
-nnoremap k gk
+" noremap maps normal mode, visual mode, and operater-pending mode
+" Use sunmap so select mode is not trashed
+noremap k gk
+sunmap  k
+noremap gk k
+sunmap  gk
 
-nnoremap gj j
-nnoremap gk k
+noremap j gj
+sunmap  j
+noremap gj j
+sunmap  gj
 
-nnoremap 0 g0
-nnoremap g0 0
+noremap 0 g0
+sunmap  0
+noremap g0 0
+sunmap  g0
 
-nnoremap $ g$
-nnoremap g$ $
+noremap ^ g^
+sunmap  ^
+noremap g^ ^
+sunmap  g^
 
-nnoremap ^ g^
-nnoremap g^ ^
+noremap $ g$
+sunmap  $
+noremap g$ $
+sunmap  g$
 
 " Make Y behave more like C and D
 nnoremap Y y$
+
+" Shifting in visual mode now reselects the block
+xnoremap > >gv
+xnoremap < <gv
 
 " Use <C-H> and <C-L> to cycle through tabs
 nnoremap <C-L> gt
@@ -100,10 +116,6 @@ nnoremap <C-W>gf gf
 " Open file under cursor in new tab and jump to line number
 nnoremap <C-W>gF gF
 nnoremap gF <C-W>gF
-
-" Shifting in visual mode now reselects the block
-vnoremap > >gv
-vnoremap < <gv
 
 " Navigate buffers similar to tabs
 nnoremap gb :bnext<CR>
