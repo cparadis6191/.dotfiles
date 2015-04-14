@@ -71,18 +71,22 @@ set foldmethod=syntax
 " -- mapping --
 " Comments CANNOT be on the same line as a map
 " Navigate wrapped lines in a sane way
+" Only map normal mode and visual mode
+" Navigate linewise in normal mode and with a count
+nnoremap <expr> k  (v:count == 0 ? 'gk' : 'k')
+" Navigate wrapped linewise in visual mode and blockwise-visual mode and without a count
+" mode() returns the current editing mode
+xnoremap <expr> k  (v:count == 0 && mode() !=# "V" ? 'gk' : 'k')
+nnoremap <expr> gk (v:count == 0 ? 'k' : 'gk')
+xnoremap <expr> gk (v:count == 0 && mode() !=# "V" ? 'k'  : 'gk')
+
+nnoremap <expr> j  (v:count == 0 ? 'gj' : 'j')
+xnoremap <expr> j  (v:count == 0 && mode() !=# "V" ? 'gj' : 'j')
+nnoremap <expr> gj (v:count == 0 ? 'j' : 'gj')
+xnoremap <expr> gj (v:count == 0 && mode() !=# "V" ? 'j'  : 'gj')
+
 " noremap maps normal mode, visual mode, and operater-pending mode
 " Use sunmap so select mode is not trashed
-noremap k gk
-sunmap  k
-noremap gk k
-sunmap  gk
-
-noremap j gj
-sunmap  j
-noremap gj j
-sunmap  gj
-
 noremap 0 g0
 sunmap  0
 noremap g0 0
