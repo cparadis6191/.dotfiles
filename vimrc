@@ -85,6 +85,10 @@ xnoremap <expr> j  (v:count == 0 && mode() !=# "V" ? 'gj' : 'j')
 nnoremap <expr> gj (v:count == 0 ? 'j' : 'gj')
 xnoremap <expr> gj (v:count == 0 && mode() !=# "V" ? 'j'  : 'gj')
 
+" Break the habit of small navigation steps
+nnoremap h <Nop>
+nnoremap l <Nop>
+
 " noremap maps normal mode, visual mode, and operater-pending mode
 " Use sunmap so select mode is not trashed
 noremap 0 g0
@@ -176,11 +180,18 @@ endif
 " plug#begin() automatically calls
 " filetype plugin indent on
 call plug#begin()
-	Plug 'https://github.com/kien/rainbow_parentheses.vim.git'
-	Plug 'https://github.com/scrooloose/syntastic.git', { 'on': ['SyntasticCheck', 'SyntasticInfo', 'SyntasticReset', 'SyntasticSetLoclist', 'SyntasticToggleMode'] }
-	Plug 'https://github.com/tpope/vim-fugitive.git'
+	Plug 'https://github.com/SirVer/ultisnips'
+	Plug 'https://github.com/honza/vim-snippets'
+	Plug 'https://github.com/kien/rainbow_parentheses.vim'
+	Plug 'https://github.com/scrooloose/syntastic', { 'for': ['c', 'cpp', 'h'] }
+	Plug 'https://github.com/tpope/vim-fugitive'
 	Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
+
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsListSnippets="<C-L>"
+let g:UltiSnipsJumpForwardTrigger="<C-J>"
+let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 
 let g:rbpt_max=16
 let g:rbpt_loadcmd_toggle=0
