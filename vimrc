@@ -182,13 +182,30 @@ endif
 " plug#begin() automatically calls
 " filetype plugin indent on
 call plug#begin()
+	" snipmate plugins
+	Plug 'https://github.com/tomtom/tlib_vim'
+	Plug 'https://github.com/MarcWeber/vim-addon-mw-utils'
+	Plug 'https://github.com/garbas/vim-snipmate'
 	Plug 'https://github.com/honza/vim-snippets'
+
+	" Text manipulation
+	Plug 'https://github.com/Raimondi/delimitMate'
+	Plug 'https://github.com/godlygeek/tabular'
 	Plug 'https://github.com/kien/rainbow_parentheses.vim'
+	Plug 'https://github.com/tpope/vim-commentary'
+	Plug 'https://github.com/tpope/vim-surround'
+
 	Plug 'https://github.com/scrooloose/syntastic', { 'for': ['c', 'cpp', 'h'] }
+	Plug 'https://github.com/airblade/vim-gitgutter'
 	Plug 'https://github.com/tpope/vim-fugitive'
+
+	" Navigation
+	Plug 'https://github.com/Shougo/unite.vim'
+
 	Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
 
+inoremap <C-L> <Esc>:SnipMateOpenSnippetFiles<CR>
 
 let g:rbpt_max=16
 let g:rbpt_loadcmd_toggle=0
@@ -201,3 +218,11 @@ autocmd Syntax   * RainbowParenthesesLoadBraces    " {}
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_wq=0
+
+let g:gitgutter_sign_column_always=1
+let g:gitgutter_realtime=1
+let g:gitgutter_eager=1
+
+call unite#filters#matcher_default#use('matcher_fuzzy')
+nnoremap <C-P> :Unite -start-insert file_rec<CR>
+nnoremap <C-B> :Unite -start-insert buffer<CR>
