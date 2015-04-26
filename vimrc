@@ -182,7 +182,6 @@ endif
 " plug#begin() automatically calls
 " filetype plugin indent on
 call plug#begin()
-	Plug 'https://github.com/SirVer/ultisnips'
 	Plug 'https://github.com/honza/vim-snippets'
 	Plug 'https://github.com/kien/rainbow_parentheses.vim'
 	Plug 'https://github.com/scrooloose/syntastic', { 'for': ['c', 'cpp', 'h'] }
@@ -190,10 +189,6 @@ call plug#begin()
 	Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
 
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsListSnippets="<C-L>"
-let g:UltiSnipsJumpForwardTrigger="<C-J>"
-let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 
 let g:rbpt_max=16
 let g:rbpt_loadcmd_toggle=0
