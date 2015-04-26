@@ -85,10 +85,6 @@ xnoremap <expr> j  (v:count == 0 && mode() !=# "V" ? 'gj' : 'j')
 nnoremap <expr> gj (v:count == 0 ? 'j' : 'gj')
 xnoremap <expr> gj (v:count == 0 && mode() !=# "V" ? 'j'  : 'gj')
 
-" Break the habit of small navigation steps
-nnoremap h <Nop>
-nnoremap l <Nop>
-
 " noremap maps normal mode, visual mode, and operater-pending mode
 " Use sunmap so select mode is not trashed
 noremap 0 g0
@@ -173,6 +169,12 @@ set sessionoptions-=options    " Do not save options in a session
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
 	silent !mkdir -p $HOME/.vim/autoload
 	silent !curl -fLo $HOME/.vim/autoload/plug.vim
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+if empty(glob('$HOME/.vim/autoload/plug.vim'))
+	silent !mkdir -p $HOME/.vim/autoload
+	silent !wget -qO $HOME/.vim/autoload/plug.vim
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
