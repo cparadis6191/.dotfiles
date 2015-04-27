@@ -182,7 +182,7 @@ endif
 " plug#begin() automatically calls
 " filetype plugin indent on
 call plug#begin()
-	" snipmate plugins
+	" SnipMate
 	Plug 'https://github.com/tomtom/tlib_vim'
 	Plug 'https://github.com/MarcWeber/vim-addon-mw-utils'
 	Plug 'https://github.com/garbas/vim-snipmate'
@@ -207,26 +207,31 @@ call plug#begin()
 	Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
 
+" SnipMate
 inoremap <C-L> <Esc>:SnipMateOpenSnippetFiles<CR>
 
+" Rainbow Parentheses
 let g:rbpt_max=16
 let g:rbpt_loadcmd_toggle=0
-
 autocmd VimEnter * RainbowParenthesesToggle
 autocmd Syntax   * RainbowParenthesesLoadRound     " ()
 autocmd Syntax   * RainbowParenthesesLoadSquare    " []
 autocmd Syntax   * RainbowParenthesesLoadBraces    " {}
 
+" a.vim
 nnoremap gA :AT<CR>
 
+" Syntastic
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_wq=0
 
+" Git Gutter
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 
+" Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#default_action('file', 'tabopen')
