@@ -193,6 +193,7 @@ call plug#begin()
 	Plug 'https://github.com/godlygeek/tabular'
 	Plug 'https://github.com/kien/rainbow_parentheses.vim'
 	Plug 'https://github.com/tpope/vim-commentary'
+	Plug 'https://github.com/tpope/vim-repeat'
 	Plug 'https://github.com/tpope/vim-surround'
 
 	Plug 'https://github.com/scrooloose/syntastic', { 'for': ['c', 'cpp', 'h'] }
