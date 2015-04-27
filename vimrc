@@ -201,6 +201,7 @@ call plug#begin()
 
 	" Navigation
 	Plug 'https://github.com/Shougo/unite.vim'
+	Plug 'https://github.com/vim-scripts/a.vim'
 
 	Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
@@ -215,6 +216,8 @@ autocmd Syntax   * RainbowParenthesesLoadRound     " ()
 autocmd Syntax   * RainbowParenthesesLoadSquare    " []
 autocmd Syntax   * RainbowParenthesesLoadBraces    " {}
 
+nnoremap gA :AT<CR>
+
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_wq=0
@@ -224,5 +227,10 @@ let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 
 call unite#filters#matcher_default#use('matcher_fuzzy')
+call unite#filters#sorter_default#use('sorter_rank')
+call unite#custom#default_action('file', 'tabopen')
+call unite#custom#default_action('buffer', 'tabopen')
+call unite#custom#default_action('tab', 'tabopen')
+call unite#custom#default_action('jump_list', 'tabopen')
 nnoremap <C-P> :Unite -start-insert file_rec<CR>
 nnoremap <C-B> :Unite -start-insert buffer<CR>
