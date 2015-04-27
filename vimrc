@@ -227,8 +227,8 @@ let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 
-call unite#filters#matcher_default#use('matcher_fuzzy')
-call unite#filters#sorter_default#use('sorter_rank')
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#default_action('file', 'tabopen')
 call unite#custom#default_action('buffer', 'tabopen')
 call unite#custom#default_action('tab', 'tabopen')
