@@ -64,9 +64,6 @@ set autoindent      " Copy indent from current line when starting a new line
 set copyindent      " Copy whitespace for indenting from previous line
 
 " -- folding --
-set foldlevelstart=99    " Buffers start with all folds open
-set foldmethod=syntax
-
 " -- diff mode --
 
 " -- mapping --
