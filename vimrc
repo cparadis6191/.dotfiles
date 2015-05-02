@@ -106,17 +106,17 @@ nnoremap Y y$
 xnoremap > >gv
 xnoremap < <gv
 
-" Use <C-H> and <C-L> to cycle through tabs
-nnoremap <C-L> gt
-nnoremap <C-H> gT
+" Navigate splits more easily
+nnoremap <C-K> <C-W>k
+nnoremap <C-J> <C-W>j
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
 
-" Open file under cursor in new tab
-nnoremap gf <C-W>gf
-nnoremap <C-W>gf gf
-
-" Open file under cursor in new tab and jump to line number
-nnoremap <C-W>gF gF
-nnoremap gF <C-W>gF
+" Move splits around more easily
+nnoremap <C-UP>    <C-W>K
+nnoremap <C-DOWN>  <C-W>J
+nnoremap <C-LEFT>  <C-W>H
+nnoremap <C-RIGHT> <C-W>L
 
 " Open file under cursor in new tab instead of a new buffer
 nnoremap      gf <C-W>gf
@@ -129,10 +129,8 @@ nnoremap <C-W>gF      gF
 xnoremap <C-W>gF      gF
 
 " Navigate buffers similar to tabs
-nnoremap gb :bnext<CR>
 nnoremap gB :bprev<CR>
-nnoremap <C-K> :bnext<CR>
-nnoremap <C-J> :bprev<CR>
+nnoremap gb :bnext<CR>
 
 " Use Q for executing last macro
 nnoremap Q @q
