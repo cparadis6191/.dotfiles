@@ -118,6 +118,16 @@ nnoremap <C-W>gf gf
 nnoremap <C-W>gF gF
 nnoremap gF <C-W>gF
 
+" Open file under cursor in new tab instead of a new buffer
+nnoremap      gf <C-W>gf
+xnoremap      gf <C-W>gf
+nnoremap <C-W>gf      gf
+xnoremap <C-W>gf      gf
+nnoremap      gF <C-W>gF
+xnoremap      gF <C-W>gF
+nnoremap <C-W>gF      gF
+xnoremap <C-W>gF      gF
+
 " Navigate buffers similar to tabs
 nnoremap gb :bnext<CR>
 nnoremap gB :bprev<CR>
