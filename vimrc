@@ -83,22 +83,21 @@ xnoremap <expr> j  (v:count == 0 && mode() !=# 'V' ? 'gj' : 'j')
 nnoremap <expr> gj (v:count == 0 ? 'j' : 'gj')
 xnoremap <expr> gj (v:count == 0 && mode() !=# 'V' ? 'j'  : 'gj')
 
-" noremap maps normal mode, visual mode, and operater-pending mode
-" Use sunmap so select mode is not trashed
-noremap 0 g0
-sunmap  0
-noremap g0 0
-sunmap  g0
+" Only remap normal mode and visual mode
+nnoremap 0  g0
+xnoremap 0  g0
+nnoremap g0 0
+xnoremap g0 0
 
-noremap ^ g^
-sunmap  ^
-noremap g^ ^
-sunmap  g^
+nnoremap ^  g^
+xnoremap ^  g^
+nnoremap g^ ^
+xnoremap g^ ^
 
-noremap $ g$
-sunmap  $
-noremap g$ $
-sunmap  g$
+nnoremap $  g$
+xnoremap $  g$
+nnoremap g$ $
+xnoremap g$ $
 
 " Make Y behave more like C and D
 nnoremap Y y$
