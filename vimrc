@@ -33,7 +33,7 @@ set cursorcolumn             " Highlight the current column
 
 " -- multiple windows --
 set laststatus=2    " Always show the statusline
-let &statusline='%<%f %y%h%m%r %{exists("g:loaded_fugitive") ? fugitive#statusline() : ""} %#warningmsg#%{exists("g:loaded_syntastic_plugin") ? SyntasticStatuslineFlag() : ""}%*%=%-2b %-4(0x%B%) %-15(%l,%c%V%) %P'
+let &statusline='%<%f %y%h%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %#warningmsg#%{(exists("g:loaded_syntastic_plugin")) ? SyntasticStatuslineFlag() : ""}%*%=%-2b %-4(0x%B%) %-15(%l,%c%V%) %P'
 set hidden          " Hide buffers instead of closing them
 
 " -- multiple tab pages --
