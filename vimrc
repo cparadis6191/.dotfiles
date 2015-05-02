@@ -71,18 +71,18 @@ set copyindent      " Copy whitespace for indenting from previous line
 " Navigate wrapped lines in a sane way
 " Only map normal mode and visual mode
 " Navigate linewise in normal mode and with a count
-nnoremap <expr> k   (v:count == 0)                      ? 'gk' : 'k'
 " Navigate wrapped linewise in visual mode and blockwise-visual mode and without a count
 " mode() returns the current editing mode
 " !=# is a case sensitive comparison
-xnoremap <expr> k  ((v:count == 0) && (mode() !=# 'V')) ? 'gk' : 'k'
-nnoremap <expr> gk  (v:count == 0)                      ? 'k'  : 'gk'
-xnoremap <expr> gk ((v:count == 0) && (mode() !=# 'V')) ? 'k'  : 'gk'
-
 nnoremap <expr> j   (v:count == 0)                      ? 'gj' : 'j'
 xnoremap <expr> j  ((v:count == 0) && (mode() !=# 'V')) ? 'gj' : 'j'
 nnoremap <expr> gj  (v:count == 0)                      ? 'j'  : 'gj'
 xnoremap <expr> gj ((v:count == 0) && (mode() !=# 'V')) ? 'j'  : 'gj'
+
+nnoremap <expr> k   (v:count == 0)                      ? 'gk' : 'k'
+xnoremap <expr> k  ((v:count == 0) && (mode() !=# 'V')) ? 'gk' : 'k'
+nnoremap <expr> gk  (v:count == 0)                      ? 'k'  : 'gk'
+xnoremap <expr> gk ((v:count == 0) && (mode() !=# 'V')) ? 'k'  : 'gk'
 
 " Only remap normal mode and visual mode
 nnoremap 0  g0
@@ -108,15 +108,15 @@ xnoremap > >gv
 xnoremap < <gv
 
 " Navigate splits more easily
-nnoremap <C-K> <C-W>k
-nnoremap <C-J> <C-W>j
 nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
 " Move splits around more easily
-nnoremap <C-UP>    <C-W>K
-nnoremap <C-DOWN>  <C-W>J
 nnoremap <C-LEFT>  <C-W>H
+nnoremap <C-DOWN>  <C-W>J
+nnoremap <C-UP>    <C-W>K
 nnoremap <C-RIGHT> <C-W>L
 
 " Open file under cursor in new tab instead of a new buffer
