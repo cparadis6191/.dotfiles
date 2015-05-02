@@ -240,3 +240,4 @@ call unite#custom#default_action('tab', 'tabopen')
 call unite#custom#default_action('jump_list', 'tabopen')
 nnoremap <C-P> :Unite -start-insert file_rec<CR>
 nnoremap <C-B> :Unite -start-insert buffer<CR>
+nnoremap <C-G> :Unite vimgrep<CR><CR>
