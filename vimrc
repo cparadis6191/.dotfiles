@@ -24,6 +24,7 @@ endif
 set list    " Used to position the cursor at the left edge of a tab
 let &listchars='tab:  '
 
+set lazyredraw
 set number
 
 " -- syntax, highlighting and spelling --
@@ -41,6 +42,8 @@ set showtabline=2    " Always show the tabline
 set tabpagemax=99    " Increase the max number of tabs opened at once
 
 " -- terminal --
+set title
+
 " -- using the mouse --
 " -- printing --
 
@@ -52,11 +55,13 @@ set clipboard=unnamed    " Default to the system clipboard
 
 " -- editing text --
 set undolevels=999                " Increase history size for undoing edits
+set undoreload=9999
 set backspace=indent,eol,start    " Allow backspace in insert mode
+set formatoptions+=j              " Joining comments will remove the comment leader of the lower line
 
 " -- tabs and indenting --
 set tabstop=4       " Tab size is 4 spaces
-set shiftwidth=4    " Sets < and > shifts to be 4 characters
+set shiftwidth=0    " Sets < and > shifts to be the value of tabstop
 set shiftround      " When using < and > rounds to the nearest multiple of shiftwidth
 set autoindent      " Copy indent from current line when starting a new line
 set copyindent      " Copy whitespace for indenting from previous line
@@ -141,6 +146,8 @@ if empty(glob('$HOME/.vim/backup'))
 endif
 set backupdir^=$HOME/.vim/backup//
 
+set autowrite    " Save on commands like :suspend or :make
+
 " -- the swap file --
 if empty(glob('$HOME/.vim/swap'))
 	silent !mkdir -p $HOME/.vim/swap
@@ -165,9 +172,9 @@ set undodir^=$HOME/.vim/undo//
 " -- multi-byte characters --
 
 " -- various --
-set exrc                       " Use project specific .exrc files
+set exrc        " Use project specific .exrc files
 set secure
-set sessionoptions-=options    " Do not save options in a session
+set gdefault    " Use the 'g' flag for ":substitute"
 
 " -- plugins --
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
