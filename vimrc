@@ -46,7 +46,6 @@ set tabpagemax=99    " Increase the max number of tabs opened at once
 
 " -- messages and info --
 set showcmd    " Show incomplete commands at the bottom
-set ruler      " Information about cursor placement
 
 " -- selecting text --
 set clipboard=unnamed    " Default to the system clipboard
@@ -59,7 +58,6 @@ set backspace=indent,eol,start    " Allow backspace in insert mode
 set tabstop=4       " Tab size is 4 spaces
 set shiftwidth=4    " Sets < and > shifts to be 4 characters
 set shiftround      " When using < and > rounds to the nearest multiple of shiftwidth
-set noexpandtab     " Strictly use tabs when tab is pressed (this is the default)
 set autoindent      " Copy indent from current line when starting a new line
 set copyindent      " Copy whitespace for indenting from previous line
 
