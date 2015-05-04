@@ -58,6 +58,7 @@ set undolevels=999                " Increase history size for undoing edits
 set undoreload=9999
 set backspace=indent,eol,start    " Allow backspace in insert mode
 set formatoptions+=j              " Joining comments will remove the comment leader of the lower line
+set nojoinspaces                  " Joining lines at a '.' will not insert an extra space
 
 " -- tabs and indenting --
 set tabstop=4       " Tab size is 4 spaces
@@ -138,6 +139,10 @@ nnoremap gb :bnext<CR>
 
 " Use Q for executing last macro
 nnoremap Q @q
+
+" Search for visual selecions
+xnoremap * "zy/<C-R>z<CR>
+xnoremap # "zy?<C-R>z<CR>
 
 " -- reading and writing files --
 set backup
@@ -244,10 +249,8 @@ let g:gitgutter_eager=1
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#default_action('file', 'tabopen')
-call unite#custom#default_action('buffer', 'tabopen')
-call unite#custom#default_action('tab', 'tabopen')
-call unite#custom#default_action('jump_list', 'tabopen')
+call unite#custom#default_action('file', 'tabswitch')
+call unite#custom#default_action('buffer', 'tabswitch')
 nnoremap <C-P> :Unite -start-insert file_rec<CR>
 nnoremap <C-B> :Unite -start-insert buffer<CR>
 nnoremap <C-G> :Unite vimgrep<CR><CR>
