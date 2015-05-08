@@ -4,21 +4,9 @@
 
 [alias]
 	edit = !$EDITOR $(git ls-files --modified)
-[color]
-	branch = true
-	diff = true
-	interactive = true
-	status = true
-	ui = true
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
-	filemode = false
-	ignorecase = false
-[credential]
-	helper = cache --timeout=1800
-[diff]
-	renames = true
 [push]
 	default = simple
 [user]
