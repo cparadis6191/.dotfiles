@@ -251,6 +251,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#default_action('file', 'tabswitch')
 call unite#custom#default_action('buffer', 'tabswitch')
+call unite#custom#default_action('jump_list', 'tabswitch')
 nnoremap <C-P> :Unite -start-insert file_rec<CR>
 nnoremap <C-B> :Unite -start-insert buffer<CR>
 nnoremap <C-G> :Unite vimgrep<CR><CR>
