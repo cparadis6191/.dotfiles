@@ -2,6 +2,8 @@
 # Author: Chad Paradis
 
 
+[alias]
+	edit = !$EDITOR $(git ls-files --modified)
 [color]
 	branch = true
 	diff = true
@@ -9,7 +11,7 @@
 	status = true
 	ui = true
 [core]
-	editor = vim
+	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
 	filemode = false
 	ignorecase = false
@@ -17,7 +19,7 @@
 	helper = cache --timeout=1800
 [diff]
 	renames = true
-[user]
-	name = Chad Paradis
 [push]
 	default = simple
+[user]
+	name = Chad Paradis
