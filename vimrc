@@ -201,7 +201,7 @@ call plug#begin()
 	Plug 'https://github.com/tomtom/tlib_vim'
 	Plug 'https://github.com/MarcWeber/vim-addon-mw-utils'
 	Plug 'https://github.com/garbas/vim-snipmate'
-	Plug 'https://github.com/honza/vim-snippets'
+	Plug 'https://github.com/cparadis6191/vim-snippets'
 
 	" Text manipulation
 	Plug 'https://github.com/Raimondi/delimitMate'
