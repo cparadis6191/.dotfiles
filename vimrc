@@ -204,9 +204,9 @@ call plug#begin()
 	Plug 'https://github.com/cparadis6191/vim-snippets'
 
 	" Text manipulation
-	Plug 'https://github.com/Raimondi/delimitMate'
+	Plug 'https://github.com/cohama/lexima.vim'
 	Plug 'https://github.com/godlygeek/tabular'
-	Plug 'https://github.com/kien/rainbow_parentheses.vim'
+	Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 	Plug 'https://github.com/tpope/vim-commentary'
 	Plug 'https://github.com/tpope/vim-repeat'
 	Plug 'https://github.com/tpope/vim-surround'
@@ -226,12 +226,9 @@ call plug#end()
 inoremap <C-L> <Esc>:SnipMateOpenSnippetFiles<CR>
 
 " Rainbow Parentheses
-let g:rbpt_max=16
-let g:rbpt_loadcmd_toggle=0
-autocmd VimEnter * RainbowParenthesesToggle
-autocmd Syntax   * RainbowParenthesesLoadRound     " ()
-autocmd Syntax   * RainbowParenthesesLoadSquare    " []
-autocmd Syntax   * RainbowParenthesesLoadBraces    " {}
+let g:rainbow#max_level=16
+let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
+autocmd VimEnter * RainbowParentheses
 
 " a.vim
 nnoremap gA :AT<CR>
