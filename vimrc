@@ -253,4 +253,9 @@ nnoremap <C-P> :Unite -start-insert file_rec<CR>
 nnoremap <C-B> :Unite -start-insert buffer<CR>
 nnoremap <C-G> :Unite vimgrep<CR><CR>
 
+" a.vim
+autocmd VimEnter * iunmap <Leader>ihn
+autocmd VimEnter * iunmap <Leader>ih
+autocmd VimEnter * iunmap <Leader>is
+
 let g:vimwiki_list=[{'path': '$HOME/Dropbox/Private/vimwiki'}]
