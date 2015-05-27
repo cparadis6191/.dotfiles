@@ -177,9 +177,10 @@ set undodir^=$HOME/.vim/undo//
 " -- multi-byte characters --
 
 " -- various --
-set exrc        " Use project specific .exrc files
+set exrc                       " Use project specific .exrc files
 set secure
-set gdefault    " Use the 'g' flag for ":substitute"
+set gdefault                   " Use the 'g' flag for ":substitute"
+set sessionoptions-=options    " Do not save options in sessions
 
 " -- plugins --
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
