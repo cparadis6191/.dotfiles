@@ -151,8 +151,6 @@ if empty(glob('$HOME/.vim/backup'))
 endif
 set backupdir^=$HOME/.vim/backup//
 
-set autowrite    " Save on commands like :suspend or :make
-
 " -- the swap file --
 if empty(glob('$HOME/.vim/swap'))
 	silent !mkdir -p $HOME/.vim/swap
