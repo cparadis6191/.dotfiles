@@ -3,7 +3,8 @@
 
 
 [alias]
-	edit = !$EDITOR $(git ls-files --modified)
+	edit =   !$EDITOR $(git ls-files --modified)
+	mmerge = !$EDITOR $(git ls-files --unmerged)
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global

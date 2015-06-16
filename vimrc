@@ -141,8 +141,8 @@ nnoremap gb :bnext<CR>
 nnoremap Q @q
 
 " Search for visual selecions
-xnoremap * "zy/<C-R>z<CR>
-xnoremap # "zy?<C-R>z<CR>
+xnoremap * "zy/\V<C-R>z<CR>
+xnoremap # "zy?\V<C-R>z<CR>
 
 " -- reading and writing files --
 set backup
@@ -203,7 +203,6 @@ call plug#begin()
 	Plug 'https://github.com/honza/vim-snippets'
 
 	" Text manipulation
-	Plug 'https://github.com/cohama/lexima.vim'
 	Plug 'https://github.com/godlygeek/tabular'
 	Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 	Plug 'https://github.com/tpope/vim-commentary'
@@ -216,7 +215,6 @@ call plug#begin()
 
 	" Navigation
 	Plug 'https://github.com/Shougo/unite.vim'
-	Plug 'https://github.com/vim-scripts/a.vim'
 
 	Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
@@ -228,9 +226,6 @@ imap <C-L> <C-R><Tab>
 let g:rainbow#max_level=16
 let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
 autocmd VimEnter * RainbowParentheses
-
-" a.vim
-nnoremap gA :AT<CR>
 
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
@@ -251,10 +246,5 @@ call unite#custom#default_action('jump_list', 'tabswitch')
 nnoremap <C-P> :Unite -start-insert file_rec<CR>
 nnoremap <C-B> :Unite -start-insert buffer<CR>
 nnoremap <C-G> :Unite vimgrep<CR><CR>
-
-" a.vim
-autocmd VimEnter * iunmap <Leader>ihn
-autocmd VimEnter * iunmap <Leader>ih
-autocmd VimEnter * iunmap <Leader>is
 
 let g:vimwiki_list=[{'path': '$HOME/Dropbox/Private/vimwiki'}]
