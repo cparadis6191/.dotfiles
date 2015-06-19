@@ -28,7 +28,7 @@ shopt -s histappend      # Append to history instead of overwriting it
 HISTSIZE=9999
 
 # -- Aliases --
-export EDITOR='vim -p'
+export EDITOR='vim'
 
 # Interactive operation
 alias rm='rm -I'

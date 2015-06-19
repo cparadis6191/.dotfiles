@@ -38,8 +38,6 @@ let &statusline='%<%f %y%h%m%r %{(exists("g:loaded_fugitive")) ? fugitive#status
 set hidden          " Hide buffers instead of closing them
 
 " -- multiple tab pages --
-set showtabline=2    " Always show the tabline
-set tabpagemax=99    " Increase the max number of tabs opened at once
 
 " -- terminal --
 set title
@@ -123,21 +121,13 @@ nnoremap <C-DOWN>  <C-W>J
 nnoremap <C-UP>    <C-W>K
 nnoremap <C-RIGHT> <C-W>L
 
-" Open file under cursor in new tab instead of a new buffer
-nnoremap      gf <C-W>gf
-xnoremap      gf <C-W>gf
-nnoremap <C-W>gf      gf
-xnoremap <C-W>gf      gf
-nnoremap      gF <C-W>gF
-xnoremap      gF <C-W>gF
-nnoremap <C-W>gF      gF
-xnoremap <C-W>gF      gF
-
 " Navigate buffers similar to tabs
 nnoremap gB :bprev<CR>
 nnoremap gb :bnext<CR>
 
 " Use Q for executing last macro
+" Switch to last used buffer
+nnoremap gl <C-^>
 nnoremap Q @q
 
 " Search for visual selecions
@@ -240,9 +230,6 @@ let g:gitgutter_eager=1
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#default_action('file', 'tabswitch')
-call unite#custom#default_action('buffer', 'tabswitch')
-call unite#custom#default_action('jump_list', 'tabswitch')
 nnoremap <C-P> :Unite -start-insert file_rec<CR>
 nnoremap <C-B> :Unite -start-insert buffer<CR>
 nnoremap <C-G> :Unite vimgrep<CR><CR>
