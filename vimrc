@@ -21,9 +21,6 @@ if exists('+breakindent')
 	let &showbreak='  > '
 endif
 
-set list    " Used to position the cursor at the left edge of a tab
-let &listchars='tab:  '
-
 set lazyredraw
 set number
 
@@ -93,9 +90,10 @@ nnoremap <C-RIGHT> <C-W>L
 nnoremap gB :bprev<CR>
 nnoremap gb :bnext<CR>
 
-" Use Q for executing last macro
 " Switch to last used buffer
 nnoremap gl <C-^>
+
+" Use Q for executing the macro in the q register
 nnoremap Q @q
 
 " Search for visual selecions
@@ -167,6 +165,7 @@ call plug#begin()
 	Plug 'https://github.com/tpope/vim-repeat'
 	Plug 'https://github.com/tpope/vim-surround'
 
+	" Programming
 	Plug 'https://github.com/scrooloose/syntastic', {'for': ['c', 'cpp', 'h']}
 	Plug 'https://github.com/airblade/vim-gitgutter'
 	Plug 'https://github.com/tpope/vim-fugitive'
