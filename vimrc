@@ -70,38 +70,6 @@ set copyindent      " Copy whitespace for indenting from previous line
 
 " -- mapping --
 " Comments CANNOT be on the same line as a map
-" Navigate wrapped lines in a sane way
-" Only map normal mode and visual mode
-" Navigate linewise in normal mode and with a count
-" Navigate wrapped linewise in visual mode and blockwise-visual mode and without a count
-" mode() returns the current editing mode
-" !=# is a case sensitive comparison
-nnoremap <expr> j   (v:count == 0)                      ? 'gj' : 'j'
-xnoremap <expr> j  ((v:count == 0) && (mode() !=# 'V')) ? 'gj' : 'j'
-nnoremap <expr> gj  (v:count == 0)                      ? 'j'  : 'gj'
-xnoremap <expr> gj ((v:count == 0) && (mode() !=# 'V')) ? 'j'  : 'gj'
-
-nnoremap <expr> k   (v:count == 0)                      ? 'gk' : 'k'
-xnoremap <expr> k  ((v:count == 0) && (mode() !=# 'V')) ? 'gk' : 'k'
-nnoremap <expr> gk  (v:count == 0)                      ? 'k'  : 'gk'
-xnoremap <expr> gk ((v:count == 0) && (mode() !=# 'V')) ? 'k'  : 'gk'
-
-" Only remap normal mode and visual mode
-nnoremap 0  g0
-xnoremap 0  g0
-nnoremap g0 0
-xnoremap g0 0
-
-nnoremap ^  g^
-xnoremap ^  g^
-nnoremap g^ ^
-xnoremap g^ ^
-
-nnoremap $  g$
-xnoremap $  g$
-nnoremap g$ $
-xnoremap g$ $
-
 " Make Y behave more like C and D
 nnoremap Y y$
 
