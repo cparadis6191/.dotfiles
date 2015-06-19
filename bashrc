@@ -48,7 +48,6 @@ alias lt='ls -Lt'                 # Long list sorted by time
 
 alias indent='indent -linux -br -brf -brs'
 alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'    # Make less display line number like systemctl
-alias vim=$EDITOR                # Make vim open with tabs
 
 # -- Umask --
 # -- Functions --
