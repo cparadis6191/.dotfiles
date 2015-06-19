@@ -117,7 +117,6 @@ set directory^=$HOME/.vim/swap//
 set history=999              " Increase history size for commands and search patterns
 set wildmode=longest:full    " Make autocomplete more bash-like
 set wildmenu                 " List external files instead of just autocompleting
-set wildoptions=tagfile      " List autocomplete for command line options
 
 set undofile
 if empty(glob('$HOME/.vim/undo'))
