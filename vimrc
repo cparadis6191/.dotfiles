@@ -46,7 +46,7 @@ set title
 set showcmd    " Show incomplete commands at the bottom
 
 " -- selecting text --
-set clipboard=unnamed    " Default to the system clipboard
+set clipboard^=unnamed    " Default to the system clipboard
 
 " -- editing text --
 set undolevels=999                " Increase history size for undoing edits
