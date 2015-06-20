@@ -4,7 +4,7 @@
 
 [alias]
 	edit =   !$EDITOR $(git ls-files --modified)
-	mmerge = !$EDITOR $(git ls-files --unmerged | rev | cut -f1 | rev | sort --unique)
+	mmerge = !$EDITOR $(git ls-files --unmerged | rev | cut -f1 | rev | sort -u)
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global

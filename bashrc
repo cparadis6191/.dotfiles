@@ -31,20 +31,19 @@ HISTSIZE=9999
 export EDITOR='vim'
 
 # Interactive operation
-alias rm='rm -I'
+alias rm='rm -I'    # Prompt once before removing more than three files
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias mkdir='mkdir -pv'
+alias mkdir='mkdir -pv'    # Make parent directories as needed
 
 alias grep='grep --color=auto'    # Show differences in colour
-alias egrep='grep -e'             # Extended regexp support
 
 # Some shortcuts for different directory listings
-alias ls='ls -h --color=auto'     # Classify files in colour
-alias la='ls -A'                  # All but . and ..
-alias ll='ls -lA'                 # Long list
-alias lt='ls -t'                 # Long list sorted by time
+alias ls='ls --color=auto'    # Classify files in colour
+alias la='ls -A'              # All but . and ..
+alias ll='ls -Ahl'            # Long list
+alias lt='ls -Ahlt'           # Long list sorted by time
 
 alias indent='indent -linux -br -brf -brs'
 alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'    # Make less display line number like systemctl
