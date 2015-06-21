@@ -49,7 +49,7 @@ set undolevels=999                " Increase history size for undoing edits
 set undoreload=9999
 set backspace=indent,eol,start    " Allow backspace in insert mode
 set formatoptions+=j              " Joining comments will remove the comment leader of the lower line
-set nojoinspaces                  " Joining lines at a '.' will not insert an extra space
+set nojoinspaces                  " Joining lines at punctuation will not insert an extra space
 
 " -- tabs and indenting --
 set tabstop=4       " Tab size is 4 spaces
