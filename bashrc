@@ -1,5 +1,7 @@
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+if [[ $- != *i* ]]; then
+	return
+fi
 
 # -- Shell Options --
 # See man bash for more options...
@@ -7,7 +9,7 @@ PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\
 PS2='  > '    # Another custom prompt if a quote is not closed
 
 # If running in a nice gui terminal emulator set the window title
-if [ ! "$TERM" == 'linux' ] && [ ! "$TERM" == 'console' ]; then
+if [[ "$TERM" != 'linux' ]] && [[ "$TERM" != 'console' ]]; then
 	PROMPT_COMMAND='echo -ne "\033]0;$TERM $SHELL $PWD\007"'
 fi
 
@@ -48,6 +50,6 @@ alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?
 # -- Functions --
 
 # -- Local Environment --
-if [ -f $HOME/.bashrc.local ]; then
-	source $HOME/.bashrc.local
+if [[ -f "$HOME/.bashrc.local" ]]; then
+	source "$HOME/.bashrc.local"
 fi
