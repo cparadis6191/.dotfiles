@@ -2,13 +2,13 @@
 # Create symlinks in $HOME to the specified dotfiles in .dotfiles
 
 
-olddir="$HOME/.dotfiles.bak"    # old dotfiles backup directory
+olddir="$HOME/.dotfiles.bak"    # Old dotfiles backup directory
 
-files="bash_profile bashrc gitconfig gitignore_global minttyrc vimrc"    # list of files/folders to symlink in homedir
+files="bash_profile bashrc gitconfig gitignore_global minttyrc vimrc"    # List of files/folders to symlink in homedir
 folders="vim"
 files+=" $folders"
 
-# create .dotfiles.bak in homedir
+# Create .dotfiles.bak in homedir
 if [ ! -d "$olddir" ]; then
 	echo "Creating $olddir for backup of any existing dotfiles in $HOME"
 	mkdir -p "$olddir"
@@ -16,7 +16,7 @@ else
 	echo "$olddir already exists"
 fi
 
-# create all necessary local folders
+# Create all necessary local folders
 for folder in $folders; do
 	if [ ! -d "$folder" ]; then
 		echo "Creating $folder to link to from $HOME"
@@ -24,7 +24,7 @@ for folder in $folders; do
 	fi
 done
 
-# move any existing dotfiles in $HOME to $HOME/.dotfiles.bak, then create symlinks from $HOME to any files in the $HOME/.dotfiles directory specified in $files
+# Move any existing dotfiles in $HOME to $HOME/.dotfiles.bak, then create symlinks from $HOME to any files in the .dotfiles directory specified in $files
 for file in $files; do
 	if [ -h "$HOME/.$file" ]; then
 		echo "Symlink for .$file already exists"
