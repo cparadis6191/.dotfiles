@@ -1,7 +1,3 @@
-# .gitignore_global - Use link.sh to create a symbolic link in $HOME
-# Author: Chad Paradis
-
-
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 *.un~

@@ -1,7 +1,3 @@
-# .bashrc - Use link.sh to create a symbolic link in $HOME
-# Author: Chad Paradis
-
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

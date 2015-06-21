@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# link.sh - Create symlinks from $HOME to the specified dotfiles in $HOME/.dotfiles
-# Author: Chad Paradis
+# Create symlinks in $HOME to the specified dotfiles in .dotfiles
 
 
 olddir="$HOME/.dotfiles.bak"    # old dotfiles backup directory

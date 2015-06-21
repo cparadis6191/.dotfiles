@@ -1,7 +1,3 @@
-# .bash_profile - Use link.sh to create a symbolic link in $HOME
-# Author: Chad Paradis
-
-
 # Source the users bashrc if it exists
 if [ -f "$HOME/.bashrc" ]; then
 	source "$HOME/.bashrc"

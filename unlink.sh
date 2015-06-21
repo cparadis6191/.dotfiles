@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# unlink.sh - Restore old dotfiles from $olddir back to $HOME
-# Author: Chad Paradis
+# Restore old dotfiles from $olddir back to $HOME
 
 
 olddir="$HOME/.dotfiles.bak"    # old dotfiles backup directory

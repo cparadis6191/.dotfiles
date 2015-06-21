@@ -1,7 +1,3 @@
-" .vimrc - Use link.sh to create a symbolic link in $HOME
-" Author: Chad Paradis
-
-
 " -- important --
 set nocompatible    " Use the full power of Vim
 
