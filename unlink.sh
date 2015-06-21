@@ -3,7 +3,6 @@
 # Author: Chad Paradis
 
 
-dir="$HOME/.dotfiles"           # dotfiles directory
 olddir="$HOME/.dotfiles.bak"    # old dotfiles backup directory
 
 files="bash_profile bashrc gitconfig gitignore_global minttyrc vimrc"    # list of files/folders to symlink in homedir

@@ -3,7 +3,6 @@
 # Author: Chad Paradis
 
 
-dir="$HOME/.dotfiles"           # dotfiles directory
 olddir="$HOME/.dotfiles.bak"    # old dotfiles backup directory
 
 files="bash_profile bashrc gitconfig gitignore_global minttyrc vimrc"    # list of files/folders to symlink in homedir
@@ -38,6 +37,6 @@ for file in $files; do
 		fi
 	fi
 
-	echo "Making symlink from $HOME/.$file to $dir/$file"
-	ln -s "$dir/$file" "$HOME/.$file"
+	echo "Making symlink from $HOME/.$file to $file"
+	ln -s "`pwd`/$file" "$HOME/.$file"
 done
