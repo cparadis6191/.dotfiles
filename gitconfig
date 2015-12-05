@@ -1,9 +1,16 @@
 [alias]
 	edit =   !$EDITOR $(git ls-files --modified)
 	mmerge = !$EDITOR $(git ls-files --unmerged | rev | cut -f1 | rev | sort -u)
+	dt = difftool
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
 [push]
 	default = simple
 [user]
