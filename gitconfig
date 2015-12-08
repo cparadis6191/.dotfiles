@@ -1,7 +1,8 @@
 [alias]
-	edit =   !$EDITOR $(git ls-files --modified)
-	mmerge = !$EDITOR $(git ls-files --unmerged | rev | cut -f1 | rev | sort -u)
 	dt = difftool
+	edit = !$EDITOR $(git ls-files --modified)
+	graph = log --date=relative --decorate --graph --oneline
+	mt = mergetool
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
