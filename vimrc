@@ -70,18 +70,6 @@ nnoremap Y y$
 xnoremap > >gv
 xnoremap < <gv
 
-" Navigate splits more easily
-nnoremap <C-H> <C-W>h
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-L> <C-W>l
-
-" Move splits around more easily
-nnoremap <C-LEFT>  <C-W>H
-nnoremap <C-DOWN>  <C-W>J
-nnoremap <C-UP>    <C-W>K
-nnoremap <C-RIGHT> <C-W>L
-
 " Navigate buffers similar to tabs
 nnoremap gB :bprev<CR>
 nnoremap gb :bnext<CR>
@@ -167,6 +155,7 @@ call plug#begin()
 
 	" Navigation
 	Plug 'https://github.com/Shougo/unite.vim'
+	Plug 'https://github.com/Shougo/neoyank.vim'
 
 	Plug 'https://github.com/vimwiki/vimwiki'
 call plug#end()
@@ -192,8 +181,11 @@ let g:gitgutter_eager=1
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
+nnoremap <C-B> :Unite buffer<CR>
 nnoremap <C-P> :Unite -start-insert file_rec<CR>
-nnoremap <C-B> :Unite -start-insert buffer<CR>
 nnoremap <C-G> :Unite vimgrep<CR><CR>
+
+" neoyank
+nnoremap <C-K> :Unite history/yank<CR>
 
 let g:vimwiki_list=[{'path': '$HOME/Dropbox/Private/vimwiki'}]
