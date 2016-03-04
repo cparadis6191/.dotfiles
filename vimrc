@@ -7,6 +7,7 @@ set ignorecase    " When doing a search, ignore the case of letters
 set smartcase     " Override the ignorecase option if the search pattern contains upper case letters
 
 " -- tags --
+set tags=./.tags;
 
 " -- displaying text --
 set scrolloff=5    " Keep the cursor at least five lines from the bottom or top
@@ -64,6 +65,8 @@ set copyindent      " Copy whitespace for indenting from previous line
 " -- mapping --
 " Comments CANNOT be on the same line as a map
 " Make Y behave more like C and D
+let mapleader="\<Space>"
+
 nnoremap Y y$
 
 " Shifting in visual mode now reselects the block
@@ -157,7 +160,10 @@ call plug#begin()
 	Plug 'https://github.com/Shougo/unite.vim'
 	Plug 'https://github.com/Shougo/neoyank.vim'
 
-	Plug 'https://github.com/vimwiki/vimwiki'
+	Plug 'https://github.com/xolox/vim-easytags.git'
+	Plug 'https://github.com/xolox/vim-misc.git'
+	Plug 'https://github.com/tsukkee/unite-tag.git'
+	Plug 'https://github.com/majutsushi/tagbar.git'
 call plug#end()
 
 " SnipMate
@@ -181,11 +187,16 @@ let g:gitgutter_eager=1
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-nnoremap <C-B> :Unite buffer<CR>
-nnoremap <C-P> :Unite -start-insert file_rec<CR>
-nnoremap <C-G> :Unite vimgrep<CR><CR>
+nnoremap <Leader>b :Unite buffer<CR>
+nnoremap <Leader>f :Unite -start-insert file_rec<CR>
+nnoremap <Leader>g :Unite vimgrep<CR><CR>
 
 " neoyank
-nnoremap <C-K> :Unite history/yank<CR>
+nnoremap <Leader>y :Unite history/yank<CR>
 
-let g:vimwiki_list=[{'path': '$HOME/Dropbox/Private/vimwiki'}]
+" ctags
+let g:easytags_dynamic_files = 2
+let g:easytags_events=['BufWritePost']
+let g:easytags_on_cursorhold=0
+
+map <Leader>t :TagbarToggle<CR>
