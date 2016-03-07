@@ -149,7 +149,6 @@ call plug#begin()
 	Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 
 	" Navigation
-	Plug 'https://github.com/vim-scripts/a.vim'
 	Plug 'https://github.com/Shougo/unite.vim'
 	Plug 'https://github.com/Shougo/neoyank.vim'
 	Plug 'https://github.com/tsukkee/unite-tag'
@@ -163,11 +162,11 @@ call plug#begin()
 	" Programming
 	Plug 'https://github.com/airblade/vim-gitgutter'
 	Plug 'https://github.com/tpope/vim-fugitive'
-	Plug 'https://github.com/scrooloose/syntastic', {'for': ['c', 'cpp', 'h']}
+	Plug 'https://github.com/scrooloose/syntastic', {'on': ['SyntasticCheck', 'SyntasticToggle']}
 
 	" tags
 	Plug 'https://github.com/xolox/vim-misc'
-	Plug 'https://github.com/xolox/vim-easytags'
+	Plug 'https://github.com/xolox/vim-easytags', {'on': ['UpdateTags', 'HighlightTags']}
 	Plug 'https://github.com/majutsushi/tagbar'
 call plug#end()
 
@@ -186,7 +185,7 @@ let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 
 " Syntastic
-nnoremap <Leader>s :SyntasticCheck<CR>
+nnoremap <Leader>sc :SyntasticCheck<CR>
 let g:syntastic_mode_map={'mode': 'passive'}
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
@@ -194,15 +193,10 @@ let g:syntastic_auto_loc_list=1
 " unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-nnoremap <Leader>b :Unite buffer<CR>
-nnoremap <Leader>f :Unite -start-insert file_rec<CR>
-nnoremap <Leader>g :Unite vimgrep<CR><CR>
-
-" A
-nnoremap <Leader>a :A<CR>
-
-" neoyank
-nnoremap <Leader>y :Unite history/yank<CR>
+nnoremap <Leader>ub :Unite buffer<CR>
+nnoremap <Leader>uf :Unite -start-insert file_rec<CR>
+nnoremap <Leader>ug :Unite vimgrep<CR><CR>
+nnoremap <Leader>uy :Unite history/yank<CR>
 
 " SnipMate
 imap <C-L> <C-R><Tab>
@@ -211,5 +205,8 @@ imap <C-L> <C-R><Tab>
 let g:easytags_dynamic_files=2
 let g:easytags_always_enabled=0
 let g:easytags_auto_update=0
+nnoremap <Leader>tu :UpdateTags<CR>
+nnoremap <Leader>tru :UpdateTags -R<CR>
 
-map <Leader>t :TagbarToggle<CR>
+" tagbar
+nnoremap <Leader>tb :TagbarToggle<CR>
