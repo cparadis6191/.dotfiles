@@ -119,7 +119,7 @@ set undodir^=$HOME/.vim/undo//
 " -- various --
 set exrc                       " Use project specific .exrc files
 set secure
-set gdefault                   " Use the 'g' flag for ":substitute"
+set gdefault                   " Use the 'g' flag for ':substitute'
 set sessionoptions-=options    " Do not save options in sessions
 
 " -- plugins --
@@ -138,65 +138,75 @@ endif
 " plug#begin() automatically calls
 " filetype plugin indent on
 call plug#begin()
+	" Text manipulation
+	Plug 'https://github.com/junegunn/vim-easy-align'
+	Plug 'https://github.com/tpope/vim-commentary'
+	Plug 'https://github.com/tpope/vim-repeat'
+	Plug 'https://github.com/tpope/vim-surround'
+
+	" Display
+	Plug 'https://github.com/bronson/vim-trailing-whitespace'
+	Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
+
+	" Navigation
+	Plug 'https://github.com/Shougo/unite.vim'
+	Plug 'https://github.com/Shougo/neoyank.vim'
+	Plug 'https://github.com/tsukkee/unite-tag'
+
 	" SnipMate
 	Plug 'https://github.com/tomtom/tlib_vim'
 	Plug 'https://github.com/MarcWeber/vim-addon-mw-utils'
 	Plug 'https://github.com/garbas/vim-snipmate'
 	Plug 'https://github.com/honza/vim-snippets'
 
-	" Text manipulation
-	Plug 'https://github.com/godlygeek/tabular'
-	Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
-	Plug 'https://github.com/tpope/vim-commentary'
-	Plug 'https://github.com/tpope/vim-repeat'
-	Plug 'https://github.com/tpope/vim-surround'
-
 	" Programming
-	Plug 'https://github.com/scrooloose/syntastic', {'for': ['c', 'cpp', 'h']}
 	Plug 'https://github.com/airblade/vim-gitgutter'
 	Plug 'https://github.com/tpope/vim-fugitive'
+	Plug 'https://github.com/scrooloose/syntastic', {'on': ['SyntasticCheck', 'SyntasticToggle']}
 
-	" Navigation
-	Plug 'https://github.com/Shougo/unite.vim'
-	Plug 'https://github.com/Shougo/neoyank.vim'
-
-	Plug 'https://github.com/xolox/vim-easytags.git'
-	Plug 'https://github.com/xolox/vim-misc.git'
-	Plug 'https://github.com/tsukkee/unite-tag.git'
-	Plug 'https://github.com/majutsushi/tagbar.git'
+	" tags
+	Plug 'https://github.com/xolox/vim-misc'
+	Plug 'https://github.com/xolox/vim-easytags', {'on': ['UpdateTags', 'HighlightTags']}
+	Plug 'https://github.com/majutsushi/tagbar'
 call plug#end()
 
-" SnipMate
-imap <C-L> <C-R><Tab>
+" easy-align
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " Rainbow Parentheses
-let g:rainbow#max_level=16
+let g:rainbow#max_level=8
 let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
 autocmd VimEnter * RainbowParentheses
-
-" Syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_wq=0
 
 " Git Gutter
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 
-" Unite
+" Syntastic
+nnoremap <Leader>sc :SyntasticCheck<CR>
+let g:syntastic_mode_map={'mode': 'passive'}
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+
+" unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-nnoremap <Leader>b :Unite buffer<CR>
-nnoremap <Leader>f :Unite -start-insert file_rec<CR>
-nnoremap <Leader>g :Unite vimgrep<CR><CR>
+nnoremap <Leader>ub :Unite buffer<CR>
+nnoremap <Leader>uf :Unite -start-insert file_rec<CR>
+nnoremap <Leader>ug :Unite vimgrep<CR><CR>
+nnoremap <Leader>uy :Unite history/yank<CR>
 
-" neoyank
-nnoremap <Leader>y :Unite history/yank<CR>
+" SnipMate
+imap <C-L> <C-R><Tab>
 
-" ctags
-let g:easytags_dynamic_files = 2
-let g:easytags_events=['BufWritePost']
-let g:easytags_on_cursorhold=0
+" tags
+let g:easytags_dynamic_files=2
+let g:easytags_always_enabled=0
+let g:easytags_auto_update=0
+nnoremap <Leader>tu :UpdateTags<CR>
+nnoremap <Leader>tru :UpdateTags -R<CR>
 
-map <Leader>t :TagbarToggle<CR>
+" tagbar
+nnoremap <Leader>tb :TagbarToggle<CR>
