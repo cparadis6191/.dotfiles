@@ -151,6 +151,7 @@ call plug#begin()
 	Plug 'https://github.com/Shougo/unite.vim'
 	Plug 'https://github.com/Shougo/neoyank.vim'
 	Plug 'https://github.com/tsukkee/unite-tag'
+	Plug 'https://github.com/mbbill/undotree'
 
 	" SnipMate
 	Plug 'https://github.com/tomtom/tlib_vim'
@@ -192,6 +193,9 @@ nnoremap <Leader>ub :Unite buffer<CR>
 nnoremap <Leader>uf :Unite -start-insert file_rec/neovim<CR>
 nnoremap <Leader>ug :Unite vimgrep<CR><CR>
 nnoremap <Leader>uy :Unite history/yank<CR>
+
+" undotree
+nnoremap <Leader>ut :UndotreeToggle<CR>
 
 " SnipMate
 imap <C-L> <C-R><Tab>

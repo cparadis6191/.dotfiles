@@ -152,6 +152,7 @@ call plug#begin()
 	Plug 'https://github.com/Shougo/unite.vim'
 	Plug 'https://github.com/Shougo/neoyank.vim'
 	Plug 'https://github.com/tsukkee/unite-tag'
+	Plug 'https://github.com/mbbill/undotree'
 
 	" SnipMate
 	Plug 'https://github.com/tomtom/tlib_vim'
@@ -162,11 +163,10 @@ call plug#begin()
 	" Programming
 	Plug 'https://github.com/airblade/vim-gitgutter'
 	Plug 'https://github.com/tpope/vim-fugitive'
-	Plug 'https://github.com/scrooloose/syntastic', {'on': ['SyntasticCheck', 'SyntasticToggle']}
+	Plug 'https://github.com/neomake/neomake'
 
 	" tags
-	Plug 'https://github.com/xolox/vim-misc'
-	Plug 'https://github.com/xolox/vim-easytags', {'on': ['UpdateTags', 'HighlightTags']}
+	Plug 'https://github.com/fntlnz/atags.vim'
 	Plug 'https://github.com/majutsushi/tagbar'
 call plug#end()
 
@@ -184,11 +184,8 @@ let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 
-" Syntastic
-nnoremap <Leader>sc :SyntasticCheck<CR>
-let g:syntastic_mode_map={'mode': 'passive'}
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
+" Neomake
+let g:neomake_open_list=2
 
 " unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -198,15 +195,14 @@ nnoremap <Leader>uf :Unite -start-insert file_rec<CR>
 nnoremap <Leader>ug :Unite vimgrep<CR><CR>
 nnoremap <Leader>uy :Unite history/yank<CR>
 
+" undotree
+nnoremap <Leader>ut :UndotreeToggle<CR>
+
 " SnipMate
 imap <C-L> <C-R><Tab>
 
-" tags
-let g:easytags_dynamic_files=2
-let g:easytags_always_enabled=0
-let g:easytags_auto_update=0
-nnoremap <Leader>tu :UpdateTags<CR>
-nnoremap <Leader>tru :UpdateTags -R<CR>
+" atags
+nnoremap <Leader>tu :call atags#generate()<CR>
 
 " tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
