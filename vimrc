@@ -7,7 +7,6 @@ set ignorecase    " When doing a search, ignore the case of letters
 set smartcase     " Override the ignorecase option if the search pattern contains upper case letters
 
 " -- tags --
-set tags=./.tags;
 
 " -- displaying text --
 set scrolloff=5    " Keep the cursor at least five lines from the bottom or top
@@ -24,7 +23,6 @@ set number
 " -- syntax, highlighting and spelling --
 syntax enable                " Turns on syntax highlighting
 set hlsearch                 " Highlight search results
-set cursorcolumn             " Highlight the current column
 
 " -- multiple windows --
 set laststatus=2    " Always show the statusline
@@ -162,11 +160,12 @@ call plug#begin()
 
 	" Programming
 	Plug 'https://github.com/airblade/vim-gitgutter'
-	Plug 'https://github.com/tpope/vim-fugitive'
 	Plug 'https://github.com/neomake/neomake'
+	Plug 'https://github.com/tpope/vim-fugitive'
 
 	" tags
-	Plug 'https://github.com/fntlnz/atags.vim'
+	Plug 'https://github.com/xolox/vim-misc'
+	Plug 'https://github.com/xolox/vim-easytags', {'on': ['UpdateTags', 'HighlightTags']}
 	Plug 'https://github.com/majutsushi/tagbar'
 call plug#end()
 
@@ -187,7 +186,7 @@ let g:gitgutter_eager=1
 " Neomake
 let g:neomake_open_list=2
 
-" unite
+" Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>ub :Unite buffer<CR>
@@ -201,8 +200,12 @@ nnoremap <Leader>ut :UndotreeToggle<CR>
 " SnipMate
 imap <C-L> <C-R><Tab>
 
-" atags
-nnoremap <Leader>tu :call atags#generate()<CR>
+" easytags
+let g:easytags_dynamic_files=2
+let g:easytags_always_enabled=0
+let g:easytags_auto_update=0
+nnoremap <Leader>tu :UpdateTags<CR>
+nnoremap <Leader>tru :UpdateTags -R<CR>
 
 " tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>

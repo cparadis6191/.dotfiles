@@ -6,7 +6,6 @@ set ignorecase    " When doing a search, ignore the case of letters
 set smartcase     " Override the ignorecase option if the search pattern contains upper case letters
 
 " -- tags --
-set tags=./.tags;
 
 " -- displaying text --
 set scrolloff=5    " Keep the cursor at least five lines from the bottom or top
@@ -23,7 +22,6 @@ set number
 " -- syntax, highlighting and spelling --
 syntax enable                " Turns on syntax highlighting
 set hlsearch                 " Highlight search results
-set cursorcolumn             " Highlight the current column
 
 " -- multiple windows --
 set laststatus=2    " Always show the statusline
@@ -161,8 +159,8 @@ call plug#begin()
 
 	" Programming
 	Plug 'https://github.com/airblade/vim-gitgutter'
-	Plug 'https://github.com/tpope/vim-fugitive'
 	Plug 'https://github.com/neomake/neomake'
+	Plug 'https://github.com/tpope/vim-fugitive'
 
 	" tags
 	Plug 'https://github.com/fntlnz/atags.vim'
@@ -186,7 +184,7 @@ let g:gitgutter_eager=1
 " Neomake
 let g:neomake_open_list=2
 
-" unite
+" Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>ub :Unite buffer<CR>
