@@ -137,6 +137,7 @@ endif
 call plug#begin()
 	" Text manipulation
 	Plug 'https://github.com/junegunn/vim-easy-align'
+	Plug 'https://github.com/mbbill/undotree'
 	Plug 'https://github.com/tpope/vim-commentary'
 	Plug 'https://github.com/tpope/vim-repeat'
 	Plug 'https://github.com/tpope/vim-surround'
@@ -145,11 +146,11 @@ call plug#begin()
 	Plug 'https://github.com/bronson/vim-trailing-whitespace'
 	Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 
-	" Navigation
+	" Unite
 	Plug 'https://github.com/Shougo/unite.vim'
 	Plug 'https://github.com/Shougo/neoyank.vim'
 	Plug 'https://github.com/tsukkee/unite-tag'
-	Plug 'https://github.com/mbbill/undotree'
+	Plug 'https://github.com/ujihisa/unite-locate'
 
 	" SnipMate
 	Plug 'https://github.com/tomtom/tlib_vim'
@@ -166,6 +167,9 @@ call plug#begin()
 	Plug 'https://github.com/fntlnz/atags.vim'
 	Plug 'https://github.com/majutsushi/tagbar'
 call plug#end()
+
+" netrw
+let g:netrw_liststyle=3
 
 " easy-align
 nmap ga <Plug>(EasyAlign)
@@ -190,6 +194,7 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>ub :Unite buffer<CR>
 nnoremap <Leader>uf :Unite -start-insert file_rec/neovim<CR>
 nnoremap <Leader>ug :Unite vimgrep<CR><CR>
+nnoremap <Leader>ul :Unite locate<CR>
 nnoremap <Leader>uy :Unite history/yank<CR>
 
 " undotree

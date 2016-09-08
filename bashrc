@@ -26,7 +26,8 @@ shopt -s histappend      # Append to history instead of overwriting it
 HISTSIZE=9999
 
 # -- Aliases --
-export EDITOR='vim'
+export EDITOR='nvim'
+alias vim=$EDITOR
 
 # Interactive operation
 alias rm='rm -I'    # Prompt once before removing more than three files
