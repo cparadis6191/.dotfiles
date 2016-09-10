@@ -1,4 +1,7 @@
 " -- important --
+if !empty(glob('$HOME/.config/nvim/local.init.vim'))
+	source $HOME/.config/nvim/local.init.vim
+endif
 
 " -- moving around, searching and patterns --
 set ignorecase    " When doing a search, ignore the case of letters
@@ -37,7 +40,7 @@ set title
 set showcmd    " Show incomplete commands at the bottom
 
 " -- selecting text --
-set clipboard^=unnamed    " Default to the system clipboard
+set clipboard^=unnamedplus    " Default to the system clipboard
 
 " -- editing text --
 set nojoinspaces                  " Joining lines at punctuation will not insert an extra space
@@ -138,8 +141,8 @@ call plug#begin()
 
 	" Unite
 	Plug 'https://github.com/Shougo/unite.vim'
+	Plug 'https://github.com/Shougo/neomru.vim'
 	Plug 'https://github.com/Shougo/neoyank.vim'
-	Plug 'https://github.com/tsukkee/unite-tag'
 	Plug 'https://github.com/ujihisa/unite-locate'
 
 	" SnipMate
@@ -165,18 +168,13 @@ let g:netrw_liststyle=3
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
+" undotree
+nnoremap <Leader>ut :UndotreeToggle<CR>
+
 " Rainbow Parentheses
-let g:rainbow#max_level=8
+let g:rainbow#blacklist=[0, 255]
 let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
 autocmd VimEnter * RainbowParentheses
-
-" Git Gutter
-let g:gitgutter_sign_column_always=1
-let g:gitgutter_realtime=1
-let g:gitgutter_eager=1
-
-" Neomake
-let g:neomake_open_list=2
 
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -184,14 +182,18 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>ub :Unite buffer<CR>
 nnoremap <Leader>uf :Unite -start-insert file_rec/neovim<CR>
 nnoremap <Leader>ug :Unite vimgrep<CR><CR>
-nnoremap <Leader>ul :Unite locate<CR>
+nnoremap <Leader>ul :Unite -start-insert locate<CR>
+nnoremap <Leader>ur :Unite neomru/file<CR>
 nnoremap <Leader>uy :Unite history/yank<CR>
-
-" undotree
-nnoremap <Leader>ut :UndotreeToggle<CR>
 
 " SnipMate
 imap <C-L> <C-R><Tab>
+
+" Git Gutter
+let g:gitgutter_sign_column_always=1
+
+" Neomake
+let g:neomake_open_list=2
 
 " atags
 nnoremap <Leader>tu :call atags#generate()<CR>
