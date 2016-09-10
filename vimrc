@@ -1,5 +1,4 @@
 " -- important --
-set nocompatible    " Use the full power of Vim
 
 " -- moving around, searching and patterns --
 set incsearch     " Jumps to the first match while typing
@@ -45,7 +44,6 @@ set clipboard^=unnamed    " Default to the system clipboard
 
 " -- editing text --
 set undolevels=999                " Increase history size for undoing edits
-set undoreload=9999
 set backspace=indent,eol,start    " Allow backspace in insert mode
 set formatoptions+=j              " Joining comments will remove the comment leader of the lower line
 set nojoinspaces                  " Joining lines at punctuation will not insert an extra space

@@ -1,7 +1,6 @@
 " -- important --
 
 " -- moving around, searching and patterns --
-set incsearch     " Jumps to the first match while typing
 set ignorecase    " When doing a search, ignore the case of letters
 set smartcase     " Override the ignorecase option if the search pattern contains upper case letters
 
@@ -21,10 +20,8 @@ set number
 
 " -- syntax, highlighting and spelling --
 syntax enable                " Turns on syntax highlighting
-set hlsearch                 " Highlight search results
 
 " -- multiple windows --
-set laststatus=2    " Always show the statusline
 let &statusline=' %<%f %y%h%m%r%{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %*%=%-2b %-4(0x%B%) %-15(%l,%c%V%) %P '
 set hidden          " Hide buffers instead of closing them
 
@@ -43,10 +40,6 @@ set showcmd    " Show incomplete commands at the bottom
 set clipboard^=unnamed    " Default to the system clipboard
 
 " -- editing text --
-set undolevels=999                " Increase history size for undoing edits
-set undoreload=9999
-set backspace=indent,eol,start    " Allow backspace in insert mode
-set formatoptions+=j              " Joining comments will remove the comment leader of the lower line
 set nojoinspaces                  " Joining lines at punctuation will not insert an extra space
 
 " -- tabs and indenting --
@@ -98,9 +91,7 @@ endif
 set directory^=$HOME/.config/nvim/swap//
 
 " -- command line editing --
-set history=999              " Increase history size for commands and search patterns
 set wildmode=longest:full    " Make autocomplete more bash-like
-set wildmenu                 " List external files instead of just autocompleting
 
 set undofile
 if empty(glob('$HOME/.config/nvim/undo'))
@@ -117,7 +108,6 @@ set undodir^=$HOME/.config/nvim/undo//
 set exrc                       " Use project specific .exrc files
 set secure
 set gdefault                   " Use the 'g' flag for ':substitute'
-set sessionoptions-=options    " Do not save options in sessions
 
 " -- plugins --
 if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
