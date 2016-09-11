@@ -72,13 +72,6 @@ nnoremap Y y$
 xnoremap > >gv
 xnoremap < <gv
 
-" Navigate buffers similar to tabs
-nnoremap gB :bprev<CR>
-nnoremap gb :bnext<CR>
-
-" Switch to last used buffer
-nnoremap gl <C-^>
-
 " Use Q for executing the macro in the q register
 nnoremap Q @q
 
@@ -125,26 +118,33 @@ set sessionoptions-=options    " Do not save options in sessions
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
 	silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+augroup PlugInstallGroup
+	autocmd!
 	autocmd VimEnter * PlugInstall
+augroup END
 endif
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
 	silent !mkdir -p $HOME/.vim/autoload
 	silent !wget -qO $HOME/.vim/autoload/plug.vim
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+augroup PlugInstallGroup
+	autocmd!
 	autocmd VimEnter * PlugInstall
+augroup END
 endif
 
 " plug#begin() automatically calls
 " filetype plugin indent on
 call plug#begin()
-	" Text manipulation
+	" text manipulation
 	Plug 'https://github.com/junegunn/vim-easy-align'
 	Plug 'https://github.com/mbbill/undotree'
 	Plug 'https://github.com/tpope/vim-commentary'
 	Plug 'https://github.com/tpope/vim-repeat'
 	Plug 'https://github.com/tpope/vim-surround'
+	Plug 'https://github.com/tpope/vim-unimpaired'
 
-	" Display
+	" display
 	Plug 'https://github.com/bronson/vim-trailing-whitespace'
 	Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 
@@ -160,7 +160,7 @@ call plug#begin()
 	Plug 'https://github.com/garbas/vim-snipmate'
 	Plug 'https://github.com/honza/vim-snippets'
 
-	" Programming
+	" programming
 	Plug 'https://github.com/airblade/vim-gitgutter'
 	Plug 'https://github.com/neomake/neomake'
 	Plug 'https://github.com/tpope/vim-fugitive'
@@ -184,17 +184,20 @@ nnoremap <Leader>ut :UndotreeToggle<CR>
 " Rainbow Parentheses
 let g:rainbow#blacklist=[0, 255]
 let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
-autocmd VimEnter * RainbowParentheses
+augroup RainbowParenthesesGroup
+	autocmd!
+	autocmd VimEnter * RainbowParentheses
+augroup END
 
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-nnoremap <Leader>ub :Unite buffer<CR>
-nnoremap <Leader>uf :Unite -start-insert file_rec<CR>
-nnoremap <Leader>ug :Unite vimgrep<CR><CR>
-nnoremap <Leader>ul :Unite -start-insert locate<CR>
-nnoremap <Leader>ur :Unite neomru/file<CR>
-nnoremap <Leader>uy :Unite history/yank<CR>
+nnoremap <Leader>b :Unite buffer<CR>
+nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
+nnoremap <Leader>g :Unite vimgrep<CR><CR>
+nnoremap <Leader>l :Unite -start-insert locate<CR>
+nnoremap <Leader>r :Unite neomru/file<CR>
+nnoremap <Leader>y :Unite history/yank<CR>
 
 " SnipMate
 imap <C-L> <C-R><Tab>
