@@ -76,8 +76,16 @@ xnoremap < <gv
 nnoremap Q @q
 
 " Search for visual selecions
-xnoremap * "zy/\V<C-R>z<CR>
-xnoremap # "zy?\V<C-R>z<CR>
+function! s:VisualSearch()
+	let temp=@@
+	norm! gvy
+	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
+	call histadd('/', substitute(@/, '[?/]', '\="\\%d".char2nr(submatch(0))', 'g'))
+	let @@=temp
+endfunction
+
+xnoremap * :<C-u>call <SID>VisualSearch()<CR>/<CR>
+xnoremap # :<C-u>call <SID>VisualSearch()<CR>?<CR>
 
 " -- reading and writing files --
 set backup
