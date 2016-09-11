@@ -137,6 +137,7 @@ endif
 call plug#begin()
 	" text manipulation
 	Plug 'https://github.com/junegunn/vim-easy-align'
+	Plug 'https://github.com/justinmk/vim-sneak.git'
 	Plug 'https://github.com/mbbill/undotree'
 	Plug 'https://github.com/tpope/vim-commentary'
 	Plug 'https://github.com/tpope/vim-repeat'
@@ -175,6 +176,30 @@ let g:netrw_liststyle=3
 " easy-align
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+" Sneak
+nmap <Leader>s <Plug>Sneak_s
+nmap <Leader>S <Plug>Sneak_S
+xmap <Leader>s <Plug>Sneak_s
+xmap <Leader>S <Plug>Sneak_S
+omap <Leader>s <Plug>Sneak_s
+omap <Leader>S <Plug>Sneak_S
+
+" Replace f with Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+
+" Replace t with Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 
 " undotree
 nnoremap <Leader>ut :UndotreeToggle<CR>
