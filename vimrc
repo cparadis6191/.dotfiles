@@ -188,6 +188,8 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " Sneak
+let g:sneak#streak=1
+
 nmap <Leader>s <Plug>Sneak_s
 nmap <Leader>S <Plug>Sneak_S
 xmap <Leader>s <Plug>Sneak_s
