@@ -136,38 +136,38 @@ endif
 " filetype plugin indent on
 call plug#begin()
 	" text manipulation
-	Plug 'https://github.com/junegunn/vim-easy-align'
-	Plug 'https://github.com/justinmk/vim-sneak.git'
-	Plug 'https://github.com/mbbill/undotree'
-	Plug 'https://github.com/tpope/vim-commentary'
-	Plug 'https://github.com/tpope/vim-repeat'
-	Plug 'https://github.com/tpope/vim-surround'
-	Plug 'https://github.com/tpope/vim-unimpaired'
+	Plug 'junegunn/vim-easy-align'
+	Plug 'justinmk/vim-sneak'
+	Plug 'mbbill/undotree'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-repeat'
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-unimpaired'
 
 	" display
-	Plug 'https://github.com/bronson/vim-trailing-whitespace'
-	Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
+	Plug 'bronson/vim-trailing-whitespace'
+	Plug 'junegunn/rainbow_parentheses.vim'
 
 	" Unite
-	Plug 'https://github.com/Shougo/unite.vim'
-	Plug 'https://github.com/Shougo/neomru.vim'
-	Plug 'https://github.com/Shougo/neoyank.vim'
-	Plug 'https://github.com/ujihisa/unite-locate'
+	Plug 'Shougo/unite.vim'
+	Plug 'Shougo/neomru.vim'
+	Plug 'Shougo/neoyank.vim'
+	Plug 'ujihisa/unite-locate'
 
 	" SnipMate
-	Plug 'https://github.com/tomtom/tlib_vim'
-	Plug 'https://github.com/MarcWeber/vim-addon-mw-utils'
-	Plug 'https://github.com/garbas/vim-snipmate'
-	Plug 'https://github.com/honza/vim-snippets'
+	Plug 'tomtom/tlib_vim'
+	Plug 'MarcWeber/vim-addon-mw-utils'
+	Plug 'garbas/vim-snipmate'
+	Plug 'honza/vim-snippets'
 
 	" programming
-	Plug 'https://github.com/airblade/vim-gitgutter'
-	Plug 'https://github.com/neomake/neomake'
-	Plug 'https://github.com/tpope/vim-fugitive'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'neomake/neomake'
+	Plug 'tpope/vim-fugitive'
 
 	" tags
-	Plug 'https://github.com/fntlnz/atags.vim'
-	Plug 'https://github.com/majutsushi/tagbar'
+	Plug 'fntlnz/atags.vim'
+	Plug 'majutsushi/tagbar'
 call plug#end()
 
 " netrw
