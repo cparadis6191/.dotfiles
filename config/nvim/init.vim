@@ -48,7 +48,7 @@ set nojoinspaces                  " Joining lines at punctuation will not insert
 " -- tabs and indenting --
 set tabstop=4       " Tab size is 4 spaces
 set shiftwidth=0    " Sets < and > shifts to be the value of tabstop
-set shiftround      " When using < and > rounds to the nearest multiple of shiftwidth
+set shiftround      " Rounds to the nearest multiple of shiftwidth when using < and >
 set autoindent      " Copy indent from current line when starting a new line
 set copyindent      " Copy whitespace for indenting from previous line
 
