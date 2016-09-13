@@ -81,6 +81,8 @@ endfunction
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<CR>
 
+tnoremap <Esc><Esc> <C-\><C-n>
+
 " -- reading and writing files --
 set backup
 if empty(glob('$HOME/.config/nvim/backup'))
@@ -225,7 +227,7 @@ nnoremap <Leader>r :Unite neomru/file<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
 " SnipMate
-imap <C-L> <C-R><Tab>
+imap <C-l> <C-r><Tab>
 
 " Git Gutter
 let g:gitgutter_sign_column_always=1

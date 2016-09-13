@@ -235,7 +235,7 @@ nnoremap <Leader>r :Unite neomru/file<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
 " SnipMate
-imap <C-L> <C-R><Tab>
+imap <C-l> <C-r><Tab>
 
 " Git Gutter
 let g:gitgutter_sign_column_always=1
