@@ -23,7 +23,7 @@ shopt -s histappend      # Append to history instead of overwriting it
 # -- Completion options --
 
 # -- History Options --
-HISTSIZE=9999
+HISTSIZE=10000
 
 # -- Aliases --
 export EDITOR='nvim'
