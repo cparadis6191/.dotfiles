@@ -4,14 +4,14 @@ if !empty(glob('$HOME/.config/nvim/local.init.vim'))
 endif
 
 " -- moving around, searching and patterns --
-set ignorecase    " When doing a search, ignore the case of letters
-set smartcase     " Override the ignorecase option if the search pattern contains upper case letters
+set ignorecase    " when doing a search, ignore the case of letters
+set smartcase     " override the ignorecase option if the search pattern contains upper case letters
 
 " -- tags --
 
 " -- displaying text --
-set scrolloff=5    " Keep the cursor at least five lines from the bottom or top
-set linebreak      " Wrap lines at a convenient place
+set scrolloff=5    " keep the cursor at least five lines from the bottom or top
+set linebreak      " wrap lines at a convenient place
 
 if exists('+breakindent')
 	set breakindent
@@ -22,11 +22,11 @@ set lazyredraw
 set number
 
 " -- syntax, highlighting and spelling --
-syntax enable                " Turns on syntax highlighting
+syntax enable    " turns on syntax highlighting
 
 " -- multiple windows --
 let &statusline=' %<%f %y%h%m%r%{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %*%=%-2b %-4(0x%B%) %-15(%l,%c%V%) %P '
-set hidden          " Hide buffers instead of closing them
+set hidden    " hide buffers instead of closing them
 
 " -- multiple tab pages --
 
@@ -37,39 +37,39 @@ set title
 " -- printing --
 
 " -- messages and info --
-set showcmd    " Show incomplete commands at the bottom
+set showcmd    " show incomplete commands at the bottom
 
 " -- selecting text --
-set clipboard^=unnamedplus    " Default to the system clipboard
+set clipboard^=unnamedplus    " default to the system clipboard
 
 " -- editing text --
-set nojoinspaces                  " Joining lines at punctuation will not insert an extra space
+set nojoinspaces    " joining lines at punctuation will not insert an extra space
 
 " -- tabs and indenting --
-set tabstop=4       " Tab size is 4 spaces
-set shiftwidth=0    " Sets < and > shifts to be the value of tabstop
-set shiftround      " Rounds to the nearest multiple of shiftwidth when using < and >
-set autoindent      " Copy indent from current line when starting a new line
-set copyindent      " Copy whitespace for indenting from previous line
+set tabstop=4       " tab size is 4 spaces
+set shiftwidth=0    " sets < and > shifts to be the value of tabstop
+set shiftround      " rounds to the nearest multiple of shiftwidth when using < and >
+set autoindent      " copy indent from current line when starting a new line
+set copyindent      " copy whitespace for indenting from previous line
 
 " -- folding --
 " -- diff mode --
 
 " -- mapping --
-" Comments CANNOT be on the same line as a map
-" Make Y behave more like C and D
+" comments CANNOT be on the same line as a map
+" make Y behave more like C and D
 let mapleader="\<Space>"
 
 nnoremap Y y$
 
-" Shifting in visual mode now reselects the block
+" shifting in visual mode now reselects the block
 xnoremap > >gv
 xnoremap < <gv
 
-" Use Q for executing the macro in the q register
+" use Q for executing the macro in the q register
 nnoremap Q @q
 
-" Search for visual selecions
+" search for visual selecions
 function! s:VSetSearch()
 	let temp=@@
 	norm! gvy
@@ -97,7 +97,7 @@ endif
 set directory^=$HOME/.config/nvim/swap//
 
 " -- command line editing --
-set wildmode=longest:full    " Make autocomplete more bash-like
+set wildmode=longest:full    " make autocomplete more bash-like
 
 set undofile
 if empty(glob('$HOME/.config/nvim/undo'))
@@ -111,9 +111,9 @@ set undodir^=$HOME/.config/nvim/undo//
 " -- multi-byte characters --
 
 " -- various --
-set exrc                       " Use project specific .exrc files
+set exrc        " use project specific .exrc files
 set secure
-set gdefault                   " Use the 'g' flag for ':substitute'
+set gdefault    " substitute all matches on a line
 
 " -- plugins --
 if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
@@ -189,7 +189,7 @@ xmap <Leader>S <Plug>Sneak_S
 omap <Leader>s <Plug>Sneak_s
 omap <Leader>S <Plug>Sneak_S
 
-" Replace f with Sneak
+" replace f with Sneak
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
 xmap f <Plug>Sneak_f
@@ -197,7 +197,7 @@ xmap F <Plug>Sneak_F
 omap f <Plug>Sneak_f
 omap F <Plug>Sneak_F
 
-" Replace t with Sneak
+" replace t with Sneak
 nmap t <Plug>Sneak_t
 nmap T <Plug>Sneak_T
 xmap t <Plug>Sneak_t
