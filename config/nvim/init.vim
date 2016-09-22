@@ -217,6 +217,7 @@ augroup RainbowParenthesesGroup
 augroup END
 
 " Unite
+let g:unite_enable_auto_select=0
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>b :Unite buffer<CR>
@@ -228,9 +229,6 @@ nnoremap <Leader>y :Unite history/yank<CR>
 
 " SnipMate
 imap <C-l> <C-r><Tab>
-
-" Git Gutter
-let g:gitgutter_sign_column_always=1
 
 " Neomake
 let g:neomake_open_list=2
