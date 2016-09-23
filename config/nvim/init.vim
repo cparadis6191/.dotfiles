@@ -49,7 +49,6 @@ set nojoinspaces    " joining lines at punctuation will not insert an extra spac
 set tabstop=4       " tab size is 4 spaces
 set shiftwidth=0    " sets < and > shifts to be the value of tabstop
 set shiftround      " rounds to the nearest multiple of shiftwidth when using < and >
-set autoindent      " copy indent from current line when starting a new line
 set copyindent      " copy whitespace for indenting from previous line
 
 " -- folding --
