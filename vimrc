@@ -188,14 +188,12 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " Sneak
-let g:sneak#streak=1
-
-nmap <Leader>s <Plug>Sneak_s
-nmap <Leader>S <Plug>Sneak_S
-xmap <Leader>s <Plug>Sneak_s
-xmap <Leader>S <Plug>Sneak_S
-omap <Leader>s <Plug>Sneak_s
-omap <Leader>S <Plug>Sneak_S
+nmap <Leader>s <Plug>(SneakStreak)
+nmap <Leader>S <Plug>(SneakStreakBackward)
+xmap <Leader>s <Plug>(SneakStreak)
+xmap <Leader>S <Plug>(SneakStreakBackward)
+omap <Leader>s <Plug>(SneakStreak)
+omap <Leader>S <Plug>(SneakStreakBackward)
 
 " replace f with Sneak
 nmap f <Plug>Sneak_f
