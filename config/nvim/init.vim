@@ -25,7 +25,7 @@ set number
 syntax enable    " turns on syntax highlighting
 
 " -- multiple windows --
-let &statusline=' %<%f %y%h%m%r%{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %*%=%-2b %-4(0x%B%) %-15(%l,%c%V%) %P '
+let &statusline=' %<%f [%{(&fileencoding ? &fileencoding : &encoding)}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
 set hidden    " hide buffers instead of closing them
 
 " -- multiple tab pages --
@@ -179,12 +179,14 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " Sneak
-nmap <Leader>s <Plug>(SneakStreak)
-nmap <Leader>S <Plug>(SneakStreakBackward)
-xmap <Leader>s <Plug>(SneakStreak)
-xmap <Leader>S <Plug>(SneakStreakBackward)
-omap <Leader>s <Plug>(SneakStreak)
-omap <Leader>S <Plug>(SneakStreakBackward)
+let g:sneak#streak=1
+
+nmap <Leader>s <Plug>Sneak_s
+nmap <Leader>S <Plug>Sneak_S
+xmap <Leader>s <Plug>Sneak_s
+xmap <Leader>S <Plug>Sneak_S
+omap <Leader>s <Plug>Sneak_s
+omap <Leader>S <Plug>Sneak_S
 
 " replace f with Sneak
 nmap f <Plug>Sneak_f
