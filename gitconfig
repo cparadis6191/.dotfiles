@@ -7,13 +7,18 @@
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = $EDITOR -R -f -d -c 'wincmd l' -c 'cd $GIT_PREFIX' "$LOCAL" "$REMOTE"
 [difftool]
 	prompt = false
 [merge]
-	tool = vimdiff
-[mergetool "vimdiff"]
-	cmd = $EDITOR -d "$LOCAL" "$REMOTE" "$MERGED" -c "$wincmd w" -c "wincmd J"
+	conflictStyle = diff3
+	tool = nvimmerge
+[mergetool "nvimmerge"]
+	cmd = $EDITOR -f -d -c '4wincmd w | wincmd J' "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
+[mergetool]
+	prompt = false
 [push]
 	default = simple
 [user]
