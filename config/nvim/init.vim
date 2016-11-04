@@ -1,7 +1,4 @@
 " -- important --
-if !empty(glob('$HOME/.config/nvim/local.init.vim'))
-	source $HOME/.config/nvim/local.init.vim
-endif
 
 " -- moving around, searching and patterns --
 set ignorecase    " when doing a search, ignore the case of letters
@@ -175,8 +172,8 @@ call plug#end()
 let g:netrw_liststyle=3
 
 " easy-align
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+xmap <Leader>a <Plug>(EasyAlign)
 
 " Sneak
 let g:sneak#streak=1
@@ -237,3 +234,8 @@ nnoremap <Leader>tu :call atags#generate()<CR>
 
 " tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
+
+" load local.init.vim
+if !empty(glob('$HOME/.config/nvim/local.init.vim'))
+	source $HOME/.config/nvim/local.init.vim
+endif

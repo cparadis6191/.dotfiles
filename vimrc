@@ -1,7 +1,4 @@
 " -- important --
-if !empty(glob('$HOME/.local.vimrc'))
-	source $HOME/.local.vimrc
-endif
 
 " -- moving around, searching and patterns --
 set incsearch     " jumps to the first match while typing
@@ -184,8 +181,8 @@ call plug#end()
 let g:netrw_liststyle=3
 
 " easy-align
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+xmap <Leader>a <Plug>(EasyAlign)
 
 " Sneak
 let g:sneak#streak=1
@@ -250,3 +247,8 @@ nnoremap <Leader>tru :UpdateTags -R<CR>
 
 " tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
+
+" load local.vimrc
+if !empty(glob('$HOME/.local.vimrc'))
+	source $HOME/.local.vimrc
+endif
