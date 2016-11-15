@@ -1,2 +1,3 @@
-# Ignore the automatically created vim directory
-vim/
+vim/.vim/
+nvim/.config/nvim/*
+!nvim/.config/nvim/init.vim
