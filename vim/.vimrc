@@ -84,8 +84,6 @@ function! s:VisualSearch()
 	let @@=temp
 endfunction
 
-tnoremap <Esc><Esc> <C-\><C-n>
-
 " -- reading and writing files --
 set backup
 if empty(glob('$HOME/.vim/backup'))

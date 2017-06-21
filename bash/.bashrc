@@ -18,6 +18,11 @@ shopt -s globstar        # Let ** be used to glob files and directories recursiv
 shopt -s histappend      # Append to history instead of overwriting it
 
 # -- Completion options --
+if [[ -f "/usr/share/bash-completion/bash_completion" ]]; then
+  source "/usr/share/bash-completion/bash_completion"
+elif [[ -f "/etc/bash_completion" ]]; then
+  source "/etc/bash_completion"
+fi
 
 # -- History Options --
 HISTSIZE=10000
