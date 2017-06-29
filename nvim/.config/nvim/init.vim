@@ -53,9 +53,9 @@ set copyindent      " copy whitespace for indenting from previous line
 
 " -- mapping --
 " comments CANNOT be on the same line as a map
-" make Y behave more like C and D
 let mapleader="\<Space>"
 
+" make Y behave more like C and D
 nnoremap Y y$
 
 " shifting in visual mode now reselects the block
@@ -117,7 +117,7 @@ if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 augroup PlugInstallGroup
 	autocmd!
-	autocmd VimEnter * PlugInstall
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 augroup END
 endif
 if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
@@ -126,7 +126,7 @@ if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 augroup PlugInstallGroup
 	autocmd!
-	autocmd VimEnter * PlugInstall
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 augroup END
 endif
 
@@ -148,7 +148,6 @@ call plug#begin()
 
 	" Unite
 	Plug 'Shougo/unite.vim'
-	Plug 'Shougo/neomru.vim'
 	Plug 'Shougo/neoyank.vim'
 	Plug 'ujihisa/unite-locate'
 
@@ -164,7 +163,6 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 
 	" tags
-	Plug 'fntlnz/atags.vim'
 	Plug 'majutsushi/tagbar'
 call plug#end()
 
@@ -178,28 +176,16 @@ xmap <Leader>a <Plug>(EasyAlign)
 " Sneak
 let g:sneak#streak=1
 
-nmap <Leader>s <Plug>Sneak_s
-nmap <Leader>S <Plug>Sneak_S
-xmap <Leader>s <Plug>Sneak_s
-xmap <Leader>S <Plug>Sneak_S
-omap <Leader>s <Plug>Sneak_s
-omap <Leader>S <Plug>Sneak_S
+map <Leader>s <Plug>Sneak_s
+map <Leader>S <Plug>Sneak_S
 
 " replace f with Sneak
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
 
 " replace t with Sneak
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 " undotree
 nnoremap <Leader>ut :UndotreeToggle<CR>
@@ -220,7 +206,6 @@ nnoremap <Leader>b :Unite buffer<CR>
 nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
 nnoremap <Leader>g :Unite vimgrep<CR><CR>
 nnoremap <Leader>l :Unite -start-insert locate<CR>
-nnoremap <Leader>r :Unite neomru/file<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
 " SnipMate
@@ -228,9 +213,6 @@ imap <C-l> <C-r><Tab>
 
 " Neomake
 let g:neomake_open_list=2
-
-" atags
-nnoremap <Leader>tu :call atags#generate()<CR>
 
 " tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
