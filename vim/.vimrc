@@ -21,7 +21,7 @@ endif
 " filetype plugin indent on
 call plug#begin()
 	" vim-neovim-defaults
-	Plug 'noahfrederick/vim-neovim-defaults'
+	Plug 'noahfrederick/vim-neovim-defaults', { 'on': [] }
 
 	" text manipulation
 	Plug 'junegunn/vim-easy-align'
