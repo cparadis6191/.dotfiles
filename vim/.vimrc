@@ -222,6 +222,6 @@ let g:neomake_open_list=2
 nnoremap <Leader>tb :TagbarToggle<CR>
 
 " load local vimrc
-if !empty(glob('$HOME/.local.vimrc'))
-	source $HOME/.local.vimrc
+if !empty(glob('$HOME/.vimrc.local'))
+	source $HOME/.vimrc.local
 endif
