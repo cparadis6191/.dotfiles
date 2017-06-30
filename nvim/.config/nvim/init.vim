@@ -1,14 +1,14 @@
 " -- important --
 
 " -- moving around, searching and patterns --
-set ignorecase    " when doing a search, ignore the case of letters
-set smartcase     " override the ignorecase option if the search pattern contains upper case letters
+set ignorecase
+set smartcase
 
 " -- tags --
 
 " -- displaying text --
-set scrolloff=5    " keep the cursor at least five lines from the bottom or top
-set linebreak      " wrap lines at a convenient place
+set scrolloff=5
+set linebreak
 
 if exists('+breakindent')
 	set breakindent
@@ -19,11 +19,11 @@ set lazyredraw
 set number
 
 " -- syntax, highlighting and spelling --
-syntax enable    " turns on syntax highlighting
+syntax enable
 
 " -- multiple windows --
 let &statusline=' %<%f [%{(&fileencoding ? &fileencoding : &encoding)}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
-set hidden    " hide buffers instead of closing them
+set hidden
 
 " -- multiple tab pages --
 
@@ -34,16 +34,16 @@ set title
 " -- printing --
 
 " -- messages and info --
-set showcmd    " show incomplete commands at the bottom
+set showcmd
 
 " -- selecting text --
-set clipboard^=unnamedplus    " default to the system clipboard
+set clipboard^=unnamedplus
 
 " -- editing text --
 set nojoinspaces    " joining lines at punctuation will not insert an extra space
 
 " -- tabs and indenting --
-set tabstop=4       " tab size is 4 spaces
+set tabstop=4
 set shiftwidth=0    " sets < and > shifts to be the value of tabstop
 set shiftround      " rounds to the nearest multiple of shiftwidth when using < and >
 set copyindent      " copy whitespace for indenting from previous line
@@ -93,7 +93,7 @@ endif
 set directory^=$HOME/.config/nvim/swap//
 
 " -- command line editing --
-set wildmode=longest:full    " make autocomplete more bash-like
+set wildmode=longest:full    " make autocomplete more like bash
 
 set undofile
 if empty(glob('$HOME/.config/nvim/undo'))
@@ -217,7 +217,7 @@ let g:neomake_open_list=2
 " tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
 
-" load local.init.vim
+" load local init.vim
 if !empty(glob('$HOME/.config/nvim/local.init.vim'))
 	source $HOME/.config/nvim/local.init.vim
 endif
