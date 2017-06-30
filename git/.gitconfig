@@ -24,7 +24,5 @@
 	prompt = false
 [push]
 	default = simple
-[rerere]
-	enabled = true
 [user]
 	name = Chad Paradis
