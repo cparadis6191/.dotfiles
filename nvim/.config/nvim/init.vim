@@ -1,3 +1,58 @@
+" -- plugins --
+if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+augroup PlugInstallGroup
+	autocmd!
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+augroup END
+endif
+if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
+	silent !mkdir -p $HOME/.config/nvim/autoload
+	silent !wget -qO $HOME/.config/nvim/autoload/plug.vim
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+augroup PlugInstallGroup
+	autocmd!
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+augroup END
+endif
+
+" plug#begin() automatically calls
+" filetype plugin indent on
+call plug#begin()
+	" text manipulation
+	Plug 'junegunn/vim-easy-align'
+	Plug 'justinmk/vim-sneak'
+	Plug 'mbbill/undotree'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-repeat'
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-unimpaired'
+
+	" display
+	Plug 'bronson/vim-trailing-whitespace'
+	Plug 'junegunn/rainbow_parentheses.vim'
+
+	" Unite
+	Plug 'Shougo/unite.vim'
+	Plug 'Shougo/neoyank.vim'
+	Plug 'ujihisa/unite-locate'
+
+	" SnipMate
+	Plug 'tomtom/tlib_vim'
+	Plug 'MarcWeber/vim-addon-mw-utils'
+	Plug 'garbas/vim-snipmate'
+	Plug 'honza/vim-snippets'
+
+	" programming
+	Plug 'airblade/vim-gitgutter'
+	Plug 'neomake/neomake'
+	Plug 'tpope/vim-fugitive'
+
+	" tags
+	Plug 'majutsushi/tagbar'
+call plug#end()
+
 " -- important --
 
 " -- moving around, searching and patterns --
@@ -111,60 +166,7 @@ set exrc        " use project specific .exrc files
 set secure
 set gdefault    " substitute all matches on a line
 
-" -- plugins --
-if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
-	silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-augroup PlugInstallGroup
-	autocmd!
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-augroup END
-endif
-if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
-	silent !mkdir -p $HOME/.config/nvim/autoload
-	silent !wget -qO $HOME/.config/nvim/autoload/plug.vim
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-augroup PlugInstallGroup
-	autocmd!
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-augroup END
-endif
-
-" plug#begin() automatically calls
-" filetype plugin indent on
-call plug#begin()
-	" text manipulation
-	Plug 'junegunn/vim-easy-align'
-	Plug 'justinmk/vim-sneak'
-	Plug 'mbbill/undotree'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-repeat'
-	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-unimpaired'
-
-	" display
-	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'junegunn/rainbow_parentheses.vim'
-
-	" Unite
-	Plug 'Shougo/unite.vim'
-	Plug 'Shougo/neoyank.vim'
-	Plug 'ujihisa/unite-locate'
-
-	" SnipMate
-	Plug 'tomtom/tlib_vim'
-	Plug 'MarcWeber/vim-addon-mw-utils'
-	Plug 'garbas/vim-snipmate'
-	Plug 'honza/vim-snippets'
-
-	" programming
-	Plug 'airblade/vim-gitgutter'
-	Plug 'neomake/neomake'
-	Plug 'tpope/vim-fugitive'
-
-	" tags
-	Plug 'majutsushi/tagbar'
-call plug#end()
+" -- plugin settings --
 
 " netrw
 let g:netrw_liststyle=3
