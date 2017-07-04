@@ -1,4 +1,4 @@
-" plugins
+" -- plugins --
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
 	silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -48,12 +48,9 @@ call plug#begin()
 	Plug 'honza/vim-snippets'
 
 	" programming
-	Plug 'airblade/vim-gitgutter'
+	Plug 'mhinz/vim-signify'
 	Plug 'neomake/neomake'
 	Plug 'tpope/vim-fugitive'
-
-	" tags
-	Plug 'majutsushi/tagbar'
 call plug#end()
 
 " -- important --
@@ -136,6 +133,11 @@ function! s:VisualSearch()
 	let @@=temp
 endfunction
 
+if exists(':terminal')
+	tnoremap <Esc><Esc> <C-\><C-n>
+	nmap <Leader>t :below split <Bar> terminal<CR>
+endif
+
 " -- reading and writing files --
 set backup
 if empty(glob('$HOME/.vim/backup'))
@@ -178,7 +180,7 @@ nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
 
 " Sneak
-let g:sneak#streak=1
+let g:sneak#label=1
 
 map <Leader>s <Plug>Sneak_s
 map <Leader>S <Plug>Sneak_S
@@ -192,7 +194,7 @@ map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
 " undotree
-nnoremap <Leader>ut :UndotreeToggle<CR>
+nnoremap <Leader>u :UndotreeToggle<CR>
 
 " Rainbow Parentheses
 let g:rainbow#blacklist=[0, 255]
@@ -208,7 +210,6 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>b :Unite buffer<CR>
 nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
-nnoremap <Leader>g :Unite vimgrep<CR><CR>
 nnoremap <Leader>l :Unite -start-insert locate<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
@@ -217,9 +218,19 @@ imap <C-l> <C-r><Tab>
 
 " Neomake
 let g:neomake_open_list=2
+nnoremap <Leader>m :Neomake!<CR>
 
-" tagbar
-nnoremap <Leader>tb :TagbarToggle<CR>
+" signify
+highlight SignifySignDelete cterm=bold ctermbg=1
+highlight SignifySignAdd    cterm=bold ctermbg=2
+highlight SignifySignChange cterm=bold ctermbg=3
+
+" fugitive
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gd :Gvdiff<CR>
+nnoremap <Leader>ge :Gedit<CR>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gs :Gstatus<CR>
 
 " load local vimrc
 if !empty(glob('$HOME/.vimrc.local'))
