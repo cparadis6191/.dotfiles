@@ -17,10 +17,8 @@ augroup PlugInstallGroup
 augroup END
 endif
 
-" plug#begin() automatically calls
-" filetype plugin indent on
 call plug#begin()
-	" text manipulation
+	" Text manipulation
 	Plug 'junegunn/vim-easy-align'
 	Plug 'justinmk/vim-sneak'
 	Plug 'mbbill/undotree'
@@ -29,7 +27,7 @@ call plug#begin()
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-unimpaired'
 
-	" display
+	" Display
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'junegunn/rainbow_parentheses.vim'
 
@@ -44,7 +42,7 @@ call plug#begin()
 	Plug 'garbas/vim-snipmate'
 	Plug 'honza/vim-snippets'
 
-	" programming
+	" Programming
 	Plug 'mhinz/vim-signify'
 	Plug 'neomake/neomake'
 	Plug 'tpope/vim-fugitive'
@@ -92,32 +90,32 @@ set showcmd
 set clipboard^=unnamedplus
 
 " -- editing text --
-set nojoinspaces    " joining lines at punctuation will not insert an extra space
+set nojoinspaces    " Joining lines at punctuation will not insert an extra space
 
 " -- tabs and indenting --
 set tabstop=4
-set shiftwidth=0    " sets < and > shifts to be the value of tabstop
-set shiftround      " rounds to the nearest multiple of shiftwidth when using < and >
-set copyindent      " copy whitespace for indenting from previous line
+set shiftwidth=0    " Sets < and > shifts to be the value of tabstop
+set shiftround      " Rounds to the nearest multiple of shiftwidth when using < and >
+set copyindent      " Copy whitespace for indenting from previous line
 
 " -- folding --
 " -- diff mode --
 
 " -- mapping --
-" comments CANNOT be on the same line as a map
+" Comments CANNOT be on the same line as a map
 let mapleader="\<Space>"
 
-" make Y behave more like C and D
+" Make Y behave more like C and D
 nnoremap Y y$
 
-" shifting in visual mode now reselects the block
+" Shifting in visual mode now reselects the block
 xnoremap > >gv
 xnoremap < <gv
 
-" use Q for executing the macro in the q register
+" Use Q for executing the macro in the q register
 nnoremap Q @q
 
-" search for visual selecions
+" Search for visual selecions
 xnoremap * :<C-u>call <SID>VisualSearch()<CR>/<CR>
 xnoremap # :<C-u>call <SID>VisualSearch()<CR>?<CR>
 
@@ -148,7 +146,7 @@ endif
 set directory^=$HOME/.config/nvim/swap//
 
 " -- command line editing --
-set wildmode=longest:full    " make autocomplete more like bash
+set wildmode=longest:full    " Make autocomplete more like bash
 
 set undofile
 if empty(glob('$HOME/.config/nvim/undo'))
@@ -162,9 +160,9 @@ set undodir^=$HOME/.config/nvim/undo//
 " -- multi-byte characters --
 
 " -- various --
-set exrc        " use project specific .exrc files
+set exrc        " Use project specific .exrc files
 set secure
-set gdefault    " substitute all matches on a line
+set gdefault    " Substitute all matches on a line
 
 " -- plugin settings --
 
@@ -181,11 +179,11 @@ let g:sneak#label=1
 map <Leader>s <Plug>Sneak_s
 map <Leader>S <Plug>Sneak_S
 
-" replace f with Sneak
+" Replace f with Sneak
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 
-" replace t with Sneak
+" Replace t with Sneak
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
@@ -228,7 +226,7 @@ nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
-" load local init.vim
+" Load local init.vim
 if !empty(glob('$HOME/.config/nvim/local.init.vim'))
 	source $HOME/.config/nvim/local.init.vim
 endif
