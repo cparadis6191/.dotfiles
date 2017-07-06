@@ -56,6 +56,6 @@ if [[ -f "$HOME/.bashrc.local" ]]; then
 fi
 
 # Tweaks for Bash on Windows
-if [[ "$(uname -r)" == *Microsoft* ]] && [[ -f "$HOME/.bashrc.wsl" ]]; then
+if grep -Eq 'Microsoft|WSL' '/proc/version' && [[ -f "$HOME/.bashrc.wsl" ]]; then
 	source "$HOME/.bashrc.wsl"
 fi

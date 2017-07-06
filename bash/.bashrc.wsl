@@ -1,1 +1,1 @@
-alias vim="env --unset='TERM' $EDITOR"
+alias vim='TERM= $EDITOR'
