@@ -18,6 +18,11 @@ augroup END
 endif
 
 call plug#begin()
+	" vim-neovim-defaults
+	if !has('nvim')
+		Plug 'noahfrederick/vim-neovim-defaults'
+	endif
+
 	" Text manipulation
 	Plug 'junegunn/vim-easy-align'
 	Plug 'justinmk/vim-sneak'
@@ -49,6 +54,9 @@ call plug#begin()
 call plug#end()
 
 " -- important --
+if !has('nvim')
+	runtime! plugin/neovim_defaults.vim
+endif
 
 " -- moving around, searching and patterns --
 set ignorecase

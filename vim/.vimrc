@@ -19,7 +19,9 @@ endif
 
 call plug#begin()
 	" vim-neovim-defaults
-	Plug 'noahfrederick/vim-neovim-defaults', { 'on': [] }
+	if !has('nvim')
+		Plug 'noahfrederick/vim-neovim-defaults'
+	endif
 
 	" Text manipulation
 	Plug 'junegunn/vim-easy-align'
@@ -52,7 +54,9 @@ call plug#begin()
 call plug#end()
 
 " -- important --
-runtime! plugin/neovim_defaults.vim
+if !has('nvim')
+	runtime! plugin/neovim_defaults.vim
+endif
 
 " -- moving around, searching and patterns --
 set ignorecase
