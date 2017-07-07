@@ -235,16 +235,6 @@ nnoremap <Leader>gg :Ggrep<Space>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
-" Ggrep for visual selecions
-xnoremap <Leader>gg :<C-u>call <SID>VisualGitGrep()<CR>
-
-function! s:VisualGitGrep()
-	let temp=@@
-	normal! gvy
-	execute 'Ggrep' shellescape(@@)
-	let @@=temp
-endfunction
-
 " Load local init.vim
 if !empty(glob('$HOME/.config/nvim/local.init.vim'))
 	source $HOME/.config/nvim/local.init.vim
