@@ -116,12 +116,9 @@ let mapleader="\<Space>"
 " Make Y behave more like C and D
 nnoremap Y y$
 
-" Shifting in visual mode now reselects the block
-xnoremap > >gv
-xnoremap < <gv
-
 " Use Q for executing the macro in the q register
 nnoremap Q @q
+xnoremap Q :normal! @q<CR>
 
 " Search for visual selecions
 xnoremap * :<C-u>call <SID>VisualSearch()<CR>/<CR>
@@ -137,7 +134,7 @@ endfunction
 
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-n>
-	nmap <Leader>t :below split <Bar> terminal<CR>
+	nnoremap <Leader>t :below split <Bar> terminal<CR>
 endif
 
 " -- reading and writing files --
@@ -211,12 +208,16 @@ let g:unite_enable_auto_select=0
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>b :Unite buffer<CR>
-nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
+if has('nvim')
+	nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
+else
+	nnoremap <Leader>f :Unite -start-insert file_rec<CR>
+endif
 nnoremap <Leader>l :Unite -start-insert locate<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
 " SnipMate
-imap <C-l> <C-r><Tab>
+imap <C-l> <Plug>snipMateShow
 
 " Neomake
 let g:neomake_open_list=2
