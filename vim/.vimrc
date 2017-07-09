@@ -1,15 +1,18 @@
+" -- important --
+let $VIMFILES=split(&runtimepath, ',')[0]
+
 " -- plugins --
-if empty(glob('$CONFIGDIR/.vim/autoload/plug.vim'))
-	silent !curl -fLo $CONFIGDIR/.vim/autoload/plug.vim --create-dirs
+if empty(glob('$VIMFILES/autoload/plug.vim'))
+	silent !curl -fLo $VIMFILES/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 augroup PlugInstallGroup
 	autocmd!
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 augroup END
 endif
-if empty(glob('$CONFIGDIR/.vim/autoload/plug.vim'))
-	silent !mkdir -p $CONFIGDIR/.vim/autoload
-	silent !wget -qO $CONFIGDIR/.vim/autoload/plug.vim
+if empty(glob('$VIMFILES/autoload/plug.vim'))
+	silent !mkdir -p $VIMFILES/autoload
+	silent !wget -qO $VIMFILES/autoload/plug.vim
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 augroup PlugInstallGroup
 	autocmd!
@@ -62,120 +65,10 @@ if !has('nvim')
 	runtime! plugin/neovim_defaults.vim
 endif
 
-" -- important --
-
-" -- moving around, searching and patterns --
-set ignorecase
-set smartcase
-
-" -- tags --
-
-" -- displaying text --
-set scrolloff=5
-set linebreak
-
-if exists('+breakindent')
-	set breakindent
-	let &showbreak='  > '
-endif
-
-set lazyredraw
-set number
-
-" -- syntax, highlighting and spelling --
-syntax enable
-
-" -- multiple windows --
-let &statusline=' %<%f [%{(&fileencoding ? &fileencoding : &encoding)}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
-set hidden
-
-" -- multiple tab pages --
-
-" -- terminal --
-set title
-
-" -- using the mouse --
-" -- printing --
-
-" -- messages and info --
-set showcmd
-
-" -- selecting text --
-set clipboard^=unnamedplus
-
-" -- editing text --
-set nojoinspaces    " Joining lines at punctuation will not insert an extra space
-
-" -- tabs and indenting --
-set tabstop=4
-set shiftwidth=0    " Sets < and > shifts to be the value of tabstop
-set shiftround      " Rounds to the nearest multiple of shiftwidth when using < and >
-set copyindent      " Copy whitespace for indenting from previous line
-
-" -- folding --
-" -- diff mode --
-
-" -- mapping --
-" Comments CANNOT be on the same line as a map
+" -- plugin settings --
+" mapleader must be set BEFORE <Leader> maps are specified
 let mapleader="\<Space>"
 
-" Make Y behave more like C and D
-nnoremap Y y$
-
-" Use Q for executing the macro in the q register
-nnoremap Q @q
-xnoremap Q :normal! @q<CR>
-
-" Search for visual selecions
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<CR>
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<CR>
-
-function! s:VSetSearch()
-	let temp=@@
-	normal! gvy
-	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
-	call histadd('/', substitute(@/, '[?/]', '\="\\%d" . char2nr(submatch(0))', 'g'))
-	let @@=temp
-endfunction
-
-if exists(':terminal')
-	tnoremap <Esc><Esc> <C-\><C-n>
-	nnoremap <Leader>t :below split <Bar> terminal<CR>
-endif
-
-" -- reading and writing files --
-set backup
-if empty(glob('$CONFIGDIR/.vim/backup'))
-	silent !mkdir -p $CONFIGDIR/.vim/backup
-endif
-set backupdir^=$CONFIGDIR/.vim/backup//
-
-" -- the swap file --
-if empty(glob('$CONFIGDIR/.vim/swap'))
-	silent !mkdir -p $CONFIGDIR/.vim/swap
-endif
-set directory^=$CONFIGDIR/.vim/swap//
-
-" -- command line editing --
-set wildmode=longest:full    " Make autocomplete more like bash
-
-set undofile
-if empty(glob('$CONFIGDIR/.vim/undo'))
-	silent !mkdir -p $CONFIGDIR/.vim/undo
-endif
-set undodir^=$CONFIGDIR/.vim/undo//
-
-" -- executing external commands --
-" -- running make and jumping to errors --
-" -- language specific --
-" -- multi-byte characters --
-
-" -- various --
-set exrc        " Use project specific .exrc files
-set secure
-set gdefault    " Substitute all matches on a line
-
-" -- plugin settings --
 " Display
 " Rainbow Parentheses
 let g:rainbow#blacklist=[0, 255]
@@ -241,15 +134,130 @@ let g:unite_enable_auto_select=0
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>b :Unite buffer<CR>
-if has('nvim')
-	nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
-else
+if !has('nvim')
 	nnoremap <Leader>f :Unite -start-insert file_rec<CR>
+else
+	nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
 endif
 nnoremap <Leader>l :Unite -start-insert locate<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
-" Load local vimrc
-if !empty(glob('$CONFIGDIR/.vimrc.local'))
-	source $CONFIGDIR/.vimrc.local
+" -- moving around, searching and patterns --
+set ignorecase
+set smartcase
+
+" -- tags --
+
+" -- displaying text --
+set scrolloff=5
+set linebreak
+
+if exists('+breakindent')
+	set breakindent
+	let &showbreak='  > '
+endif
+
+set lazyredraw
+set number
+
+" -- syntax, highlighting and spelling --
+syntax enable
+
+" -- multiple windows --
+let &statusline=' %<%f [%{(&fileencoding ? &fileencoding : &encoding)}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
+set hidden
+
+" -- multiple tab pages --
+
+" -- terminal --
+set title
+
+" -- using the mouse --
+" -- printing --
+
+" -- messages and info --
+set showcmd
+
+" -- selecting text --
+set clipboard^=unnamedplus
+
+" -- editing text --
+set nojoinspaces    " Joining lines at punctuation will not insert an extra space
+
+" -- tabs and indenting --
+set tabstop=4
+set shiftwidth=0    " Sets < and > shifts to be the value of tabstop
+set shiftround      " Rounds to the nearest multiple of shiftwidth when using < and >
+set copyindent      " Copy whitespace for indenting from previous line
+
+" -- folding --
+" -- diff mode --
+
+" -- mapping --
+" Comments CANNOT be on the same line as a map
+" Make Y behave more like C and D
+nnoremap Y y$
+
+" Use Q for executing the macro in the q register
+nnoremap Q @q
+xnoremap Q :normal! @q<CR>
+
+" Search for visual selecions
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<CR>
+
+function! s:VSetSearch()
+	let temp=@@
+	normal! gvy
+	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
+	call histadd('/', substitute(@/, '[?/]', '\="\\%d" . char2nr(submatch(0))', 'g'))
+	let @@=temp
+endfunction
+
+if exists(':terminal')
+	tnoremap <Esc><Esc> <C-\><C-n>
+	nnoremap <Leader>t :below split <Bar> terminal<CR>
+endif
+
+" -- reading and writing files --
+set backup
+if empty(glob('$VIMFILES/backup'))
+	silent !mkdir -p $VIMFILES/backup
+endif
+set backupdir^=$VIMFILES/backup//
+
+" -- the swap file --
+if empty(glob('$VIMFILES/swap'))
+	silent !mkdir -p $VIMFILES/swap
+endif
+set directory^=$VIMFILES/swap//
+
+" -- command line editing --
+set wildmode=longest:full    " Make autocomplete more like bash
+
+set undofile
+if empty(glob('$VIMFILES/undo'))
+	silent !mkdir -p $VIMFILES/undo
+endif
+set undodir^=$VIMFILES/undo//
+
+" -- executing external commands --
+" -- running make and jumping to errors --
+" -- language specific --
+" -- multi-byte characters --
+
+" -- various --
+set exrc        " Use project specific .exrc files
+set secure
+set gdefault    " Substitute all matches on a line
+
+" Load local config
+if !has('nvim')
+	if !empty(glob('$HOME/.vimrc.local'))
+		source $HOME/.vimrc.local
+	endif
+else
+	if !empty(glob('$VIMFILES/.local.init.vim'))
+		source $VIMFILES/.local.init.vim
+	endif
 endif
