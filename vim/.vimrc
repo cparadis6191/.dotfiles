@@ -121,10 +121,10 @@ nnoremap Q @q
 xnoremap Q :normal! @q<CR>
 
 " Search for visual selecions
-xnoremap * :<C-u>call <SID>VisualSearch()<CR>/<CR>
-xnoremap # :<C-u>call <SID>VisualSearch()<CR>?<CR>
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<CR>
 
-function! s:VisualSearch()
+function! s:VSetSearch()
 	let temp=@@
 	normal! gvy
 	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
