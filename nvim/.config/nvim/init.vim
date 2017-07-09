@@ -23,23 +23,28 @@ call plug#begin()
 		Plug 'noahfrederick/vim-neovim-defaults'
 	endif
 
-	" Text manipulation
+	" Display
+	Plug 'bronson/vim-trailing-whitespace'
+	Plug 'junegunn/rainbow_parentheses.vim'
+	Plug 'justinmk/vim-dirvish'
+
+	" Editing
 	Plug 'junegunn/vim-easy-align'
-	Plug 'justinmk/vim-sneak'
 	Plug 'mbbill/undotree'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
+
+	" Git
+	Plug 'mhinz/vim-signify'
+	Plug 'tpope/vim-fugitive'
+
+	" Movement
+	Plug 'justinmk/vim-sneak'
 	Plug 'tpope/vim-unimpaired'
 
-	" Display
-	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'junegunn/rainbow_parentheses.vim'
-
-	" Unite
-	Plug 'Shougo/unite.vim'
-	Plug 'Shougo/neoyank.vim'
-	Plug 'ujihisa/unite-locate'
+	" Neomake
+	Plug 'neomake/neomake'
 
 	" SnipMate
 	Plug 'tomtom/tlib_vim'
@@ -47,16 +52,17 @@ call plug#begin()
 	Plug 'garbas/vim-snipmate'
 	Plug 'honza/vim-snippets'
 
-	" Programming
-	Plug 'mhinz/vim-signify'
-	Plug 'neomake/neomake'
-	Plug 'tpope/vim-fugitive'
+	" Unite
+	Plug 'Shougo/unite.vim'
+	Plug 'Shougo/neoyank.vim'
+	Plug 'ujihisa/unite-locate'
 call plug#end()
 
-" -- important --
 if !has('nvim')
 	runtime! plugin/neovim_defaults.vim
 endif
+
+" -- important --
 
 " -- moving around, searching and patterns --
 set ignorecase
@@ -170,14 +176,45 @@ set secure
 set gdefault    " Substitute all matches on a line
 
 " -- plugin settings --
+" Display
+" Rainbow Parentheses
+let g:rainbow#blacklist=[0, 255]
+let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
+augroup RainbowParenthesesGroup
+	autocmd!
+	autocmd VimEnter * RainbowParentheses
+augroup END
 
-" netrw
-let g:netrw_liststyle=3
+" dirvish
+nmap <Leader>e :Dirvish<CR>
+augroup DirvishGroup
+	autocmd!
+	autocmd VimEnter * unmap -
+augroup END
 
+" Editing
 " easy-align
 nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
 
+" undotree
+nnoremap <Leader>u :UndotreeToggle<CR>
+
+" Git
+" signify
+highlight SignifySignDelete cterm=bold ctermbg=1
+highlight SignifySignAdd    cterm=bold ctermbg=2
+highlight SignifySignChange cterm=bold ctermbg=3
+
+" fugitive
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gd :Gvdiff<CR>
+nnoremap <Leader>ge :Gedit<CR>
+nnoremap <Leader>gg :Ggrep<Space>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+
+" Movement
 " Sneak
 let g:sneak#label=1
 
@@ -192,16 +229,12 @@ map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
-" undotree
-nnoremap <Leader>u :UndotreeToggle<CR>
+" Neomake
+let g:neomake_open_list=2
+nnoremap <Leader>m :Neomake!<CR>
 
-" Rainbow Parentheses
-let g:rainbow#blacklist=[0, 255]
-let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
-augroup RainbowParenthesesGroup
-	autocmd!
-	autocmd VimEnter * RainbowParentheses
-augroup END
+" SnipMate
+imap <C-l> <Plug>snipMateShow
 
 " Unite
 let g:unite_enable_auto_select=0
@@ -215,26 +248,6 @@ else
 endif
 nnoremap <Leader>l :Unite -start-insert locate<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
-
-" SnipMate
-imap <C-l> <Plug>snipMateShow
-
-" Neomake
-let g:neomake_open_list=2
-nnoremap <Leader>m :Neomake!<CR>
-
-" signify
-highlight SignifySignDelete cterm=bold ctermbg=1
-highlight SignifySignAdd    cterm=bold ctermbg=2
-highlight SignifySignChange cterm=bold ctermbg=3
-
-" fugitive
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gd :Gvdiff<CR>
-nnoremap <Leader>ge :Gedit<CR>
-nnoremap <Leader>gg :Ggrep<Space>
-nnoremap <Leader>gl :Glog<CR>
-nnoremap <Leader>gs :Gstatus<CR>
 
 " Load local init.vim
 if !empty(glob('$HOME/.config/nvim/local.init.vim'))
