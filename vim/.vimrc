@@ -5,19 +5,19 @@ let $VIMFILES=split(&runtimepath, ',')[0]
 if empty(glob('$VIMFILES/autoload/plug.vim'))
 	silent !curl -fLo $VIMFILES/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-augroup PlugInstallGroup
-	autocmd!
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-augroup END
+	augroup PlugInstallGroup
+		autocmd!
+		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	augroup END
 endif
 if empty(glob('$VIMFILES/autoload/plug.vim'))
 	silent !mkdir -p $VIMFILES/autoload
 	silent !wget -qO $VIMFILES/autoload/plug.vim
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-augroup PlugInstallGroup
-	autocmd!
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-augroup END
+	augroup PlugInstallGroup
+		autocmd!
+		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	augroup END
 endif
 
 call plug#begin()
@@ -57,6 +57,7 @@ call plug#begin()
 
 	" Unite
 	Plug 'Shougo/unite.vim'
+	Plug 'rhysd/unite-oldfiles.vim'
 	Plug 'Shougo/neoyank.vim'
 	Plug 'ujihisa/unite-locate'
 call plug#end()
@@ -139,8 +140,9 @@ if !has('nvim')
 else
 	nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
 endif
-nnoremap <Leader>l :Unite -start-insert locate<CR>
+nnoremap <Leader>r :Unite oldfiles<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
+nnoremap <Leader>l :Unite -start-insert locate<CR>
 
 " -- moving around, searching and patterns --
 set ignorecase
