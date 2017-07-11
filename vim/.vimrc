@@ -82,7 +82,7 @@ augroup END
 nmap <Leader>e :Dirvish<CR>
 augroup DirvishGroup
 	autocmd!
-	autocmd VimEnter * unmap -
+	autocmd VimEnter * silent! unmap -
 augroup END
 
 " Editing
