@@ -54,8 +54,3 @@ alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?
 if [[ -f "$HOME/.bashrc.local" ]]; then
 	source "$HOME/.bashrc.local"
 fi
-
-# Tweaks for Bash on Windows
-if grep -Eq 'Microsoft|WSL' '/proc/version' && [[ -f "$HOME/.bashrc.wsl" ]]; then
-	source "$HOME/.bashrc.wsl"
-fi
