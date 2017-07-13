@@ -40,7 +40,7 @@ alias mkdir='mkdir -pv'    # Make parent directories as needed
 alias grep='grep --color=auto'
 
 # Some shortcuts for different directory listings
-alias ls='ls --color=auto'    # Classify files in colour
+alias ls='ls --color=auto'    # List files in colour
 alias la='ls -A'              # All but . and ..
 alias ll='ls -Ahl'            # Long list
 alias lt='ls -Ahlt'           # Long list sorted by time
