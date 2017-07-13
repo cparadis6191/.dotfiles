@@ -220,6 +220,9 @@ if exists(':terminal')
 	nnoremap <Leader>t :below split <Bar> terminal<CR>
 endif
 
+" Write the current file as root
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
 " -- reading and writing files --
 set backup
 if empty(glob('$VIMFILES/backup'))
