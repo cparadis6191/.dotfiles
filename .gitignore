@@ -1,5 +1,3 @@
 vim/.vim/
 nvim/.config/nvim/*
 !nvim/.config/nvim/init.vim
-ranger/.config/ranger/*
-!ranger/.config/ranger/rc.conf
