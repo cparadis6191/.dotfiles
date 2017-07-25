@@ -151,6 +151,19 @@ set ignorecase
 set smartcase
 
 " -- tags --
+set cscopetag
+
+" Add Cscope database from tags option
+nnoremap <silent> <Leader>tl :call <SID>CscopeAddDb()<CR>
+
+function! s:CscopeAddDb()
+	for tagfile in split(&tags, ',')
+		let l:cscopedb=findfile('cscope.out', fnamemodify(tagfile, ':p:h') . matchstr(tagfile[-1:], ';'))
+		if !empty(glob(l:cscopedb))
+			execute 'cscope add' l:cscopedb
+		endif
+	endfor
+endfunction
 
 " -- displaying text --
 set scrolloff=5
@@ -198,13 +211,17 @@ set copyindent      " Copy whitespace for indenting from previous line
 " -- diff mode --
 
 " -- mapping --
-" Comments CANNOT be on the same line as a map
-" Make Y behave more like C and D
-nnoremap Y y$
+" Cscope maps
+nmap <C-\> :cscope find  <C-r>=expand("<cword>")<CR><C-Left><C-Left>
 
 " Use Q for executing the macro in the q register
 nnoremap Q @q
 xnoremap Q :normal! @q<CR>
+
+if exists(':terminal')
+	tnoremap <Esc><Esc> <C-\><C-n>
+	nnoremap <Leader>t :below split <Bar> terminal<CR>
+endif
 
 " Search for visual selecions
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<CR>
@@ -218,13 +235,11 @@ function! s:VSetSearch()
 	let @@=temp
 endfunction
 
-if exists(':terminal')
-	tnoremap <Esc><Esc> <C-\><C-n>
-	nnoremap <Leader>t :below split <Bar> terminal<CR>
-endif
-
 " Write the current file as root
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
+" Make Y behave more like C and D
+nnoremap Y y$
 
 " -- reading and writing files --
 set backup
