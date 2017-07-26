@@ -1,3 +1,2 @@
-vim/.vim/
 nvim/.config/nvim/*
 !nvim/.config/nvim/init.vim
