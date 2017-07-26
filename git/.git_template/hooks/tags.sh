@@ -16,10 +16,10 @@ function remove_temps {
 }
 trap 'remove_temps' EXIT
 
-git ls-files > "$dir/$$.files"
-awk '{ print "\""$0"\""}' "$dir/$$.files" > "$dir/$$.cscope.files"
+git ls-files -z | tr "\0" "\n" > "$dir/$$.files"
+git submodule --quiet foreach 'git ls-files -z | tr "\0" "\n" | sed "s|^|$path/|"' >> "$dir/$$.files"
+awk '{ print "\""$0"\"" }' "$dir/$$.files" > "$dir/$$.cscope.files"
 
-git submodule --quiet foreach 'git ls-files | sed "s|^|$path/|"' >> "$dir/$$.files"
 ctags --excmd=number --sort=foldcase --tag-relative -L "$dir/$$.files" -f "$dir/$$.tags"
 cscope -b -C -q -i "$dir/$$.cscope.files" -f "$dir/$$.cscope.out"
 
