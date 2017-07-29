@@ -154,10 +154,10 @@ set smartcase
 set cscopetag
 
 " Add Cscope database from tags option
-nnoremap <silent> <Leader>tl :call <SID>CscopeAddDb()<CR>
+nnoremap <silent> <Leader>tl :call <SID>CscopeAddDBs()<CR>
 
-function! s:CscopeAddDb()
-	for tagfile in split(&tags, ',')
+function! s:CscopeAddDBs()
+	for tagfile in tagfiles()
 		let l:cscopedb=findfile('cscope.out', fnamemodify(tagfile, ':p:h') . matchstr(tagfile[-1:], ';'))
 		if !empty(glob(l:cscopedb))
 			execute 'cscope add' l:cscopedb
