@@ -212,7 +212,7 @@ set copyindent      " Copy whitespace for indenting from previous line
 
 " -- mapping --
 " Cscope maps
-nmap <C-\> :cscope find  <C-r>=expand("<cword>")<CR><C-Left><C-Left>
+nmap <C-\> :cscope find  <C-r>=expand('<cword>')<CR><C-Left><C-Left>
 
 " Use Q for executing the macro in the q register
 nnoremap Q @q
@@ -236,7 +236,7 @@ function! s:VSetSearch()
 endfunction
 
 " Write the current file as root
-command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! W :execute ':silent write !sudo tee % > /dev/null' | :edit!
 
 " Make Y behave more like C and D
 nnoremap Y y$
