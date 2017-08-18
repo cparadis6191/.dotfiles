@@ -84,7 +84,7 @@ let g:dirvish_relative_paths=1
 nmap <Leader>d <Plug>(dirvish_up)
 augroup DirvishGroup
 	autocmd!
-	autocmd Filetype dirvish map  <buffer> h <Plug>(dirvish_up)
+	autocmd Filetype dirvish map <buffer> h <Plug>(dirvish_up)
 	autocmd Filetype dirvish nmap <buffer> l <CR>
 	autocmd Filetype dirvish xmap <buffer> l <CR>
 augroup END
@@ -100,7 +100,7 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 " Git
 " signify
 highlight SignifySignDelete cterm=bold ctermbg=1
-highlight SignifySignAdd    cterm=bold ctermbg=2
+highlight SignifySignAdd cterm=bold ctermbg=2
 highlight SignifySignChange cterm=bold ctermbg=3
 
 " fugitive
@@ -131,7 +131,7 @@ let g:neomake_open_list=2
 nnoremap <Leader>m :Neomake!<CR>
 
 " SnipMate
-imap <C-l> <Plug>snipMateShow
+imap <C-L> <Plug>snipMateShow
 
 " Unite
 let g:unite_enable_auto_select=0
@@ -212,20 +212,20 @@ set copyindent      " Copy whitespace for indenting from previous line
 
 " -- mapping --
 " Cscope maps
-nmap <C-\> :cscope find  <C-r>=expand('<cword>')<CR><C-Left><C-Left>
+nmap <C-\> :cscope find  <C-R>=expand('<cword>')<CR><C-Left><C-Left>
 
 " Use Q for executing the macro in the q register
 nnoremap Q @q
 xnoremap Q :normal! @q<CR>
 
 if exists(':terminal')
-	tnoremap <Esc><Esc> <C-\><C-n>
+	tnoremap <Esc><Esc> <C-\><C-N>
 	nnoremap <Leader>t :below split <Bar> terminal<CR>
 endif
 
 " Search for visual selecions
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<CR>
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<CR>
+xnoremap * :<C-U>call <SID>VSetSearch()<CR>/<CR>
+xnoremap # :<C-U>call <SID>VSetSearch()<CR>?<CR>
 
 function! s:VSetSearch()
 	let temp=@@
