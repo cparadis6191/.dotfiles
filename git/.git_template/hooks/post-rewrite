@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+case "$1" in
+	rebase)
+		.git/hooks/tags.sh > /dev/null 2>&1 &
+		;;
+esac

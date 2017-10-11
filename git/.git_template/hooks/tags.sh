@@ -3,6 +3,9 @@
 set -e
 dir="$(git rev-parse --git-dir)"
 
+(
+flock --nonblock 200
+
 function remove_temps {
 	rm -f "$dir/$$.tags"
 
@@ -27,3 +30,4 @@ mv "$dir/$$.tags"          "$dir/tags"
 mv "$dir/$$.cscope.out"    "$dir/cscope.out"
 mv "$dir/$$.cscope.out.in" "$dir/cscope.out.in"
 mv "$dir/$$.cscope.out.po" "$dir/cscope.out.po"
+) 200>"$dir/tags.lock"
