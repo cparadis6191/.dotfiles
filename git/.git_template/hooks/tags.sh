@@ -3,8 +3,9 @@
 set -e
 dir="$(git rev-parse --git-dir)"
 
+lsof -t "$dir/tags.lock" | xargs --no-run-if-empty kill -SIGINT
 (
-flock --nonblock 200
+flock 200
 
 function remove_temps {
 	rm -f "$dir/$$.tags"
@@ -27,7 +28,8 @@ ctags --excmd=number --sort=foldcase --tag-relative -L "$dir/$$.files" -f "$dir/
 cscope -b -C -q -i "$dir/$$.cscope.files" -f "$dir/$$.cscope.out"
 
 mv "$dir/$$.tags"          "$dir/tags"
+
 mv "$dir/$$.cscope.out"    "$dir/cscope.out"
 mv "$dir/$$.cscope.out.in" "$dir/cscope.out.in"
 mv "$dir/$$.cscope.out.po" "$dir/cscope.out.po"
-) 200>"$dir/tags.lock"
+) 200> "$dir/tags.lock"
