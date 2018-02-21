@@ -5,7 +5,7 @@ dir="$(git rev-parse --git-dir)"
 
 lsof -t "$dir/tags.lock" | xargs --no-run-if-empty kill -SIGINT
 (
-flock 200
+flock --timeout 5 200
 
 function remove_temps {
 	rm -f "$dir/$$.tags"
@@ -21,8 +21,8 @@ function remove_temps {
 trap 'remove_temps' EXIT
 
 git ls-files -z | tr "\0" "\n" > "$dir/$$.files"
-git submodule --quiet foreach 'git ls-files -z | tr "\0" "\n" | sed "s|^|$path/|"' >> "$dir/$$.files"
-awk '{ print "\""$0"\"" }' "$dir/$$.files" > "$dir/$$.cscope.files"
+top="$(git rev-parse --show-toplevel)"
+awk --assign top="$top/" '{ print "\""top$0"\"" }' "$dir/$$.files" > "$dir/$$.cscope.files"
 
 ctags --excmd=number --sort=foldcase --tag-relative -L "$dir/$$.files" -f "$dir/$$.tags"
 cscope -b -C -q -i "$dir/$$.cscope.files" -f "$dir/$$.cscope.out"
