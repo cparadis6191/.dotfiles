@@ -2,6 +2,7 @@
 	dt = difftool
 	edit = !git ls-files --modified -z | xargs -0 $EDITOR
 	graph = log --date=relative --decorate --graph --oneline
+	hooks = !rm -f $(git rev-parse --git-dir)/hooks/*
 	mt = mergetool
 	tags = !$(git rev-parse --git-dir)/hooks/tags.sh
 [core]
