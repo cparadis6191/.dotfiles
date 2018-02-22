@@ -215,6 +215,9 @@ set copyindent      " Copy whitespace for indenting from previous line
 " Cscope maps
 nmap <C-\> :cscope find  <C-R>=expand('<cword>')<CR><C-Left><C-Left>
 
+" Open alternate file
+nnoremap <Leader>ga :e %<.
+
 " Use Q for executing the macro in the q register
 nnoremap Q @q
 xnoremap Q :normal! @q<CR>
