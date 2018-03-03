@@ -151,6 +151,7 @@ set ignorecase
 set smartcase
 
 " -- tags --
+set tags+=.git/tags;.git
 set tags+=.git/modules/**/tags;.git
 set cscopetag
 
