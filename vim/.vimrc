@@ -151,8 +151,8 @@ set ignorecase
 set smartcase
 
 " -- tags --
-set tags+=.git/tags;.git
-set tags+=.git/modules/**/tags;.git
+set tags+=.git/tags;
+set tags+=.git/modules/**/tags;
 set cscopetag
 
 " Add Cscope database from tags option
