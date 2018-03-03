@@ -151,7 +151,7 @@ set ignorecase
 set smartcase
 
 " -- tags --
-set tags^=./.git/modules/**/tags;
+set tags+=.git/modules/**/tags;.git
 set cscopetag
 
 " Add Cscope database from tags option
@@ -232,11 +232,11 @@ xnoremap * :<C-U>call <SID>VSetSearch()<CR>/<CR>
 xnoremap # :<C-U>call <SID>VSetSearch()<CR>?<CR>
 
 function! s:VSetSearch()
-	let temp=@@
+	let l:temp=@@
 	normal! gvy
 	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
 	call histadd('/', substitute(@/, '[?/]', '\="\\%d" . char2nr(submatch(0))', 'g'))
-	let @@=temp
+	let @@=l:temp
 endfunction
 
 " Write the current file as root
