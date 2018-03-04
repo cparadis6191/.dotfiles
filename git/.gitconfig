@@ -2,9 +2,9 @@
 	dt = difftool
 	edit = !git ls-files --modified -z | xargs -0 $EDITOR
 	graph = log --date=relative --decorate --graph --oneline
-	hooks = !rm -f $(git rev-parse --git-dir)/hooks/*
+	maketags = !$(git rev-parse --git-dir)/hooks/tags.sh
 	mt = mergetool
-	tags = !$(git rev-parse --git-dir)/hooks/tags.sh
+	listtags = !git submodule --quiet foreach git rev-parse --git-dir | awk '{ print \"set tags+=\"$0\"/tags\" }'
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
