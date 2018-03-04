@@ -158,8 +158,8 @@ set cscopetag
 nnoremap <silent> <Leader>tl :call <SID>CscopeAddDBs()<CR>
 
 function! s:CscopeAddDBs()
-	for tagfile in tagfiles()
-		let l:cscopedb=findfile('cscope.out', fnamemodify(tagfile, ':p:h') . matchstr(tagfile[-1:], ';'))
+	for l:tagfile in tagfiles()
+		let l:cscopedb=findfile('cscope.out', fnamemodify(l:tagfile, ':p:h') . matchstr(l:tagfile[-1:], ';'))
 		if !empty(glob(l:cscopedb))
 			execute 'cscope add' l:cscopedb
 		endif
