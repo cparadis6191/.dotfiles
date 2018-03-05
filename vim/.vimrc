@@ -84,9 +84,8 @@ let g:dirvish_relative_paths=1
 nmap <Leader>d <Plug>(dirvish_up)
 augroup DirvishGroup
 	autocmd!
-	autocmd Filetype dirvish map <buffer> h <Plug>(dirvish_up)
+	autocmd Filetype dirvish nmap <buffer> h <Plug>(dirvish_up)
 	autocmd Filetype dirvish nmap <buffer> l <CR>
-	autocmd Filetype dirvish xmap <buffer> l <CR>
 augroup END
 
 " Editing
