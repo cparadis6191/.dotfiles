@@ -10,20 +10,20 @@
 	excludesfile = ~/.gitignore_global
 	pager = less -+FX
 [diff]
-	tool = nvimdiff
-[difftool "nvimdiff"]
-	cmd = $EDITOR -R -f -d -c 'wincmd l' -c 'cd $GIT_PREFIX' "$LOCAL" "$REMOTE"
+	tool = vimdiff
+[difftool "vimdiff"]
+	path = nvim
 [difftool]
 	prompt = false
 [init]
 	templatedir = ~/.git_template
 [merge]
 	conflictStyle = diff3
-	tool = nvimmerge
-[mergetool "nvimmerge"]
-	cmd = $EDITOR -f -d -c '4wincmd w | wincmd J' "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
+	tool = vimdiff
 [mergetool]
 	prompt = false
+[mergetool "vimdiff"]
+	path = nvim
 [push]
 	default = simple
 [user]
