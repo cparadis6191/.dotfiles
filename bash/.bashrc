@@ -47,6 +47,6 @@ alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?
 # -- Functions --
 
 # -- Local Environment --
-if [[ -f "$HOME/.bashrc.local" ]]; then
-	source "$HOME/.bashrc.local"
+if [[ -f "$HOME/.local.bashrc" ]]; then
+	source "$HOME/.local.bashrc"
 fi

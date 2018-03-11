@@ -280,8 +280,8 @@ set gdefault    " Substitute all matches on a line
 
 " Load local config
 if !has('nvim')
-	if !empty(glob('$HOME/.vimrc.local'))
-		source $HOME/.vimrc.local
+	if !empty(glob('$HOME/.local.vimrc'))
+		source $HOME/.local.vimrc
 	endif
 else
 	if !empty(glob('$VIMFILES/.local.init.vim'))
