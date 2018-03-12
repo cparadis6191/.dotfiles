@@ -63,7 +63,7 @@ call plug#begin()
 call plug#end()
 
 if !has('nvim')
-	runtime! plugin/neovim_defaults.vim
+	runtime plugin/neovim_defaults.vim
 endif
 
 " -- plugin settings --
