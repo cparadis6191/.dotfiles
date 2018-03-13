@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
 set -e
-git_dir="$(git rev-parse --git-dir)"
+
+git_dir=$(git rev-parse --git-dir)
+top_dir=$(git rev-parse --show-toplevel)
+if [[ "$top_dir" != "$PWD" ]]; then
+	exit
+fi
 
 lsof -t "$git_dir/tags.lock" | xargs --no-run-if-empty kill -SIGINT
 (
 flock --timeout 5 200
 
-function remove_temps {
+trap '{
 	rm -f "$git_dir/$$.tags"
 
 	rm -f "$git_dir/$$.cscope.out"
@@ -17,12 +22,10 @@ function remove_temps {
 
 	rm -f "$git_dir/$$.files"
 	rm -f "$git_dir/$$.cscope.files"
-}
-trap 'remove_temps' EXIT
+}' EXIT
 
-git ls-files -z | tr "\0" "\n" > "$git_dir/$$.files"
-top_dir="$(git rev-parse --show-toplevel)"
-awk --assign top_dir="$top_dir/" '{ print "\""top_dir$0"\"" }' "$git_dir/$$.files" > "$git_dir/$$.cscope.files"
+git ls-files -z | tr '\0' '\n' > "$git_dir/$$.files"
+awk -v top_dir="$top_dir" '{ print "\""top_dir"/"$0"\"" }' "$git_dir/$$.files" > "$git_dir/$$.cscope.files"
 
 ctags --excmd=number --sort=foldcase --tag-relative -L "$git_dir/$$.files" -f "$git_dir/$$.tags"
 cscope -b -C -q -i "$git_dir/$$.cscope.files" -f "$git_dir/$$.cscope.out"
