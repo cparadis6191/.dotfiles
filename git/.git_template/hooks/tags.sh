@@ -4,7 +4,7 @@ set -e
 
 git_dir=$(git rev-parse --git-dir)
 top_dir=$(git rev-parse --show-toplevel)
-if [[ "$top_dir" != "$PWD" ]]; then
+if [[ "$(git rev-parse --is-inside-work-tree)" != 'true' ]]; then
 	exit
 fi
 
