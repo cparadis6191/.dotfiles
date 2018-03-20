@@ -46,9 +46,6 @@ call plug#begin()
 	Plug 'justinmk/vim-sneak'
 	Plug 'tpope/vim-unimpaired'
 
-	" Neomake
-	Plug 'neomake/neomake'
-
 	" SnipMate
 	Plug 'tomtom/tlib_vim'
 	Plug 'MarcWeber/vim-addon-mw-utils'
@@ -124,10 +121,6 @@ map F <Plug>Sneak_F
 " Replace t with Sneak
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
-
-" Neomake
-let g:neomake_open_list=2
-nnoremap <Leader>m :Neomake!<CR>
 
 " SnipMate
 imap <C-L> <Plug>snipMateShow
