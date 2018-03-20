@@ -221,17 +221,17 @@ if exists(':terminal')
 	nnoremap <Leader>t :below split <Bar> terminal<CR>
 endif
 
-" Search for visual selecions
-xnoremap * :<C-U>call <SID>VSetSearch()<CR>/<CR>
-xnoremap # :<C-U>call <SID>VSetSearch()<CR>?<CR>
-
-function! s:VSetSearch()
+" Search for visual selection
+function! s:VisualSetSearch()
 	let l:temp=@@
 	normal! gvy
 	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
 	call histadd('/', substitute(@/, '[?/]', '\="\\%d" . char2nr(submatch(0))', 'g'))
 	let @@=l:temp
 endfunction
+
+xnoremap * :<C-U>call <SID>VisualSetSearch()<CR>/<CR>
+xnoremap # :<C-U>call <SID>VisualSetSearch()<CR>?<CR>
 
 " Write the current file as root
 command! W :execute ':silent write !sudo tee % > /dev/null' | :edit!
