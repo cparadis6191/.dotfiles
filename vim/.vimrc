@@ -147,9 +147,9 @@ set tags+=.git/tags;
 set cscopetag
 
 " Add Cscope database from tags option
-nnoremap <silent> <Leader>tl :call <SID>CscopeAddDBs()<CR>
+nnoremap <silent> <Leader>tl :call <SID>CscopeAddDatabases()<CR>
 
-function! s:CscopeAddDBs()
+function! s:CscopeAddDatabases()
 	for l:tagfile in tagfiles()
 		let l:cscopedb=findfile('cscope.out', fnamemodify(l:tagfile, ':p:h') . matchstr(l:tagfile[-1:], ';'))
 		if !empty(glob(l:cscopedb))
