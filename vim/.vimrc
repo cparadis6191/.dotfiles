@@ -43,7 +43,6 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 
 	" Movement
-	Plug 'justinmk/vim-sneak'
 	Plug 'tpope/vim-unimpaired'
 
 	" SnipMate
@@ -108,19 +107,6 @@ nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
 " Movement
-" Sneak
-let g:sneak#label=1
-
-map <Leader>s <Plug>Sneak_s
-map <Leader>S <Plug>Sneak_S
-
-" Replace f with Sneak
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-
-" Replace t with Sneak
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
 
 " SnipMate
 imap <C-L> <Plug>snipMateShow
