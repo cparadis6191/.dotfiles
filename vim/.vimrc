@@ -42,9 +42,6 @@ call plug#begin()
 	Plug 'mhinz/vim-signify'
 	Plug 'tpope/vim-fugitive'
 
-	" Movement
-	Plug 'tpope/vim-unimpaired'
-
 	" SnipMate
 	Plug 'tomtom/tlib_vim'
 	Plug 'MarcWeber/vim-addon-mw-utils'
@@ -105,8 +102,6 @@ nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gg :Ggrep<Space>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gs :Gstatus<CR>
-
-" Movement
 
 " SnipMate
 imap <C-L> <Plug>snipMateShow
@@ -193,7 +188,7 @@ set copyindent      " Copy whitespace for indenting from previous line
 
 " -- mapping --
 " Cscope maps
-nmap <C-\> :cscope find  <C-R>=expand('<cword>')<CR><C-Left><C-Left>
+nnoremap <C-\> :cscope find  <C-R>=expand('<cword>')<CR><C-Left><C-Left>
 
 " Open alternate file
 nnoremap <Leader>ga :e %<.
@@ -218,6 +213,20 @@ endfunction
 
 xnoremap * :<C-U>call <SID>VisualSetSearch()<CR>/<CR>
 xnoremap # :<C-U>call <SID>VisualSetSearch()<CR>?<CR>
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+
+noremap <Leader>e `.
+
+" Jump to Git conflict markers
+noremap [g ?^[<\|=>]\{7}$<CR>
+noremap ]g /^[<\|=>]\{7}$<CR>
+
+" Highlight the last search more permanently
+nnoremap <Leader>/ :match Search '<C-R>/'<CR>
 
 " Write the current file as root
 command! W :execute ':silent write !sudo tee % > /dev/null' | :edit!
