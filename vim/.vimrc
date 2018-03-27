@@ -222,8 +222,8 @@ nnoremap ]q :cnext<CR>
 noremap <Leader>e `.
 
 " Jump to Git conflict markers
-noremap [g ?\v^[<<Bar>=>]{7}$<CR>
-noremap ]g /\v^[<<Bar>=>]{7}$<CR>
+noremap [g ?\v^[<<Bar>=>]{7}<CR>
+noremap ]g /\v^[<<Bar>=>]{7}<CR>
 
 " Highlight the last search more permanently
 nnoremap <Leader>/ :match Search '<C-R>/'<CR>
