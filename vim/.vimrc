@@ -224,7 +224,7 @@ noremap [g ?\v^[<<Bar>=>]{7}<CR>
 noremap ]g /\v^[<<Bar>=>]{7}<CR>
 
 " Highlight the last search more permanently
-nnoremap <Leader>/ :match Search '<C-R>/'<CR>
+nnoremap <Leader>/ :match Search /<C-R>=escape(@/, '/')<CR>/<CR>
 
 " Write the current file as root
 command! W :execute ':silent write !sudo tee % > /dev/null' | :edit!
