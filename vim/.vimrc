@@ -214,8 +214,8 @@ xnoremap # :<C-U>call <SID>VisualSetSearch()<CR>?<CR>
 
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
-nnoremap [q :cprevious<CR>
-nnoremap ]q :cnext<CR>
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
 
 noremap <Leader>e `.
 
