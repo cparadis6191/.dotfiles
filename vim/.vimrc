@@ -115,9 +115,9 @@ if !has('nvim')
 else
 	nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
 endif
+nnoremap <Leader>l :Unite -start-insert locate<CR>
 nnoremap <Leader>r :Unite oldfiles<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
-nnoremap <Leader>l :Unite -start-insert locate<CR>
 
 " -- moving around, searching and patterns --
 set ignorecase
