@@ -119,16 +119,57 @@ nnoremap <Leader>l :Unite -start-insert locate<CR>
 nnoremap <Leader>r :Unite oldfiles<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
-" -- moving around, searching and patterns --
-set ignorecase
-set smartcase
+" -- mappings --
+" Use Q for executing the macro in the q register
+nnoremap Q @q
+xnoremap Q :normal! @q<CR>
 
-" -- tags --
-set cscopetag
+" Write the current file as root
+command! W :execute ':silent write !sudo tee % > /dev/null' | :edit!
 
-" Add Cscope database from tags option
-nnoremap <silent> <Leader>tl :call <SID>CscopeAddDatabases()<CR>
+" Make Y behave more like C and D
+nnoremap Y y$
 
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+
+" Jump to Git conflict markers
+noremap [g ?\v^[<<Bar>=>]{7}<CR>
+noremap ]g /\v^[<<Bar>=>]{7}<CR>
+
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+
+" Search for visual selection
+function! s:VisualSetSearch()
+	let l:temp=@@
+	normal! gvy
+	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
+	call histadd('/', substitute(@/, '[?/]', '\="\\%d" . char2nr(submatch(0))', 'g'))
+	let @@=l:temp
+endfunction
+
+xnoremap * :<C-U>call <SID>VisualSetSearch()<CR>/<CR>
+xnoremap # :<C-U>call <SID>VisualSetSearch()<CR>?<CR>
+
+" Jump to where the last change was made
+noremap <Leader>e `.
+
+" Open alternate file
+nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
+
+if exists(':terminal')
+	tnoremap <Esc><Esc> <C-\><C-N>
+	nnoremap <Leader>t :below split <Bar> terminal<CR>
+endif
+
+" Highlight the last search more permanently
+nnoremap <silent> <Leader>/ :match Search /<C-R>=escape(@/, '/')<CR>/<CR>
+
+" Cscope maps
+nnoremap <C-\> :cscope find  <C-R>=expand('<cword>')<CR><C-Left><C-Left>
+
+" Add Cscope databases that neighbor tags files
 function! s:CscopeAddDatabases()
 	for l:tagfile in tagfiles()
 		let l:cscopedb=findfile('cscope.out', fnamemodify(l:tagfile, ':p:h') . matchstr(l:tagfile[-1:], ';'))
@@ -137,6 +178,15 @@ function! s:CscopeAddDatabases()
 		endif
 	endfor
 endfunction
+
+nnoremap <silent> <Leader>tl :call <SID>CscopeAddDatabases()<CR>
+
+" -- moving around, searching and patterns --
+set ignorecase
+set smartcase
+
+" -- tags --
+set cscopetag
 
 " -- displaying text --
 set scrolloff=5
@@ -183,54 +233,7 @@ set copyindent      " Copy whitespace for indenting from previous line
 
 " -- folding --
 " -- diff mode --
-
 " -- mapping --
-" Cscope maps
-nnoremap <C-\> :cscope find  <C-R>=expand('<cword>')<CR><C-Left><C-Left>
-
-" Open alternate file
-nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
-
-" Use Q for executing the macro in the q register
-nnoremap Q @q
-xnoremap Q :normal! @q<CR>
-
-if exists(':terminal')
-	tnoremap <Esc><Esc> <C-\><C-N>
-	nnoremap <Leader>t :below split <Bar> terminal<CR>
-endif
-
-" Search for visual selection
-function! s:VisualSetSearch()
-	let l:temp=@@
-	normal! gvy
-	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
-	call histadd('/', substitute(@/, '[?/]', '\="\\%d" . char2nr(submatch(0))', 'g'))
-	let @@=l:temp
-endfunction
-
-xnoremap * :<C-U>call <SID>VisualSetSearch()<CR>/<CR>
-xnoremap # :<C-U>call <SID>VisualSetSearch()<CR>?<CR>
-
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [q :cprevious<CR>
-nnoremap <silent> ]q :cnext<CR>
-
-noremap <Leader>e `.
-
-" Jump to Git conflict markers
-noremap [g ?\v^[<<Bar>=>]{7}<CR>
-noremap ]g /\v^[<<Bar>=>]{7}<CR>
-
-" Highlight the last search more permanently
-nnoremap <silent> <Leader>/ :match Search /<C-R>=escape(@/, '/')<CR>/<CR>
-
-" Write the current file as root
-command! W :execute ':silent write !sudo tee % > /dev/null' | :edit!
-
-" Make Y behave more like C and D
-nnoremap Y y$
 
 " -- reading and writing files --
 set backup
