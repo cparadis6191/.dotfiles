@@ -23,7 +23,7 @@ endif
 call plug#begin()
 	" vim-neovim-defaults
 	if !has('nvim')
-		Plug 'noahfrederick/vim-neovim-defaults'
+		Plug 'cparadis6191/vim-neovim-defaults'
 	endif
 
 	" displaying text
