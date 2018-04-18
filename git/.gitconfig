@@ -11,10 +11,10 @@
 	pager = less -+FX
 [diff]
 	tool = vimdiff
-[difftool "vimdiff"]
-	path = nvim
 [difftool]
 	prompt = false
+[difftool "vimdiff"]
+	path = nvim
 [init]
 	templatedir = ~/.git_template
 [merge]
