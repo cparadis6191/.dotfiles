@@ -152,7 +152,7 @@ nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
 	nnoremap <Leader>t :below split <Bar> terminal<CR>
-	augroup TerminalStartInsert
+	augroup TerminalGroup
 		autocmd!
 		autocmd TermOpen * startinsert
 	augroup END
