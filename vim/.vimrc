@@ -3,16 +3,7 @@ let $VIMFILES=split(&runtimepath, ',')[0]
 
 " -- plugins --
 if empty(glob('$VIMFILES/autoload/plug.vim'))
-	silent !curl -fLo $VIMFILES/autoload/plug.vim --create-dirs
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	augroup PlugInstallGroup
-		autocmd!
-		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	augroup END
-endif
-if empty(glob('$VIMFILES/autoload/plug.vim'))
-	silent !mkdir -p $VIMFILES/autoload
-	silent !wget -qO $VIMFILES/autoload/plug.vim
+	silent !curl --create-dirs --location --output $VIMFILES/autoload/plug.vim
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	augroup PlugInstallGroup
 		autocmd!
@@ -242,13 +233,13 @@ set copyindent      " Copy whitespace for indenting from previous line
 " -- reading and writing files --
 set backup
 if empty(glob('$VIMFILES/backup'))
-	silent !mkdir -p $VIMFILES/backup
+	mkdir($VIMFILES/backup, 'p')
 endif
 set backupdir^=$VIMFILES/backup//
 
 " -- the swap file --
 if empty(glob('$VIMFILES/swap'))
-	silent !mkdir -p $VIMFILES/swap
+	mkdir($VIMFILES/swap, 'p')
 endif
 set directory^=$VIMFILES/swap//
 
@@ -257,7 +248,7 @@ set wildmode=longest:full    " Make autocomplete more like bash
 
 set undofile
 if empty(glob('$VIMFILES/undo'))
-	silent !mkdir -p $VIMFILES/undo
+	mkdir($VIMFILES/undo, 'p')
 endif
 set undodir^=$VIMFILES/undo//
 
