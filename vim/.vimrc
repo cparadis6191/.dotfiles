@@ -261,6 +261,10 @@ set undodir^=$VIMFILES/undo//
 set exrc        " Use project specific .exrc files
 set secure
 
+if (exists('+inccommand'))
+	set inccommand=nosplit    " Shows the effects of a command incrementally, as you type
+endif
+
 " Load local config
 if !has('nvim')
 	if !empty(glob('$HOME/.local.vimrc'))
