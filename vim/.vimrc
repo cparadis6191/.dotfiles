@@ -116,7 +116,7 @@ nnoremap Q @q
 xnoremap Q :normal! @q<CR>
 
 " Write the current file as root
-command! W :execute ':silent write !sudo tee %' | :edit!
+command! W :execute ':silent write !sudo tee %' <Bar> :edit!
 
 " Make Y behave more like C and D
 nnoremap Y y$
