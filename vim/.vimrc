@@ -4,7 +4,7 @@ let $VIMFILES=split(&runtimepath, ',')[0]
 " -- plugins --
 if empty(glob('$VIMFILES/autoload/plug.vim'))
 	silent !curl --create-dirs --location --output $VIMFILES/autoload/plug.vim
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	augroup PlugInstallGroup
 		autocmd!
 		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
