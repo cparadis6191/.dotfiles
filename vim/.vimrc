@@ -260,7 +260,6 @@ set undodir^=$VIMFILES/undo//
 " -- various --
 set exrc        " Use project specific .exrc files
 set secure
-set gdefault    " Substitute all matches on a line
 
 " Load local config
 if !has('nvim')
