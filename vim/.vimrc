@@ -2,7 +2,7 @@
 let $VIMFILES=split(&runtimepath, ',')[0]
 
 " -- plugins --
-if empty(glob('$VIMFILES/autoload/plug.vim'))
+if empty(glob($VIMFILES.'/autoload/plug.vim'))
 	silent !curl --create-dirs --location --output $VIMFILES/autoload/plug.vim
 	    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	augroup PlugInstallGroup
@@ -232,14 +232,14 @@ set copyindent      " Copy whitespace for indenting from previous line
 
 " -- reading and writing files --
 set backup
-if empty(glob('$VIMFILES/backup'))
-	mkdir($VIMFILES/backup, 'p')
+if empty(glob($VIMFILES.'/backup'))
+	call mkdir($VIMFILES.'/backup', 'p')
 endif
 set backupdir^=$VIMFILES/backup//
 
 " -- the swap file --
-if empty(glob('$VIMFILES/swap'))
-	mkdir($VIMFILES/swap, 'p')
+if empty(glob($VIMFILES.'/swap'))
+	call mkdir($VIMFILES.'/swap', 'p')
 endif
 set directory^=$VIMFILES/swap//
 
@@ -247,8 +247,8 @@ set directory^=$VIMFILES/swap//
 set wildmode=longest:full    " Make autocomplete more like bash
 
 set undofile
-if empty(glob('$VIMFILES/undo'))
-	mkdir($VIMFILES/undo, 'p')
+if empty(glob($VIMFILES.'/undo'))
+	call mkdir($VIMFILES.'/undo', 'p')
 endif
 set undodir^=$VIMFILES/undo//
 
@@ -267,11 +267,11 @@ endif
 
 " Load local config
 if !has('nvim')
-	if !empty(glob('$HOME/.local.vimrc'))
+	if !empty(glob($HOME.'/.local.vimrc'))
 		source $HOME/.local.vimrc
 	endif
 else
-	if !empty(glob('$VIMFILES/.local.init.vim'))
+	if !empty(glob($VIMFILES.'/.local.init.vim'))
 		source $VIMFILES/.local.init.vim
 	endif
 endif
