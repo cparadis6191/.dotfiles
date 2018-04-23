@@ -31,7 +31,7 @@ call plug#begin()
 
 	" git
 	Plug 'mhinz/vim-signify'
-	Plug 'tpope/vim-fugitive'
+	Plug 'cparadis6191/vim-fugitive'
 
 	" SnipMate
 	Plug 'tomtom/tlib_vim'
