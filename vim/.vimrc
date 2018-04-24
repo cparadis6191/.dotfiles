@@ -1,5 +1,5 @@
 " -- important --
-let $VIMFILES=split(&runtimepath, ',')[0]
+let $VIMFILES=split(&runtimepath, '[^\\]\zs,')[0]
 
 " -- plugins --
 if empty(glob($VIMFILES.'/autoload/plug.vim'))
