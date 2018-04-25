@@ -167,7 +167,7 @@ nnoremap <C-\> :cscope find  <C-R>=expand('<cword>')<CR><C-Left><C-Left>
 " Add Cscope databases that neighbor tags files
 function! s:CscopeAddDatabases()
 	for l:tagfile in tagfiles()
-		let l:cscopedb=findfile('cscope.out', fnamemodify(l:tagfile, ':p:h') . matchstr(l:tagfile[-1:], ';'))
+		let l:cscopedb=findfile('cscope.out', fnamemodify(l:tagfile, ':p:h').matchstr(l:tagfile[-1:], ';'))
 		if !empty(glob(l:cscopedb))
 			execute 'cscope add' l:cscopedb
 		endif
