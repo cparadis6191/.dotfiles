@@ -33,6 +33,10 @@ call plug#begin()
 	Plug 'mhinz/vim-signify'
 	Plug 'cparadis6191/vim-fugitive'
 
+	" gist
+	Plug 'mattn/webapi-vim'
+	Plug 'mattn/gist-vim'
+
 	" SnipMate
 	Plug 'tomtom/tlib_vim'
 	Plug 'MarcWeber/vim-addon-mw-utils'
