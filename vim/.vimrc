@@ -33,10 +33,6 @@ call plug#begin()
 	Plug 'mhinz/vim-signify'
 	Plug 'cparadis6191/vim-fugitive'
 
-	" gist
-	Plug 'mattn/webapi-vim'
-	Plug 'mattn/gist-vim'
-
 	" neosnippet
 	Plug 'Shougo/neosnippet.vim'
 	Plug 'Shougo/neosnippet-snippets'
