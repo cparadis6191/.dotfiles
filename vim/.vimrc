@@ -37,11 +37,9 @@ call plug#begin()
 	Plug 'mattn/webapi-vim'
 	Plug 'mattn/gist-vim'
 
-	" SnipMate
-	Plug 'tomtom/tlib_vim'
-	Plug 'MarcWeber/vim-addon-mw-utils'
-	Plug 'garbas/vim-snipmate'
-	Plug 'honza/vim-snippets'
+	" neosnippet
+	Plug 'Shougo/neosnippet.vim'
+	Plug 'Shougo/neosnippet-snippets'
 
 	" Unite
 	Plug 'Shougo/unite.vim'
@@ -98,8 +96,9 @@ nnoremap <Leader>gg :Ggrep<Space>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
-" SnipMate
-imap <C-L> <Plug>snipMateShow
+" neosnippet
+imap <expr><Tab> pumvisible() ? '<C-N>' : neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
+smap <expr><Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 
 " Unite
 let g:unite_enable_auto_select=0
@@ -112,6 +111,7 @@ else
 endif
 nnoremap <Leader>l :Unite -start-insert locate<CR>
 nnoremap <Leader>r :Unite oldfiles<CR>
+nnoremap <Leader>s :Unite -start-insert neosnippet<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
 " -- mappings --
