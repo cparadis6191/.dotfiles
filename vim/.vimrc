@@ -152,11 +152,15 @@ nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
 
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
-	nnoremap <Leader>t :below split <Bar> terminal<CR>
-	augroup TerminalGroup
-		autocmd!
-		autocmd TermOpen * startinsert
-	augroup END
+	if !has('nvim')
+		nnoremap <Leader>t :terminal<CR>
+	else
+		nnoremap <Leader>t :below split <Bar> terminal<CR>
+		augroup TerminalGroup
+			autocmd!
+			autocmd TermOpen * startinsert
+		augroup END
+	endif
 endif
 
 " Highlight the last search more permanently
