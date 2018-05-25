@@ -276,7 +276,7 @@ if !has('nvim')
 		source $HOME/.local.vimrc
 	endif
 else
-	if !empty(glob($VIMFILES.'/.local.init.vim'))
-		source $VIMFILES/.local.init.vim
+	if !empty(glob($VIMFILES.'/local.init.vim'))
+		source $VIMFILES/local.init.vim
 	endif
 endif
