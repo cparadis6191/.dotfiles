@@ -17,19 +17,19 @@ call plug#begin()
 		Plug 'cparadis6191/vim-neovim-defaults'
 	endif
 
-	" displaying text
+	" Displaying text
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'junegunn/rainbow_parentheses.vim'
 	Plug 'justinmk/vim-dirvish'
 
-	" editing text
+	" Editing text
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mbbill/undotree'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
 
-	" git
+	" Git
 	Plug 'mhinz/vim-signify'
 	Plug 'cparadis6191/vim-fugitive'
 
@@ -52,7 +52,7 @@ endif
 " mapleader must be set BEFORE <Leader> maps are specified
 let mapleader="\<Space>"
 
-" displaying text
+" Displaying text
 " Rainbow Parentheses
 let g:rainbow#blacklist=[0, 255]
 let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
@@ -70,7 +70,7 @@ augroup DirvishGroup
 	autocmd Filetype dirvish nmap <buffer> l <CR>
 augroup END
 
-" editing text
+" Editing text
 " easy-align
 nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
@@ -78,7 +78,7 @@ xmap <Leader>a <Plug>(EasyAlign)
 " undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
-" git
+" Git
 " signify
 highlight SignifySignDelete cterm=bold ctermbg=1
 highlight SignifySignAdd cterm=bold ctermbg=2

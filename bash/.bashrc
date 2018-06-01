@@ -5,16 +5,16 @@ fi
 
 # -- Shell Options --
 PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ '
-PS2='  > '    # Another custom prompt if a quote is not closed
+PS2='  > '
 
-# If running in a nice gui terminal emulator set the window title
+# Set window title if running in nice GUI terminal emulator
 if [[ "$TERM" != 'linux' ]] && [[ "$TERM" != 'console' ]]; then
 	PROMPT_COMMAND='echo -ne "\033]0;$TERM $SHELL $PWD\007"'
 fi
 
-shopt -s checkwinsize    # Updates the window if its size changes
-shopt -s globstar        # Let ** be used to glob files and directories recursively and **/ for directories
-shopt -s histappend      # Append to history instead of overwriting it
+shopt -s checkwinsize
+shopt -s globstar
+shopt -s histappend
 
 # -- Completion options --
 
@@ -26,22 +26,20 @@ export EDITOR='nvim'
 export VISUAL='$EDITOR'
 alias vim='$EDITOR'
 
-# Interactive operation
-alias rm='rm -I'    # Prompt once before removing more than three files
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm='rm --interactive=once'
+alias cp='cp --interactive'
+alias mv='mv --interactive'
 
-alias mkdir='mkdir -pv'    # Make parent directories as needed
+alias mkdir='mkdir --parents --verbose'
 
 alias grep='grep --color=auto'
 
-# Some shortcuts for different directory listings
-alias ls='ls --color=auto'    # List files in colour
-alias la='ls -A'              # All but . and ..
-alias ll='ls -Ahl'            # Long list
-alias lt='ls -Ahlt'           # Long list sorted by time
+alias ls='ls --color=auto'
+alias la='ls --almost-all'
+alias ll='la --classify --human-readable -l'
+alias lt='ll --sort=time'
 
-alias less='less -P "?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'    # Make less display line number like systemctl
+alias less='less --prompt="?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'
 
 # -- Umask --
 # -- Functions --
