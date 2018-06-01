@@ -22,9 +22,9 @@ shopt -s histappend
 HISTSIZE=10000
 
 # -- Aliases --
-export EDITOR='nvim'
-export VISUAL='$EDITOR'
-alias vim='$EDITOR'
+alias vim=nvim
+export EDITOR=vim
+export VISUAL=vim
 
 alias rm='rm --interactive=once'
 alias cp='cp --interactive'
