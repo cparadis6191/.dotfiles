@@ -136,8 +136,8 @@ nnoremap <silent> ]q :cnext<CR>
 function! s:VisualSetSearch()
 	let l:temp=@@
 	normal! gvy
-	let @/='\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
-	call histadd('/', substitute(@/, '[?/]', '\="\\%d" . char2nr(submatch(0))', 'g'))
+	let @/='\V' . substitute(escape(@@, '/\'), '\_s\+', '\\_s\\+', 'g')
+	call histadd('search', @/)
 	let @@=l:temp
 endfunction
 
