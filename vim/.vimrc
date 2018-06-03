@@ -49,7 +49,7 @@ if !has('nvim')
 endif
 
 " -- plugin settings --
-" mapleader must be set BEFORE <Leader> maps are specified
+" mapleader must be set BEFORE <Leader> maps are used
 let mapleader="\<Space>"
 
 " Displaying text
