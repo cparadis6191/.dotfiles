@@ -167,7 +167,7 @@ endif
 nnoremap <silent> <Leader>/ :match Search /<C-R>=escape(@/, '/')<CR>/<CR>
 
 " Cscope maps
-nnoremap <C-\> :cscope find  <C-R>=expand('<cword>')<CR><C-Left><C-Left>
+nnoremap <C-\> :cscope find <Space><C-R>=expand('<cword>')<CR><S-Left><S-Left>
 
 " Add Cscope databases that neighbor tags files
 function! s:CscopeAddDatabases()
