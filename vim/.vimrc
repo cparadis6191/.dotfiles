@@ -112,9 +112,9 @@ nnoremap <Leader>s :Unite -start-insert neosnippet<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 
 " -- mappings --
-" Use Q for executing the macro in the q register
-nnoremap Q @q
-xnoremap Q :normal! @q<CR>
+" Repeat the previous recording
+nnoremap Q @@
+xnoremap Q :normal! @@<CR>
 
 " Write the current file as root
 command! W :execute ':silent write !sudo tee %' <Bar> :edit!
