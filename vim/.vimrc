@@ -41,6 +41,7 @@ call plug#begin()
 	Plug 'Shougo/unite.vim'
 	Plug 'rhysd/unite-oldfiles.vim'
 	Plug 'Shougo/neoyank.vim'
+	Plug 'sgoranson/unite-mark'
 	Plug 'ujihisa/unite-locate'
 call plug#end()
 
@@ -107,6 +108,7 @@ else
 	nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
 endif
 nnoremap <Leader>l :Unite -start-insert locate<CR>
+nnoremap <Leader>' :Unite mark<CR>
 nnoremap <Leader>r :Unite oldfiles<CR>
 nnoremap <Leader>s :Unite -start-insert neosnippet<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
