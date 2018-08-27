@@ -39,8 +39,8 @@ call plug#begin()
 
 	" Unite
 	Plug 'Shougo/unite.vim'
-	Plug 'rhysd/unite-oldfiles.vim'
 	Plug 'Shougo/neoyank.vim'
+	Plug 'rhysd/unite-oldfiles.vim'
 	Plug 'sgoranson/unite-mark'
 	Plug 'ujihisa/unite-locate'
 call plug#end()
