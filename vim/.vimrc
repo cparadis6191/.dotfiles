@@ -164,7 +164,7 @@ if exists(':terminal')
 endif
 
 " Highlight the last search more permanently
-nnoremap <silent> <Leader>/ :match Search /<C-R>=escape(@/, '/')<CR>/<CR>
+nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 
 " Cscope maps
 nnoremap <C-\> :cscope find <Space><C-R>=expand('<cword>')<CR><S-Left><S-Left>
