@@ -88,7 +88,7 @@ highlight SignifySignChange cterm=bold ctermbg=3
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gd :Gvdiff<CR>
 nnoremap <Leader>ge :Gedit<CR>
-nnoremap <Leader>gg :Ggrep<Space>
+nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
