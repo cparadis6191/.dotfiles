@@ -147,6 +147,17 @@ endfunction
 xnoremap * :<C-U>call <SID>VisualSetSearch()<CR>/<CR>
 xnoremap # :<C-U>call <SID>VisualSetSearch()<CR>?<CR>
 
+" Diff unwritten changes
+function! s:DiffUnwrittenChanges()
+	let l:filetype=&filetype
+	diffthis
+	vnew | read # | 1d | setlocal nomodified nomodifiable
+	diffthis
+	let &filetype=l:filetype
+endfunction
+
+nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
+
 " Jump to where the last change was made
 noremap <Leader>e `.
 
