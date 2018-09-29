@@ -101,6 +101,8 @@ xmap <Tab> <Plug>(neosnippet_expand_target)
 " Unite
 let g:unite_enable_auto_select=0
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_length'])
+
 nnoremap <Leader>b :Unite buffer<CR>
 if !has('nvim')
 	nnoremap <Leader>f :Unite -start-insert file_rec<CR>
