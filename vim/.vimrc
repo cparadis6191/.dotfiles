@@ -137,11 +137,11 @@ nnoremap <silent> ]q :cnext<CR>
 
 " Search for visual selection
 function! s:VisualSetSearch()
-	let l:temp=@@
+	let l:unnamed_reg=@@
 	normal! gvy
 	let @/='\V' . substitute(escape(@@, '/\'), '\_s\+', '\\_s\\+', 'g')
 	call histadd('search', @/)
-	let @@=l:temp
+	let @@=l:unnamed_reg
 endfunction
 
 xnoremap * :<C-U>call <SID>VisualSetSearch()<CR>/<CR>
