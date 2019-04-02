@@ -1,6 +1,6 @@
 [alias]
 	dt = difftool
-	edit = !$EDITOR $(git diff-files --name-only)
+	edit = !git jump diff
 	graph = log --date=relative --decorate --graph --oneline
 	maketags = !$(git rev-parse --git-dir)/hooks/tags.sh
 	mt = mergetool
