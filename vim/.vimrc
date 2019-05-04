@@ -99,9 +99,12 @@ xmap <Tab> <Plug>(neosnippet_expand_target)
 
 " Unite
 let g:unite_enable_auto_select=0
+
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_length'])
 
+" Unite custom sources
+call unite#custom#source('oldfiles', 'sorters', 'sorter_nothing')
 
 " Unite mappings
 nnoremap <Leader>b :Unite buffer<CR>
