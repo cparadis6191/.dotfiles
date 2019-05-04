@@ -50,7 +50,7 @@ if !has('nvim')
 endif
 
 " -- plugin settings --
-" mapleader must be set BEFORE <Leader> maps are used
+" mapleader must be set BEFORE <Leader> mappings are used
 let mapleader="\<Space>"
 
 " Displaying text
@@ -102,6 +102,8 @@ let g:unite_enable_auto_select=0
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_length'])
 
+
+" Unite mappings
 nnoremap <Leader>b :Unite buffer<CR>
 if !has('nvim')
 	nnoremap <Leader>f :Unite -start-insert file_rec<CR>
@@ -187,7 +189,7 @@ endif
 " Highlight the last search more permanently
 nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 
-" Cscope maps
+" Cscope mappings
 nnoremap <C-\> :cscope find <Space><C-R>=expand('<cword>')<CR><S-Left><S-Left>
 
 " Add Cscope databases that neighbor tags files
@@ -244,13 +246,13 @@ set showcmd
 set clipboard^=unnamedplus
 
 " -- editing text --
-set nojoinspaces    " Joining lines at punctuation will not insert an extra space
+set nojoinspaces
 
 " -- tabs and indenting --
 set tabstop=4
-set shiftwidth=0    " Sets < and > shifts to be the value of tabstop
-set shiftround      " Rounds to the nearest multiple of shiftwidth when using < and >
-set copyindent      " Copy whitespace for indenting from previous line
+set shiftwidth=0
+set shiftround
+set copyindent
 
 " -- folding --
 " -- diff mode --
@@ -284,11 +286,11 @@ set undodir^=$VIMFILES/undo//
 " -- multi-byte characters --
 
 " -- various --
-set exrc        " Use project specific .exrc files
+set exrc
 set secure
 
 if (exists('+inccommand'))
-	set inccommand=nosplit    " Shows the effects of a command incrementally, as you type
+	set inccommand=nosplit
 endif
 
 " Load local config
