@@ -1,4 +1,5 @@
-# If not running interactively do nothing
+# -- Important --
+# Do nothing if not running interactively
 if [[ "$-" != *i* ]]; then
 	return
 fi
@@ -7,7 +8,7 @@ fi
 PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ '
 PS2='  > '
 
-# Set window title if running in nice GUI terminal emulator
+# Set window title if running in a GUI terminal emulator
 if [[ "$TERM" != 'linux' ]] && [[ "$TERM" != 'console' ]]; then
 	PROMPT_COMMAND='echo -ne "\033]0;$TERM $SHELL $PWD\007"'
 fi
@@ -18,7 +19,7 @@ shopt -s histappend
 
 # -- Completion options --
 
-# -- History Options --
+# -- History options --
 HISTSIZE=10000
 
 # -- Aliases --
@@ -49,7 +50,7 @@ alias texxd='xxd -plain -revert'
 # -- Umask --
 # -- Functions --
 
-# -- Local Environment --
+# -- Various --
 if [[ -f "$HOME/.local.bashrc" ]]; then
 	source "$HOME/.local.bashrc"
 fi
