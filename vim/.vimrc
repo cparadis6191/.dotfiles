@@ -140,6 +140,18 @@ noremap ]g /\v^[<<Bar>=>]{7}<CR>
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
 
+" Add search for visual selection
+function! s:VisualAddSearch()
+	let l:unnamed_reg=@@
+	normal! gvy
+	let @/.='\V\|' . substitute(escape(@@, '/\'), '\_s\+', '\\_s\\+', 'g')
+	call histadd('search', @/)
+	let @@=l:unnamed_reg
+endfunction
+
+xnoremap <Leader>* :<C-U>call <SID>VisualAddSearch()<CR>/<CR>
+xnoremap <Leader># :<C-U>call <SID>VisualAddSearch()<CR>?<CR>
+
 " Search for visual selection
 function! s:VisualSetSearch()
 	let l:unnamed_reg=@@
