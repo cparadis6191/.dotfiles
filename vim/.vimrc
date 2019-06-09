@@ -140,29 +140,40 @@ noremap ]g /\v^[<<Bar>=>]{7}<CR>
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
 
-" Add search for visual selection
-function! s:VisualAddSearch()
-	let l:unnamed_reg=@@
-	normal! gvy
-	let @/.='\V\|' . substitute(escape(@@, '/\'), '\_s\+', '\\_s\\+', 'g')
+" Set search
+function! s:SetSearch(search)
+	let @/=a:search
 	call histadd('search', @/)
-	let @@=l:unnamed_reg
 endfunction
 
-xnoremap <Leader>* :<C-U>call <SID>VisualAddSearch()<CR>/<CR>
-xnoremap <Leader># :<C-U>call <SID>VisualAddSearch()<CR>?<CR>
-
-" Search for visual selection
-function! s:VisualSetSearch()
+" Get visual
+function! s:GetVisual()
 	let l:unnamed_reg=@@
 	normal! gvy
-	let @/='\V' . substitute(escape(@@, '/\'), '\_s\+', '\\_s\\+', 'g')
-	call histadd('search', @/)
+	let l:search='\V'.substitute(escape(@@, '/\'), '\_s\+', '\\_s\\+', 'g')
 	let @@=l:unnamed_reg
+	return l:search
 endfunction
 
-xnoremap * :<C-U>call <SID>VisualSetSearch()<CR>/<CR>
-xnoremap # :<C-U>call <SID>VisualSetSearch()<CR>?<CR>
+" Set search mappings
+xnoremap * :<C-U>call <SID>SetSearch(<SID>GetVisual())<CR>/<CR>
+xnoremap # :<C-U>call <SID>SetSearch(<SID>GetVisual())<CR>?<CR>
+
+" Append search
+function! s:AppendSearch(search)
+	let @/.='\|'.a:search
+	call histadd('search', @/)
+endfunction
+
+" Append search mappings
+xnoremap <Leader>* :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>/<CR>
+xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>?<CR>
+
+nnoremap <Leader>* :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>/<CR>
+nnoremap <Leader># :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>?<CR>
+
+nnoremap <Leader>g* :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>/<CR>
+nnoremap <Leader>g# :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>?<CR>
 
 " Diff unwritten changes
 function! s:DiffUnwrittenChanges()
