@@ -130,15 +130,15 @@ command! W :execute ':silent write !sudo tee %' <Bar> :edit!
 " Make Y behave more like C and D
 nnoremap Y y$
 
-nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [b :bprevious<CR>
 
 " Jump to Git conflict markers
-noremap [g ?\v^[<<Bar>=>]{7}<CR>
 noremap ]g /\v^[<<Bar>=>]{7}<CR>
+noremap [g ?\v^[<<Bar>=>]{7}<CR>
 
-nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [q :cprevious<CR>
 
 " Set search
 function! s:SetSearch(search)
