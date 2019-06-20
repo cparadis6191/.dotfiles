@@ -24,8 +24,8 @@ HISTSIZE=10000
 
 # -- Aliases --
 export EDITOR='nvim'
-export VISUAL='$EDITOR'
-alias vim='$EDITOR'
+export VISUAL=$EDITOR
+alias vim=$EDITOR
 
 alias rm='rm --interactive=once'
 alias cp='cp --interactive'
