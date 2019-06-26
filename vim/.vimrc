@@ -51,7 +51,7 @@ endif
 
 " -- plugin settings --
 " mapleader must be set BEFORE <Leader> mappings are used
-let mapleader="\<Space>"
+let mapleader=' '
 
 " Displaying text
 " Rainbow Parentheses
@@ -315,7 +315,7 @@ set undodir^=$VIMFILES/undo//
 set exrc
 set secure
 
-if (exists('+inccommand'))
+if exists('+inccommand')
 	set inccommand=nosplit
 endif
 
