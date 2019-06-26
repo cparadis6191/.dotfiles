@@ -140,6 +140,8 @@ noremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [q :cprevious<CR>
 
+nnoremap <silent> ]Q :cnfile<CR>
+nnoremap <silent> [Q :cpfile<CR>
 
 " Get visual
 function! s:GetVisual()
