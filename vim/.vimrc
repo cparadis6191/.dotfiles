@@ -134,25 +134,26 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [b :bprevious<CR>
 
 " Jump to Git conflict markers
-noremap ]g /\v^[<<Bar>=>]{7}<CR>
-noremap [g ?\v^[<<Bar>=>]{7}<CR>
+noremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
+noremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [q :cprevious<CR>
+
+
+" Get visual
+function! s:GetVisual()
+	let l:unnamed_reg=@"
+	normal! gvy
+	let l:visual='\V'.substitute(escape(@", '/\'), '\_s\+', '\\_s\\+', 'g')
+	let @"=l:unnamed_reg
+	return l:visual
+endfunction
 
 " Set search
 function! s:SetSearch(search)
 	let @/=a:search
 	call histadd('search', @/)
-endfunction
-
-" Get visual
-function! s:GetVisual()
-	let l:unnamed_reg=@@
-	normal! gvy
-	let l:search='\V'.substitute(escape(@@, '/\'), '\_s\+', '\\_s\\+', 'g')
-	let @@=l:unnamed_reg
-	return l:search
 endfunction
 
 " Set search mappings
