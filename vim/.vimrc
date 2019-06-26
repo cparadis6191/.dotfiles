@@ -169,11 +169,11 @@ function! s:AppendSearch(search)
 endfunction
 
 " Append search mappings
-xnoremap <Leader>* :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>/<CR>
-xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>?<CR>
-
 nnoremap <Leader>* :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>/<CR>
 nnoremap <Leader># :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>?<CR>
+
+xnoremap <Leader>* :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>/<CR>
+xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>?<CR>
 
 nnoremap <Leader>g* :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>/<CR>
 nnoremap <Leader>g# :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>?<CR>
