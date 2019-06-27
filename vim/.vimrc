@@ -313,7 +313,7 @@ set undodir^=$VIMFILES/undo//
 
 " -- running make and jumping to errors --
 if executable('rg')
-	let &grepprg='rg --vimgrep --no-heading'
+	let &grepprg='rg --vimgrep'
 endif
 
 " -- language specific --
