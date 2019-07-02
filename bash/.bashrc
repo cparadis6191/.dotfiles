@@ -51,6 +51,6 @@ alias texxd='xxd -plain -revert'
 # -- Functions --
 
 # -- Various --
-if [[ -f "$HOME/.local.bashrc" ]]; then
-	source "$HOME/.local.bashrc"
+if [[ -f "$HOME/.bashrc.local" ]]; then
+	source "$HOME/.bashrc.local"
 fi
