@@ -15,8 +15,6 @@
 	prompt = false
 [difftool "vimdiff"]
 	path = nvim
-[github]
-	user = cparadis6191
 [init]
 	templatedir = ~/.git_template
 [merge]
