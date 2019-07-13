@@ -1,6 +1,6 @@
 # -- Important --
 # Do nothing if not running interactively
-if [[ "$-" != *i* ]]; then
+if [[ $- != *i* ]]; then
 	return
 fi
 
@@ -9,7 +9,7 @@ PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\
 PS2='  > '
 
 # Set window title if running in a GUI terminal emulator
-if [[ "$TERM" != 'linux' ]] && [[ "$TERM" != 'console' ]]; then
+if [[ $TERM != 'linux' ]] && [[ $TERM != 'console' ]]; then
 	PROMPT_COMMAND='echo -ne "\033]0;$TERM $SHELL $PWD\007"'
 fi
 
@@ -25,7 +25,7 @@ HISTSIZE=10000
 # -- Aliases --
 export EDITOR='nvim'
 export VISUAL=$EDITOR
-alias vim=$EDITOR
+alias vim='$EDITOR'
 
 alias rm='rm --interactive=once'
 alias cp='cp --interactive'

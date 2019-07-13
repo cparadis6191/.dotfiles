@@ -2,7 +2,7 @@
 	dt = difftool
 	edit = !git jump diff
 	graph = log --date=relative --decorate --graph --oneline
-	maketags = !$(git rev-parse --git-dir)/hooks/tags.sh
+	maketags = !"$(git rev-parse --git-dir)/hooks/tags.sh"
 	mt = mergetool
 	listtags = !git submodule --quiet foreach --recursive git rev-parse --git-dir | awk '{ print \"set tags+=\"$0\"/tags\" }'
 [core]
