@@ -124,9 +124,6 @@ nnoremap <Leader>y :Unite history/yank<CR>
 nnoremap Q @@
 xnoremap Q :normal! @@<CR>
 
-" Write the current file as root
-command! W :execute ':silent write !sudo tee %' <Bar> :edit!
-
 " Make Y behave more like C and D
 nnoremap Y y$
 
