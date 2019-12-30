@@ -150,8 +150,8 @@ function! s:GetVisual()
 endfunction
 
 " Set search
-function! s:SetSearch(search)
-	let @/=a:search
+function! s:SetSearch(pattern)
+	let @/=a:pattern
 	call histadd('search', @/)
 endfunction
 
@@ -160,9 +160,8 @@ xnoremap * :<C-U>call <SID>SetSearch(<SID>GetVisual())<CR>/<CR>
 xnoremap # :<C-U>call <SID>SetSearch(<SID>GetVisual())<CR>?<CR>
 
 " Append search
-function! s:AppendSearch(search)
-	let @/.='\|'.a:search
-	call histadd('search', @/)
+function! s:AppendSearch(pattern)
+	call <SID>SetSearch(@/.'\|'.a:pattern)
 endfunction
 
 " Append search mappings
@@ -174,6 +173,9 @@ xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>?<CR>
 
 nnoremap <Leader>g* :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>/<CR>
 nnoremap <Leader>g# :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>?<CR>
+
+" Highlight the last search more permanently
+nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 
 " Diff unwritten changes
 function! s:DiffUnwrittenChanges()
@@ -211,9 +213,6 @@ if exists(':terminal')
 		augroup END
 	endif
 endif
-
-" Highlight the last search more permanently
-nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 
 " Cscope mappings
 nnoremap <C-\> :cscope find <Space><C-R>=expand('<cword>')<CR><S-Left><S-Left>
