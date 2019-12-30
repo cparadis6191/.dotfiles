@@ -42,10 +42,10 @@ alias lt='ll --sort=time'
 
 alias less='less --prompt="?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'
 
-alias binxxd='xxd -cols 1 -bits'
-alias cxxd='xxd -cols 1 --include -u'
-alias hexxd='xxd -cols 1 -plain -u'
-alias texxd='xxd -plain -revert'
+alias binxxd='xxd --cols 1 --bits'
+alias cxxd='xxd --cols 1 --include'
+alias hexxd='xxd --cols 1 --plain'
+alias texxd='xxd --plain --revert'
 
 # -- Umask --
 # -- Functions --
