@@ -8,6 +8,7 @@
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
+	pager = less -+F
 [diff]
 	tool = vimdiff
 [difftool]
