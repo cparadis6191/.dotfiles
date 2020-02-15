@@ -25,7 +25,10 @@ lsof -t "$git_dir/tags.lock" | xargs --no-run-if-empty kill -SIGINT
 	}' EXIT
 
 	git ls-files > "$git_dir/$$.files"
-	awk -v top_dir="$top_dir" '{ print "\""top_dir"/"$0"\"" }' "$git_dir/$$.files" > "$git_dir/$$.cscope.files"
+	while read line
+	do
+		echo "\"$top_dir/$line\"" >> "$git_dir/$$.cscope.files"
+	done < "$git_dir/$$.files"
 
 	ctags --excmd=number --sort=foldcase --tag-relative -L "$git_dir/$$.files" -f "$git_dir/$$.tags"
 	cscope -b -C -q -i "$git_dir/$$.cscope.files" -f "$git_dir/$$.cscope.out"
