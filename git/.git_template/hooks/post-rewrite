@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-case $1 in
+case "$1" in
 	rebase)
-		"$(git rev-parse --git-dir)/hooks/tags.sh" > /dev/null 2>&1 &
+		"$(git rev-parse --git-dir)/hooks/tags" > /dev/null 2>&1 &
 		;;
 esac
