@@ -5,6 +5,8 @@ if [[ $- != *i* ]]; then
 fi
 
 # -- Shell Options --
+LESS="--ignore-case --no-init --RAW-CONTROL-CHARS"; export LESS
+
 PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ '
 PS2='  > '
 
