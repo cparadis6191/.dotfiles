@@ -26,7 +26,7 @@ HISTSIZE=10000
 
 # -- Aliases --
 export EDITOR='nvim'
-export VISUAL=$EDITOR
+export VISUAL='nvim'
 alias vim='$EDITOR'
 
 alias rm='rm --interactive=once'
