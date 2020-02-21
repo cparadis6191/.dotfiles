@@ -15,6 +15,8 @@ if [[ $TERM != 'linux' ]] && [[ $TERM != 'console' ]]; then
 	PROMPT_COMMAND='echo -ne "\033]0;$TERM $SHELL $PWD\007"'
 fi
 
+set -o ignoreeof
+
 shopt -s checkwinsize
 shopt -s globstar
 shopt -s histappend
