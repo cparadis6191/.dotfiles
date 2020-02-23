@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-if [[ $(git rev-parse --is-inside-work-tree) != 'true' ]]; then
-	exit 1
-fi
-
 set -e
 
-git_dir=$(git rev-parse --git-dir)
-top_dir=$(git rev-parse --show-toplevel)
+[[ "$(git rev-parse --is-inside-work-tree)" == 'true' ]] || exit 1
+
+git_dir="$(git rev-parse --git-dir)"
+top_dir="$(git rev-parse --show-toplevel)"
 lsof -t "$git_dir/tags.lock" | xargs --no-run-if-empty kill -SIGINT
 (
 	flock --timeout 5 200
