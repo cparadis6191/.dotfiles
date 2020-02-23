@@ -31,7 +31,7 @@ call plug#begin()
 
 	" Git
 	Plug 'mhinz/vim-signify'
-	Plug 'cparadis6191/vim-fugitive'
+	Plug 'tpope/vim-fugitive'
 
 	" neosnippet
 	Plug 'Shougo/neosnippet.vim'
@@ -237,6 +237,7 @@ set ignorecase
 set smartcase
 
 " -- tags --
+set tags+=./.git/tags;
 set cscopetag
 
 " -- displaying text --
