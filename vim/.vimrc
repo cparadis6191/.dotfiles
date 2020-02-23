@@ -85,12 +85,12 @@ highlight SignifySignAdd cterm=bold ctermbg=2
 highlight SignifySignChange cterm=bold ctermbg=3
 
 " fugitive
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gd :Gvdiff<CR>
+nnoremap <Leader>gb :Git blame<CR>
+nnoremap <Leader>gd :Gvdiffsplit<CR>
 nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
-nnoremap <Leader>gl :Glog<CR>
-nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gl :0Gclog<CR>
+nnoremap <Leader>gs :Git<CR>
 
 " neosnippet
 imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
