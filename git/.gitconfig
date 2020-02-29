@@ -1,10 +1,10 @@
 [alias]
 	dt = difftool
-	edit = !git jump diff
+	edit = jump diff
 	graph = log --date=relative --decorate --graph --oneline
-	maketags = !"$(git rev-parse --git-dir)/hooks/tags"
+	listtags = submodule --quiet foreach --recursive 'git rev-parse --git-dir | echo "set tags+=$(cat -)/tags"'
+	maketags = !.git/hooks/tags
 	mt = mergetool
-	listtags = !git submodule --quiet foreach --recursive 'git rev-parse --git-dir | echo "set tags+=$(cat -)/tags"'
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
