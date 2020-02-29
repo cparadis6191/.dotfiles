@@ -5,7 +5,7 @@ if [[ $- != *i* ]]; then
 fi
 
 # -- Shell Options --
-export LESS='--ignore-case --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
+export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
 
 PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ '
 PS2='  > '
@@ -43,8 +43,6 @@ alias ls='ls --color=auto'
 alias la='ls --almost-all'
 alias ll='la --classify --human-readable -l'
 alias lt='ll --sort=time'
-
-alias less='less --prompt="?f%f .?n?m(%T %i of %m) ..?ltlines %lt-%lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'
 
 alias binxxd='xxd --cols 1 --bits'
 alias cxxd='xxd --cols 1 --include'
