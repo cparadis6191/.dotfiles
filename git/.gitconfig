@@ -5,6 +5,7 @@
 	listtags = submodule --quiet foreach --recursive 'git rev-parse --git-dir | echo "set tags+=$(cat -)/tags"'
 	maketags = !.git/hooks/tags
 	mt = mergetool
+	twig = branch --sort=-committerdate --verbose
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
