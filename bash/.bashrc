@@ -4,17 +4,21 @@ if [[ $- != *i* ]]; then
 	return
 fi
 
-# -- Shell Options --
+# -- Environment --
 export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
+
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ '
 PS2='  > '
 
 # Set window title if running in a GUI terminal emulator
-if [[ $TERM != 'linux' ]] && [[ $TERM != 'console' ]]; then
-	PROMPT_COMMAND='echo -ne "\033]0;$TERM $SHELL $PWD\007"'
+if [[ $TERM != 'console' ]] && [[ $TERM != 'linux' ]]; then
+	PROMPT_COMMAND='echo -en "\033]0;$TERM $SHELL $PWD\007"'
 fi
 
+# -- Shell Options --
 set -o ignoreeof
 
 shopt -s checkwinsize
@@ -27,17 +31,15 @@ shopt -s histappend
 HISTSIZE=10000
 
 # -- Aliases --
-export EDITOR='nvim'
-export VISUAL='nvim'
 alias vim='$EDITOR'
 
-alias rm='rm --interactive=once'
 alias cp='cp --interactive'
 alias mv='mv --interactive'
-
-alias mkdir='mkdir --parents --verbose'
+alias rm='rm --interactive=once'
 
 alias grep='grep --color=auto'
+
+alias mkdir='mkdir --parents --verbose'
 
 alias ls='ls --color=auto'
 alias la='ls --almost-all'
