@@ -58,6 +58,10 @@ bash_remain() {
 	bash --rcfile <(cat "$HOME/.bashrc" <(echo "$@"))
 }
 
+vrep() {
+	local matches=$(rg --vimgrep "$@") && vim -q <(echo "$matches")
+}
+
 # -- Various --
 if [[ -f "$HOME/.bashrc.local" ]]; then
 	source "$HOME/.bashrc.local"
