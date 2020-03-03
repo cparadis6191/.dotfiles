@@ -52,7 +52,11 @@ alias hexxd='xxd --cols 1 --plain'
 alias texxd='xxd --plain --revert'
 
 # -- Umask --
+
 # -- Functions --
+bash_remain() {
+	bash --rcfile <(cat "$HOME/.bashrc" <(echo "$@"))
+}
 
 # -- Various --
 if [[ -f "$HOME/.bashrc.local" ]]; then
