@@ -62,6 +62,19 @@ vrep() {
 	local matches=$(rg --vimgrep "$@") && vim -q <(echo "$matches")
 }
 
+# Clipboard
+yeet() {
+	win32yank.exe -i
+}
+
+yoink() {
+	win32yank.exe -o
+}
+
+yedit() {
+	yoink | vipe | yeet
+}
+
 # -- Various --
 if [[ -f "$HOME/.bashrc.local" ]]; then
 	source "$HOME/.bashrc.local"
