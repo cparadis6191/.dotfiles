@@ -5,18 +5,18 @@ if [[ $- != *i* ]]; then
 fi
 
 # -- Environment --
-export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
-
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ '
-PS2='  > '
+export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
 
 # Set window title if running in a GUI terminal emulator
 if [[ $TERM != 'console' ]] && [[ $TERM != 'linux' ]]; then
 	PROMPT_COMMAND='echo -en "\033]0;$TERM $SHELL $PWD\007"'
 fi
+
+PS1='\[\033[32m\]\u\[\033[m\]\[\033[34m\]@\[\033[m\]\[\033[35m\]\h\[\033[m\] \[\033[33m\]\W\[\033[m\]\\$ '
+PS2='  > '
 
 # -- Shell Options --
 set -o ignoreeof
