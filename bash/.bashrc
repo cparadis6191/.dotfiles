@@ -59,7 +59,8 @@ bash_remain() {
 }
 
 vrep() {
-	local matches=$(rg --vimgrep "$@") && vim -q <(echo "$matches")
+	local matches
+	matches="$(rg --vimgrep "$@")" && [[ $matches != "" ]] && vim -q <(echo "$matches")
 }
 
 # Clipboard
