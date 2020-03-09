@@ -253,6 +253,7 @@ set lazyredraw
 set number
 
 " -- syntax, highlighting and spelling --
+set termguicolors
 
 " -- multiple windows --
 let &statusline=' %<%f [%{(&fileencoding ? &fileencoding : &encoding)}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
