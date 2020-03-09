@@ -15,7 +15,7 @@ if [[ $TERM != 'console' ]] && [[ $TERM != 'linux' ]]; then
 	PROMPT_COMMAND='echo -en "\e]0;$TERM $SHELL $PWD\007"'
 fi
 
-PS1='\[\e[32m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\\$ '
+PS1='\[\e[32m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]\$ '
 PS2='  > '
 
 # -- Shell Options --
