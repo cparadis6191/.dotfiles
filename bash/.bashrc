@@ -64,14 +64,6 @@ vrep() {
 }
 
 # Clipboard
-yeet() {
-	win32yank.exe -i
-}
-
-yoink() {
-	win32yank.exe -o
-}
-
 yedit() {
 	yoink | vipe | yeet
 }
