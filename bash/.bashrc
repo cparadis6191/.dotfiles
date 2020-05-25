@@ -28,7 +28,7 @@ shopt -s histappend
 # -- Completion options --
 
 # -- History options --
-HISTSIZE=10000
+export HISTSIZE=10000
 
 # -- Aliases --
 alias vim='$EDITOR'
@@ -41,11 +41,13 @@ alias grep='grep --color=auto'
 
 alias mkdir='mkdir --parents --verbose'
 
+# ls aliases
 alias ls='ls --color=auto'
 alias la='ls --almost-all'
 alias ll='la --classify --human-readable -l'
 alias lt='ll --sort=time'
 
+# xxd aliases
 alias binxxd='xxd --cols 1 --bits'
 alias cxxd='xxd --cols 1 --include'
 alias hexxd='xxd --cols 1 --plain'
