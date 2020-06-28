@@ -7,6 +7,7 @@ fi
 # -- Environment --
 export EDITOR='nvim'
 export VISUAL='nvim'
+export SUDO_EDITOR="$(which nvim)"
 
 export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
 
