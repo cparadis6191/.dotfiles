@@ -33,3 +33,5 @@
 	default = simple
 [user]
 	name = Chad Paradis
+[include]
+	path = ~/.gitconfig.local
