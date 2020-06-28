@@ -71,6 +71,7 @@ yedit() {
 }
 
 # -- Various --
+# Source local bashrc if it exists
 if [[ -f "$HOME/.bashrc.local" ]]; then
 	source "$HOME/.bashrc.local"
 fi
