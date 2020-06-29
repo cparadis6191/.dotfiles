@@ -1,4 +1,7 @@
 [alias]
+	# Usage: git diffref [<ref specifier> [<diff options>]]
+	#        git diffref 1 -R
+	diffref = !"diffref() { local ref_spec=\"${1:-1}\"; if [ $# -gt 0 ]; then shift; fi; git diff \"${@}\" HEAD@{\"${ref_spec}\"}..HEAD; }; diffref"
 	dt = difftool
 	# Usage: git edit [<diff options>]
 	#        git edit --staged
@@ -6,10 +9,8 @@
 	graph = log --date=relative --decorate --graph --oneline
 	listtags = submodule --quiet foreach --recursive 'git rev-parse --git-dir | echo "set tags+=$(cat -)/tags"'
 	maketags = !"$(git rev-parse --git-dir)/hooks/tags"
-	# Usage: git diffref [<ref specifier> [<diff options>]]
-	#        git diffref 1 -R
-	diffref = !"diffref() { local ref_spec=\"${1:-1}\"; if [ $# -gt 0 ]; then shift; fi; git diff \"${@}\" HEAD@{\"${ref_spec}\"}..HEAD; }; diffref"
 	mt = mergetool
+	rofh = rebase --autostash --interactive FETCH_HEAD
 	twig = branch --sort=-committerdate --verbose
 [core]
 	editor = $EDITOR
