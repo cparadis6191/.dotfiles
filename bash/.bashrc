@@ -66,8 +66,7 @@ qfvim() {
 }
 
 vrep() {
-	local matches
-	matches="$(rg --vimgrep "$@")" && vim -q <(echo "$matches")
+	qfvim rg --vimgrep "$@"
 }
 
 # Clipboard
