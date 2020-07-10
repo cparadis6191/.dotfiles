@@ -13,6 +13,7 @@ $ git stash save "stow"
 
 ## Software to Install
 
+* curl
 * cscope
 * ctags
 * git
