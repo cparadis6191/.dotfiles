@@ -61,6 +61,10 @@ bash_remain() {
 	bash --rcfile <(cat "$HOME/.bashrc" <(echo "$@"))
 }
 
+qfvim() {
+	local quickfix="$("$@")" && vim -q <(echo "$quickfix")
+}
+
 vrep() {
 	local matches
 	matches="$(rg --vimgrep "$@")" && vim -q <(echo "$matches")
