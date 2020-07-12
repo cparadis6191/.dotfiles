@@ -201,8 +201,8 @@ noremap <Leader>e `.
 nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
 
 " Put the last yanked thing
-nnoremap <Leader>p "0p
-nnoremap <Leader>P "0P
+noremap <Leader>p "0p
+noremap <Leader>P "0P
 
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
