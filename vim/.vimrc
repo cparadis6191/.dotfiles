@@ -146,8 +146,8 @@ onoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]Q :cnfile<CR>
 nnoremap <silent> [Q :cpfile<CR>
 
-" Swap visual
-xnoremap <Leader>s :<C-U> normal! `.``gvP``P<CR>
+" Swap current visual selection with last deleted visual selection
+xnoremap <Leader>s :<C-U>normal! `.``gvP``P<CR>
 
 " Get visual
 function! s:GetVisual()
