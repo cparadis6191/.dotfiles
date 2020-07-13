@@ -131,11 +131,17 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [b :bprevious<CR>
 
 " Jump to Git conflict markers
-noremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
-noremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
+nnoremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
+onoremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
+xnoremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
+nnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
+onoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
+xnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 
 nnoremap <silent> ]q :cnext<CR>
+onoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [q :cprevious<CR>
+onoremap <silent> [q :cprevious<CR>
 
 nnoremap <silent> ]Q :cnfile<CR>
 nnoremap <silent> [Q :cpfile<CR>
@@ -195,14 +201,19 @@ endfunction
 nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
 
 " Jump to where the last change was made
-noremap <Leader>e `.
+nnoremap <Leader>e `.
+onoremap <Leader>e `.
+xnoremap <Leader>e `.
 
 " Open alternate file
 nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
 
 " Put the last yanked thing
-noremap <Leader>p "0p
-noremap <Leader>P "0P
+nnoremap <Leader>p "0p
+xnoremap <Leader>p "0p
+
+nnoremap <Leader>P "0P
+xnoremap <Leader>P "0P
 
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
