@@ -150,7 +150,7 @@ nnoremap <silent> [Q :cpfile<CR>
 xnoremap <Leader>s :<C-U>normal! `.``gvP``P<CR>
 
 " Get visual
-function! s:GetVisual()
+function! s:GetVisualSelection()
 	let l:unnamed_reg=@"
 	normal! gvy
 	let l:visual='\V'.substitute(escape(@", '/\'), '\_s\+', '\\_s\\+', 'g')
@@ -165,8 +165,8 @@ function! s:SetSearch(pattern)
 endfunction
 
 " Set search mappings
-xnoremap * :<C-U>call <SID>SetSearch(<SID>GetVisual())<CR>/<CR>
-xnoremap # :<C-U>call <SID>SetSearch(<SID>GetVisual())<CR>?<CR>
+xnoremap * :<C-U>call <SID>SetSearch(<SID>GetVisualSelection())<CR>/<CR>
+xnoremap # :<C-U>call <SID>SetSearch(<SID>GetVisualSelection())<CR>?<CR>
 
 " Append search
 function! s:AppendSearch(pattern)
@@ -177,8 +177,8 @@ endfunction
 nnoremap <Leader>* :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>/<CR>
 nnoremap <Leader># :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>?<CR>
 
-xnoremap <Leader>* :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>/<CR>
-xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>GetVisual())<CR>?<CR>
+xnoremap <Leader>* :<C-U>call <SID>AppendSearch(<SID>GetVisualSelection())<CR>/<CR>
+xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>GetVisualSelection())<CR>?<CR>
 
 nnoremap <Leader>g* :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>/<CR>
 nnoremap <Leader>g# :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>?<CR>
