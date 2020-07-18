@@ -193,6 +193,9 @@ xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisual
 nnoremap <Leader>g* :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>/<CR>
 nnoremap <Leader>g# :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>?<CR>
 
+xnoremap <Leader>g* :<C-U>call <SID>AppendSearch('\<'.<SID>EscapeSearch(<SID>GetVisualSelection()).'\>')<CR>/<CR>
+xnoremap <Leader>g# :<C-U>call <SID>AppendSearch('\<'.<SID>EscapeSearch(<SID>GetVisualSelection()).'\>')<CR>?<CR>
+
 " Highlight the last search more permanently
 nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 
