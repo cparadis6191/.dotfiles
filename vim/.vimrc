@@ -174,6 +174,10 @@ endfunction
 xnoremap * :<C-U>call <SID>SetSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>/<CR>
 xnoremap # :<C-U>call <SID>SetSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>?<CR>
 
+" Only whole keywords are searched for
+xnoremap g* :<C-U>call <SID>SetSearch('\<'.<SID>EscapeSearch(<SID>GetVisualSelection()).'\>')<CR>/<CR>
+xnoremap g# :<C-U>call <SID>SetSearch('\<'.<SID>EscapeSearch(<SID>GetVisualSelection()).'\>')<CR>?<CR>
+
 " Append search
 function! s:AppendSearch(pattern)
 	call <SID>SetSearch(@/.'\|'.a:pattern)
