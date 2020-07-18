@@ -153,9 +153,14 @@ xnoremap <Leader>s :<C-U>normal! `.``gvP``P<CR>
 function! s:GetVisualSelection()
 	let l:unnamed_reg=@"
 	normal! gvy
-	let l:visual='\V'.substitute(escape(@", '/\'), '\_s\+', '\\_s\\+', 'g')
+	let l:visual=@"
 	let @"=l:unnamed_reg
 	return l:visual
+endfunction
+
+" Escape search
+function! s:EscapeSearch(pattern)
+	return '\V'.substitute(escape(a:pattern, '/\'), '\_s\+', '\\_s\\+', 'g')
 endfunction
 
 " Set search
@@ -165,8 +170,9 @@ function! s:SetSearch(pattern)
 endfunction
 
 " Set search mappings
-xnoremap * :<C-U>call <SID>SetSearch(<SID>GetVisualSelection())<CR>/<CR>
-xnoremap # :<C-U>call <SID>SetSearch(<SID>GetVisualSelection())<CR>?<CR>
+" This makes the search also find matches that are not a whole word
+xnoremap * :<C-U>call <SID>SetSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>/<CR>
+xnoremap # :<C-U>call <SID>SetSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>?<CR>
 
 " Append search
 function! s:AppendSearch(pattern)
@@ -177,8 +183,8 @@ endfunction
 nnoremap <Leader>* :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>/<CR>
 nnoremap <Leader># :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>?<CR>
 
-xnoremap <Leader>* :<C-U>call <SID>AppendSearch(<SID>GetVisualSelection())<CR>/<CR>
-xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>GetVisualSelection())<CR>?<CR>
+xnoremap <Leader>* :<C-U>call <SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>/<CR>
+xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>?<CR>
 
 nnoremap <Leader>g* :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>/<CR>
 nnoremap <Leader>g# :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>?<CR>
