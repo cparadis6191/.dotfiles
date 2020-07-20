@@ -245,28 +245,12 @@ if exists(':terminal')
 	endif
 endif
 
-" Cscope mappings
-nnoremap <C-\> :cscope find <Space><C-R>=expand('<cword>')<CR><S-Left><S-Left>
-
-" Add Cscope databases that neighbor tags files
-function! s:CscopeAddDatabases()
-	for l:tagfile in tagfiles()
-		let l:cscopedb=findfile('cscope.out', fnamemodify(l:tagfile, ':p:h').matchstr(l:tagfile[-1:], ';'))
-		if !empty(glob(l:cscopedb))
-			execute 'cscope add' l:cscopedb
-		endif
-	endfor
-endfunction
-
-nnoremap <silent> <Leader>tl :call <SID>CscopeAddDatabases()<CR>
-
 " -- moving around, searching and patterns --
 set ignorecase
 set smartcase
 
 " -- tags --
 set tags+=./.git/tags;
-set cscopetag
 
 " -- displaying text --
 set scrolloff=5
