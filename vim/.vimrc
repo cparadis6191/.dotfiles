@@ -313,6 +313,9 @@ set shiftround
 set copyindent
 
 " -- folding --
+set foldlevelstart=99
+set foldmethod=syntax
+
 " -- diff mode --
 " -- mapping --
 
