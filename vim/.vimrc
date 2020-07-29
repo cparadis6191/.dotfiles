@@ -19,7 +19,6 @@ call plug#begin()
 
 	" Displaying text
 	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'junegunn/rainbow_parentheses.vim'
 	Plug 'justinmk/vim-dirvish'
 
 	" Editing text
@@ -54,14 +53,6 @@ endif
 let mapleader=' '
 
 " Displaying text
-" Rainbow Parentheses
-let g:rainbow#blacklist=[0, 255]
-let g:rainbow#pairs=[['(', ')'], ['[', ']'], ['{', '}']]
-augroup RainbowParenthesesGroup
-	autocmd!
-	autocmd VimEnter * RainbowParentheses
-augroup END
-
 " dirvish
 let g:dirvish_relative_paths=1
 augroup DirvishGroup
