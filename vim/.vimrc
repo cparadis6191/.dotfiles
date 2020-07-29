@@ -38,7 +38,6 @@ call plug#begin()
 
 	" Unite
 	Plug 'Shougo/unite.vim'
-	Plug 'Shougo/neoyank.vim'
 	Plug 'rhysd/unite-oldfiles.vim'
 	Plug 'sgoranson/unite-mark'
 	Plug 'ujihisa/unite-locate'
@@ -108,7 +107,6 @@ nnoremap <Leader>l :Unite -start-insert locate<CR>
 nnoremap <Leader>' :Unite mark<CR>
 nnoremap <Leader>r :Unite oldfiles<CR>
 nnoremap <Leader>s :Unite -start-insert neosnippet<CR>
-nnoremap <Leader>y :Unite history/yank<CR>
 
 " -- mappings --
 " Repeat the previous recording
