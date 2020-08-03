@@ -10,7 +10,7 @@
 	listtags = submodule --quiet foreach --recursive 'git rev-parse --git-dir | echo "set tags+=$(cat -)/tags"'
 	maketags = !"$(git rev-parse --git-dir)/hooks/tags"
 	mt = mergetool
-	rofh = rebase --autostash --interactive FETCH_HEAD
+	rofh = rebase --interactive FETCH_HEAD
 	twig = branch --sort=-committerdate --verbose
 [core]
 	editor = $EDITOR
