@@ -232,6 +232,9 @@ if exists(':terminal')
 	endif
 endif
 
+" Run visual selection as a command
+xnoremap <Leader>r :<C-U>echo system(<SID>GetVisualSelection())<CR>
+
 " -- moving around, searching and patterns --
 set ignorecase
 set smartcase
