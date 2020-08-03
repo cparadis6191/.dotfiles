@@ -136,7 +136,7 @@ nnoremap <silent> [Q :cpfile<CR>
 " Swap current visual selection with last deleted visual selection
 xnoremap <Leader>s :<C-U>normal! `.``gvP``P<CR>
 
-" Get visual
+" Get visual selection
 function! s:GetVisualSelection()
 	let l:unnamed_reg=@"
 	normal! gvy
