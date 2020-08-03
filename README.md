@@ -14,7 +14,6 @@ $ git stash save "stow"
 ## Software to Install
 
 * curl
-* cscope
 * ctags
 * git
   * git-jump
@@ -22,6 +21,7 @@ $ git stash save "stow"
     $ cp /usr/share/doc/git/contrib/git-jump/git-jump "$HOME/.local/bin"
     $ chmod u+x "$HOME/.local/bin/git-jump"
     ```
+* lsof
 * neovim
 * ripgrep
 * stow
