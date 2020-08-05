@@ -62,7 +62,7 @@ bash_remain() {
 	bash --rcfile <(cat "$HOME/.bashrc" <(echo "$@"))
 }
 
-# Open grep matches in vim
+# Open grep matches in Vim
 vrep() {
 	qfvim rg --vimgrep "$@"
 }
