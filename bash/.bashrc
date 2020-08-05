@@ -62,11 +62,6 @@ bash_remain() {
 	bash --rcfile <(cat "$HOME/.bashrc" <(echo "$@"))
 }
 
-# Open quickfix format errors from a command in vim
-qfvim() {
-	local quickfix="$("$@")" && vim -q <(echo "$quickfix")
-}
-
 # Open grep matches in vim
 vrep() {
 	qfvim rg --vimgrep "$@"
