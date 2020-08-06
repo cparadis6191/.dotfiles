@@ -235,6 +235,18 @@ endif
 " Run visual selection as a command
 xnoremap <Leader>r :<C-U>echo system(<SID>GetVisualSelection())<CR>
 
+" -- autocommands --
+" Restore cursor
+" See :h restore-cursor
+augroup RestoreCursorGroup
+	autocmd!
+	autocmd BufReadPost *
+		\ if line('''"') >= 1 && line('''"') <= line('$') &&
+			\ &filetype !~# 'commit' |
+			\ execute 'normal! g`"' |
+		\ endif
+augroup END
+
 " -- moving around, searching and patterns --
 set ignorecase
 set smartcase
