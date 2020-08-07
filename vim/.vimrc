@@ -79,6 +79,7 @@ nnoremap <Leader>gd :Gvdiffsplit<CR>
 nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
 nnoremap <Leader>gl :0Gclog<CR>
+xnoremap <Leader>gl :Gclog<CR>
 nnoremap <Leader>gs :Git<CR>
 
 " neosnippet
