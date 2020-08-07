@@ -42,6 +42,7 @@ call plug#begin()
 	Plug 'ujihisa/unite-locate'
 call plug#end()
 
+" vim-neovim-defaults
 if !has('nvim')
 	runtime plugin/neovim_defaults.vim
 endif
@@ -192,6 +193,7 @@ xnoremap <Leader>g# :<C-U>call <SID>AppendSearch('\<'.<SID>EscapeSearch(<SID>Get
 nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 
 " Diff unwritten changes
+" See :h :DiffOrig
 function! s:DiffUnwrittenChanges()
 	let l:filetype=&filetype | diffthis
 	vnew | read # | 1d
