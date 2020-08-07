@@ -287,7 +287,6 @@ set title
 set showcmd
 
 " -- selecting text --
-set clipboard^=unnamedplus
 
 " -- editing text --
 set nojoinspaces
