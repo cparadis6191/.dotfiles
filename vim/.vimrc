@@ -106,9 +106,38 @@ nnoremap <Leader>r :Unite oldfiles<CR>
 nnoremap <Leader>s :Unite -start-insert neosnippet<CR>
 
 " -- mappings --
+" Jump to where the last change was made
+nnoremap <Leader>c `.
+onoremap <Leader>c `.
+xnoremap <Leader>c `.
+
+" Diff unwritten changes
+" See :h :DiffOrig
+function! s:DiffUnwrittenChanges()
+	let l:filetype=&filetype | diffthis
+	vnew | read # | 1d
+	setlocal bufhidden=wipe buftype=nofile nobuflisted nomodifiable nomodified
+	augroup DiffUnwrittenChangesGroup
+		autocmd!
+		autocmd BufWinLeave <buffer> diffoff!
+	augroup END
+	diffthis | let &filetype=l:filetype
+endfunction
+
+nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
+
+" Open alternate file
+nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
+
 " Repeat the previous recording
 nnoremap Q @@
 xnoremap Q :normal! @@<CR>
+
+" Run visual selection as a command
+xnoremap <Leader>r :<C-U>echo system(<SID>GetVisualSelection())<CR>
+
+" Swap current visual selection with last deleted visual selection
+xnoremap <Leader>s :<C-U>normal! `.``gvP``P<CR>
 
 " Make Y behave more like C and D
 nnoremap Y y$
@@ -132,8 +161,18 @@ onoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]Q :cnfile<CR>
 nnoremap <silent> [Q :cpfile<CR>
 
-" Swap current visual selection with last deleted visual selection
-xnoremap <Leader>s :<C-U>normal! `.``gvP``P<CR>
+if exists(':terminal')
+	tnoremap <Esc><Esc> <C-\><C-N>
+	if !has('nvim')
+		nnoremap <Leader>t :terminal<CR>
+	else
+		nnoremap <Leader>t :below split <Bar> terminal<CR>
+		augroup TerminalGroup
+			autocmd!
+			autocmd TermOpen * startinsert
+		augroup END
+	endif
+endif
 
 " Get visual selection
 function! s:GetVisualSelection()
@@ -188,45 +227,6 @@ xnoremap <Leader>g# :<C-U>call <SID>AppendSearch('\<'.<SID>EscapeSearch(<SID>Get
 
 " Highlight the last search more permanently
 nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
-
-" Diff unwritten changes
-" See :h :DiffOrig
-function! s:DiffUnwrittenChanges()
-	let l:filetype=&filetype | diffthis
-	vnew | read # | 1d
-	setlocal bufhidden=wipe buftype=nofile nobuflisted nomodifiable nomodified
-	augroup DiffUnwrittenChangesGroup
-		autocmd!
-		autocmd BufWinLeave <buffer> diffoff!
-	augroup END
-	diffthis | let &filetype=l:filetype
-endfunction
-
-nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
-
-" Open alternate file
-nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
-
-" Jump to where the last change was made
-nnoremap <Leader>c `.
-onoremap <Leader>c `.
-xnoremap <Leader>c `.
-
-if exists(':terminal')
-	tnoremap <Esc><Esc> <C-\><C-N>
-	if !has('nvim')
-		nnoremap <Leader>t :terminal<CR>
-	else
-		nnoremap <Leader>t :below split <Bar> terminal<CR>
-		augroup TerminalGroup
-			autocmd!
-			autocmd TermOpen * startinsert
-		augroup END
-	endif
-endif
-
-" Run visual selection as a command
-xnoremap <Leader>r :<C-U>echo system(<SID>GetVisualSelection())<CR>
 
 " -- autocommands --
 " Restore cursor
