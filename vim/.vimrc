@@ -205,7 +205,7 @@ endfunction
 nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
 
 " Open alternate file
-nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
+nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
 
 " Jump to where the last change was made
 nnoremap <Leader>c `.
