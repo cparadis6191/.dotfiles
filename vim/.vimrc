@@ -212,13 +212,6 @@ xnoremap <Leader>e `.
 " Open alternate file
 nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
 
-" Put the last yanked thing
-nnoremap <Leader>p "0p
-xnoremap <Leader>p "0p
-
-nnoremap <Leader>P "0P
-xnoremap <Leader>P "0P
-
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
 	if !has('nvim')
