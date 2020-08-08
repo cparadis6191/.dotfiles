@@ -102,7 +102,7 @@ else
 	nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
 endif
 nnoremap <Leader>l :Unite -start-insert locate<CR>
-nnoremap <Leader>r :Unite oldfiles<CR>
+nnoremap <Leader>o :Unite oldfiles<CR>
 nnoremap <Leader>s :Unite -start-insert neosnippet<CR>
 
 " -- mappings --
