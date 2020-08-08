@@ -65,9 +65,6 @@ augroup END
 nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
 
-" undotree
-nnoremap <Leader>u :UndotreeToggle<CR>
-
 " Git
 " signify
 highlight SignifySignDelete cterm=bold ctermbg=1
