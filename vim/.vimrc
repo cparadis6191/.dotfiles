@@ -204,13 +204,13 @@ endfunction
 
 nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
 
-" Jump to where the last change was made
-nnoremap <Leader>e `.
-onoremap <Leader>e `.
-xnoremap <Leader>e `.
-
 " Open alternate file
 nnoremap <Leader>ga :edit <C-R>=expand('%:r')<CR>.
+
+" Jump to where the last change was made
+nnoremap <Leader>c `.
+onoremap <Leader>c `.
+xnoremap <Leader>c `.
 
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
