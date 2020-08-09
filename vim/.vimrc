@@ -142,8 +142,8 @@ xnoremap <Leader>s :<C-U>normal! `.``gvP``P<CR>
 " Make Y behave more like C and D
 nnoremap Y y$
 
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :<C-U><C-R>=v:count1<CR>bnext<CR>
+nnoremap <silent> [b :<C-U><C-R>=v:count1<CR>bprevious<CR>
 
 " Jump to Git conflict markers
 nnoremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
