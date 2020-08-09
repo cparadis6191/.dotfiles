@@ -160,8 +160,8 @@ onoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
 nnoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
 onoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
 
-nnoremap <silent> ]Q :cnfile<CR>
-nnoremap <silent> [Q :cpfile<CR>
+nnoremap <silent> ]Q :<C-U><C-R>=v:count1<CR>cnfile<CR>
+nnoremap <silent> [Q :<C-U><C-R>=v:count1<CR>cpfile<CR>
 
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
