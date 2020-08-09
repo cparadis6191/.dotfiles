@@ -147,6 +147,7 @@ nnoremap <silent> ]b :<C-U><C-R>=v:count1<CR>bnext<CR>
 nnoremap <silent> [b :<C-U><C-R>=v:count1<CR>bprevious<CR>
 
 " Jump to Git conflict markers
+" Note that these mappings support count
 nnoremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
 onoremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
 xnoremap ]g /\V\^\[<<Bar>=>]\{7}<CR>
