@@ -155,10 +155,10 @@ nnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 onoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 xnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 
-nnoremap <silent> ]q :cnext<CR>
-onoremap <silent> ]q :cnext<CR>
-nnoremap <silent> [q :cprevious<CR>
-onoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
+onoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
+nnoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
+onoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
 
 nnoremap <silent> ]Q :cnfile<CR>
 nnoremap <silent> [Q :cpfile<CR>
