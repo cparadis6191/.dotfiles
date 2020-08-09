@@ -135,9 +135,10 @@ nnoremap Q @@
 xnoremap Q :normal! <C-R>=v:count1<CR>@@<CR>
 
 " Get visual selection
+" Note that this function must be called from visual mode
 function! s:GetVisualSelection()
 	let l:unnamed_reg=@"
-	normal! gvy
+	normal! y
 	let l:visual=@"
 	let @"=l:unnamed_reg
 	return l:visual
@@ -145,6 +146,7 @@ endfunction
 
 " Get visual selection from normal
 function! s:GetVisualSelectionFromNormal()
+	normal! gv
 	return <SID>GetVisualSelection()
 endfunction
 
@@ -190,47 +192,47 @@ if exists(':terminal')
 	endif
 endif
 
-" Escape search
-function! s:EscapeSearch(pattern)
+" Get escaped search
+function! s:GetEscapedSearch(pattern)
 	return '\V'.substitute(escape(a:pattern, '/\'), '\_s\+', '\\_s\\+', 'g')
 endfunction
 
-" Set search
-function! s:SetSearch(pattern)
-	let @/=a:pattern
-	call histadd('search', @/)
+" Get word search
+function! s:GetWordSearch(pattern)
+	return '\<'.a:pattern.'\>'
+endfunction
+
+" Get appended search
+function! s:GetAppendedSearch(pattern)
+	return @/.'\|'.a:pattern
 endfunction
 
 " Set search mappings
+" Note that these mappings support count
 " This makes the search also find matches that are not a whole word
-xnoremap * :<C-U>call <SID>SetSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>/<CR>
-xnoremap # :<C-U>call <SID>SetSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>?<CR>
+xnoremap * /<C-R>=<SID>GetEscapedSearch(<SID>GetVisualSelection())<CR><CR>
+xnoremap # ?<C-R>=<SID>GetEscapedSearch(<SID>GetVisualSelection())<CR><CR>
 
 " Only whole keywords are searched for
-xnoremap g* :<C-U>call <SID>SetSearch('\<'.<SID>EscapeSearch(<SID>GetVisualSelection()).'\>')<CR>/<CR>
-xnoremap g# :<C-U>call <SID>SetSearch('\<'.<SID>EscapeSearch(<SID>GetVisualSelection()).'\>')<CR>?<CR>
-
-" Append search
-function! s:AppendSearch(pattern)
-	call <SID>SetSearch(@/.'\|'.a:pattern)
-endfunction
+xnoremap g* /<C-R>=<SID>GetWordSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection()))<CR><CR>
+xnoremap g# ?<C-R>=<SID>GetWordSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection()))<CR><CR>
 
 " Append search mappings
 " Only whole keywords are searched for
-nnoremap <Leader>* :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>/<CR>
-nnoremap <Leader># :<C-U>call <SID>AppendSearch('\<'.expand('<cword>').'\>')<CR>?<CR>
+nnoremap <Leader>* /<C-R>=<SID>GetAppendedSearch(<SID>GetWordSearch(expand('<cword>')))<CR><CR>
+nnoremap <Leader># ?<C-R>=<SID>GetAppendedSearch(<SID>GetWordSearch(expand('<cword>')))<CR><CR>
 
 " This makes the search also find matches that are not a whole word
-nnoremap <Leader>g* :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>/<CR>
-nnoremap <Leader>g# :<C-U>call <SID>AppendSearch(expand('<cword>'))<CR>?<CR>
+nnoremap <Leader>g* /<C-R>=<SID>GetAppendedSearch(expand('<cword>'))<CR><CR>
+nnoremap <Leader>g# ?<C-R>=<SID>GetAppendedSearch(expand('<cword>'))<CR><CR>
 
 " This makes the search also find matches that are not a whole word
-xnoremap <Leader>* :<C-U>call <SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>/<CR>
-xnoremap <Leader># :<C-U>call <SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR>?<CR>
+xnoremap <Leader>* /<C-R>=<SID>GetAppendedSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection()))<CR><CR>
+xnoremap <Leader># ?<C-R>=<SID>GetAppendedSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection()))<CR><CR>
 
 " Only whole keywords are searched for
-xnoremap <Leader>g* :<C-U>call <SID>AppendSearch('\<'.<SID>EscapeSearch(<SID>GetVisualSelection()).'\>')<CR>/<CR>
-xnoremap <Leader>g# :<C-U>call <SID>AppendSearch('\<'.<SID>EscapeSearch(<SID>GetVisualSelection()).'\>')<CR>?<CR>
+xnoremap <Leader>g* /<C-R>=<SID>GetAppendedSearch(<SID>GetWordSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection())))<CR><CR>
+xnoremap <Leader>g# ?<C-R>=<SID>GetAppendedSearch(<SID>GetWordSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection())))<CR><CR>
 
 " Highlight the last search more permanently
 nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
