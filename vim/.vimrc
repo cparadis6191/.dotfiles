@@ -130,8 +130,9 @@ nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
 nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
 
 " Repeat the previous recording
+" Note that this mapping supports count
 nnoremap Q @@
-xnoremap Q :normal! @@<CR>
+xnoremap Q :normal! <C-R>=v:count1<CR>@@<CR>
 
 " Run visual selection as a command
 xnoremap <Leader>r :<C-U>echo system(<SID>GetVisualSelection())<CR>
