@@ -134,8 +134,22 @@ nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
 nnoremap Q @@
 xnoremap Q :normal! <C-R>=v:count1<CR>@@<CR>
 
+" Get visual selection
+function! s:GetVisualSelection()
+	let l:unnamed_reg=@"
+	normal! gvy
+	let l:visual=@"
+	let @"=l:unnamed_reg
+	return l:visual
+endfunction
+
+" Get visual selection from normal
+function! s:GetVisualSelectionFromNormal()
+	return <SID>GetVisualSelection()
+endfunction
+
 " Run visual selection as a command
-xnoremap <Leader>r :<C-U>echo system(<SID>GetVisualSelection())<CR>
+xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal())<CR>
 
 " Swap current visual selection with last deleted visual selection
 xnoremap <Leader>s :<C-U>normal! `.``gv<C-R>=v:count1<CR>p``<C-R>=v:count1<CR>P<CR>
@@ -175,15 +189,6 @@ if exists(':terminal')
 		augroup END
 	endif
 endif
-
-" Get visual selection
-function! s:GetVisualSelection()
-	let l:unnamed_reg=@"
-	normal! gvy
-	let l:visual=@"
-	let @"=l:unnamed_reg
-	return l:visual
-endfunction
 
 " Escape search
 function! s:EscapeSearch(pattern)
