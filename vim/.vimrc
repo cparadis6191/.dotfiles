@@ -138,7 +138,7 @@ xnoremap Q :normal! <C-R>=v:count1<CR>@@<CR>
 xnoremap <Leader>r :<C-U>echo system(<SID>GetVisualSelection())<CR>
 
 " Swap current visual selection with last deleted visual selection
-xnoremap <Leader>s :<C-U>normal! `.``gvP``P<CR>
+xnoremap <Leader>s :<C-U>normal! `.``gv<C-R>=v:count1<CR>p``<C-R>=v:count1<CR>P<CR>
 
 " Make Y behave more like C and D
 nnoremap Y y$
