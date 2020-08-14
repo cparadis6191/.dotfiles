@@ -243,7 +243,7 @@ nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 augroup RestoreCursorGroup
 	autocmd!
 	autocmd BufReadPost *
-		\ if line('''"') >= 1 && line('''"') <= line('$') &&
+		\ if line("'\"") >= 1 && line("'\"") <= line('$') &&
 			\ &filetype !~# 'commit' |
 			\ execute 'normal! g`"' |
 		\ endif
