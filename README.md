@@ -1,37 +1,5 @@
 # .dotfiles
 
-## Installation Instructions
-
-Run the following commands from the root directory of this repository to create
-symbolic links in the home directory to the various configuration files
-contained in this repository:
-
-```
-$ stow --adopt bash git nvim tmux vim
-$ git stash save "stow"
-```
-
-## Software to Install
-
-* curl
-* ctags
-* git
-  * diff-highlight
-    ```
-    $ cat <(echo '#!/usr/bin/env perl') /usr/share/doc/git/contrib/diff-highlight/{DiffHighlight.pm,diff-highlight.perl} > "$HOME/.local/bin/diff-highlight"
-    $ chmod u+x "$HOME/.local/bin/diff-highlight"
-    ```
-  * git-jump
-    ```
-    $ cp /usr/share/doc/git/contrib/git-jump/git-jump "$HOME/.local/bin"
-    $ chmod u+x "$HOME/.local/bin/git-jump"
-    ```
-* lsof
-* neovim
-* ripgrep
-* stow
-* vim
-
 ## Create Local Configuration Files
 
 Run the following commands to create local configuration files for bash,
@@ -56,6 +24,38 @@ PATH:
 ```
 $ mkdir --parents "$HOME/.local/bin"
 $ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bash_profile.local"
+```
+
+## Software to Install
+
+* curl
+* ctags
+* git
+  * diff-highlight
+    ```
+    $ cat <(echo '#!/usr/bin/env perl') /usr/share/doc/git/contrib/diff-highlight/{DiffHighlight.pm,diff-highlight.perl} > "$HOME/.local/bin/diff-highlight"
+    $ chmod u+x "$HOME/.local/bin/diff-highlight"
+    ```
+  * git-jump
+    ```
+    $ cp /usr/share/doc/git/contrib/git-jump/git-jump "$HOME/.local/bin"
+    $ chmod u+x "$HOME/.local/bin/git-jump"
+    ```
+* lsof
+* neovim
+* ripgrep
+* stow
+* vim
+
+## Installation Instructions
+
+Run the following commands from the root directory of this repository to create
+symbolic links in the home directory to the various configuration files
+contained in this repository:
+
+```
+$ stow --adopt bash git nvim tmux vim
+$ git stash save "stow"
 ```
 
 ## Set Up Clipboard Commands
