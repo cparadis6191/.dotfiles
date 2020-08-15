@@ -184,7 +184,7 @@ if exists(':terminal')
 	if !has('nvim')
 		nnoremap <Leader>t :terminal<CR>
 	else
-		nnoremap <Leader>t :below split <Bar> terminal<CR>
+		nnoremap <Leader>t :split <Bar> terminal<CR>
 	endif
 endif
 
