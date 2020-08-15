@@ -185,10 +185,6 @@ if exists(':terminal')
 		nnoremap <Leader>t :terminal<CR>
 	else
 		nnoremap <Leader>t :below split <Bar> terminal<CR>
-		augroup TerminalGroup
-			autocmd!
-			autocmd TermOpen * startinsert
-		augroup END
 	endif
 endif
 
