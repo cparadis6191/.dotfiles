@@ -265,6 +265,12 @@ set lazyredraw
 set number
 
 " -- syntax, highlighting and spelling --
+" Workaround for poor Neovim undercurl/underline support
+if has('nvim')
+	highlight SpellBad guibg=Red
+	highlight SpellCap guibg=Blue
+endif
+
 set termguicolors
 
 " -- multiple windows --
