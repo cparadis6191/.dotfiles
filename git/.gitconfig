@@ -10,7 +10,7 @@
 	lstags = submodule --quiet foreach --recursive 'echo "set tags+=$(git rev-parse --git-dir)/tags"'
 	mktags = !"$(git rev-parse --git-dir)/hooks/tags"
 	mt = mergetool
-	rofh = rebase --interactive FETCH_HEAD
+	rifh = rebase --interactive FETCH_HEAD
 	twig = branch --sort=-committerdate --verbose
 [core]
 	editor = $EDITOR
