@@ -66,6 +66,6 @@ Run the following commands to define the yeet and yoink commands for Windows
 Subsystem for Linux:
 
 ```
-$ echo 'alias yeet='\''win32yank.exe -i'\''' >> "$HOME/.bashrc.local"
-$ echo 'alias yoink='\''win32yank.exe -o'\''' >> "$HOME/.bashrc.local"
+$ echo "alias yeet='win32yank.exe -i'" >> "$HOME/.bashrc.local"
+$ echo "alias yoink='win32yank.exe -o'" >> "$HOME/.bashrc.local"
 ```
