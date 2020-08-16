@@ -7,7 +7,7 @@
 	#        git edit --staged
 	edit = !"qfvim git quickfix diff"
 	graph = log --date=relative --decorate --graph --oneline
-	lstags = submodule --quiet foreach --recursive 'git rev-parse --git-dir | echo "set tags+=$(cat -)/tags"'
+	lstags = submodule --quiet foreach --recursive 'echo "set tags+=$(git rev-parse --git-dir)/tags"'
 	mktags = !"$(git rev-parse --git-dir)/hooks/tags"
 	mt = mergetool
 	rofh = rebase --interactive FETCH_HEAD
