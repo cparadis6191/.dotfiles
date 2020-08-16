@@ -13,7 +13,7 @@ export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CO
 
 # Set window title if running in a GUI terminal emulator
 if [[ $TERM != 'console' ]] && [[ $TERM != 'linux' ]]; then
-	PROMPT_COMMAND='echo -en "\e]0;$TERM $SHELL $PWD\007"'
+	PROMPT_COMMAND='echo -en "\e]0;$TERM $SHELL$([[ $SHLVL > 1 ]] && echo " [$SHLVL]") $PWD\007"'
 fi
 PS1='\[\e[32m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]$([[ \j > 0 ]] && echo " \j")\$ '
 PS2='  > '
