@@ -15,7 +15,7 @@ export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CO
 if [[ $TERM != 'console' ]] && [[ $TERM != 'linux' ]]; then
 	PROMPT_COMMAND='echo -en "\e]0;$TERM $SHELL$([[ $SHLVL > 1 ]] && echo " [$SHLVL]") $PWD\a"'
 fi
-PS1='\[\e[32m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]$([[ \j > 0 ]] && echo " \j")\$ '
+PS1='\[\e[32m\]\u\[\e[34m\]@\[\e[35m\]\h \[\e[33m\]\W\[\e[m\]$([[ \j > 0 ]] && echo " \j")\$ '
 PS2='  > '
 
 # -- Shell Options --
