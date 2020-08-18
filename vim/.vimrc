@@ -267,8 +267,11 @@ set number
 " -- syntax, highlighting and spelling --
 " Workaround for poor Neovim undercurl/underline support
 if has('nvim')
-	highlight SpellBad guibg=Red
-	highlight SpellCap guibg=Blue
+    augroup SpellBadGroup
+        autocmd!
+        autocmd ColorScheme * highlight SpellBad guibg=Red
+        autocmd ColorScheme * highlight SpellCap guibg=Blue
+    augroup END
 endif
 
 set termguicolors
