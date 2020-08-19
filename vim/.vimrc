@@ -277,7 +277,7 @@ endif
 set termguicolors
 
 " -- multiple windows --
-let &statusline=' %<%f [%{(&fileencoding ? &fileencoding : &encoding)}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
+let &statusline=' %<%f [%{(&fileencoding != "" ? &fileencoding : "utf-8")}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
 set hidden
 
 " -- multiple tab pages --
