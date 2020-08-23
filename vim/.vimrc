@@ -117,10 +117,6 @@ function! s:DiffUnwrittenChanges()
 	let l:filetype=&filetype | diffthis
 	rightbelow vnew | read ++edit # | 1delete _
 	setlocal bufhidden=wipe buftype=nofile nobuflisted nomodifiable nomodified
-	augroup DiffUnwrittenChangesGroup
-		autocmd!
-		autocmd BufWinLeave <buffer> diffoff!
-	augroup END
 	diffthis | let &filetype=l:filetype
 endfunction
 
