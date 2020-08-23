@@ -73,7 +73,7 @@ highlight SignifySignChange cterm=bold ctermbg=3
 
 " fugitive
 nnoremap <Leader>gb :Git blame<CR>
-nnoremap <Leader>gd :Gvdiffsplit<CR>
+nnoremap <Leader>gd :rightbelow Gvdiffsplit<CR>
 nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
 nnoremap <Leader>gl :0Gclog<CR>
