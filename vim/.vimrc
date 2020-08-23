@@ -115,7 +115,7 @@ xnoremap <Leader>c `.
 " See :h :DiffOrig
 function! s:DiffUnwrittenChanges()
 	let l:filetype=&filetype | diffthis
-	vnew | read ++edit # | 1delete _
+	rightbelow vnew | read ++edit # | 1delete _
 	setlocal bufhidden=wipe buftype=nofile nobuflisted nomodifiable nomodified
 	augroup DiffUnwrittenChangesGroup
 		autocmd!
