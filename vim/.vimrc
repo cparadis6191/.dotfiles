@@ -173,8 +173,10 @@ xnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 
 nnoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
 onoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
+xnoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>``gv``
 nnoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
 onoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
+xnoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>``gv``
 
 nnoremap <silent> ]Q :<C-U><C-R>=v:count1<CR>cnfile<CR>
 nnoremap <silent> [Q :<C-U><C-R>=v:count1<CR>cpfile<CR>
