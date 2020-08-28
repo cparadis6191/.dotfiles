@@ -54,7 +54,7 @@ symbolic links in the home directory to the various configuration files
 contained in this repository:
 
 ```
-$ stow --adopt bash git nvim tmux vim
+$ stow --adopt alacritty bash git nvim tmux vim
 $ git stash save "stow"
 ```
 
