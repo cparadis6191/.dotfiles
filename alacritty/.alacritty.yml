@@ -174,9 +174,9 @@ colors:
     foreground: '#EBEBEB'
 
   # Cursor colors
-  cursor:
-    text: '#FF261E'
-    cursor: '#FF261E'
+  #cursor:
+    #text: '#FF261E'
+    #cursor: '#FF261E'
 
   # Normal colors
   normal:
