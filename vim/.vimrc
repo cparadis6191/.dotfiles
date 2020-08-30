@@ -136,7 +136,7 @@ endfunction
 " Repeat the previous recording
 " Note that this mapping supports count
 nnoremap Q @@
-xnoremap Q :normal! <C-R>=v:count1<CR>@@<CR>
+xnoremap <silent> <expr> Q <SID>RangeNormalCommand(v:count1, '@@')
 
 " Repeat last change on visual selection
 xnoremap <silent> <expr> . <SID>RangeNormalCommand(v:count ? v:count : '', '.')
