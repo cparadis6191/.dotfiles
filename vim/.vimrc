@@ -129,17 +129,17 @@ nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
 " Execute normal mode commands for each line in the range. Before executing
 " the commands, the cursor is positioned in the virtual column that the cursor
 " was in when the function was called, for each line.
-function! s:RangeNormalCommand(count, command)
+function! s:RangeNormalAtVirtCol(count, command)
 	return ':normal! '.getcurpos()[4].'|'.a:count.a:command."\<CR>"
 endfunction
 
 " Repeat the previous recording
 " Note that this mapping supports count
 nnoremap Q @@
-xnoremap <silent> <expr> Q <SID>RangeNormalCommand(v:count1, '@@')
+xnoremap <silent> <expr> Q <SID>RangeNormalAtVirtCol(v:count1, '@@')
 
 " Repeat last change on visual selection
-xnoremap <silent> <expr> . <SID>RangeNormalCommand(v:count ? v:count : '', '.')
+xnoremap <silent> <expr> . <SID>RangeNormalAtVirtCol(v:count ? v:count : '', '.')
 
 " Get visual selection
 " Note that this function must be called from visual mode
