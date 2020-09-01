@@ -197,47 +197,47 @@ if exists(':terminal')
 	endif
 endif
 
-" Get escaped search
-function! s:GetEscapedSearch(pattern)
+" Escape search
+function! s:EscapeSearch(pattern)
 	return '\V'.substitute(escape(a:pattern, '/\'), '\_s\+', '\\_s\\+', 'g')
 endfunction
 
-" Get word search
-function! s:GetWordSearch(pattern)
+" Word search
+function! s:WordSearch(pattern)
 	return '\<'.a:pattern.'\>'
 endfunction
 
-" Get appended search
-function! s:GetAppendedSearch(pattern)
+" Append search
+function! s:AppendSearch(pattern)
 	return @/.'\|'.a:pattern
 endfunction
 
 " Set search mappings
 " Note that these mappings support count
 " This makes the search also find matches that are not a whole word
-xnoremap * /<C-R>=<SID>GetEscapedSearch(<SID>GetVisualSelection())<CR><CR>
-xnoremap # ?<C-R>=<SID>GetEscapedSearch(<SID>GetVisualSelection())<CR><CR>
+xnoremap * /<C-R>=<SID>EscapeSearch(<SID>GetVisualSelection())<CR><CR>
+xnoremap # ?<C-R>=<SID>EscapeSearch(<SID>GetVisualSelection())<CR><CR>
 
 " Only whole keywords are searched for
-xnoremap g* /<C-R>=<SID>GetWordSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection()))<CR><CR>
-xnoremap g# ?<C-R>=<SID>GetWordSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection()))<CR><CR>
+xnoremap g* /<C-R>=<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR><CR>
+xnoremap g# ?<C-R>=<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR><CR>
 
 " Append search mappings
 " Only whole keywords are searched for
-nnoremap <Leader>* /<C-R>=<SID>GetAppendedSearch(<SID>GetWordSearch(expand('<cword>')))<CR><CR>
-nnoremap <Leader># ?<C-R>=<SID>GetAppendedSearch(<SID>GetWordSearch(expand('<cword>')))<CR><CR>
+nnoremap <Leader>* /<C-R>=<SID>AppendSearch(<SID>WordSearch(expand('<cword>')))<CR><CR>
+nnoremap <Leader># ?<C-R>=<SID>AppendSearch(<SID>WordSearch(expand('<cword>')))<CR><CR>
 
 " This makes the search also find matches that are not a whole word
-nnoremap <Leader>g* /<C-R>=<SID>GetAppendedSearch(expand('<cword>'))<CR><CR>
-nnoremap <Leader>g# ?<C-R>=<SID>GetAppendedSearch(expand('<cword>'))<CR><CR>
+nnoremap <Leader>g* /<C-R>=<SID>AppendSearch(expand('<cword>'))<CR><CR>
+nnoremap <Leader>g# ?<C-R>=<SID>AppendSearch(expand('<cword>'))<CR><CR>
 
 " This makes the search also find matches that are not a whole word
-xnoremap <Leader>* /<C-R>=<SID>GetAppendedSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection()))<CR><CR>
-xnoremap <Leader># ?<C-R>=<SID>GetAppendedSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection()))<CR><CR>
+xnoremap <Leader>* /<C-R>=<SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR><CR>
+xnoremap <Leader># ?<C-R>=<SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR><CR>
 
 " Only whole keywords are searched for
-xnoremap <Leader>g* /<C-R>=<SID>GetAppendedSearch(<SID>GetWordSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection())))<CR><CR>
-xnoremap <Leader>g# ?<C-R>=<SID>GetAppendedSearch(<SID>GetWordSearch(<SID>GetEscapedSearch(<SID>GetVisualSelection())))<CR><CR>
+xnoremap <Leader>g* /<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection())))<CR><CR>
+xnoremap <Leader>g# ?<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection())))<CR><CR>
 
 " Highlight the last search more permanently
 nnoremap <silent> <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
