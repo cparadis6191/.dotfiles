@@ -10,7 +10,6 @@
 	mt = mergetool
 	rifh = rebase --interactive FETCH_HEAD
 	twig = branch --sort=-committerdate --verbose
-	rmhooks = !"rmhooks() { local hooks=\"$(echo \"$(eval echo \"$(git config --global --get init.templatedir)\")\"/hooks/*)\"; local timestamp=\"$(date +%s)\"; for hook in $hooks; do local local_hook=\"$(git rev-parse --git-dir)/hooks/$(basename \"$hook\")\"; if [ -f \"$local_hook\" ]; then mv \"$local_hook\" \"${local_hook}.${timestamp}.bak\"; fi; done; }; rmhooks"
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
