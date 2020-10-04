@@ -7,7 +7,7 @@ lsof -t "$git_dir/tags.lock" | xargs --no-run-if-empty kill
 (
 	flock --timeout 5 200
 
-	trap 'rm -f "$git_dir/$$.tags"' EXIT
+	trap 'rm --force "$git_dir/$$.tags"' EXIT
 	ctags --excmd=number --sort=foldcase --tag-relative -L <(git ls-files) -f "$git_dir/$$.tags"
 	mv "$git_dir/$$.tags" "$git_dir/tags"
 ) 200> "$git_dir/tags.lock"
