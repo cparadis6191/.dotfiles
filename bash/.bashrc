@@ -48,7 +48,6 @@ alias mkdir='mkdir --parents --verbose'
 # ls aliases
 alias ls='ls --color=auto'
 alias la='ls --almost-all'
-alias ll='ls --human-readable'
 alias ll='la --classify --format=long --human-readable'
 
 # xxd aliases
