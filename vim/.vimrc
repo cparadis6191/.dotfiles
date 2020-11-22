@@ -262,6 +262,7 @@ set tags+=./.git/tags;
 
 " -- displaying text --
 set scrolloff=5
+set sidescrolloff=5
 set linebreak
 
 if exists('+breakindent')
