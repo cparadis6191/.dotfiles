@@ -74,6 +74,11 @@ yedit() {
 	yoink | vipe | yeet
 }
 
+# Calculator
+calc() {
+	python3 -c "from math import *; print($*)"
+}
+
 # -- Various --
 # Source local bashrc if it exists
 if [[ -f "$HOME/.bashrc.local" ]]; then
