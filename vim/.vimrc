@@ -253,6 +253,9 @@ augroup RestoreCursorGroup
 		\ endif
 augroup END
 
+" -- options --
+" -- important --
+
 " -- moving around, searching and patterns --
 set ignorecase
 set smartcase
