@@ -255,6 +255,8 @@ augroup END
 
 " -- options --
 " -- important --
+" Don't overwrite a readonly file
+set cpoptions+=W
 
 " -- moving around, searching and patterns --
 set ignorecase
