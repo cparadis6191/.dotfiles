@@ -1,4 +1,4 @@
-" -- important --
+" -- config directory --
 let $VIMFILES=split(&runtimepath, '[^\\]\zs,')[0]
 
 " -- plugins --
