@@ -36,11 +36,6 @@ $ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bash_profile.local"
     $ cat <(echo '#!/usr/bin/env perl') /usr/share/doc/git/contrib/diff-highlight/{DiffHighlight.pm,diff-highlight.perl} > "$HOME/.local/bin/diff-highlight"
     $ chmod u+x "$HOME/.local/bin/diff-highlight"
     ```
-  * git-jump
-    ```
-    $ cp /usr/share/doc/git/contrib/git-jump/git-jump "$HOME/.local/bin"
-    $ chmod u+x "$HOME/.local/bin/git-jump"
-    ```
 * lsof
 * neovim
 * ripgrep
