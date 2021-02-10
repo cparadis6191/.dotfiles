@@ -10,6 +10,8 @@
 	mt = mergetool
 	rifh = rebase --interactive FETCH_HEAD
 	twig = branch --sort=-committerdate --verbose
+[commit]
+	verbose = true
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
