@@ -16,3 +16,7 @@ set colored-completion-prefix On
 # Readline displays possible completions using different colors to indicate
 # their file type.
 set colored-stats On
+
+# Completed names which are symbolic links to directories have a slash appended
+# (subject to the value of mark-directories).
+set mark-symlinked-directories On
