@@ -9,14 +9,16 @@
 # assignments from /etc/Inputrc
 $include /etc/inputrc
 
-# when listing completions, readline displays the common prefix of the set of
-# possible completions using a different color.
+# When listing completions, Readline displays the common
+# prefix of the set of possible completions using a
+# different color.
 set colored-completion-prefix On
 
-# Readline displays possible completions using different colors to indicate
-# their file type.
+# Readline displays possible completions using different
+# colors to indicate their file type.
 set colored-stats On
 
-# Completed names which are symbolic links to directories have a slash appended
-# (subject to the value of mark-directories).
+# Completed names which are symbolic links to directories
+# have a slash appended (subject to the value of
+# mark-directories).
 set mark-symlinked-directories On
