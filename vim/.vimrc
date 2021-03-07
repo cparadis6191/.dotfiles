@@ -35,6 +35,10 @@ call plug#begin()
 	" neosnippet
 	Plug 'Shougo/neosnippet.vim'
 	Plug 'Shougo/neosnippet-snippets'
+
+	" fzf
+	Plug 'junegunn/fzf'
+	Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " vim-neovim-defaults
@@ -79,6 +83,13 @@ nnoremap <Leader>gs :Git<CR>
 imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 smap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 xmap <Tab> <Plug>(neosnippet_expand_target)
+
+" fzf mappings
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>l :Locate<Space>
+nnoremap <Leader>o :History<CR>
+nnoremap <Leader>s :Snippets<CR>
 
 " -- mappings --
 " Jump to where the last change was made
