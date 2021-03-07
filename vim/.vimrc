@@ -35,11 +35,6 @@ call plug#begin()
 	" neosnippet
 	Plug 'Shougo/neosnippet.vim'
 	Plug 'Shougo/neosnippet-snippets'
-
-	" Unite
-	Plug 'Shougo/unite.vim'
-	Plug 'rhysd/unite-oldfiles.vim'
-	Plug 'ujihisa/unite-locate'
 call plug#end()
 
 " vim-neovim-defaults
@@ -84,26 +79,6 @@ nnoremap <Leader>gs :Git<CR>
 imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 smap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 xmap <Tab> <Plug>(neosnippet_expand_target)
-
-" Unite
-let g:unite_enable_auto_select=0
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_length'])
-
-" Unite custom sources
-call unite#custom#source('oldfiles', 'sorters', 'sorter_nothing')
-
-" Unite mappings
-nnoremap <Leader>b :Unite buffer<CR>
-if !has('nvim')
-	nnoremap <Leader>f :Unite -start-insert file_rec<CR>
-else
-	nnoremap <Leader>f :Unite -start-insert file_rec/neovim<CR>
-endif
-nnoremap <Leader>l :Unite -start-insert locate<CR>
-nnoremap <Leader>o :Unite oldfiles<CR>
-nnoremap <Leader>s :Unite -start-insert neosnippet<CR>
 
 " -- mappings --
 " Jump to where the last change was made
