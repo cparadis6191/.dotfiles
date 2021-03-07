@@ -88,6 +88,7 @@ xmap <Tab> <Plug>(neosnippet_expand_target)
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>l :Locate<Space>
+nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>o :History<CR>
 nnoremap <Leader>s :Snippets<CR>
 
