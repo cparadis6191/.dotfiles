@@ -79,6 +79,15 @@ calc() {
 	python3 -c "from math import *; print($*)"
 }
 
+# Stopwatch
+stopwatch() {
+	local start="$(date +%s) seconds"
+
+	watch --interval 0.25 --precise "TZ='UTC' date --date=\"now - ${start}\" \"+%H:%M:%S.%N\""
+
+	TZ='UTC' date --date="now - ${start}" "+%H:%M:%S.%N"
+}
+
 # -- Various --
 # Source local bashrc if it exists
 if [[ -f "$HOME/.bashrc.local" ]]; then
