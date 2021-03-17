@@ -150,7 +150,7 @@ endfunction
 xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal())<CR>
 
 " Swap current visual selection with last deleted visual selection
-xnoremap <Leader>s :<C-U>normal! `.``gv<C-R>=v:count1<CR>p``<C-R>=v:count1<CR>P<CR>
+xnoremap <Leader>s :<C-U>normal! `.``gv<C-R>=v:count1<CR>p``<C-R>=v:count1<CR><C-R>=((col("'.") >= (col('$') - 1)) ? 'p' : 'P')<CR><CR>
 
 " Make Y behave more like C and D
 nnoremap Y y$
