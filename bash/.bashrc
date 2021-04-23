@@ -88,6 +88,29 @@ stopwatch() {
 	TZ='UTC' date --date="now - ${start}" "+%H:%M:%S.%N"
 }
 
+# Bookmark
+# Make bookmark
+mkb() {
+	if [ ! -d "$@" ]; then
+		echo "mkb: failed to make bookmark '$@': No such file or directory" 1>&2
+
+		return 1
+	fi
+
+	realpath --canonicalize-existing --no-symlinks "$@" >> "$HOME/bookmarks"
+}
+
+# Change directory to bookmark
+cb() {
+	if [ ! -f "$HOME/bookmarks" ]; then
+		echo "cb: no bookmarks available" 1>&2
+
+		return 1
+	fi
+
+	cd "$(cat "$HOME/bookmarks" | fzf --query="$@")"
+}
+
 # -- Various --
 # Source local bashrc if it exists
 if [[ -f "$HOME/.bashrc.local" ]]; then
