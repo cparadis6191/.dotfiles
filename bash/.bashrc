@@ -9,6 +9,8 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export SUDO_EDITOR="$(which nvim)"
 
+export FZF_DEFAULT_OPTS='--height=40% --tac'
+
 export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
 
 # Set title if running in a GUI terminal emulator
