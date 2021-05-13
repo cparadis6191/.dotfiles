@@ -58,6 +58,9 @@ alias cxxd='xxd --cols 1 --include'
 alias hexxd='xxd --cols 1 --plain'
 alias texxd='xxd --plain --revert'
 
+# Alias to edit the clipboard
+alias yedit='yoink | vipe | yeet'
+
 # -- Umask --
 
 # -- Functions --
@@ -69,11 +72,6 @@ bash_remain() {
 # Open grep matches in Vim
 vrep() {
 	qfvim rg --vimgrep "$@"
-}
-
-# Edit the clipboard
-yedit() {
-	yoink | vipe | yeet
 }
 
 # Calculator
