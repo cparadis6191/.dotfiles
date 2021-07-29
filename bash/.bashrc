@@ -111,6 +111,17 @@ cb() {
 	cd "$(cat "$HOME/bookmarks" | fzf --query="$@")"
 }
 
+# Repeat
+repeat() {
+	local count="$1"
+
+	shift
+
+	for i in $(seq 1 "$count"); do
+		echo -n "$@"
+	done
+}
+
 # -- Various --
 # Source local bashrc if it exists
 if [[ -f "$HOME/.bashrc.local" ]]; then
