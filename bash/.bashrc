@@ -58,6 +58,9 @@ alias cxxd='xxd --cols 1 --include'
 alias hexxd='xxd --cols 1 --plain'
 alias texxd='xxd --plain --revert'
 
+# Open grep matches in Vim
+alias vrep='qfvim rg --vimgrep'
+
 # Alias to edit the clipboard
 alias yedit='yoink | vipe | yeet'
 
@@ -67,11 +70,6 @@ alias yedit='yoink | vipe | yeet'
 # Open a new instance of bash, run a command, and do not exit
 bash_remain() {
 	bash --rcfile <(cat "$HOME/.bashrc" <(echo "$@"))
-}
-
-# Open grep matches in Vim
-vrep() {
-	qfvim rg --vimgrep "$@"
 }
 
 # Calculator
