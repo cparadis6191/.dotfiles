@@ -47,6 +47,13 @@ if !has('nvim')
 endif
 
 " -- plugin settings --
+" Git
+" signify
+highlight SignifySignDelete cterm=bold ctermbg=1
+highlight SignifySignAdd cterm=bold ctermbg=2
+highlight SignifySignChange cterm=bold ctermbg=3
+
+" -- plugin mappings --
 " mapleader must be set BEFORE <Leader> mappings are used
 let mapleader=' '
 
@@ -64,12 +71,6 @@ augroup END
 nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
 
-" Git
-" signify
-highlight SignifySignDelete cterm=bold ctermbg=1
-highlight SignifySignAdd cterm=bold ctermbg=2
-highlight SignifySignChange cterm=bold ctermbg=3
-
 " fugitive
 nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>gd :rightbelow Gvdiffsplit<CR>
@@ -84,7 +85,7 @@ imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expan
 smap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 xmap <Tab> <Plug>(neosnippet_expand_target)
 
-" fzf mappings
+" fzf
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>l :Locate<Space>
@@ -92,12 +93,7 @@ nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>o :History<CR>
 nnoremap <Leader>s :Snippets<CR>
 
-" -- mappings --
-" Jump to where the last change was made
-nnoremap <Leader>c `.
-onoremap <Leader>c `.
-xnoremap <Leader>c `.
-
+" -- mapping functions --
 " Diff unwritten changes
 " See :h :DiffOrig
 function! s:DiffUnwrittenChanges()
@@ -108,11 +104,6 @@ function! s:DiffUnwrittenChanges()
 	diffthis
 endfunction
 
-nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
-
-" Open alternate file
-nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
-
 " Returns an expression to execute a normal mode command. Before executing the
 " command, the cursor is positioned in the virtual column that the cursor was
 " in when the function was called. The returned expression can be used with a
@@ -121,14 +112,6 @@ nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
 function! s:GetExprNormalAtVirtCol(count, command)
 	return ':normal! '.getcurpos()[4].'|'.a:count.a:command."\<CR>"
 endfunction
-
-" Repeat the previous recording
-" Note that this mapping supports count
-nnoremap Q @@
-xnoremap <silent> <expr> Q <SID>GetExprNormalAtVirtCol(v:count1, '@@')
-
-" Repeat last change on visual selection
-xnoremap <silent> <expr> . <SID>GetExprNormalAtVirtCol(v:count ? v:count : '', '.')
 
 " Get visual selection
 " Note that this function must be called from visual mode
@@ -145,6 +128,40 @@ function! s:GetVisualSelectionFromNormal()
 	normal! gv
 	return <SID>GetVisualSelection()
 endfunction
+
+" Escape search
+function! s:EscapeSearch(pattern)
+	return '\V'.substitute(escape(a:pattern, '/\'), '\_s\+', '\\_s\\+', 'g')
+endfunction
+
+" Word search
+function! s:WordSearch(pattern)
+	return '\<'.a:pattern.'\>'
+endfunction
+
+" Append search
+function! s:AppendSearch(pattern)
+	return @/.'\|'.a:pattern
+endfunction
+
+" -- mappings --
+" Jump to where the last change was made
+nnoremap <Leader>c `.
+onoremap <Leader>c `.
+xnoremap <Leader>c `.
+
+nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
+
+" Open alternate file
+nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
+
+" Repeat the previous recording
+" Note that this mapping supports count
+nnoremap Q @@
+xnoremap <silent> <expr> Q <SID>GetExprNormalAtVirtCol(v:count1, '@@')
+
+" Repeat last change on visual selection
+xnoremap <silent> <expr> . <SID>GetExprNormalAtVirtCol(v:count ? v:count : '', '.')
 
 " Run visual selection as a command
 xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal())<CR>
@@ -185,21 +202,6 @@ if exists(':terminal')
 		nnoremap <Leader>t :split <Bar> terminal<CR>
 	endif
 endif
-
-" Escape search
-function! s:EscapeSearch(pattern)
-	return '\V'.substitute(escape(a:pattern, '/\'), '\_s\+', '\\_s\\+', 'g')
-endfunction
-
-" Word search
-function! s:WordSearch(pattern)
-	return '\<'.a:pattern.'\>'
-endfunction
-
-" Append search
-function! s:AppendSearch(pattern)
-	return @/.'\|'.a:pattern
-endfunction
 
 " Set search mappings
 " Note that these mappings support count
