@@ -7,7 +7,7 @@ fi
 # -- Environment --
 export EDITOR='nvim'
 export VISUAL='nvim'
-export SUDO_EDITOR="$(which nvim)"
+export SUDO_EDITOR="$(command -v nvim)"
 
 export FZF_DEFAULT_OPTS='--height=40% --tac'
 
