@@ -9,7 +9,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export SUDO_EDITOR="$(command -v nvim)"
 
-export FZF_DEFAULT_OPTS='--height=40% --tac'
+export FZF_DEFAULT_OPTS='--height=40%'
 
 export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
 
