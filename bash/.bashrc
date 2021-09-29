@@ -99,7 +99,7 @@ mkb() {
 }
 
 # Change directory to bookmark
-cb() {
+cdb() {
 	if [ ! -f "$HOME/bookmarks" ]; then
 		echo "cb: no bookmarks available" 1>&2
 
