@@ -80,6 +80,9 @@ nnoremap <Leader>gl :0Gclog<CR>
 xnoremap <Leader>gl :Gclog<CR>
 nnoremap <Leader>gs :Git<CR>
 
+" Git quickfix
+nnoremap <Leader>gq :GitQuickfix<Space>
+
 " neosnippet
 imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 smap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
@@ -143,6 +146,18 @@ endfunction
 function! s:AppendSearch(pattern)
 	return @/.'\|'.a:pattern
 endfunction
+
+" Git quickfix
+function! s:GitQuickfix(command_string)
+	let l:makeprg=&makeprg
+	let &makeprg='git quickfix'
+	execute 'make' a:command_string
+	let &makeprg=l:makeprg
+endfunction
+
+" -- commands --
+" Git quickfix
+command -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>)
 
 " -- mappings --
 " Jump to where the last change was made
