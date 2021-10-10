@@ -93,7 +93,7 @@ nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>o :History<CR>
 nnoremap <Leader>s :Snippets<CR>
 
-" -- mapping functions --
+" -- functions --
 " Diff unwritten changes
 " See :h :DiffOrig
 function! s:DiffUnwrittenChanges()
