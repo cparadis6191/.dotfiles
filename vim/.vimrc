@@ -107,13 +107,11 @@ function! s:DiffUnwrittenChanges()
 	diffthis
 endfunction
 
-" Returns an expression to execute a normal mode command. Before executing the
-" command, the cursor is positioned in the virtual column that the cursor was
-" in when the function was called. The returned expression can be used with a
-" range to execute a normal mode command over a range at a virtual column for
-" each line.
-function! s:GetExprNormalAtVirtCol(count, command)
-	return ':normal! '.getcurpos()[4].'|'.a:count.a:command."\<CR>"
+" Returns an expression to execute a normal mode command in a virtual column
+" with a count. The returned expression can be used with a range to execute a
+" normal mode command over a range at a virtual column for each line.
+function! s:GetExprNormal(virtcol, count, command)
+	return ':normal! '.a:virtcol.'|'.a:count.a:command."\<CR>"
 endfunction
 
 " Get visual selection
@@ -173,10 +171,10 @@ nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
 " Repeat the previous recording
 " Note that this mapping supports a count
 nnoremap Q @@
-xnoremap <silent> <expr> Q <SID>GetExprNormalAtVirtCol(v:count1, '@@')
+xnoremap <silent> <expr> Q <SID>GetExprNormal(getcurpos()[4], v:count1, '@@')
 
 " Repeat last change on visual selection
-xnoremap <silent> <expr> . <SID>GetExprNormalAtVirtCol(v:count ? v:count : '', '.')
+xnoremap <silent> <expr> . <SID>GetExprNormal(getcurpos()[4], v:count ? v:count : '', '.')
 
 " Run visual selection as a command
 xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal())<CR>
