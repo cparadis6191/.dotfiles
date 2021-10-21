@@ -171,10 +171,10 @@ nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
 " Repeat the previous recording
 " Note that this mapping supports a count
 nnoremap Q @@
-xnoremap <silent> <expr> Q <SID>GetExprNormal(getcurpos()[4], v:count1, '@@')
+xnoremap <silent> <expr> Q <SID>GetExprNormal(virtcol('.'), v:count1, '@@')
 
 " Repeat last change on visual selection
-xnoremap <silent> <expr> . <SID>GetExprNormal(getcurpos()[4], v:count ? v:count : '', '.')
+xnoremap <silent> <expr> . <SID>GetExprNormal(virtcol('.'), v:count ? v:count : '', '.')
 
 " Run visual selection as a command
 xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal())<CR>
