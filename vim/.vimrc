@@ -102,7 +102,10 @@ nnoremap <Leader>s :Snippets<CR>
 function! s:DiffUnwrittenChanges()
 	let l:filetype=&filetype
 	diffthis
-	rightbelow vnew | read ++edit # | 1delete _
+	rightbelow vnew
+	" Set modifiable so the scratch buffer can be used again
+	set modifiable
+	read ++edit # | 1delete _
 	let &filetype=l:filetype | set bufhidden=wipe buftype=nofile nomodifiable nomodified
 	diffthis
 endfunction
