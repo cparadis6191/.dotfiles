@@ -103,7 +103,7 @@ function! s:DiffUnwrittenChanges()
 	let l:filetype=&filetype
 	diffthis
 	rightbelow vnew | read ++edit # | 1delete _
-	let &filetype=l:filetype | set bufhidden=wipe buftype=nofile nobuflisted nomodifiable nomodified
+	let &filetype=l:filetype | set bufhidden=wipe buftype=nofile nomodifiable nomodified
 	diffthis
 endfunction
 
