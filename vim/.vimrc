@@ -159,7 +159,7 @@ endfunction
 
 " QuickFix
 function! s:QuickFixToFzfEntry(key, val)
-	let l:file = expand('#'.a:val.bufnr.':p')
+	let l:file = expand('#'.a:val.bufnr)
 	return a:key.':'.l:file.':'.a:val.lnum.':'.a:val.col.':'.a:val.text
 endfunction
 
