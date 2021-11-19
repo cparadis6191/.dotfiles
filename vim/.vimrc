@@ -149,16 +149,16 @@ function! s:AppendSearch(pattern)
 endfunction
 
 " Git quickfix
-function! s:GitQuickfix(command_string)
+function! s:GitQuickfix(command_string, bang)
 	let l:makeprg=&makeprg
 	let &makeprg='git quickfix'
-	execute 'make' a:command_string
+	execute 'make'.(a:bang ? '!' : '') a:command_string
 	let &makeprg=l:makeprg
 endfunction
 
 " -- commands --
 " Git quickfix
-command -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>)
+command -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
 " -- mappings --
 " Jump to where the last change was made
