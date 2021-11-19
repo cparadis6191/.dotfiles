@@ -158,7 +158,7 @@ endfunction
 
 " -- commands --
 " Git quickfix
-command -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
+command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
 " -- mappings --
 " Jump to where the last change was made
