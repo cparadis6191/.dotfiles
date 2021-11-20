@@ -94,7 +94,7 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>l :Locate<Space>
 nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>o :History<CR>
-nnoremap <Leader>q :QuickFix<CR>
+nnoremap <Leader>q :Quickfix<CR>
 nnoremap <Leader>s :Snippets<CR>
 
 " -- functions --
@@ -157,15 +157,15 @@ function! s:GitQuickfix(command_string, bang)
 	let &makeprg=l:makeprg
 endfunction
 
-" QuickFix
-function! s:QuickFixToFzfEntry(key, val)
+" Quickfix
+function! s:QuickfixToFzfEntry(key, val)
 	let l:file = expand('#'.a:val.bufnr)
 	return a:key.':'.l:file.':'.a:val.lnum.':'.a:val.col.':'.a:val.text
 endfunction
 
 function! s:CcToFirstFzfEntry(fzf_entries)
-	let l:QuickFixErrorToErrorNumber = {_, val -> split(val, ':')[0]}
-	let error_numbers = map(a:fzf_entries, l:QuickFixErrorToErrorNumber)
+	let l:QuickfixErrorToErrorNumber = {_, val -> split(val, ':')[0]}
+	let error_numbers = map(a:fzf_entries, l:QuickfixErrorToErrorNumber)
 	if !empty(error_numbers)
 		execute 'cc' (error_numbers[0] + 1)
 	endif
@@ -176,8 +176,8 @@ endfunction
 command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
 " Quickfix
-command! -bang QuickFix call fzf#run(fzf#wrap({
-	\ 'source': map(getqflist(), function('<SID>QuickFixToFzfEntry')),
+command! -bang Quickfix call fzf#run(fzf#wrap({
+	\ 'source': map(getqflist(), function('<SID>QuickfixToFzfEntry')),
 	\ 'sinklist': function('<SID>CcToFirstFzfEntry') }, <bang>0))
 
 " -- mappings --
