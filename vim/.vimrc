@@ -177,6 +177,7 @@ command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
 " Quickfix
 command! -bang Quickfix call fzf#run(fzf#wrap({
+	\ 'options': '--prompt="Quickfix> "',
 	\ 'source': map(getqflist(), function('<SID>QuickfixToFzfEntry')),
 	\ 'sinklist': function('<SID>CcToFirstFzfEntry') }, <bang>0))
 
