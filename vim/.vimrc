@@ -186,7 +186,7 @@ nnoremap <Leader>c `.
 onoremap <Leader>c `.
 xnoremap <Leader>c `.
 
-nnoremap <Leader>d :call <SID>DiffUnwrittenChanges()<CR>
+nnoremap <Leader>d :silent call <SID>DiffUnwrittenChanges()<CR>
 
 " Open alternate file
 nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
