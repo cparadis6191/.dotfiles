@@ -206,8 +206,8 @@ xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal(
 " Make Y behave more like C and D
 nnoremap Y y$
 
-nnoremap <silent> ]b :<C-U><C-R>=v:count1<CR>bnext<CR>
-nnoremap <silent> [b :<C-U><C-R>=v:count1<CR>bprevious<CR>
+nnoremap ]b :<C-U><C-R>=v:count1<CR>bnext<CR>
+nnoremap [b :<C-U><C-R>=v:count1<CR>bprevious<CR>
 
 " Jump to Git conflict markers
 " Note that these mappings support count
@@ -218,15 +218,15 @@ nnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 onoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 xnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 
-nnoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
-onoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
-xnoremap <silent> ]q :<C-U><C-R>=v:count1<CR>cnext<CR>``gv``
-nnoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
-onoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
-xnoremap <silent> [q :<C-U><C-R>=v:count1<CR>cprevious<CR>``gv``
+nnoremap ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
+onoremap ]q :<C-U><C-R>=v:count1<CR>cnext<CR>
+xnoremap ]q :<C-U><C-R>=v:count1<CR>cnext<CR>``gv``
+nnoremap [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
+onoremap [q :<C-U><C-R>=v:count1<CR>cprevious<CR>
+xnoremap [q :<C-U><C-R>=v:count1<CR>cprevious<CR>``gv``
 
-nnoremap <silent> ]Q :<C-U><C-R>=v:count1<CR>cnfile<CR>
-nnoremap <silent> [Q :<C-U><C-R>=v:count1<CR>cpfile<CR>
+nnoremap ]Q :<C-U><C-R>=v:count1<CR>cnfile<CR>
+nnoremap [Q :<C-U><C-R>=v:count1<CR>cpfile<CR>
 
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
