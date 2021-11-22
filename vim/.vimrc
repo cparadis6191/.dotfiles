@@ -175,12 +175,16 @@ function! s:QuickfixGetSourceSinklist()
 	return {'source': map(getqflist(), function('<SID>QuickfixToFzfEntry')), 'sinklist': function('<SID>CcToFirstFzfEntry')}
 endfunction
 
+function! s:QuickfixGetWithPreview()
+	return fzf#vim#with_preview({'options': '--delimiter=":" --preview-window="+{3}-/2" --prompt="Quickfix> "', 'placeholder': '{2}:{3}:{4}:{5..}'})
+endfunction
+
 " -- commands --
 " Git quickfix
 command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
 " Quickfix
-command! -bang Quickfix call fzf#run(fzf#wrap(<SID>QuickfixGetSourceSinklist()), <bang>0)
+command! -bang Quickfix call fzf#run(fzf#wrap(extend(<SID>QuickfixGetSourceSinklist(), <SID>QuickfixGetWithPreview())), <bang>0)
 
 " -- mappings --
 " Jump to where the last change was made
