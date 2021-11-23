@@ -279,7 +279,7 @@ augroup RestoreCursorGroup
 	autocmd!
 	autocmd BufReadPost *
 		\ if line("'\"") >= 1 && line("'\"") <= line('$') && &filetype !~# 'commit' |
-			\ execute 'normal! g`"' |
+		\     execute 'normal! g`"' |
 		\ endif
 augroup END
 
