@@ -108,7 +108,7 @@ cdb() {
 		return 1
 	fi
 
-	cd "$(cat "$HOME/bookmarks" | fzf --preview='ls {}' --query="$@")" || return 2
+	cd "$(fzf --preview='ls {}' --query="$@" < "$HOME/bookmarks")" || return 2
 }
 
 # Repeat
