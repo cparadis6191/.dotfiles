@@ -117,7 +117,7 @@ repeat() {
 
 	shift
 
-	for i in $(seq 1 "$count"); do
+	for _ in $(seq 1 "$count"); do
 		echo -n "$@"
 	done
 }
