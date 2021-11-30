@@ -7,7 +7,8 @@ fi
 # -- Environment --
 export EDITOR='nvim'
 export VISUAL='nvim'
-export SUDO_EDITOR="$(command -v nvim)"
+SUDO_EDITOR="$(command -v nvim)"
+export SUDO_EDITOR
 
 export FZF_DEFAULT_OPTS='--height=40% --layout=reverse'
 
@@ -79,7 +80,8 @@ calc() {
 
 # Stopwatch
 stopwatch() {
-	local start="$(date +%s) seconds"
+	local start
+	start="$(date +%s) seconds"
 
 	watch --interval 0.25 --precise "TZ='UTC' date --date=\"now - ${start}\" \"+%H:%M:%S.%N\""
 
