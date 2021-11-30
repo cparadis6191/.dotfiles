@@ -124,12 +124,12 @@ repeat() {
 
 # Pre
 pre() {
-	cat - | sed --expression="s/^/$@/g"
+	cat - | sed --expression="s/^/$*/g"
 }
 
 # Post
 post() {
-	cat - | sed --expression="s/$/$@/g"
+	cat - | sed --expression="s/$/$*/g"
 }
 
 # -- Various --
