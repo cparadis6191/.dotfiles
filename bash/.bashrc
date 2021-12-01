@@ -91,7 +91,7 @@ stopwatch() {
 # Bookmark
 # Make bookmark
 mkb() {
-	if [ ! -d "$@" ]; then
+	if [ ! -d "$*" ]; then
 		echo "mkb: failed to make bookmark '$*': No such file or directory" 1>&2
 
 		return 1
