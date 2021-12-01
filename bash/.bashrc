@@ -92,7 +92,7 @@ stopwatch() {
 # Make bookmark
 mkb() {
 	if [ ! -d "$@" ]; then
-		echo "mkb: failed to make bookmark '$@': No such file or directory" 1>&2
+		echo "mkb: failed to make bookmark '$*': No such file or directory" 1>&2
 
 		return 1
 	fi
@@ -108,7 +108,7 @@ cdb() {
 		return 1
 	fi
 
-	cd "$(fzf --preview='ls {}' --query="$@" < "$HOME/bookmarks")" || return 2
+	cd "$(fzf --preview='ls {}' --query="$*" < "$HOME/bookmarks")" || return 2
 }
 
 # Repeat
