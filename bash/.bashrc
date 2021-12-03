@@ -35,7 +35,7 @@ shopt -s histappend
 # -- Completion options --
 
 # -- History options --
-export HISTSIZE=10000
+export HISTSIZE=100000
 
 # -- Aliases --
 alias vim='$EDITOR'
