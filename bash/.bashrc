@@ -48,21 +48,21 @@ alias grep='grep --color=auto'
 
 alias mkdir='mkdir --parents --verbose'
 
-# ls aliases
+# ls
 alias ls='ls --color=auto'
 alias la='ls --almost-all'
 alias ll='la --classify --format=long --human-readable'
 
-# xxd aliases
+# xxd
 alias binxxd='xxd --cols 1 --bits'
 alias cxxd='xxd --cols 1 --include'
 alias hexxd='xxd --cols 1 --plain'
 alias texxd='xxd --plain --revert'
 
-# Open grep matches in Vim
+# Edit grep matches
 alias vrep='qfvim rg --vimgrep'
 
-# Alias to edit the clipboard
+# Edit the clipboard
 alias yedit='yoink | vipe | yeet'
 
 # -- Umask --
