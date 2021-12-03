@@ -6,8 +6,8 @@ fi
 
 # -- Environment --
 export EDITOR='nvim'
-export VISUAL='nvim'
-SUDO_EDITOR="$(command -v nvim)"
+export VISUAL="$EDITOR"
+SUDO_EDITOR="$(command -v "$EDITOR")"
 export SUDO_EDITOR
 
 export FZF_DEFAULT_OPTS='--height=40% --layout=reverse'
