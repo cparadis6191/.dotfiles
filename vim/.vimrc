@@ -276,8 +276,8 @@ nnoremap <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 " dirvish
 augroup DirvishGroup
 	autocmd!
-	autocmd Filetype dirvish nmap <buffer> h <Plug>(dirvish_up)
-	autocmd Filetype dirvish nmap <buffer> l <CR>
+	autocmd FileType dirvish nmap <buffer> h <Plug>(dirvish_up)
+	autocmd FileType dirvish nmap <buffer> l <CR>
 augroup END
 
 " -- autocommands --
