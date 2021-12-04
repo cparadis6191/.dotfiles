@@ -64,11 +64,6 @@ let mapleader=' '
 " Displaying text
 " dirvish
 let g:dirvish_relative_paths=1
-augroup DirvishGroup
-	autocmd!
-	autocmd Filetype dirvish nmap <buffer> h <Plug>(dirvish_up)
-	autocmd Filetype dirvish nmap <buffer> l <CR>
-augroup END
 
 " Editing text
 " easy-align
@@ -276,6 +271,15 @@ xnoremap <Leader>g# ?<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(<
 " Highlight the last search more permanently
 nnoremap <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
 
+" -- plugin autocommands --
+" Displaying text
+" dirvish
+augroup DirvishGroup
+	autocmd!
+	autocmd Filetype dirvish nmap <buffer> h <Plug>(dirvish_up)
+	autocmd Filetype dirvish nmap <buffer> l <CR>
+augroup END
+
 " -- autocommands --
 " Restore cursor
 " See :h restore-cursor
@@ -286,6 +290,15 @@ augroup RestoreCursorGroup
 		\     execute 'normal! g`"' |
 		\ endif
 augroup END
+
+" Workaround for poor Neovim undercurl/underline support
+if has('nvim')
+	augroup SpellBadGroup
+		autocmd!
+		autocmd ColorScheme * highlight SpellBad guibg=Red
+		autocmd ColorScheme * highlight SpellCap guibg=Blue
+	augroup END
+endif
 
 " -- options --
 " -- important --
@@ -313,15 +326,6 @@ set lazyredraw
 set number
 
 " -- syntax, highlighting and spelling --
-" Workaround for poor Neovim undercurl/underline support
-if has('nvim')
-	augroup SpellBadGroup
-		autocmd!
-		autocmd ColorScheme * highlight SpellBad guibg=Red
-		autocmd ColorScheme * highlight SpellCap guibg=Blue
-	augroup END
-endif
-
 set termguicolors
 
 " -- multiple windows --
