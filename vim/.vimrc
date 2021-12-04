@@ -49,6 +49,10 @@ endif
 " -- plugin settings --
 " Git
 " signify
+" Only allow signify to use Git. Note that this can greatly reduce startup
+" time.
+let g:signify_skip = {'vcs': {'allow': ['git']}}
+
 highlight SignifySignDelete cterm=bold ctermbg=1
 highlight SignifySignAdd cterm=bold ctermbg=2
 highlight SignifySignChange cterm=bold ctermbg=3
