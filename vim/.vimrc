@@ -47,6 +47,10 @@ if !has('nvim')
 endif
 
 " -- plugin settings --
+" Displaying text
+" dirvish
+let g:dirvish_relative_paths=1
+
 " Git
 " signify
 " Only allow signify to use Git. Note that this can greatly reduce startup
@@ -60,10 +64,6 @@ highlight SignifySignChange cterm=bold ctermbg=3
 " -- plugin mappings --
 " mapleader must be set BEFORE <Leader> mappings are used
 let mapleader=' '
-
-" Displaying text
-" dirvish
-let g:dirvish_relative_paths=1
 
 " Editing text
 " easy-align
