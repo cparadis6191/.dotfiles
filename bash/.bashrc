@@ -97,7 +97,7 @@ mkb() {
 		return 1
 	fi
 
-	realpath --canonicalize-existing --no-symlinks "$@" >> "$HOME/bookmarks"
+	realpath --canonicalize-existing --no-symlinks -- "$@" >> "$HOME/bookmarks"
 }
 
 # Change directory to bookmark
@@ -108,7 +108,7 @@ cdb() {
 		return 1
 	fi
 
-	cd "$(fzf --preview='ls {}' --query="$*" < "$HOME/bookmarks")" || return 2
+	cd -- "$(fzf --preview='ls {}' --query="$*" < "$HOME/bookmarks")" || return 2
 }
 
 # Repeat
