@@ -92,7 +92,7 @@ stopwatch() {
 # Make bookmark
 mkb() {
 	if [[ ! -d "$*" ]]; then
-		echo "mkb: cannot create bookmark '$*': No such file or directory" 1>&2
+		echo "${FUNCNAME[0]}: cannot create bookmark '$*': No such file or directory" 1>&2
 
 		return 1
 	fi
@@ -103,7 +103,7 @@ mkb() {
 # Change directory to bookmark
 cdb() {
 	if [[ ! -f "$HOME/bookmarks" ]]; then
-		echo "cb: No bookmarks available" 1>&2
+		echo "${FUNCNAME[0]}: No bookmarks available" 1>&2
 
 		return 1
 	fi
