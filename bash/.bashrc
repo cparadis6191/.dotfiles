@@ -1,8 +1,9 @@
 # -- Important --
 # Do nothing if not running interactively
-if [[ $- != *i* ]]; then
-	return
-fi
+case "$PS1" in
+	*i*) ;;
+	*) return ;;
+esac
 
 # -- Environment --
 export EDITOR='nvim'
