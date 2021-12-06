@@ -83,9 +83,9 @@ stopwatch() {
 	local start
 	start="$(date +%s) seconds"
 
-	watch --interval 0.25 --precise "TZ='UTC' date --date=\"now - ${start}\" '+%H:%M:%S.%N'"
+	watch --interval 0.25 --precise "date --date=\"now - ${start}\" --utc '+%H:%M:%S.%N'"
 
-	TZ='UTC' date --date="now - ${start}" '+%H:%M:%S.%N'
+	date --date="now - ${start}" --utc '+%H:%M:%S.%N'
 }
 
 # Bookmark
