@@ -120,6 +120,8 @@ repeat() {
 	for _ in $(seq 1 "$count"); do
 		echo -n "$@"
 	done
+
+	echo
 }
 
 # Pre
