@@ -1,6 +1,6 @@
 # -- Important --
 # Do nothing if not running interactively
-case "$PS1" in
+case $- in
 	*i*) ;;
 	*) return ;;
 esac
