@@ -110,15 +110,14 @@ cdb() {
 	fi
 
 	local bookmark
-	bookmark="$(fzf --preview='ls {}' --query="$*" < "$HOME/bookmarks")"
 
-	if [[ $bookmark == '' ]]; then
-		echo "${FUNCNAME[0]}: No such bookmark" 1>&2
+	if ! bookmark="$(fzf --preview='ls {}' --print-query --query="$*" < "$HOME/bookmarks")"; then
+		echo "${FUNCNAME[0]}: '$bookmark': No such bookmark" 1>&2
 
 		return 2
 	fi
 
-	cd -- "$bookmark" || return 3
+	cd -- "$(echo "$bookmark" | tail --lines=1)" || return 3
 }
 
 # Repeat
