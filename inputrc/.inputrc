@@ -22,3 +22,6 @@ set colored-stats On
 # have a slash appended (subject to the value of
 # mark-directories).
 set mark-symlinked-directories On
+
+# Include local inputrc
+$include ~/.inputrc.local
