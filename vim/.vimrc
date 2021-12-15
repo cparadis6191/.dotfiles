@@ -178,6 +178,16 @@ function! s:QuickfixGetWithPreview()
 	return fzf#vim#with_preview({'options': '--delimiter=":" --preview-window="+{3}-/2" --prompt="Quickfix> "', 'placeholder': '{2}:{3}:{4}:{5..}'})
 endfunction
 
+" Restore cursor
+" See :h restore-cursor
+function! s:RestoreCursor()
+	if line("'\"") >= 1 && line("'\"") <= line('$')
+		if &filetype !~# 'commit'
+			normal! g`"
+		endif
+	endif
+endfunction
+
 " -- commands --
 " Git quickfix
 command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
@@ -282,13 +292,9 @@ augroup END
 
 " -- autocommands --
 " Restore cursor
-" See :h restore-cursor
 augroup RestoreCursorGroup
 	autocmd!
-	autocmd BufReadPost *
-		\ if line("'\"") >= 1 && line("'\"") <= line('$') && &filetype !~# 'commit' |
-		\     execute 'normal! g`"' |
-		\ endif
+	autocmd BufReadPost * call <SID>RestoreCursor()
 augroup END
 
 " Workaround for poor Neovim undercurl/underline support
