@@ -157,6 +157,19 @@ function! s:GitQuickfix(command_string, bang)
 	let &makeprg=l:makeprg
 endfunction
 
+" neosnippet
+function! s:InsertNeosnippet(snippet_name)
+	call feedkeys("i\<C-R>=neosnippet#expand('".a:snippet_name."')\<CR>")
+endfunction
+
+function! s:NeosnippetsGetSourceSink()
+	return {'source': keys(neosnippet#helpers#get_snippets()), 'sink': function('<SID>InsertNeosnippet')}
+endfunction
+
+function! s:NeosnippetsGetOptions(query)
+	return {'options': '--delimiter=":" --prompt="Snippets> " --with-nth=1 --query='.a:query}
+endfunction
+
 " Quickfix
 function! s:QuickfixToFzfEntry(key, val)
 	let l:file = expand('#'.a:val.bufnr)
@@ -192,6 +205,9 @@ endfunction
 " -- commands --
 " Git quickfix
 command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
+
+" neosnippet
+command! -bang -nargs=* Neosnippets call fzf#run(fzf#wrap(extend(<SID>NeosnippetsGetSourceSink(), <SID>NeosnippetsGetOptions(<q-args>)), <bang>0))
 
 " Quickfix
 command! -bang Quickfix call fzf#run(fzf#wrap(extend(<SID>QuickfixGetSourceSinklist(), <SID>QuickfixGetWithPreview()), <bang>0))
