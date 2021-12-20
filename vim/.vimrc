@@ -95,7 +95,7 @@ nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>n :Files <C-R>=expand('%:h')<CR><CR>
 nnoremap <Leader>o :History<CR>
 nnoremap <Leader>q :Quickfix<CR>
-nnoremap <Leader>s :Snippets<CR>
+nnoremap <Leader>s :Neosnippets<CR>
 
 " -- functions --
 " Diff unwritten changes
