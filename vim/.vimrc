@@ -75,8 +75,8 @@ nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>gd :rightbelow Gvdiffsplit<CR>
 nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
-nnoremap <Leader>gl :0Gclog<CR>
-xnoremap <Leader>gl :Gclog<CR>
+nnoremap <Leader>gl :0Gclog!<CR>
+xnoremap <Leader>gl :Gclog!<CR>
 nnoremap <Leader>gs :Git<CR>
 
 " Git quickfix
