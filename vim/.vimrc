@@ -167,7 +167,7 @@ function! s:NeosnippetsGetSourceSink()
 endfunction
 
 function! s:NeosnippetsGetOptions(query)
-	return {'options': '--delimiter=":" --prompt="Snippets> " --with-nth=1 --query='.a:query}
+	return {'options': '--prompt="Snippets> " --query='.a:query}
 endfunction
 
 " Quickfix
