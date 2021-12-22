@@ -1,5 +1,5 @@
 " -- config directory --
-let $VIMFILES=split(&runtimepath, '[^\\]\zs,')[0]
+let $VIMFILES = split(&runtimepath, '[^\\]\zs,')[0]
 
 " -- plugins --
 if empty(glob($VIMFILES.'/autoload/plug.vim'))
@@ -49,7 +49,7 @@ endif
 " -- plugin settings --
 " Displaying text
 " dirvish
-let g:dirvish_relative_paths=1
+let g:dirvish_relative_paths = 1
 
 " Git
 " signify
@@ -63,7 +63,7 @@ highlight SignifySignChange cterm=bold ctermbg=3
 
 " -- plugin mappings --
 " mapleader must be set BEFORE <Leader> mappings are used
-let mapleader=' '
+let mapleader = ' '
 
 " Editing text
 " easy-align
@@ -101,13 +101,13 @@ nnoremap <Leader>s :Neosnippets<CR>
 " Diff unwritten changes
 " See :h :DiffOrig
 function! s:DiffUnwrittenChanges()
-	let l:filetype=&filetype
+	let l:filetype = &filetype
 	diffthis
 	rightbelow vnew
 	" Set modifiable so the scratch buffer can be used again
 	set modifiable
 	read ++edit # | 1delete _
-	let &filetype=l:filetype | set bufhidden=wipe buftype=nofile nomodifiable nomodified
+	let &filetype = l:filetype | set bufhidden=wipe buftype=nofile nomodifiable nomodified
 	diffthis
 endfunction
 
@@ -121,10 +121,10 @@ endfunction
 " Get visual selection
 " Note that this function must be called from visual mode
 function! s:GetVisualSelection()
-	let l:unnamed_reg=@"
+	let l:unnamed_reg = @"
 	normal! y
-	let l:visual=@"
-	let @"=l:unnamed_reg
+	let l:visual = @"
+	let @" = l:unnamed_reg
 	return l:visual
 endfunction
 
@@ -151,10 +151,10 @@ endfunction
 
 " Git quickfix
 function! s:GitQuickfix(command_string, bang)
-	let l:makeprg=&makeprg
-	let &makeprg='git quickfix'
+	let l:makeprg = &makeprg
+	let &makeprg = 'git quickfix'
 	execute 'make'.(a:bang ? '!' : '') a:command_string
-	let &makeprg=l:makeprg
+	let &makeprg = l:makeprg
 endfunction
 
 " neosnippet
@@ -342,7 +342,7 @@ set linebreak
 
 if exists('+breakindent')
 	set breakindent
-	let &showbreak='  > '
+	let &showbreak = '  > '
 endif
 
 set lazyredraw
@@ -352,7 +352,7 @@ set number
 set termguicolors
 
 " -- multiple windows --
-let &statusline=' %<%f [%{(&fileencoding != "" ? &fileencoding : "utf-8")}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
+let &statusline = ' %<%f [%{(&fileencoding != "" ? &fileencoding : "utf-8")}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
 set hidden
 
 " -- multiple tab pages --
@@ -411,7 +411,7 @@ set undodir^=$VIMFILES/undo//
 
 " -- running make and jumping to errors --
 if executable('rg')
-	let &grepprg='rg --vimgrep'
+	let &grepprg = 'rg --vimgrep'
 endif
 
 " -- language specific --
