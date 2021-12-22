@@ -178,9 +178,9 @@ endfunction
 
 function! s:CcToFirstFzfEntry(fzf_entries)
 	let l:QuickfixErrorToErrorNumber = {_, val -> split(val, ':')[0]}
-	let error_numbers = map(a:fzf_entries, l:QuickfixErrorToErrorNumber)
-	if !empty(error_numbers)
-		execute 'cc' (error_numbers[0] + 1)
+	let l:error_numbers = map(a:fzf_entries, l:QuickfixErrorToErrorNumber)
+	if !empty(l:error_numbers)
+		execute 'cc' (l:error_numbers[0] + 1)
 	endif
 endfunction
 
