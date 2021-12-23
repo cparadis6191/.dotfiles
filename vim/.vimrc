@@ -159,7 +159,7 @@ endfunction
 
 " neosnippet
 function! s:InsertNeosnippet(snippet_name)
-	call feedkeys("i\<C-R>=neosnippet#expand('".a:snippet_name."')\<CR>")
+	call feedkeys("i\<C-R>=neosnippet#expand('".substitute(a:snippet_name, "'", "''", 'g')."')\<CR>")
 endfunction
 
 function! s:NeosnippetsGetSourceSink()
