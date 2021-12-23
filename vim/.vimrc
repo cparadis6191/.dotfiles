@@ -167,7 +167,7 @@ function! s:NeosnippetsGetSourceSink()
 endfunction
 
 function! s:NeosnippetsGetOptions(query)
-	return {'options': '--prompt="Snippets> " --query='.a:query}
+	return {'options': ['--prompt', 'Snippets> ', '--query', a:query]}
 endfunction
 
 " Quickfix
@@ -189,7 +189,7 @@ function! s:QuickfixGetSourceSinklist()
 endfunction
 
 function! s:QuickfixGetWithPreview()
-	return fzf#vim#with_preview({'options': '--delimiter=":" --preview-window="+{3}-/2" --prompt="Quickfix> "', 'placeholder': '{2}:{3}:{4}:{5..}'})
+	return fzf#vim#with_preview({'options': ['--delimiter', ':', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2}:{3}:{4}:{5..}'})
 endfunction
 
 " Restore cursor
