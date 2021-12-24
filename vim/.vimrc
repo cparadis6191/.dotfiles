@@ -123,9 +123,9 @@ endfunction
 function! s:GetVisualSelection()
 	let l:unnamed_reg = @"
 	normal! y
-	let l:visual = @"
+	let l:visual_selection = @"
 	let @" = l:unnamed_reg
-	return l:visual
+	return l:visual_selection
 endfunction
 
 " Get visual selection from normal
