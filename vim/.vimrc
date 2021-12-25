@@ -173,11 +173,13 @@ endfunction
 " Quickfix
 function! s:QuickfixToFzfEntry(key, val)
 	let l:file = expand('#'.a:val.bufnr)
-	return a:key.':'.l:file.':'.a:val.lnum.':'.a:val.col.':'.a:val.text
+	return printf('%2d', a:key).' '.l:file.':'.a:val.lnum.':'.a:val.col.':'.a:val.text
 endfunction
 
 function! s:CcToFirstFzfEntry(fzf_entries)
-	let l:QuickfixErrorToErrorNumber = {_, val -> split(val, ':')[0]}
+	" Assume the fzf entry is reasonably well-formed with a leading error
+	" number and just convert it to a number.
+	let l:QuickfixErrorToErrorNumber = {_, val -> str2nr(val)}
 	let l:error_numbers = map(a:fzf_entries, l:QuickfixErrorToErrorNumber)
 	if !empty(l:error_numbers)
 		execute 'cc' (l:error_numbers[0] + 1)
@@ -189,7 +191,10 @@ function! s:QuickfixGetSourceSinklist()
 endfunction
 
 function! s:QuickfixGetWithPreview()
-	return fzf#vim#with_preview({'options': ['--delimiter', ':', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2}:{3}:{4}:{5..}'})
+	" Note that fzf fields include the trailing delimiter so matching the
+	" entire field and the trailing delimiter is the same as matching just the
+	" trailing delimiter.
+	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2}:{3}:{4}:{5..}'})
 endfunction
 
 " Restore cursor
