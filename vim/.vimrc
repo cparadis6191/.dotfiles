@@ -237,8 +237,8 @@ xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal(
 " Make Y behave more like C and D
 nnoremap Y y$
 
-nnoremap ]b :<C-U><C-R>=v:count ? v:count : ''<CR>bnext<CR>
-nnoremap [b :<C-U><C-R>=v:count ? v:count : ''<CR>bprevious<CR>
+nnoremap ]b :<C-U><C-R>=(v:count ? v:count : '')<CR>bnext<CR>
+nnoremap [b :<C-U><C-R>=(v:count ? v:count : '')<CR>bprevious<CR>
 
 " Jump to Git conflict markers
 " Note that these mappings support count
@@ -249,15 +249,15 @@ nnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 onoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 xnoremap [g ?\V\^\[<<Bar>=>]\{7}<CR>
 
-nnoremap ]q :<C-U><C-R>=v:count ? v:count : ''<CR>cnext<CR>
-onoremap ]q :<C-U><C-R>=v:count ? v:count : ''<CR>cnext<CR>
-xnoremap ]q :<C-U><C-R>=v:count ? v:count : ''<CR>cnext<CR>``gv``
-nnoremap [q :<C-U><C-R>=v:count ? v:count : ''<CR>cprevious<CR>
-onoremap [q :<C-U><C-R>=v:count ? v:count : ''<CR>cprevious<CR>
-xnoremap [q :<C-U><C-R>=v:count ? v:count : ''<CR>cprevious<CR>``gv``
+nnoremap ]q :<C-U><C-R>=(v:count ? v:count : '')<CR>cnext<CR>
+onoremap ]q :<C-U><C-R>=(v:count ? v:count : '')<CR>cnext<CR>
+xnoremap ]q :<C-U><C-R>=(v:count ? v:count : '')<CR>cnext<CR>``gv``
+nnoremap [q :<C-U><C-R>=(v:count ? v:count : '')<CR>cprevious<CR>
+onoremap [q :<C-U><C-R>=(v:count ? v:count : '')<CR>cprevious<CR>
+xnoremap [q :<C-U><C-R>=(v:count ? v:count : '')<CR>cprevious<CR>``gv``
 
-nnoremap ]Q :<C-U><C-R>=v:count ? v:count : ''<CR>cnfile<CR>
-nnoremap [Q :<C-U><C-R>=v:count ? v:count : ''<CR>cpfile<CR>
+nnoremap ]Q :<C-U><C-R>=(v:count ? v:count : '')<CR>cnfile<CR>
+nnoremap [Q :<C-U><C-R>=(v:count ? v:count : '')<CR>cpfile<CR>
 
 if exists(':terminal')
 	tnoremap <Esc><Esc> <C-\><C-N>
@@ -352,7 +352,7 @@ set number
 set termguicolors
 
 " -- multiple windows --
-let &statusline = ' %<%f [%{(&fileencoding != "" ? &fileencoding : "utf-8")}] %y%m%r %{(exists("g:loaded_fugitive")) ? fugitive#statusline() : ""} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
+let &statusline = ' %<%f [%{(&fileencoding != "" ? &fileencoding : "utf-8")}] %y%m%r %{(exists("g:loaded_fugitive") ? fugitive#statusline() : "")} %= %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
 set hidden
 
 " -- multiple tab pages --
