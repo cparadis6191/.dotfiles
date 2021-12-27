@@ -194,7 +194,7 @@ function! s:QuickfixGetWithPreview()
 	" Note that fzf fields include the trailing delimiter so matching the
 	" entire field and the trailing delimiter is the same as matching just the
 	" trailing delimiter.
-	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2}:{3}:{4}:{5..}'})
+	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2..}'})
 endfunction
 
 " Restore cursor
