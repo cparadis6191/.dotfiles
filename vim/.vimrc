@@ -47,6 +47,13 @@ if !has('nvim')
 endif
 
 " -- plugin settings --
+" Disable built-in plugins
+" See :h netrw-noload
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+let g:loaded_tutor_mode_plugin = 1
+
 " Displaying text
 " dirvish
 let g:dirvish_relative_paths = 1
