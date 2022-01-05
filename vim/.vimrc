@@ -87,9 +87,6 @@ nnoremap <Leader>gl :0Gclog!<CR>
 xnoremap <Leader>gl :Gclog!<CR>
 nnoremap <Leader>gs :Git<CR>
 
-" Git quickfix
-nnoremap <Leader>gq :GitQuickfix<Space>
-
 " neosnippet
 imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 smap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
@@ -98,6 +95,7 @@ xmap <Tab> <Plug>(neosnippet_expand_target)
 " fzf
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>gq :GitQuickfix<Space>
 nnoremap <Leader>l :Locate<Space>
 nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>n :Files <C-R>=expand('%:h')<CR><CR>
