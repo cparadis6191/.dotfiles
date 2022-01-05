@@ -156,6 +156,7 @@ function! s:AppendSearch(pattern)
 	return @/.'\|'.a:pattern
 endfunction
 
+" fzf
 " Git quickfix
 function! s:GitQuickfix(command_string, bang)
 	let l:makeprg = &makeprg
@@ -215,6 +216,7 @@ function! s:RestoreCursor()
 endfunction
 
 " -- commands --
+" fzf
 " Git quickfix
 command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
