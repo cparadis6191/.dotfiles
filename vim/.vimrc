@@ -164,19 +164,6 @@ function! s:GitQuickfix(command_string, bang)
 	let &makeprg = l:makeprg
 endfunction
 
-" neosnippet
-function! s:InsertNeosnippet(snippet_name)
-	call feedkeys("i\<C-R>=neosnippet#expand('".substitute(a:snippet_name, "'", "''", 'g')."')\<CR>")
-endfunction
-
-function! s:NeosnippetsGetSourceSink()
-	return {'source': keys(neosnippet#helpers#get_snippets()), 'sink': function('<SID>InsertNeosnippet')}
-endfunction
-
-function! s:NeosnippetsGetOptions(query)
-	return {'options': ['--prompt', 'Snippets> ', '--query', a:query]}
-endfunction
-
 " Quickfix
 function! s:QuickfixToFzfEntry(key, val)
 	let l:file = expand('#'.a:val.bufnr)
@@ -204,6 +191,19 @@ function! s:QuickfixGetWithPreview()
 	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2..}'})
 endfunction
 
+" neosnippet
+function! s:InsertNeosnippet(snippet_name)
+	call feedkeys("i\<C-R>=neosnippet#expand('".substitute(a:snippet_name, "'", "''", 'g')."')\<CR>")
+endfunction
+
+function! s:NeosnippetsGetSourceSink()
+	return {'source': keys(neosnippet#helpers#get_snippets()), 'sink': function('<SID>InsertNeosnippet')}
+endfunction
+
+function! s:NeosnippetsGetOptions(query)
+	return {'options': ['--prompt', 'Snippets> ', '--query', a:query]}
+endfunction
+
 " Restore cursor
 " See :h restore-cursor
 function! s:RestoreCursor()
@@ -219,11 +219,11 @@ endfunction
 " Git quickfix
 command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
-" neosnippet
-command! -bang -nargs=* Neosnippets call fzf#run(fzf#wrap(extend(<SID>NeosnippetsGetSourceSink(), <SID>NeosnippetsGetOptions(<q-args>)), <bang>0))
-
 " Quickfix
 command! -bang Quickfix call fzf#run(fzf#wrap(extend(<SID>QuickfixGetSourceSinklist(), <SID>QuickfixGetWithPreview()), <bang>0))
+
+" neosnippet
+command! -bang -nargs=* Neosnippets call fzf#run(fzf#wrap(extend(<SID>NeosnippetsGetSourceSink(), <SID>NeosnippetsGetOptions(<q-args>)), <bang>0))
 
 " -- mappings --
 " Jump to where the last change was made
