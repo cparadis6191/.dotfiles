@@ -28,6 +28,10 @@ call plug#begin()
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
 
+	" fzf
+	Plug 'junegunn/fzf'
+	Plug 'junegunn/fzf.vim'
+
 	" Git
 	Plug 'mhinz/vim-signify'
 	Plug 'tpope/vim-fugitive'
@@ -35,10 +39,6 @@ call plug#begin()
 	" neosnippet
 	Plug 'Shougo/neosnippet.vim'
 	Plug 'Shougo/neosnippet-snippets'
-
-	" fzf
-	Plug 'junegunn/fzf'
-	Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " vim-neovim-defaults
@@ -77,6 +77,17 @@ let mapleader = ' '
 nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
 
+" fzf
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>gq :GitQuickfix<Space>
+nnoremap <Leader>l :Locate<Space>
+nnoremap <Leader>m :Marks<CR>
+nnoremap <Leader>n :Files <C-R>=expand('%:h')<CR><CR>
+nnoremap <Leader>o :History<CR>
+nnoremap <Leader>q :Quickfix<CR>
+nnoremap <Leader>s :Neosnippets<CR>
+
 " Git
 " fugitive
 nnoremap <Leader>gb :Git blame<CR>
@@ -91,17 +102,6 @@ nnoremap <Leader>gs :Git<CR>
 imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 smap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 xmap <Tab> <Plug>(neosnippet_expand_target)
-
-" fzf
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>gq :GitQuickfix<Space>
-nnoremap <Leader>l :Locate<Space>
-nnoremap <Leader>m :Marks<CR>
-nnoremap <Leader>n :Files <C-R>=expand('%:h')<CR><CR>
-nnoremap <Leader>o :History<CR>
-nnoremap <Leader>q :Quickfix<CR>
-nnoremap <Leader>s :Neosnippets<CR>
 
 " -- functions --
 " Diff unwritten changes
