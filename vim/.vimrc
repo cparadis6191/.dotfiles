@@ -77,6 +77,7 @@ let mapleader = ' '
 nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
 
+" Git
 " fugitive
 nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>gd :rightbelow Gvdiffsplit<CR>
