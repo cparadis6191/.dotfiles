@@ -158,10 +158,8 @@ endfunction
 " fzf
 " Git quickfix
 function! s:GitQuickfix(command_string, bang)
-	let l:makeprg = &makeprg
-	let &makeprg = 'git quickfix'
-	execute 'make'.(a:bang ? '!' : '') a:command_string
-	let &makeprg = l:makeprg
+	" Don't jump to the first error when a:bang is TRUE
+	execute printf('%s system(%s)', a:bang ? 'cgetexpr' : 'cexpr', shellescape(printf('git quickfix %s', a:command_string)))
 endfunction
 
 " Quickfix
