@@ -64,3 +64,25 @@ Subsystem for Linux:
 $ echo "alias yeet='win32yank.exe -i'" >> "$HOME/.bashrc.local"
 $ echo "alias yoink='win32yank.exe -o'" >> "$HOME/.bashrc.local"
 ```
+
+## tmux Attach During bash Login
+
+Run the following command to allow a new bash login shell to attach to an
+existing tmux session if no client is attached, otherwise start a new session:
+
+```
+$ # Quoting or escaping the "limit string" at the head of a here document
+$ # disables parameter substitution within its body.
+$ cat <<'HEREDOC' >> "$HOME/.bash_profile.local"
+> # Attach to an existing tmux session if no client is attached, otherwise start
+> # a new session.
+> if [[ $(command -v 'tmux') != '' && $TMUX == '' ]]; then
+> 	tmux_detached_session="$(tmux list-sessions -F '#{session_id}' -f '#{?session_attached,0,1}' 2> /dev/null | head --lines=1)"
+> 	if [[ $tmux_detached_session != '' ]]; then
+> 		exec tmux attach-session -t "$tmux_detached_session" \; unbind-key d
+> 	else
+> 		exec tmux new-session \; unbind-key d
+> 	fi
+> fi
+> HEREDOC
+```
