@@ -129,7 +129,7 @@ endfunction
 " Note that this function must be called from visual mode
 function! s:GetVisualSelection()
 	let l:unnamed_reg = @"
-	normal! y
+	silent normal! y
 	let l:visual_selection = @"
 	let @" = l:unnamed_reg
 	return l:visual_selection
