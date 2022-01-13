@@ -4,6 +4,7 @@
 	diffref = !"diffref() { local ref_spec=\"${1:-1}\"; if [ $# -gt 0 ]; then shift; fi; git diff \"$@\" HEAD@{\"$ref_spec\"}..HEAD; }; diffref"
 	dt = difftool
 	edit = !"edit() { if [ $# -gt 0 ]; then qfvim git quickfix \"$@\"; else qfvim; fi; }; edit"
+	fugit = !"nvim -c 'Git'"
 	graph = log --date=relative --decorate --graph --oneline
 	lstags = submodule --quiet foreach --recursive 'echo "set tags+=$(git rev-parse --git-dir)/tags"'
 	mktags = !"$(git rev-parse --git-dir)/hooks/tags"
