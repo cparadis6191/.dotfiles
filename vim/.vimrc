@@ -246,6 +246,10 @@ xnoremap <silent> <expr> . <SID>GetExprNormal(virtcol('.'), v:count ? v:count : 
 " Run visual selection as a command
 xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal())<CR>
 
+" Run visual selection as a command and and insert its standard output below
+" the cursor.
+xnoremap <silent> <Leader>R :<C-U>read !<C-R>=substitute(<SID>GetVisualSelectionFromNormal(), '\n', ';', 'g')<CR><CR>
+
 " Make Y behave more like C and D
 nnoremap Y y$
 
