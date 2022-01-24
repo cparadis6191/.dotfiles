@@ -42,6 +42,15 @@ $ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bash_profile.local"
 * stow
 * vim
 
+### Windows Subsystem for Linux
+
+* win32yank.exe
+  ```
+  $ curl --location --output-dir "$HOME/.local/bin" --remote-name https://github.com/equalsraf/win32yank/releases/latest/download/win32yank-x64.zip
+  $ yes | unzip -d "$HOME/.local/bin" "$HOME/.local/bin/win32yank-x64.zip"
+  $ chmod u+x "$HOME/.local/bin/win32yank.exe"
+  ```
+
 ## Installation Instructions
 
 Run the following commands from the root directory of this repository to create
