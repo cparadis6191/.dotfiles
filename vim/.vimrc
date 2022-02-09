@@ -97,7 +97,6 @@ nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
 nnoremap <Leader>gl :0Gclog!<CR>
 xnoremap <Leader>gl :Gclog!<CR>
-nnoremap <Leader>gs :Git<CR>
 
 " neosnippet
 imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
