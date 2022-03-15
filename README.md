@@ -26,6 +26,14 @@ $ mkdir --parents "$HOME/.local/bin"
 $ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bash_profile.local"
 ```
 
+## Set Up Local etc
+
+Run the following commands to create a local etc directory:
+
+```
+$ mkdir --parents "$HOME/.local/etc"
+```
+
 ## Software to Install
 
 * curl
