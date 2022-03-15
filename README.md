@@ -38,6 +38,7 @@ $ mkdir --parents "$HOME/.local/etc"
 
 * curl
 * ctags
+* fzf
 * git
   * diff-highlight
     ```
@@ -48,7 +49,7 @@ $ mkdir --parents "$HOME/.local/etc"
 * neovim
 * ripgrep
 * stow
-* vim
+* unzip
 
 ### Windows Subsystem for Linux
 
