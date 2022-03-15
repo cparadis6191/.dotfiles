@@ -3,13 +3,14 @@
 ## Create Local Configuration Files
 
 Run the following commands to create local configuration files for bash,
-Neovim, Git, and Vim:
+Neovim, Git, inputrc, and Vim:
 
 ```
 $ touch "$HOME/.bash_profile.local"
 $ touch "$HOME/.bashrc.local"
 $ touch "$HOME/.config/nvim/local.init.vim"
 $ touch "$HOME/.gitconfig.local"
+$ touch "$HOME/.inputrc.local"
 $ touch "$HOME/.vimrc.local"
 ```
 
