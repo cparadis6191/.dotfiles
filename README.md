@@ -113,6 +113,6 @@ $ cat <<'HEREDOC' >> "$HOME/.bash_profile.local"
 Run the following commands to set up bash completion and key-bindings for fzf:
 
 ```
-$ echo 'source "/usr/share/doc/fzf/examples/completion.bash"' >> "$HOME/.bash_profile.local"
-$ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.bash_profile.local"
+$ echo 'source "/usr/share/doc/fzf/examples/completion.bash"' >> "$HOME/.bashrc.local"
+$ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.bashrc.local"
 ```
