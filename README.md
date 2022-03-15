@@ -52,15 +52,6 @@ $ mkdir --parents "$HOME/.local/etc"
 * stow
 * unzip
 
-### Windows Subsystem for Linux
-
-* win32yank.exe
-  ```
-  $ curl --location --output-dir "$HOME/.local/bin" --remote-name https://github.com/equalsraf/win32yank/releases/latest/download/win32yank-x64.zip
-  $ yes | unzip -d "$HOME/.local/bin" "$HOME/.local/bin/win32yank-x64.zip"
-  $ chmod u+x "$HOME/.local/bin/win32yank.exe"
-  ```
-
 ## Installation Instructions
 
 Run the following commands from the root directory of this repository to create
@@ -82,6 +73,17 @@ Subsystem for Linux:
 ```
 $ echo "alias yeet='win32yank.exe -i'" >> "$HOME/.bashrc.local"
 $ echo "alias yoink='win32yank.exe -o'" >> "$HOME/.bashrc.local"
+```
+
+### Windows Subsystem for Linux
+
+Run the following commands to set up a clipboard manager for Windows Subsystem
+for Linux:
+
+```
+$ curl --location --output-dir "$HOME/.local/bin" --remote-name https://github.com/equalsraf/win32yank/releases/latest/download/win32yank-x64.zip
+$ yes | unzip -d "$HOME/.local/bin" "$HOME/.local/bin/win32yank-x64.zip"
+$ chmod u+x "$HOME/.local/bin/win32yank.exe"
 ```
 
 ## tmux Attach During bash Login
