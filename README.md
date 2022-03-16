@@ -41,11 +41,6 @@ $ mkdir --parents "$HOME/.local/etc"
 * ctags
 * fzf
 * git
-  * diff-highlight
-    ```
-    $ cat <(echo '#!/usr/bin/env perl') /usr/share/doc/git/contrib/diff-highlight/{DiffHighlight.pm,diff-highlight.perl} > "$HOME/.local/bin/diff-highlight"
-    $ chmod u+x "$HOME/.local/bin/diff-highlight"
-    ```
 * lsof
 * neovim
 * ripgrep
@@ -84,6 +79,15 @@ for Linux:
 $ curl --location --output-dir "$HOME/.local/bin" --remote-name https://github.com/equalsraf/win32yank/releases/latest/download/win32yank-x64.zip
 $ yes | unzip -d "$HOME/.local/bin" "$HOME/.local/bin/win32yank-x64.zip"
 $ chmod u+x "$HOME/.local/bin/win32yank.exe"
+```
+
+## Set Up Git diff-highlight
+
+Run the following commands to install Git diff-highlight:
+
+```
+$ cat <(echo '#!/usr/bin/env perl') /usr/share/doc/git/contrib/diff-highlight/{DiffHighlight.pm,diff-highlight.perl} > "$HOME/.local/bin/diff-highlight"
+$ chmod u+x "$HOME/.local/bin/diff-highlight"
 ```
 
 ## tmux Attach During bash Login
