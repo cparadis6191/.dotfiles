@@ -81,6 +81,15 @@ $ yes | unzip -d "$HOME/.local/bin" "$HOME/.local/bin/win32yank-x64.zip"
 $ chmod u+x "$HOME/.local/bin/win32yank.exe"
 ```
 
+## Set Up fzf
+
+Run the following commands to set up bash completion and key-bindings for fzf:
+
+```
+$ echo 'source "/usr/share/doc/fzf/examples/completion.bash"' >> "$HOME/.bashrc.local"
+$ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.bashrc.local"
+```
+
 ## Set Up Git diff-highlight
 
 Run the following commands to install Git diff-highlight:
@@ -110,13 +119,4 @@ $ cat <<'HEREDOC' >> "$HOME/.bash_profile.local"
 > 	fi
 > fi
 > HEREDOC
-```
-
-## Set Up fzf
-
-Run the following commands to set up bash completion and key-bindings for fzf:
-
-```
-$ echo 'source "/usr/share/doc/fzf/examples/completion.bash"' >> "$HOME/.bashrc.local"
-$ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.bashrc.local"
 ```
