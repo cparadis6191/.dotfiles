@@ -570,10 +570,9 @@ hints:
 #mouse_bindings:
 mouse_bindings:
 #  - { mouse: Middle, action: PasteSelection }
+  - { mouse: Middle, action: PasteSelection }
   - { mouse: Right, action: Copy }
   - { mouse: Right, action: ClearSelection }
-
-  - { mouse: Middle, action: PasteSelection }
 
 # Key bindings
 #
