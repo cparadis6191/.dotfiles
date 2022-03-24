@@ -90,6 +90,17 @@ $ echo 'source "/usr/share/doc/fzf/examples/completion.bash"' >> "$HOME/.bashrc.
 $ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.bashrc.local"
 ```
 
+### Set Up fzf-git
+
+Run the following commands to install bash completion and key-bindings for
+fzf-git:
+
+```
+$ git clone --depth 1 https://gist.github.com/9685cc9eeacdcc8254bff2a5ad6b35d4.git "$HOME/.local/etc/fzf-git"
+$ echo 'source "$HOME/.local/etc/fzf-git/fzf-git.bash"' >> "$HOME/.bashrc.local"
+$ echo '$include ~/.local/etc/fzf-git/fzf-git.inputrc' >> "$HOME/.inputrc.local"
+```
+
 ## Set Up Git diff-highlight
 
 Run the following commands to install Git diff-highlight:
