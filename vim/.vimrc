@@ -212,6 +212,17 @@ function! s:RestoreCursor()
 	endif
 endfunction
 
+" Edit note
+function! s:EditNote(...)
+	let l:note_dir=(exists('g:note_dir') ? g:note_dir : '.')
+	let l:note_file=join(['note', strftime('%Y-%m-%d')], '-')
+	if len(a:000)
+		let l:note_file=join([l:note_file, join(a:000)], '-')
+	endif
+	let l:note_file=join([l:note_file, 'md'], '.')
+	execute 'edit' fnameescape(join([l:note_dir, l:note_file], '/'))
+endfunction
+
 " -- commands --
 " fzf
 " Git quickfix
@@ -222,6 +233,9 @@ command! -bang Quickfix call fzf#run(fzf#wrap(extend(<SID>QuickfixGetSourceSinkl
 
 " neosnippet
 command! -bang -nargs=* Neosnippets call fzf#run(fzf#wrap(extend(<SID>NeosnippetsGetSourceSink(), <SID>NeosnippetsGetOptions(<q-args>)), <bang>0))
+
+" Edit note
+command! -nargs=* EditNote call <SID>EditNote(<f-args>)
 
 " -- mappings --
 " Jump to where the last change was made
