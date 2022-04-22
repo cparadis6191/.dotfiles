@@ -214,7 +214,7 @@ endfunction
 
 " Note
 function! s:Note(bang, ...)
-	let l:note_dir=(exists('g:note_dir') ? g:note_dir : '.')
+	let l:note_dir=(!empty($VIM_NOTE_DIR) ? $VIM_NOTE_DIR : '.')
 	let l:note_file=join(['note', strftime('%Y-%m-%d')], '-')
 	if len(a:000)
 		let l:note_file=join([l:note_file, join(a:000)], '-')
