@@ -143,6 +143,11 @@ post() {
 	cat - | sed --expression="s/$/$*/g"
 }
 
+# Note
+note() {
+	vim -c "Note $*"
+}
+
 # -- Various --
 # Source local bashrc if it exists
 if [[ -f "$HOME/.bashrc.local" ]]; then
