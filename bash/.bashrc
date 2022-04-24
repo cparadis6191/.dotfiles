@@ -11,6 +11,7 @@ export VISUAL="$EDITOR"
 SUDO_EDITOR="$(command -v "$EDITOR")"
 export SUDO_EDITOR
 
+export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS='--height=40% --layout=reverse'
 
 export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
