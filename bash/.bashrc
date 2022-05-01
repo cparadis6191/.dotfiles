@@ -13,6 +13,7 @@ export SUDO_EDITOR
 
 export FZF_DEFAULT_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=file'
 export FZF_DEFAULT_OPTS='--ansi --height=40% --layout=reverse'
+export FZF_ALT_C_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=directory'
 
 export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
 
