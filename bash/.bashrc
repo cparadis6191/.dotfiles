@@ -40,6 +40,10 @@ shopt -s histappend
 export HISTSIZE=100000
 
 # -- Aliases --
+if command -v batcat > /dev/null 2>&1; then
+	alias cat='batcat'
+fi
+
 alias vim='$EDITOR'
 
 alias cp='cp --interactive'
