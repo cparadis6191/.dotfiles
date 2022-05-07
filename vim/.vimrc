@@ -165,7 +165,8 @@ endfunction
 " Quickfix
 function! s:QuickfixToFzfEntry(key, val)
 	let l:file = expand('#'.a:val.bufnr)
-	return printf('%2d', a:key).' '.l:file.':'.a:val.lnum.':'.a:val.col.':'.a:val.text
+	let l:error_number = printf('%2d', a:key)
+	return [l:error_number, ' ', l:file, ':', a:val.lnum, ':', a:val.col, ':', a:val.text]
 endfunction
 
 function! s:CcToFirstFzfEntry(fzf_entries)
@@ -178,7 +179,9 @@ function! s:CcToFirstFzfEntry(fzf_entries)
 endfunction
 
 function! s:QuickfixGetSourceSinklist()
-	return {'source': map(getqflist(), function('<SID>QuickfixToFzfEntry')), 'sinklist': function('<SID>CcToFirstFzfEntry')}
+	let l:fzf_entries = map(getqflist(), function('<SID>QuickfixToFzfEntry'))
+	let l:fzf_entry_strings = map(l:fzf_entries, {_, val -> join(val, '')})
+	return {'source': l:fzf_entry_strings, 'sinklist': function('<SID>CcToFirstFzfEntry')}
 endfunction
 
 function! s:QuickfixGetWithPreview()
