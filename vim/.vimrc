@@ -73,10 +73,6 @@ highlight SignifySignChange cterm=bold ctermbg=3
 let mapleader = ' '
 
 " Editing text
-" easy-align
-nmap <Leader>a <Plug>(EasyAlign)
-xmap <Leader>a <Plug>(EasyAlign)
-
 " fzf
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
