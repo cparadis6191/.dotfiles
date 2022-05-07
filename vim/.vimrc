@@ -169,12 +169,11 @@ function! s:QuickfixToFzfEntry(key, val)
 endfunction
 
 function! s:CcToFirstFzfEntry(fzf_entries)
-	" Assume the fzf entry is reasonably well-formed with a leading error
-	" number and just convert it to a number.
-	let l:QuickfixErrorToErrorNumber = {_, val -> str2nr(val)}
-	let l:error_numbers = map(a:fzf_entries, l:QuickfixErrorToErrorNumber)
-	if !empty(l:error_numbers)
-		execute 'cc' (l:error_numbers[0] + 1)
+	if !empty(a:fzf_entries)
+		" Assume the fzf entry is reasonably well-formed with a leading error
+		" number and just convert it to a number.
+		let l:error_number = str2nr(a:fzf_entries[0]) + 1
+		execute 'cc' l:error_number
 	endif
 endfunction
 
