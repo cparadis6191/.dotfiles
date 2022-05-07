@@ -86,6 +86,7 @@ nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>n :Files <C-R>=expand('%:h')<CR><CR>
 nnoremap <Leader>o :History<CR>
 nnoremap <Leader>q :Quickfix<CR>
+nnoremap <Leader>Q :QuickfixFiles<CR>
 nnoremap <Leader>s :Neosnippets<CR>
 
 " Git
@@ -191,6 +192,18 @@ function! s:QuickfixGetWithPreview()
 	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2..}'})
 endfunction
 
+" Quickfix files
+function! s:FzfEntryToFile(fzf_entry)
+	return a:fzf_entry[2]
+endfunction
+
+function! s:QuickfixFilesGetSourceSink()
+	let l:fzf_entries = map(getqflist(), function('<SID>QuickfixToFzfEntry'))
+	let l:uniq_fzf_entry_list = uniq(l:fzf_entries, {i1, i2 -> <SID>FzfEntryToFile(i1) != <SID>FzfEntryToFile(i2)})
+	let l:uniq_fzf_entry_strings = map(l:uniq_fzf_entry_list, {_, val -> join(val, '')})
+	return {'source': l:uniq_fzf_entry_strings, 'sinklist': function('<SID>CcToFirstFzfEntry')}
+endfunction
+
 " neosnippet
 function! s:InsertNeosnippet(snippet_name)
 	call feedkeys("i\<C-R>=neosnippet#expand('".substitute(a:snippet_name, "'", "''", 'g')."')\<CR>")
@@ -232,6 +245,9 @@ command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
 " Quickfix
 command! -bang Quickfix call fzf#run(fzf#wrap(extend(<SID>QuickfixGetSourceSinklist(), <SID>QuickfixGetWithPreview()), <bang>0))
+
+" Quickfix files
+command! -bang QuickfixFiles call fzf#run(fzf#wrap(extend(<SID>QuickfixFilesGetSourceSink(), <SID>QuickfixGetWithPreview()), <bang>0))
 
 " neosnippet
 command! -bang -nargs=* Neosnippets call fzf#run(fzf#wrap(extend(<SID>NeosnippetsGetSourceSink(), <SID>NeosnippetsGetOptions(<q-args>)), <bang>0))
