@@ -80,7 +80,6 @@ xmap <Leader>a <Plug>(EasyAlign)
 " fzf
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>gq :GitQuickfix<Space>
 nnoremap <Leader>l :Locate<Space>
 nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>n :Files <C-R>=expand('%:h')<CR><CR>
@@ -90,6 +89,8 @@ nnoremap <Leader>Q :QuickfixFiles<CR>
 nnoremap <Leader>s :Neosnippets<CR>
 
 " Git
+nnoremap <Leader>gq :GitQuickfix<Space>
+
 " fugitive
 nnoremap <Leader>gb :Git blame<CR>
 xnoremap <Leader>gb :Git blame<CR>
