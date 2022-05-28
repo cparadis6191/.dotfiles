@@ -340,7 +340,7 @@ xnoremap <Leader>g* /<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(<
 xnoremap <Leader>g# ?<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection())))<CR><CR>
 
 " Highlight the last search more permanently
-nnoremap <Leader>/ :match Search /<C-R>=@/<CR>/<CR>
+nnoremap <Leader>/ :<C-U><C-R>=(v:count ? v:count : '')<CR>match Search /<C-R>=@/<CR>/<CR>
 
 " -- plugin autocommands --
 " Displaying text
