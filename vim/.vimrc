@@ -218,7 +218,7 @@ endfunction
 " See :h restore-cursor
 function! s:RestoreCursor()
 	if line("'\"") > 1 && line("'\"") <= line('$')
-		if &filetype !~# 'commit'
+		if &filetype !~# 'commit\|rebase'
 			normal! g`"
 		endif
 	endif
