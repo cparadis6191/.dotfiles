@@ -217,7 +217,7 @@ endfunction
 " Restore cursor
 " See :h restore-cursor
 function! s:RestoreCursor()
-	if line("'\"") >= 1 && line("'\"") <= line('$')
+	if line("'\"") > 1 && line("'\"") <= line('$')
 		if &filetype !~# 'commit'
 			normal! g`"
 		endif
