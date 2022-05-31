@@ -64,10 +64,6 @@ let g:dirvish_relative_paths = 1
 " time.
 let g:signify_skip = {'vcs': {'allow': ['git']}}
 
-highlight SignifySignDelete cterm=bold ctermbg=1
-highlight SignifySignAdd cterm=bold ctermbg=2
-highlight SignifySignChange cterm=bold ctermbg=3
-
 " -- plugin mappings --
 " mapleader must be set BEFORE <Leader> mappings are used
 let mapleader = ' '
