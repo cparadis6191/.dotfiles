@@ -92,7 +92,7 @@ $ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.bashr
 
 ### Set Up fzf-git
 
-Run the following commands to install bash completion and key-bindings for
+Run the following commands to install key-bindings for
 fzf-git:
 
 ```
