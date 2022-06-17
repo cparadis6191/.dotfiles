@@ -101,6 +101,16 @@ $ echo 'source "$HOME/.local/etc/fzf-git/fzf-git.bash"' >> "$HOME/.bashrc.local"
 $ echo '$include ~/.local/etc/fzf-git/fzf-git.inputrc' >> "$HOME/.inputrc.local"
 ```
 
+### Set Up fzf-tmux
+
+Run the following commands to install key-bindings for fzf-tmux:
+
+```
+$ git clone --depth 1 https://gist.github.com/6b246a154e6392c1637fd763c1ada8ab.git "$HOME/.local/etc/fzf-tmux"
+$ echo 'source "$HOME/.local/etc/fzf-tmux/fzf-tmux.bash"' >> "$HOME/.bashrc.local"
+$ echo '$include ~/.local/etc/fzf-tmux/fzf-tmux.inputrc' >> "$HOME/.inputrc.local"
+```
+
 ## Set Up Git diff-highlight
 
 Run the following commands to install Git diff-highlight:
