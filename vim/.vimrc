@@ -80,7 +80,7 @@ nnoremap <Leader>q :Quickfix<CR>
 nnoremap <Leader>Q :QuickfixFiles<CR>
 nnoremap <Leader>s :Neosnippets<CR>
 
-" Git
+" Git quickfix
 nnoremap <Leader>gq :GitQuickfix<Space>
 
 " fugitive
@@ -149,13 +149,13 @@ function! s:AppendSearch(pattern)
 	return @/.'\|'.a:pattern
 endfunction
 
-" fzf
 " Git quickfix
 function! s:GitQuickfix(command_string, bang)
 	" Don't jump to the first error when a:bang is TRUE
 	execute printf('%s system(%s)', a:bang ? 'cgetexpr' : 'cexpr', shellescape(printf('git quickfix %s', a:command_string)))
 endfunction
 
+" fzf
 " Quickfix
 function! s:QuickfixToFzfEntry(key, val)
 	let l:file = expand('#'.a:val.bufnr)
@@ -232,7 +232,6 @@ function! s:Note(bang, ...)
 endfunction
 
 " -- commands --
-" fzf
 " Git quickfix
 command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 
@@ -270,8 +269,8 @@ xnoremap <silent> <expr> . <SID>GetExprNormal(virtcol('.'), v:count ? v:count : 
 " Run visual selection as a command
 xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal())<CR>
 
-" Run visual selection as a command and and insert its standard output below
-" the cursor.
+" Run visual selection as a command and insert its standard output below the
+" cursor.
 xnoremap <silent> <Leader>R :<C-U>read !<C-R>=substitute(<SID>GetVisualSelectionFromNormal(), '\n', ';', 'g')<CR><CR>
 
 " Make Y behave more like C and D
