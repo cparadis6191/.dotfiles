@@ -31,6 +31,7 @@ call plug#begin()
 	" fzf
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
+	Plug '~/.vim/plugin/fzf_neosnippets'
 
 	" Git
 	Plug 'mhinz/vim-signify'
@@ -78,7 +79,6 @@ nnoremap <Leader>n :Files <C-R>=expand('%:h')<CR><CR>
 nnoremap <Leader>o :History<CR>
 nnoremap <Leader>q :Quickfix<CR>
 nnoremap <Leader>Q :QuickfixFiles<CR>
-nnoremap <Leader>s :Neosnippets<CR>
 
 " Git quickfix
 nnoremap <Leader>gq :GitQuickfix<Space>
@@ -197,19 +197,6 @@ function! s:QuickfixFilesGetSourceSink()
 	return {'source': l:uniq_fzf_entry_strings, 'sinklist': function('<SID>CcToFirstFzfEntry')}
 endfunction
 
-" neosnippet
-function! s:InsertNeosnippet(snippet_name)
-	call feedkeys("i\<C-R>=neosnippet#expand('".substitute(a:snippet_name, "'", "''", 'g')."')\<CR>")
-endfunction
-
-function! s:NeosnippetsGetSourceSink()
-	return {'source': keys(neosnippet#helpers#get_snippets()), 'sink': function('<SID>InsertNeosnippet')}
-endfunction
-
-function! s:NeosnippetsGetOptions(query)
-	return {'options': ['--prompt', 'Snippets> ', '--query', a:query]}
-endfunction
-
 " Restore cursor
 " See :h restore-cursor
 function! s:RestoreCursor()
@@ -240,9 +227,6 @@ command! -bang Quickfix call fzf#run(fzf#wrap(extend(<SID>QuickfixGetSourceSinkl
 
 " Quickfix files
 command! -bang QuickfixFiles call fzf#run(fzf#wrap(extend(<SID>QuickfixFilesGetSourceSink(), <SID>QuickfixGetWithPreview()), <bang>0))
-
-" neosnippet
-command! -bang -nargs=* Neosnippets call fzf#run(fzf#wrap(extend(<SID>NeosnippetsGetSourceSink(), <SID>NeosnippetsGetOptions(<q-args>)), <bang>0))
 
 " Note
 command! -bang -nargs=* Note call <SID>Note(<bang>0, <f-args>)
