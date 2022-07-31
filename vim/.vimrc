@@ -27,6 +27,7 @@ call plug#begin()
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
+	Plug '~/.vim/plugin/visual_selection'
 
 	" fzf
 	Plug 'junegunn/fzf'
@@ -117,22 +118,6 @@ function! s:GetExprNormal(virtcol, count, command)
 	return ':normal! '.a:virtcol.'|'.a:count.a:command."\<CR>"
 endfunction
 
-" Get visual selection
-" Note that this function must be called from visual mode
-function! s:GetVisualSelection()
-	let l:unnamed_reg = @"
-	silent normal! y
-	let l:visual_selection = @"
-	let @" = l:unnamed_reg
-	return l:visual_selection
-endfunction
-
-" Get visual selection from normal
-function! s:GetVisualSelectionFromNormal()
-	normal! gv
-	return <SID>GetVisualSelection()
-endfunction
-
 " Escape search
 function! s:EscapeSearch(pattern)
 	return '\V'.substitute(escape(a:pattern, '/\'), '\_s\+', '\\_s\\+', 'g')
@@ -202,11 +187,11 @@ xnoremap <silent> <expr> Q <SID>GetExprNormal(virtcol('.'), v:count1, '@@')
 xnoremap <silent> <expr> . <SID>GetExprNormal(virtcol('.'), v:count ? v:count : '', '.')
 
 " Run visual selection as a command
-xnoremap <silent> <Leader>r :<C-U>echo system(<SID>GetVisualSelectionFromNormal())<CR>
+xnoremap <silent> <Leader>r :<C-U>echo system(visual_selection#get_from_normal())<CR>
 
 " Run visual selection as a command and insert its standard output below the
 " cursor.
-xnoremap <silent> <Leader>R :<C-U>read !<C-R>=substitute(<SID>GetVisualSelectionFromNormal(), '\n', ';', 'g')<CR><CR>
+xnoremap <silent> <Leader>R :<C-U>read !<C-R>=substitute(visual_selection#get_from_normal(), '\n', ';', 'g')<CR><CR>
 
 " Make Y behave more like C and D
 nnoremap Y y$
@@ -245,12 +230,12 @@ endif
 " Set search mappings
 " Note that these mappings support count
 " This makes the search also find matches that are not a whole word
-xnoremap * /<C-R>=<SID>EscapeSearch(<SID>GetVisualSelection())<CR><CR>
-xnoremap # ?<C-R>=<SID>EscapeSearch(<SID>GetVisualSelection())<CR><CR>
+xnoremap * /<C-R>=<SID>EscapeSearch(visual_selection#get())<CR><CR>
+xnoremap # ?<C-R>=<SID>EscapeSearch(visual_selection#get())<CR><CR>
 
 " Only whole keywords are searched for
-xnoremap g* /<C-R>=<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR><CR>
-xnoremap g# ?<C-R>=<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR><CR>
+xnoremap g* /<C-R>=<SID>WordSearch(<SID>EscapeSearch(visual_selection#get()))<CR><CR>
+xnoremap g# ?<C-R>=<SID>WordSearch(<SID>EscapeSearch(visual_selection#get()))<CR><CR>
 
 " Append search mappings
 " Only whole keywords are searched for
@@ -262,12 +247,12 @@ nnoremap <Leader>g* /<C-R>=<SID>AppendSearch(expand('<cword>'))<CR><CR>
 nnoremap <Leader>g# ?<C-R>=<SID>AppendSearch(expand('<cword>'))<CR><CR>
 
 " This makes the search also find matches that are not a whole word
-xnoremap <Leader>* /<C-R>=<SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR><CR>
-xnoremap <Leader># ?<C-R>=<SID>AppendSearch(<SID>EscapeSearch(<SID>GetVisualSelection()))<CR><CR>
+xnoremap <Leader>* /<C-R>=<SID>AppendSearch(<SID>EscapeSearch(visual_selection#get()))<CR><CR>
+xnoremap <Leader># ?<C-R>=<SID>AppendSearch(<SID>EscapeSearch(visual_selection#get()))<CR><CR>
 
 " Only whole keywords are searched for
-xnoremap <Leader>g* /<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection())))<CR><CR>
-xnoremap <Leader>g# ?<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(<SID>GetVisualSelection())))<CR><CR>
+xnoremap <Leader>g* /<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(visual_selection#get())))<CR><CR>
+xnoremap <Leader>g# ?<C-R>=<SID>AppendSearch(<SID>WordSearch(<SID>EscapeSearch(visual_selection#get())))<CR><CR>
 
 " Highlight the last search more permanently
 nnoremap <Leader>/ :<C-U><C-R>=(v:count ? v:count : '')<CR>match Search /<C-R>=@/<CR>/<CR>
