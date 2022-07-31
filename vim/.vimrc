@@ -29,6 +29,7 @@ call plug#begin()
 	Plug 'tpope/vim-surround'
 	Plug '~/.vim/plugin/visual_selection'
 	Plug '~/.vim/plugin/search'
+	Plug '~/.vim/plugin/normal_expr'
 
 	" fzf
 	Plug 'junegunn/fzf'
@@ -112,13 +113,6 @@ function! s:DiffUnwrittenChanges()
 	diffthis
 endfunction
 
-" Returns an expression to execute a normal mode command in a virtual column
-" with a count. The returned expression can be used with a range to execute a
-" normal mode command over a range at a virtual column for each line.
-function! s:GetExprNormal(virtcol, count, command)
-	return ':normal! '.a:virtcol.'|'.a:count.a:command."\<CR>"
-endfunction
-
 " Git quickfix
 function! s:GitQuickfix(command_string, bang)
 	" Don't jump to the first error when a:bang is TRUE
@@ -167,10 +161,6 @@ nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
 " Repeat the previous recording
 " Note that this mapping supports a count
 nnoremap Q @@
-xnoremap <silent> <expr> Q <SID>GetExprNormal(virtcol('.'), v:count1, '@@')
-
-" Repeat last change on visual selection
-xnoremap <silent> <expr> . <SID>GetExprNormal(virtcol('.'), v:count ? v:count : '', '.')
 
 " Run visual selection as a command
 xnoremap <silent> <Leader>r :<C-U>echo system(visual_selection#get_from_normal())<CR>
