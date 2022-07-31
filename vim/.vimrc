@@ -32,6 +32,7 @@ call plug#begin()
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug '~/.vim/plugin/fzf_neosnippets'
+	Plug '~/.vim/plugin/fzf_quickfix'
 
 	" Git
 	Plug 'mhinz/vim-signify'
@@ -77,8 +78,6 @@ nnoremap <Leader>l :Locate<Space>
 nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>n :Files <C-R>=expand('%:h')<CR><CR>
 nnoremap <Leader>o :History<CR>
-nnoremap <Leader>q :Quickfix<CR>
-nnoremap <Leader>Q :QuickfixFiles<CR>
 
 " Git quickfix
 nnoremap <Leader>gq :GitQuickfix<Space>
@@ -155,48 +154,6 @@ function! s:GitQuickfix(command_string, bang)
 	execute printf('%s system(%s)', a:bang ? 'cgetexpr' : 'cexpr', shellescape(printf('git quickfix %s', a:command_string)))
 endfunction
 
-" fzf
-" Quickfix
-function! s:QuickfixToFzfEntry(key, val)
-	let l:file = expand('#'.a:val.bufnr)
-	let l:error_number = printf('%2d', a:key)
-	return [l:error_number, ' ', l:file, ':', a:val.lnum, ':', a:val.col, ':', a:val.text]
-endfunction
-
-function! s:CcToFirstFzfEntry(fzf_entries)
-	if !empty(a:fzf_entries)
-		" Assume the fzf entry is reasonably well-formed with a leading error
-		" number and just convert it to a number.
-		let l:error_number = str2nr(a:fzf_entries[0]) + 1
-		execute 'cc' l:error_number
-	endif
-endfunction
-
-function! s:QuickfixGetSourceSinklist()
-	let l:fzf_entries = map(getqflist(), function('<SID>QuickfixToFzfEntry'))
-	let l:fzf_entry_strings = map(l:fzf_entries, {_, val -> join(val, '')})
-	return {'source': l:fzf_entry_strings, 'sinklist': function('<SID>CcToFirstFzfEntry')}
-endfunction
-
-function! s:QuickfixGetWithPreview()
-	" Note that fzf fields include the trailing delimiter so matching the
-	" entire field and the trailing delimiter is the same as matching just the
-	" trailing delimiter.
-	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2..}'})
-endfunction
-
-" Quickfix files
-function! s:FzfEntryToFile(fzf_entry)
-	return a:fzf_entry[2]
-endfunction
-
-function! s:QuickfixFilesGetSourceSink()
-	let l:fzf_entries = map(getqflist(), function('<SID>QuickfixToFzfEntry'))
-	let l:uniq_fzf_entry_list = uniq(l:fzf_entries, {i1, i2 -> <SID>FzfEntryToFile(i1) != <SID>FzfEntryToFile(i2)})
-	let l:uniq_fzf_entry_strings = map(l:uniq_fzf_entry_list, {_, val -> join(val, '')})
-	return {'source': l:uniq_fzf_entry_strings, 'sinklist': function('<SID>CcToFirstFzfEntry')}
-endfunction
-
 " Restore cursor
 " See :h restore-cursor
 function! s:RestoreCursor()
@@ -221,12 +178,6 @@ endfunction
 " -- commands --
 " Git quickfix
 command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
-
-" Quickfix
-command! -bang Quickfix call fzf#run(fzf#wrap(extend(<SID>QuickfixGetSourceSinklist(), <SID>QuickfixGetWithPreview()), <bang>0))
-
-" Quickfix files
-command! -bang QuickfixFiles call fzf#run(fzf#wrap(extend(<SID>QuickfixFilesGetSourceSink(), <SID>QuickfixGetWithPreview()), <bang>0))
 
 " Note
 command! -bang -nargs=* Note call <SID>Note(<bang>0, <f-args>)
