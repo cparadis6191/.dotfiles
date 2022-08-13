@@ -38,4 +38,4 @@
 [user]
 	name = Chad Paradis
 [include]
-	path = ~/.gitconfig.local
+	path = ~/.local/etc/.gitconfig

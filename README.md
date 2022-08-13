@@ -1,17 +1,26 @@
 # .dotfiles
 
+## Set Up Local etc
+
+Run the following commands to create a local etc directory:
+
+```
+$ mkdir --parents "$HOME/.local/etc"
+```
+
 ## Create Local Configuration Files
 
 Run the following commands to create local configuration files for bash,
 Neovim, Git, inputrc, and Vim:
 
 ```
-$ touch "$HOME/.bash_profile.local"
-$ touch "$HOME/.bashrc.local"
-$ touch "$HOME/.config/nvim/local.init.vim"
-$ touch "$HOME/.gitconfig.local"
-$ touch "$HOME/.inputrc.local"
-$ touch "$HOME/.vimrc.local"
+$ touch "$HOME/.local/etc/.bash_profile"
+$ touch "$HOME/.local/etc/.bashrc"
+$ mkdir --parents "$HOME/.local/etc/.config/nvim"
+$ touch "$HOME/.local/etc/.config/nvim/init.vim"
+$ touch "$HOME/.local/etc/.gitconfig"
+$ touch "$HOME/.local/etc/.inputrc"
+$ touch "$HOME/.local/etc/.vimrc"
 ```
 
 These local configuration files will be sourced automatically by the respective
@@ -24,15 +33,7 @@ PATH:
 
 ```
 $ mkdir --parents "$HOME/.local/bin"
-$ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bash_profile.local"
-```
-
-## Set Up Local etc
-
-Run the following commands to create a local etc directory:
-
-```
-$ mkdir --parents "$HOME/.local/etc"
+$ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile"
 ```
 
 ## Software to Install
@@ -66,8 +67,8 @@ Run the following commands to define the yeet and yoink commands for Windows
 Subsystem for Linux:
 
 ```
-$ echo "alias yeet='win32yank.exe -i'" >> "$HOME/.bashrc.local"
-$ echo "alias yoink='win32yank.exe -o'" >> "$HOME/.bashrc.local"
+$ echo "alias yeet='win32yank.exe -i'" >> "$HOME/.local/etc/.bashrc"
+$ echo "alias yoink='win32yank.exe -o'" >> "$HOME/.local/etc/.bashrc"
 ```
 
 ### Windows Subsystem for Linux
@@ -86,8 +87,8 @@ $ chmod u+x "$HOME/.local/bin/win32yank.exe"
 Run the following commands to set up bash completion and key-bindings for fzf:
 
 ```
-$ echo 'source "/usr/share/doc/fzf/examples/completion.bash"' >> "$HOME/.bashrc.local"
-$ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.bashrc.local"
+$ echo 'source "/usr/share/doc/fzf/examples/completion.bash"' >> "$HOME/.local/etc/.bashrc"
+$ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.local/etc/.bashrc"
 ```
 
 ### Set Up fzf-git
@@ -97,8 +98,8 @@ fzf-git:
 
 ```
 $ git clone --depth 1 https://gist.github.com/9685cc9eeacdcc8254bff2a5ad6b35d4.git "$HOME/.local/etc/fzf-git"
-$ echo 'source "$HOME/.local/etc/fzf-git/fzf-git.bash"' >> "$HOME/.bashrc.local"
-$ echo '$include ~/.local/etc/fzf-git/fzf-git.inputrc' >> "$HOME/.inputrc.local"
+$ echo 'source "$HOME/.local/etc/fzf-git/fzf-git.bash"' >> "$HOME/.local/etc/.bashrc"
+$ echo '$include ~/.local/etc/fzf-git/fzf-git.inputrc' >> "$HOME/.local/etc/.inputrc"
 ```
 
 ### Set Up fzf-tmux
@@ -107,8 +108,8 @@ Run the following commands to install key-bindings for fzf-tmux:
 
 ```
 $ git clone --depth 1 https://gist.github.com/6b246a154e6392c1637fd763c1ada8ab.git "$HOME/.local/etc/fzf-tmux"
-$ echo 'source "$HOME/.local/etc/fzf-tmux/fzf-tmux.bash"' >> "$HOME/.bashrc.local"
-$ echo '$include ~/.local/etc/fzf-tmux/fzf-tmux.inputrc' >> "$HOME/.inputrc.local"
+$ echo 'source "$HOME/.local/etc/fzf-tmux/fzf-tmux.bash"' >> "$HOME/.local/etc/.bashrc"
+$ echo '$include ~/.local/etc/fzf-tmux/fzf-tmux.inputrc' >> "$HOME/.local/etc/.inputrc"
 ```
 
 ## Set Up Git diff-highlight
@@ -128,7 +129,7 @@ existing tmux session if no client is attached, otherwise start a new session:
 ```
 $ # Quoting or escaping the "limit string" at the head of a here document
 $ # disables parameter substitution within its body.
-$ cat <<'HEREDOC' >> "$HOME/.bash_profile.local"
+$ cat <<'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
 > # Attach to an existing tmux session if no client is attached, otherwise start
 > # a new session.
 > if [[ $(command -v 'tmux') != '' && $TMUX == '' ]]; then

@@ -4,6 +4,6 @@ if [[ -f "$HOME/.bashrc" ]]; then
 fi
 
 # Source local bash_profile if it exists
-if [[ -f "$HOME/.bash_profile.local" ]]; then
-	source "$HOME/.bash_profile.local"
+if [[ -f "$HOME/.local/etc/.bash_profile" ]]; then
+	source "$HOME/.local/etc/.bash_profile"
 fi

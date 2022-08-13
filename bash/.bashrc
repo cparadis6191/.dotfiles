@@ -157,6 +157,6 @@ note() {
 
 # -- Various --
 # Source local bashrc if it exists
-if [[ -f "$HOME/.bashrc.local" ]]; then
-	source "$HOME/.bashrc.local"
+if [[ -f "$HOME/.local/etc/.bashrc" ]]; then
+	source "$HOME/.local/etc/.bashrc"
 fi
