@@ -7,7 +7,7 @@
 	fugit = !"nvim -c 'Git' -c 'only'"
 	graph = log --date=relative --decorate --graph --oneline
 	lstags = submodule --quiet foreach --recursive 'echo "set tags+=$(git rev-parse --git-dir)/tags"'
-	mktags = !"$(git rev-parse --git-dir)/hooks/tags"
+	mktags = !"$(git rev-parse --git-path hooks)/tags"
 	mt = mergetool
 	rifh = rebase --interactive FETCH_HEAD
 	twig = branch --sort=-committerdate --verbose
