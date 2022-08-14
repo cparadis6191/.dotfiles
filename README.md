@@ -26,6 +26,20 @@ $ touch "$HOME/.local/etc/.vimrc"
 These local configuration files will be sourced automatically by the respective
 configuration files in this repository.
 
+## Migrate Local Configuration Files
+
+Run the following commands to migrate local configuration files for bash,
+Neovim, Git, inputrc, and Vim to the local etc directory:
+
+```
+$ mv "$HOME/.bash_profile.local" "$HOME/.local/etc/.bash_profile"
+$ mv "$HOME/.bashrc.local" "$HOME/.local/etc/.bashrc"
+$ mv "$HOME/.config/nvim/local.init.vim" "$HOME/.local/etc/.config/nvim/init.vim"
+$ mv "$HOME/.gitconfig.local" "$HOME/.local/etc/.gitconfig"
+$ mv "$HOME/.inputrc.local" "$HOME/.local/etc/.inputrc"
+$ mv "$HOME/.vimrc.local" "$HOME/.local/etc/.vimrc"
+```
+
 ## Set Up Local bin
 
 Run the following commands to create a local bin directory and add it to the
