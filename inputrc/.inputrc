@@ -24,4 +24,4 @@ set colored-stats On
 set mark-symlinked-directories On
 
 # Include local inputrc
-$include ~/.inputrc.local
+$include ~/.local/etc/.inputrc

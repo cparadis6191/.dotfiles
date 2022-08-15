@@ -335,7 +335,7 @@ endif
 
 " Load local config
 if !has('nvim')
-	if !empty(glob($HOME.'/.vimrc'))
+	if !empty(glob($HOME.'/.local/etc/.vimrc'))
 		source $HOME/.local/etc/.vimrc
 	endif
 else
