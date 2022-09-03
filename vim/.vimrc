@@ -88,7 +88,7 @@ nnoremap <Leader>gq :GitQuickfix<Space>
 " fugitive
 nnoremap <Leader>gb :Git blame<CR>
 xnoremap <Leader>gb :Git blame<CR>
-nnoremap <Leader>gd :rightbelow Gvdiffsplit<CR>
+nnoremap <Leader>gd :rightbelow Gvdiffsplit HEAD
 nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
 nnoremap <Leader>gl :Gclog!<CR>
