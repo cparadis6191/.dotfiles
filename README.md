@@ -143,7 +143,7 @@ existing tmux session if no client is attached, otherwise start a new session:
 ```
 $ # Quoting or escaping the "limit string" at the head of a here document
 $ # disables parameter substitution within its body.
-$ cat <<'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
+$ cat << 'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
 > # Attach to an existing tmux session if no client is attached, otherwise start
 > # a new session.
 > if [[ $(command -v 'tmux') != '' && $TMUX == '' ]]; then
