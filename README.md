@@ -147,7 +147,11 @@ $ cat <<'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
 > # Attach to an existing tmux session if no client is attached, otherwise start
 > # a new session.
 > if [[ $(command -v 'tmux') != '' && $TMUX == '' ]]; then
-> 	tmux_detached_session="$(tmux list-sessions -F '#{session_id}' -f '#{?session_attached,0,1}' 2> /dev/null | head --lines=1)"
+> 	delim=$'\t'
+> 	tmux_detached_session="$(tmux list-sessions -F "#{session_id}$delim#{session_attached}" 2> /dev/null |
+> 		grep --basic-regexp --regexp='0$' |
+> 		head --lines=1 |
+> 		cut --fields=1)"
 > 	if [[ $tmux_detached_session != '' ]]; then
 > 		exec tmux attach-session -t "$tmux_detached_session" \; unbind-key d
 > 	else
