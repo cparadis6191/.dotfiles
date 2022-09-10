@@ -24,8 +24,8 @@
 [difftool "vimdiff"]
 	path = nvim
 [init]
-	templatedir = ~/.git_template
 	defaultBranch = main
+	templatedir = ~/.git_template
 [merge]
 	conflictStyle = diff3
 	tool = vimdiff
