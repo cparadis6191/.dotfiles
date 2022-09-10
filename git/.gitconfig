@@ -16,7 +16,7 @@
 [core]
 	editor = $EDITOR
 	excludesfile = ~/.gitignore_global
-	pager = diff-highlight | less
+	pager = diff-so-fancy | less
 [diff]
 	tool = vimdiff
 [difftool]

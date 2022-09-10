@@ -126,13 +126,13 @@ $ echo 'source "$HOME/.local/etc/fzf-tmux/fzf-tmux.bash"' >> "$HOME/.local/etc/.
 $ echo '$include ~/.local/etc/fzf-tmux/fzf-tmux.inputrc' >> "$HOME/.local/etc/.inputrc"
 ```
 
-## Set Up Git diff-highlight
+## Set Up diff-so-fancy
 
-Run the following commands to install Git diff-highlight:
+Run the following commands to install diff-so-fancy:
 
 ```
-$ cat <(echo '#!/usr/bin/env perl') /usr/share/doc/git/contrib/diff-highlight/{DiffHighlight.pm,diff-highlight.perl} > "$HOME/.local/bin/diff-highlight"
-$ chmod u+x "$HOME/.local/bin/diff-highlight"
+$ git clone --depth 1 https://github.com/so-fancy/diff-so-fancy.git "$HOME/.local/bin/diff-so-fancy.git"
+$ ln --symbolic "$HOME/.local/bin/diff-so-fancy.git/diff-so-fancy" "$HOME/.local/bin/"
 ```
 
 ## tmux Attach During bash Login
