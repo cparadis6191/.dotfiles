@@ -23,9 +23,13 @@
 	prompt = false
 [difftool "vimdiff"]
 	path = nvim
+[diff-so-fancy]
+	changeHunkIndicators = false
 [init]
 	defaultBranch = main
 	templatedir = ~/.git_template
+[interactive]
+	diffFilter = diff-so-fancy --patch
 [merge]
 	conflictStyle = diff3
 	tool = vimdiff
