@@ -260,7 +260,9 @@ set number
 set termguicolors
 
 " -- multiple windows --
-let &statusline = ' %f [%{&fileencoding != "" ? &fileencoding : &encoding}]%( %y%)%( %{FugitiveStatusline()}%)%( %{sy#repo#get_stats_decorated()}%)%( %m%r%) %=%< %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
+let &statusline = ' %f [%{&fileencoding != "" ? &fileencoding : &encoding}]%( %y%)'
+let &statusline .= '%( %{FugitiveStatusline()}%)%( %{sy#repo#get_stats_decorated()}%)%( %m%r%) %='
+let &statusline .= '%< %-3b %-4(0x%B%) %-12(%5(%l,%)%c%V%) %P '
 set hidden
 
 " -- multiple tab pages --
