@@ -131,7 +131,10 @@ endfunction
 
 " Note
 function! s:Note(bang, ...)
-	let l:note_dir=(!empty($NOTE_DIR) ? $NOTE_DIR : $HOME.'/notes')
+	let l:note_dir=(!empty($NOTE_DIR) ? $NOTE_DIR : $HOME.'/notes/')
+	if !empty(l:note_dir) && l:note_dir[-1:] != '/'
+		let l:note_dir=l:note_dir.'/'
+	endif
 	if empty(glob(l:note_dir))
 		call mkdir(l:note_dir, 'p')
 	endif
@@ -140,7 +143,7 @@ function! s:Note(bang, ...)
 		let l:note_file=l:note_file.'-'.join(a:000)
 	endif
 	let l:note_file=l:note_file.'.md'
-	execute (a:bang ? 'edit!' : 'edit') fnameescape(l:note_dir.'/'.l:note_file)
+	execute (a:bang ? 'edit!' : 'edit') fnameescape(l:note_dir.l:note_file)
 endfunction
 
 " -- commands --
