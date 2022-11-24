@@ -132,6 +132,9 @@ endfunction
 " Note
 function! s:Note(bang, ...)
 	let l:note_dir=(!empty($NOTE_DIR) ? $NOTE_DIR : $HOME.'/notes')
+	if empty(glob(l:note_dir))
+		call mkdir(l:note_dir, 'p')
+	endif
 	let l:note_file=join(['note', strftime('%Y-%m-%d')], '-')
 	if len(a:000)
 		let l:note_file=join([l:note_file, join(a:000)], '-')
