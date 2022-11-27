@@ -152,7 +152,19 @@ post() {
 
 # Note
 note() {
-	vim -c "Note $*"
+	local local_note_dir="$NOTE_DIR"
+
+	if [[ $# -gt 1 ]]; then
+		if [[ -z $local_note_dir ]]; then
+			local_note_dir="$1"
+		else
+			local_note_dir="$local_note_dir/$1"
+		fi
+
+		shift
+	fi
+
+	NOTE_DIR="$local_note_dir" vim -c "Note $*"
 }
 
 # -- Various --
