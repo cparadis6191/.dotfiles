@@ -1,3 +1,5 @@
+[add "interactive"]
+	useBuiltin = false
 [alias]
 	# Usage: git diffref [<ref specifier> [<diff options>]]
 	#        git diffref 1 -R
