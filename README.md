@@ -102,8 +102,8 @@ $ chmod u+x "$HOME/.local/bin/win32yank.exe"
 Run the following commands to set up bash completion and key-bindings for fzf:
 
 ```
-$ echo 'source "/usr/share/bash-completion/completions/fzf"' >> "$HOME/.local/etc/.bashrc"
-$ echo 'source "/usr/share/doc/fzf/examples/key-bindings.bash"' >> "$HOME/.local/etc/.bashrc"
+$ echo "source '/usr/share/bash-completion/completions/fzf'" >> "$HOME/.local/etc/.bashrc"
+$ echo "source '/usr/share/doc/fzf/examples/key-bindings.bash'" >> "$HOME/.local/etc/.bashrc"
 ```
 
 ### Set Up fzf-git
