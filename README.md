@@ -161,3 +161,13 @@ $ cat << 'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
 > fi
 > HEREDOC
 ```
+
+## Configure Alacritty on Windows
+
+Run the following command to copy .alacritty.yml to where Alacritty expects it
+to be on Windows:
+
+```
+$ cp 'alacritty/.alacritty.yml' "/mnt/c/Users/$(cmd.exe /c "echo %USERNAME%" 2> /dev/null |
+> sed 's/\r$//')/AppData/Roaming/alacritty/alacritty.yml"
+```
