@@ -154,6 +154,10 @@ command! -bang -nargs=1 GitQuickfix call <SID>GitQuickfix(<q-args>, <bang>0)
 command! -bang -nargs=* Note call <SID>Note(<bang>0, <f-args>)
 
 " -- mappings --
+" Search inside the visual selection
+vnoremap g/ <Esc>/\%V
+vnoremap g? <Esc>/\%V
+
 " Jump to where the last change was made
 nnoremap <Leader>c `.
 onoremap <Leader>c `.
