@@ -59,6 +59,7 @@ $ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile
 * git
 * lsof
 * neovim
+* python3-virtualenv
 * ripgrep
 * stow
 * unzip
@@ -170,4 +171,15 @@ to be on Windows:
 ```
 $ cp 'alacritty/.alacritty.yml' "/mnt/c/Users/$(cmd.exe /c "echo %USERNAME%" 2> /dev/null |
 > sed 's/\r$//')/AppData/Roaming/alacritty/alacritty.yml"
+```
+
+## Activate Python virtualenv During bash Login
+
+Run the following commands to allow a new bash login shell to activate a Python
+virtualenv:
+
+```
+$ virtualenv --download "$HOME/.virtualenv"
+$ echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bash_profile"
+$ echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bash_profile"
 ```
