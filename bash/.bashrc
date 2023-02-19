@@ -167,6 +167,19 @@ note() {
 	NOTE_DIR="$local_note_dir" vim -c "Note $*"
 }
 
+# Notes
+notes() {
+	local note
+
+	if ! note="$(rg --files --sortr=modified "$NOTE_DIR" | rg "\.md$" | fzf --preview='cat {}' --print-query --query="$*")"; then
+		echo "${FUNCNAME[0]}: '$note': No such note" 1>&2
+
+		return 1
+	fi
+
+	vim "$(echo "$note" | tail --lines=1)"
+}
+
 # -- Various --
 # Source local bashrc if it exists
 if [[ -f "$HOME/.local/etc/.bashrc" ]]; then
