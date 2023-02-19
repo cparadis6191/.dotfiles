@@ -131,7 +131,7 @@ endfunction
 
 " Note
 function! s:Note(bang, ...)
-	let l:note_dir=(!empty($NOTE_DIR) ? $NOTE_DIR : $HOME.'/notes/')
+	let l:note_dir=(!empty($NOTE_DIR) ? $NOTE_DIR : $DEFAULT_NOTE_DIR)
 	if !empty(l:note_dir) && l:note_dir[-1:] != '/'
 		let l:note_dir=l:note_dir.'/'
 	endif

@@ -11,6 +11,8 @@ export VISUAL="$EDITOR"
 SUDO_EDITOR="$(command -v "$EDITOR")"
 export SUDO_EDITOR
 
+export DEFAULT_NOTE_DIR="$HOME/notes"
+
 export FZF_DEFAULT_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=file'
 export FZF_DEFAULT_OPTS='--ansi --height=40% --layout=reverse'
 export FZF_ALT_C_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=directory'
@@ -152,7 +154,7 @@ post() {
 
 # Note
 note() {
-	local local_note_dir="$NOTE_DIR"
+	local local_note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
 
 	if [[ $# -gt 1 ]]; then
 		if [[ -z $local_note_dir ]]; then
@@ -171,7 +173,7 @@ note() {
 notes() {
 	local note
 
-	if ! note="$(rg --files --sortr=modified "$NOTE_DIR" | rg "\.md$" | fzf --preview='cat {}' --print-query --query="$*")"; then
+	if ! note="$(rg --files --sortr=modified "${NOTE_DIR:-$DEFAULT_NOTE_DIR}" | rg "\.md$" | fzf --preview='cat {}' --print-query --query="$*")"; then
 		echo "${FUNCNAME[0]}: '$note': No such note" 1>&2
 
 		return 1
