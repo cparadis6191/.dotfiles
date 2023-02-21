@@ -175,7 +175,7 @@ notes() {
 
 	local local_note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
 
-	if ! note="$(rg --files --sortr=modified "$local_note_dir" | rg "\.md$" | fzf --preview='cat {}' --print-query --query="$*")"; then
+	if ! note="$(rg --files --sortr=modified "$local_note_dir" | rg "\.md$" | fzf --delimiter="$local_note_dir/?" --preview='cat {}' --print-query --query="$*" --with-nth=2..)"; then
 		echo "${FUNCNAME[0]}: '$note': No such note" 1>&2
 
 		return 1
