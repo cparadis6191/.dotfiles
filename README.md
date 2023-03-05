@@ -148,7 +148,7 @@ $ # disables parameter substitution within its body.
 $ cat << 'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
 > # Attach to an existing tmux session if no client is attached, otherwise start
 > # a new session.
-> if [[ $(command -v 'tmux') != '' && $TMUX == '' ]]; then
+> if [[ $TMUX == '' && $(command -v 'tmux') != '' ]]; then
 > 	delim=$'\t'
 > 	tmux_detached_session="$(tmux list-sessions -F "#{session_id}$delim#{session_attached}" 2> /dev/null |
 > 		grep --basic-regexp --regexp='0$' |
