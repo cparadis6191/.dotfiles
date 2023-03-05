@@ -83,8 +83,21 @@ Run the following commands to define the yeet and yoink commands for Windows
 Subsystem for Linux:
 
 ```
-$ echo "alias yeet='win32yank.exe -i'" >> "$HOME/.local/etc/.bashrc"
-$ echo "alias yoink='win32yank.exe -o'" >> "$HOME/.local/etc/.bashrc"
+$ cat << 'HEREDOC' > "$HOME/.local/bin/yeet"
+> #!/usr/bin/env bash
+>
+> cat - | win32yank.exe -i
+> HEREDOC
+$ chmod u+x "$HOME/.local/bin/yeet"
+```
+
+```
+$ cat << 'HEREDOC' > "$HOME/.local/bin/yoink"
+> #!/usr/bin/env bash
+>
+> win32yank.exe -o
+> HEREDOC
+$ chmod u+x "$HOME/.local/bin/yoink"
 ```
 
 ### Windows Subsystem for Linux
