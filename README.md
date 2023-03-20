@@ -95,7 +95,7 @@ $ chmod u+x "$HOME/.local/bin/yeet-impl"
 $ cat << 'HEREDOC' > "$HOME/.local/bin/yoink"
 > #!/usr/bin/env bash
 >
-> win32yank.exe -o
+> win32yank.exe -o --lf
 > HEREDOC
 $ chmod u+x "$HOME/.local/bin/yoink"
 ```
