@@ -126,6 +126,8 @@ Run the following commands to install key-bindings for
 fzf-git:
 
 ```
+$ git clone --depth 1 https://github.com/junegunn/fzf-git.sh.git "$HOME/.local/etc/fzf-git.sh"
+$ echo 'source "$HOME/.local/etc/fzf-git.sh/fzf-git.sh"' >> "$HOME/.local/etc/.bashrc"
 $ git clone --depth 1 https://gist.github.com/9685cc9eeacdcc8254bff2a5ad6b35d4.git "$HOME/.local/etc/fzf-git"
 $ echo 'source "$HOME/.local/etc/fzf-git/fzf-git.bash"' >> "$HOME/.local/etc/.bashrc"
 $ echo '$include ~/.local/etc/fzf-git/fzf-git.inputrc' >> "$HOME/.local/etc/.inputrc"
