@@ -169,6 +169,11 @@ note() {
 	NOTE_DIR="$local_note_dir" vim -c "Note $*"
 }
 
+# Sticky note
+snote() {
+	NOTE_DIR=. note "$@"
+}
+
 # Notes
 notes() {
 	local note
