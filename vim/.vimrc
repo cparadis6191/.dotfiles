@@ -111,6 +111,7 @@ function! s:DiffUnwrittenChanges()
 	read ++edit # | 1delete _
 	let &filetype = l:filetype | set bufhidden=wipe buftype=nofile nomodifiable nomodified
 	diffthis
+	wincmd p
 endfunction
 
 " Git quickfix
