@@ -94,6 +94,9 @@ nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
 nnoremap <Leader>gl :Gclog!<CR>
 xnoremap <Leader>gl :Gclog!<CR>
 
+" Markdown folding
+let g:markdown_folding = 1
+
 " neosnippet
 imap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
 smap <expr> <Tab> neosnippet#expandable_or_jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<Tab>'
