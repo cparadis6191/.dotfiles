@@ -176,17 +176,18 @@ snote() {
 
 # Notes
 notes() {
-	local note
+	local notes
 
 	local local_note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
 
-	if ! note="$(rg --files --sortr=modified "$local_note_dir" | rg "\.md$" | fzf --delimiter="$local_note_dir/?" --preview='cat {}' --print-query --query="$*" --with-nth=2..)"; then
-		echo "${FUNCNAME[0]}: '$note': No such note" 1>&2
+	if ! notes="$(rg --files --sortr=modified "$local_note_dir" | rg "\.md$" | fzf --delimiter="$local_note_dir/?" --multi --preview='cat {}' --print-query --query="$*" --with-nth=2..)"; then
+		echo "${FUNCNAME[0]}: '$notes': No such note" 1>&2
 
 		return 1
 	fi
 
-	vim "$(echo "$note" | tail --lines=1)"
+	vim $(echo "$notes" | tail --lines=+2)
+}
 }
 
 # -- Various --
