@@ -94,7 +94,8 @@ nnoremap <Leader>gg :Ggrep <C-R>=expand('<cword>')<CR>
 nnoremap <Leader>gl :Gclog!<CR>
 xnoremap <Leader>gl :Gclog!<CR>
 
-" Markdown folding
+" Markdown
+let g:markdown_fenced_languages=['bash', 'c', 'cpp', 'python', 'sh']
 let g:markdown_folding = 1
 
 " neosnippet
