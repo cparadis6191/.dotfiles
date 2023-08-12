@@ -12,7 +12,7 @@ SUDO_EDITOR="$(command -v "$EDITOR")"
 export SUDO_EDITOR
 
 export DEFAULT_NOTE_DIR="$HOME/notes"
-export DEFAULT_TODO_DIR="$HOME/todos"
+export DEFAULT_JOURNAL_DIR="$HOME/journals"
 
 export FZF_DEFAULT_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=file'
 export FZF_DEFAULT_OPTS='--ansi --height=40% --layout=reverse'
@@ -190,11 +190,11 @@ notes() {
 	vim $(echo "$notes" | tail --lines=+2)
 }
 
-# Todo
-todo() {
-	local todo_dir="${TODO_DIR:-$DEFAULT_TODO_DIR}"
+# Journal
+journal() {
+	local journal_dir="${JOURNAL_DIR:-$DEFAULT_JOURNAL_DIR}"
 
-	vim $(mktodos.py "$todo_dir" "${@:-0}")
+	vim $(mkjournals.py "$journal_dir" "${@:-0}")
 }
 }
 
