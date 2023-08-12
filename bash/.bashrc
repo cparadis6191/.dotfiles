@@ -155,19 +155,19 @@ post() {
 
 # Note
 note() {
-	local local_note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
+	local note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
 
 	if [[ $# -gt 1 ]]; then
-		if [[ -z $local_note_dir ]]; then
-			local_note_dir="$1"
+		if [[ -z $note_dir ]]; then
+			note_dir="$1"
 		else
-			local_note_dir="$local_note_dir/$1"
+			note_dir="$note_dir/$1"
 		fi
 
 		shift
 	fi
 
-	NOTE_DIR="$local_note_dir" vim -c "Note $*"
+	NOTE_DIR="$note_dir" vim -c "Note $*"
 }
 
 # Sticky note
@@ -179,9 +179,16 @@ snote() {
 notes() {
 	local notes
 
-	local local_note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
+	local note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
 
-	if ! notes="$(rg --files --sortr=modified "$local_note_dir" | rg "\.md$" | fzf --delimiter="$local_note_dir/?" --multi --preview='cat {}' --print-query --query="$*" --with-nth=2..)"; then
+	if ! notes="$(rg --files --sortr=modified "$note_dir" |
+		rg "\.md$" |
+		fzf --delimiter="$note_dir/?" \
+			--multi \
+			--preview='cat {}' \
+			--print-query \
+			--query="$*" \
+			--with-nth=2..)"; then
 		echo "${FUNCNAME[0]}: '$notes': No such note" 1>&2
 
 		return 1
