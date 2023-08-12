@@ -20,6 +20,7 @@ call plug#begin()
 	" Displaying text
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'justinmk/vim-dirvish'
+	Plug '~/.vim/plugin/journal'
 
 	" Editing text
 	Plug 'junegunn/vim-easy-align'
