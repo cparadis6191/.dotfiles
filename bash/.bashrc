@@ -203,6 +203,26 @@ journal() {
 
 	vim $(mkjournals.py "$journal_dir" "${@:-0}")
 }
+
+journals() {
+	local journals
+
+	local journal_dir="${JOURNAL_DIR:-$DEFAULT_JOURNAL_DIR}"
+
+	if ! journals="$(rg --files --sortr=modified "$journal_dir" |
+		rg "\.journal$" |
+		fzf --delimiter="$journal_dir/?" \
+		    --multi \
+		    --preview='cat {}' \
+		    --print-query \
+		    --query="$*" \
+		    --with-nth=2..)"; then
+		echo "${FUNCNAME[0]}: '$journals': No such journal" 1>&2
+
+		return 1
+	fi
+
+	vim -c 'wincmd b' -O $(echo "$journals" | tail --lines=+2)
 }
 
 # -- Various --
