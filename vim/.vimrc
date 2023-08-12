@@ -287,6 +287,8 @@ set hidden
 set title
 
 " -- using the mouse --
+behave xterm
+
 " -- printing --
 
 " -- messages and info --
