@@ -79,6 +79,8 @@ $ git stash save "stow"
 
 Install a clipboard manager and define yeet-impl and yoink commands.
 
+### Windows Subsystem for Linux
+
 Run the following commands to define the yeet-impl and yoink commands for
 Windows Subsystem for Linux:
 
@@ -99,8 +101,6 @@ $ cat << 'HEREDOC' > "$HOME/.local/bin/yoink"
 > HEREDOC
 $ chmod u+x "$HOME/.local/bin/yoink"
 ```
-
-### Windows Subsystem for Linux
 
 Run the following commands to set up a clipboard manager for Windows Subsystem
 for Linux:
