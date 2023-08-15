@@ -111,6 +111,29 @@ $ yes | unzip -d "$HOME/.local/bin" "$HOME/.local/bin/win32yank-x64.zip"
 $ chmod u+x "$HOME/.local/bin/win32yank.exe"
 ```
 
+### Xterm
+
+Run the following commands to define the yeet-impl and yoink commands for
+xterm:
+
+```
+$ cat << 'HEREDOC' > "$HOME/.local/bin/yeet-impl"
+> #!/usr/bin/env bash
+>
+> cat - | nohup xclip -in > /dev/null 2>&1
+> HEREDOC
+$ chmod u+x "$HOME/.local/bin/yeet-impl"
+```
+
+```
+$ cat << 'HEREDOC' > "$HOME/.local/bin/yoink"
+> #!/usr/bin/env bash
+>
+> xclip -out 2> /dev/null
+> HEREDOC
+$ chmod u+x "$HOME/.local/bin/yoink"
+```
+
 ## Set Up fzf
 
 Run the following commands to set up bash completion and key-bindings for fzf:
