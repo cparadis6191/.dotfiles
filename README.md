@@ -77,7 +77,18 @@ $ git stash save "stow"
 
 ## Set Up Clipboard Commands
 
-Install a clipboard manager and define yeet-impl and yoink commands.
+Install a clipboard manager and define yeet-impl, yoink, and yedit commands.
+
+### Set Up yedit
+
+```
+$ cat << 'HEREDOC' > "$HOME/.local/bin/yedit"
+> #!/usr/bin/env bash
+>
+> yoink | vipe | yeet
+> HEREDOC
+$ chmod u+x "$HOME/.local/bin/yedit"
+```
 
 ### Windows Subsystem for Linux
 
