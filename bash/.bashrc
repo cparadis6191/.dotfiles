@@ -201,7 +201,7 @@ notes() {
 journal() {
 	local journal_dir="${JOURNAL_DIR:-$DEFAULT_JOURNAL_DIR}"
 
-	vim $(mkjournals.py "$journal_dir" "${@:-0}")
+	vim $(mkjournals "$journal_dir" "${@:-0}")
 }
 
 journals() {
