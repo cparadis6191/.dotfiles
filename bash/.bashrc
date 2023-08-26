@@ -21,6 +21,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export LESS='--ignore-case --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
 
+if command -v batcat > /dev/null 2>&1; then
+	export MANPAGER="sh -c 'col --no-backspaces --spaces | batcat --language man --plain'"
+fi
+
 # Set title if running in a GUI terminal emulator
 if [[ $TERM != 'console' ]] && [[ $TERM != 'linux' ]]; then
 	PROMPT_COMMAND='echo -en "\e]0;$([[ -n $SSH_CONNECTION ]] && echo -en "ssh ")$TERM $SHELL$([[ $SHLVL > 1 ]] && echo -en " [$SHLVL]") $PWD\a"'
