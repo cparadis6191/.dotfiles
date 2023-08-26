@@ -50,7 +50,7 @@ export HISTSIZE=100000
 
 # -- Aliases --
 if command -v batcat > /dev/null 2>&1; then
-	alias cat='batcat'
+	alias cat='batcat --paging never'
 fi
 
 alias vim='$EDITOR'
