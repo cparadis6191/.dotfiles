@@ -55,28 +55,16 @@ if command -v batcat > /dev/null 2>&1; then
 	alias cat='batcat --paging never'
 fi
 
-# vim
-alias vim='$EDITOR'
+# cp
+alias cp='cp --interactive'
 
 # fd
 if command -v fdfind > /dev/null 2>&1; then
 	alias fd='fdfind'
 fi
 
-# cp
-alias cp='cp --interactive'
-
-# mv
-alias mv='mv --interactive'
-
-# rm
-alias rm='rm --interactive=once'
-
 # grep
 alias grep='grep --color=auto'
-
-# mkdir
-alias mkdir='mkdir --parents --verbose'
 
 # ls
 if command -v exa > /dev/null 2>&1; then
@@ -89,14 +77,26 @@ else
 	alias ll='la --classify --format=long --human-readable'
 fi
 
+# mkdir
+alias mkdir='mkdir --parents --verbose'
+
+# mv
+alias mv='mv --interactive'
+
+# rm
+alias rm='rm --interactive=once'
+
+# vim
+alias vim='$EDITOR'
+
+# Edit grep matches
+alias vrep='qfvim rg --vimgrep'
+
 # xxd
 alias binxxd='xxd --cols 1 --bits'
 alias cxxd='xxd --cols 1 --include'
 alias hexxd='xxd --cols 1 --plain'
 alias texxd='xxd --plain --revert'
-
-# Edit grep matches
-alias vrep='qfvim rg --vimgrep'
 
 # Edit the clipboard
 alias yedit='yoink | vipe | yeet'
