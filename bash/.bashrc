@@ -57,6 +57,11 @@ fi
 
 alias vim='$EDITOR'
 
+# fd
+if command -v fdfind > /dev/null 2>&1; then
+	alias fd='fdfind'
+fi
+
 alias cp='cp --interactive'
 alias mv='mv --interactive'
 alias rm='rm --interactive=once'
