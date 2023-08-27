@@ -71,9 +71,15 @@ alias grep='grep --color=auto'
 alias mkdir='mkdir --parents --verbose'
 
 # ls
-alias ls='ls --color=auto'
-alias la='ls --almost-all'
-alias ll='la --classify --format=long --human-readable'
+if command -v exa > /dev/null 2>&1; then
+	alias ls='exa --color=auto'
+	alias la='ls --all'
+	alias ll='la --binary --classify --long'
+else
+	alias ls='ls --color=auto'
+	alias la='ls --almost-all'
+	alias ll='la --classify --format=long --human-readable'
+fi
 
 # xxd
 alias binxxd='xxd --cols 1 --bits'
