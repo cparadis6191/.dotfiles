@@ -49,7 +49,9 @@ shopt -s histappend
 export HISTSIZE=100000
 
 # -- Aliases --
+# bat
 if command -v batcat > /dev/null 2>&1; then
+	alias bat='batcat'
 	alias cat='batcat --paging never'
 fi
 
