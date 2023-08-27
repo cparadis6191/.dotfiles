@@ -55,6 +55,7 @@ if command -v batcat > /dev/null 2>&1; then
 	alias cat='batcat --paging never'
 fi
 
+# vim
 alias vim='$EDITOR'
 
 # fd
@@ -62,12 +63,19 @@ if command -v fdfind > /dev/null 2>&1; then
 	alias fd='fdfind'
 fi
 
+# cp
 alias cp='cp --interactive'
+
+# mv
 alias mv='mv --interactive'
+
+# rm
 alias rm='rm --interactive=once'
 
+# grep
 alias grep='grep --color=auto'
 
+# mkdir
 alias mkdir='mkdir --parents --verbose'
 
 # ls
