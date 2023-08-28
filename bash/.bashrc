@@ -168,12 +168,12 @@ repeat() {
 	echo
 }
 
-# Pre
+# Prefix
 pre() {
 	cat - | sed --expression="s/^/$*/g"
 }
 
-# Post
+# Postfix
 post() {
 	cat - | sed --expression="s/$/$*/g"
 }
