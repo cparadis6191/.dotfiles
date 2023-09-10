@@ -2,6 +2,8 @@ if exists('b:current_syntax')
 	finish
 endif
 
+set filetype=markdown.journal
+
 highlight JournalDone     ctermfg=DarkGray   guifg=DarkGray
 highlight JournalCanceled ctermfg=Red        guifg=Red
 highlight JournalEvent    ctermfg=Cyan       guifg=Cyan
