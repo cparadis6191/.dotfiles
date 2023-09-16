@@ -98,9 +98,6 @@ alias cxxd='xxd --cols 1 --include'
 alias hexxd='xxd --cols 1 --plain'
 alias texxd='xxd --plain --revert'
 
-# Edit the clipboard
-alias yedit='yoink | vipe | yeet'
-
 # -- Umask --
 
 # -- Functions --
