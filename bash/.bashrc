@@ -108,7 +108,13 @@ bash_remain() {
 
 # Calculator
 calc() {
-	python3 -c "from math import *; print($*)"
+	python3 <(cat - << HEREDOC
+from math import *
+
+
+print($*)
+HEREDOC
+	)
 }
 
 # Stopwatch
