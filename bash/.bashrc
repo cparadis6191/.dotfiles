@@ -108,13 +108,14 @@ bash_remain() {
 
 # Calculator
 calc() {
-	python3 <(cat - << HEREDOC
+	python3 <(cat - << 'HEREDOC'
 from math import *
+from sys import argv
 
 
-print($*)
+print(eval(" ".join(argv[1:])))
 HEREDOC
-	)
+	) "$*"
 }
 
 # Stopwatch
