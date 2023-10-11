@@ -118,6 +118,52 @@ HEREDOC
 	) "$*"
 }
 
+# ISO <-> UNIX
+unixtoiso() {
+	python3 <(cat - << 'HEREDOC'
+import datetime
+import sys
+
+
+utcTzInfo = datetime.timezone.utc
+print(
+    datetime.datetime.utcfromtimestamp(int(sys.stdin.readline()))
+    .replace(tzinfo=utcTzInfo)
+    .isoformat()
+)
+HEREDOC
+	)
+}
+
+unixtolocaliso() {
+	python3 <(cat - << 'HEREDOC'
+import datetime
+import sys
+
+
+localTzInfo = datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
+print(
+    datetime.datetime.fromtimestamp(int(sys.stdin.readline()))
+    .replace(tzinfo=localTzInfo)
+    .isoformat()
+)
+HEREDOC
+	)
+}
+
+isotounix() {
+	python3 <(cat - << 'HEREDOC'
+import datetime
+import sys
+
+
+isoDateTime = datetime.datetime.fromisoformat(sys.stdin.readline().rstrip())
+unixEpochDateTime = datetime.datetime(1970, 1, 1, tzinfo=datetime.timezone.utc)
+print(int((isoDateTime - unixEpochDateTime).total_seconds()))
+HEREDOC
+	)
+}
+
 # Stopwatch
 stopwatch() {
 	local start
