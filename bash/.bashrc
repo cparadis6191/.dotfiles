@@ -184,12 +184,12 @@ mkb() {
 		return 1
 	fi
 
-	realpath --canonicalize-existing --no-symlinks -- "$@" >> "$HOME/bookmarks"
+	realpath --canonicalize-existing --no-symlinks -- "$@" >> "${XDG_DATA_HOME:-$HOME/.local/share}/bookmarks"
 }
 
 # Change directory to bookmark
 cdb() {
-	if [[ ! -f "$HOME/bookmarks" ]]; then
+	if [[ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}/bookmarks" ]]; then
 		echo "${FUNCNAME[0]}: No bookmarks available" 1>&2
 
 		return 1
@@ -197,7 +197,7 @@ cdb() {
 
 	local bookmark
 
-	if ! bookmark="$(fzf --preview='ls {}' --print-query --query="$*" < "$HOME/bookmarks")"; then
+	if ! bookmark="$(fzf --preview='ls {}' --print-query --query="$*" < "${XDG_DATA_HOME:-$HOME/.local/share}/bookmarks")"; then
 		echo "${FUNCNAME[0]}: '$bookmark': No such bookmark" 1>&2
 
 		return 2
