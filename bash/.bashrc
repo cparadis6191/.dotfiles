@@ -11,7 +11,7 @@ export VISUAL="$EDITOR"
 SUDO_EDITOR="$(command -v "$EDITOR")"
 export SUDO_EDITOR
 
-export DEFAULT_NOTE_DIR="$HOME/notes"
+export DEFAULT_NOTE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/notes"
 export DEFAULT_JOURNAL_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/journals"
 
 export FZF_DEFAULT_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=file'
