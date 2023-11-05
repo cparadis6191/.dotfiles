@@ -12,7 +12,7 @@ SUDO_EDITOR="$(command -v "$EDITOR")"
 export SUDO_EDITOR
 
 export DEFAULT_NOTE_DIR="$HOME/notes"
-export DEFAULT_JOURNAL_DIR="$HOME/journals"
+export DEFAULT_JOURNAL_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/journals"
 
 export FZF_DEFAULT_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=file'
 export FZF_DEFAULT_OPTS='--ansi --height=40% --layout=reverse'
