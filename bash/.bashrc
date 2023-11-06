@@ -111,6 +111,7 @@ bash_remain() {
 calc() {
 	python3 <(cat - << 'HEREDOC'
 from math import *
+from random import *
 from sys import argv
 
 
