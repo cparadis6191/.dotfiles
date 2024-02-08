@@ -25,6 +25,7 @@ call plug#begin()
 	" Editing text
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mbbill/undotree'
+	Plug 'tpope/vim-abolish'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
