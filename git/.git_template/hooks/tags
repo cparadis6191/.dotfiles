@@ -2,7 +2,7 @@
 
 set -e
 
-git_dir="$(git rev-parse --git-dir)"
+git_dir="$(git rev-parse --show-toplevel)"
 lsof -t "$git_dir/tags.lock" | xargs --no-run-if-empty kill
 (
 	flock --timeout 5 200
