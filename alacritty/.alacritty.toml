@@ -43,7 +43,6 @@ program = "cmd"
 
 [hints.enabled.mouse]
 enabled = true
-mods = "Control"
 
 [[mouse.bindings]]
 action = "PasteSelection"
