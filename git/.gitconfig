@@ -9,6 +9,7 @@
 	fugit = !"fugit() { unset GIT_DIR GIT_WORK_TREE && nvim -c 'Git' -c 'only'; }; fugit"
 	graph = log --date=relative --decorate --graph --oneline
 	lstags = submodule --quiet foreach --recursive 'echo "set tags+=$(git rev-parse --git-dir)/tags"'
+	message = !"message() { git log --format='%B' ${1:-HEAD~..HEAD}; }; message"
 	mktags = !"$(git rev-parse --git-path hooks)/tags"
 	mt = mergetool
 	rifh = rebase --interactive FETCH_HEAD
