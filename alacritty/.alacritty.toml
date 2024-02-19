@@ -1,30 +1,35 @@
-[colors.bright]
-black = "#6D7070"
-blue = "#1BA6FA"
-cyan = "#73FBF1"
-green = "#B8E466"
-magenta = "#A578EA"
-red = "#FF4352"
-white = "#FEFEF8"
-yellow = "#FFD750"
+# Colors (PaperColor - Light)
 
-# [colors.cursor]
-# text = "#FF261E"
-# cursor = "#FF261E"
-
-[colors.normal]
-black = "#0d0d0d"
-blue = "#1BA6FA"
-cyan = "#21DEEF"
-green = "#A0E521"
-magenta = "#8763B8"
-red = "#FF301B"
-white = "#EBEBEB"
-yellow = "#FFC620"
-
+# Default colors
 [colors.primary]
-background = "#292C3E"
-foreground = "#EBEBEB"
+background = '#eeeeee'
+foreground = '#444444'
+
+[colors.cursor]
+text = '#eeeeee'
+cursor = '#444444'
+
+# Normal colors
+[colors.normal]
+black   = '#eeeeee'
+red     = '#af0000'
+green   = '#008700'
+yellow  = '#5f8700'
+blue    = '#0087af'
+magenta = '#878787'
+cyan    = '#005f87'
+white   = '#444444'
+
+# Bright colors
+[colors.bright]
+black   = '#bcbcbc'
+red     = '#d70000'
+green   = '#d70087'
+yellow  = '#8700af'
+blue    = '#d75f00'
+magenta = '#d75f00'
+cyan    = '#005faf'
+white   = '#005f87'
 
 [cursor]
 thickness = 0.25
