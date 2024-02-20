@@ -289,6 +289,7 @@ set title
 
 " -- using the mouse --
 behave xterm
+set mousemodel=extend
 
 " -- printing --
 
