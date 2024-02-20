@@ -1,35 +1,33 @@
-# Colors (PaperColor - Light)
+# Colors (Alabaster)
+# author tonsky
 
-# Default colors
 [colors.primary]
-background = '#eeeeee'
-foreground = '#444444'
+background = '#F7F7F7'
+foreground = '#434343'
 
 [colors.cursor]
-text = '#eeeeee'
-cursor = '#444444'
+text = '#F7F7F7'
+cursor = '#434343'
 
-# Normal colors
 [colors.normal]
-black   = '#eeeeee'
-red     = '#af0000'
-green   = '#008700'
-yellow  = '#5f8700'
-blue    = '#0087af'
-magenta = '#878787'
-cyan    = '#005f87'
-white   = '#444444'
+black = '#000000'
+red = '#AA3731'
+green = '#448C27'
+yellow = '#CB9000'
+blue = '#325CC0'
+magenta = '#7A3E9D'
+cyan = '#0083B2'
+white = '#BBBBBB'
 
-# Bright colors
 [colors.bright]
-black   = '#bcbcbc'
-red     = '#d70000'
-green   = '#d70087'
-yellow  = '#8700af'
-blue    = '#d75f00'
-magenta = '#d75f00'
-cyan    = '#005faf'
-white   = '#005f87'
+black = '#777777'
+red = '#F05050'
+green = '#60CB00'
+yellow = '#FFBC5D'
+blue = '#007ACC'
+magenta = '#E64CE6'
+cyan = '#00AACB'
+white = '#FFFFFF'
 
 [cursor]
 thickness = 0.25
