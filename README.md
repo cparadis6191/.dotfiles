@@ -71,7 +71,7 @@ symbolic links in the home directory to the various configuration files
 contained in this repository:
 
 ```
-$ stow --adopt alacritty bash git inputrc nvim tmux vim
+$ stow --adopt alacritty bash config git inputrc tmux vim
 $ git stash save "stow"
 ```
 
