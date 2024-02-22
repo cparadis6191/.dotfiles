@@ -1,4 +1,2 @@
-config/.config/nvim/autoload/plug.vim
-config/.config/nvim/spell/
-config/.config/nvim/swap/
-config/.config/nvim/undo/
+config/.config/nvim/
+!config/nvim/init.vim
