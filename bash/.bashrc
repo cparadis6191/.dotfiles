@@ -32,7 +32,7 @@ if [[ $TERM != 'console' ]] && [[ $TERM != 'linux' ]]; then
 fi
 
 # Set primary prompt
-PS1='\[\e[32m\]\u\[\e[34m\]@\[\e[35m\]\h \[\e[33m\]\W\[\e[31m\]$([[ \j > 0 ]] && echo -en " \j")\[\e[0m\]\$ '
+PS1='\[\e[32m\]\u\[\e[34m\]@\[\e[35m\]\h \[\e[33m\]\W\[\e[31m\]$([[ \j > 0 ]] && echo -en " &\j")\[\e[0m\]\$ '
 
 # Set secondary prompt
 PS2='  > '
