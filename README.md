@@ -147,11 +147,21 @@ $ chmod u+x "$HOME/.local/bin/yoink"
 
 ## Set Up fzf
 
+### bash
+
 Run the following commands to set up bash completion and key-bindings for fzf:
 
 ```
 $ echo "source '/usr/share/bash-completion/completions/fzf'" >> "$HOME/.local/etc/.bashrc"
 $ echo "source '/usr/share/doc/fzf/examples/key-bindings.bash'" >> "$HOME/.local/etc/.bashrc"
+```
+
+### fish
+
+Run the following command to set up fish completion and key-bindings for fzf:
+
+```
+$ echo 'fzf --fish | source' >> ~/.local/etc/.config/fish/config.fish
 ```
 
 ### Set Up fzf-git
@@ -206,7 +216,7 @@ $ cat << 'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
 > 	if [[ $tmux_detached_session != '' ]]; then
 > 		exec tmux attach-session -t "$tmux_detached_session" \; unbind-key d
 > 	else
-> 		exec tmux new-session \; unbind-key d
+> 		exec tmux unbind-key d \; new-session fish
 > 	fi
 > fi
 > HEREDOC
