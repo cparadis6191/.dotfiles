@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+
+import datetime
+import sys
+
+
+localTzInfo = datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
+print(
+    datetime.datetime.fromtimestamp(int(sys.stdin.readline()))
+    .replace(tzinfo=localTzInfo)
+    .isoformat()
+)

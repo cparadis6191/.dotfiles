@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+journal_dir="${JOURNAL_DIR:-$DEFAULT_JOURNAL_DIR}"
+
+vim $(mkjournals "$journal_dir" "${@:-0}")

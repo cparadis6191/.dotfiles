@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+start="$(date +%s) seconds"
+
+watch --interval 0.25 --precise "date --date=\"now - ${start}\" --utc '+%H:%M:%S.%N'"
+
+date --date="now - ${start}" --utc '+%H:%M:%S.%N'

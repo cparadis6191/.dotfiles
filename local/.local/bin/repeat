@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+count="$1"
+
+shift
+
+for _ in $(seq 1 "$count"); do
+	echo -n "$@"
+done
+
+echo
