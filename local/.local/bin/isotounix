@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+
+import datetime
+import sys
+
+
+isoDateTime = datetime.datetime.fromisoformat(sys.stdin.readline().rstrip())
+unixEpochDateTime = datetime.datetime(1970, 1, 1, tzinfo=datetime.timezone.utc)
+print(int((isoDateTime - unixEpochDateTime).total_seconds()))

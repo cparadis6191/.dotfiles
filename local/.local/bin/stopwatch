@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Stopwatch
+stopwatch() {
+	local start
+	start="$(date +%s) seconds"
+
+	watch --interval 0.25 --precise "date --date=\"now - ${start}\" --utc '+%H:%M:%S.%N'"
+
+	date --date="now - ${start}" --utc '+%H:%M:%S.%N'
+}
+
+stopwatch "$@"

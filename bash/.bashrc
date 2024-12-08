@@ -72,12 +72,8 @@ alias grep='grep --color=auto'
 # ls
 if command -v exa > /dev/null 2>&1; then
 	alias ls='exa --color=auto'
-	alias la='ls --all'
-	alias ll='la --binary --classify --long'
 else
 	alias ls='ls --color=auto'
-	alias la='ls --almost-all'
-	alias ll='la --classify --format=long --human-readable'
 fi
 
 # mkdir
@@ -89,105 +85,12 @@ alias mv='mv --interactive'
 # rm
 alias rm='rm --interactive=once'
 
-# vim
-alias vim='$EDITOR'
-
-# Edit grep matches
-alias vrep='qfvim rg --vimgrep'
-
-# xxd
-alias binxxd='xxd --cols 1 --bits'
-alias cxxd='xxd --cols 1 --include'
-alias hexxd='xxd --cols 1 --plain'
-alias texxd='xxd --plain --revert'
-
 # -- Umask --
 
 # -- Functions --
 # Open a new instance of bash, run a command, and do not exit
 bash_remain() {
 	bash --rcfile <(cat "$HOME/.bashrc" <(echo "$@"))
-}
-
-# Calculator
-calc() {
-	python3 <(cat - << 'HEREDOC'
-from math import *
-from random import *
-from sys import argv
-
-
-print(eval(" ".join(argv[1:])))
-HEREDOC
-	) "$*"
-}
-
-# ISO <-> UNIX
-unixtoiso() {
-	python3 <(cat - << 'HEREDOC'
-import datetime
-import sys
-
-
-utcTzInfo = datetime.timezone.utc
-print(
-    datetime.datetime.utcfromtimestamp(int(sys.stdin.readline()))
-    .replace(tzinfo=utcTzInfo)
-    .isoformat()
-)
-HEREDOC
-	)
-}
-
-unixtolocaliso() {
-	python3 <(cat - << 'HEREDOC'
-import datetime
-import sys
-
-
-localTzInfo = datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
-print(
-    datetime.datetime.fromtimestamp(int(sys.stdin.readline()))
-    .replace(tzinfo=localTzInfo)
-    .isoformat()
-)
-HEREDOC
-	)
-}
-
-isotounix() {
-	python3 <(cat - << 'HEREDOC'
-import datetime
-import sys
-
-
-isoDateTime = datetime.datetime.fromisoformat(sys.stdin.readline().rstrip())
-unixEpochDateTime = datetime.datetime(1970, 1, 1, tzinfo=datetime.timezone.utc)
-print(int((isoDateTime - unixEpochDateTime).total_seconds()))
-HEREDOC
-	)
-}
-
-# Stopwatch
-stopwatch() {
-	local start
-	start="$(date +%s) seconds"
-
-	watch --interval 0.25 --precise "date --date=\"now - ${start}\" --utc '+%H:%M:%S.%N'"
-
-	date --date="now - ${start}" --utc '+%H:%M:%S.%N'
-}
-
-# Bookmark
-# Make bookmark
-mkb() {
-	if [[ ! -d "$*" ]]; then
-		echo "${FUNCNAME[0]}: cannot create bookmark '$*': No such file or directory" 1>&2
-
-		return 1
-	fi
-
-	realpath --canonicalize-existing --no-symlinks -- "$@" >> "${XDG_DATA_HOME:-$HOME/.local/share}/bookmarks"
 }
 
 # Change directory to bookmark
@@ -207,29 +110,6 @@ cdb() {
 	fi
 
 	cd -- "$(echo "$bookmark" | tail --lines=1)" || return 3
-}
-
-# Repeat
-repeat() {
-	local count="$1"
-
-	shift
-
-	for _ in $(seq 1 "$count"); do
-		echo -n "$@"
-	done
-
-	echo
-}
-
-# Prefix
-pre() {
-	cat - | sed --expression="s/^/$*/g"
-}
-
-# Postfix
-post() {
-	cat - | sed --expression="s/$/$*/g"
 }
 
 # Note
@@ -274,34 +154,6 @@ notes() {
 	fi
 
 	vim $(echo "$notes" | tail --lines=+2)
-}
-
-# Journal
-journal() {
-	local journal_dir="${JOURNAL_DIR:-$DEFAULT_JOURNAL_DIR}"
-
-	vim $(mkjournals "$journal_dir" "${@:-0}")
-}
-
-journals() {
-	local journals
-
-	local journal_dir="${JOURNAL_DIR:-$DEFAULT_JOURNAL_DIR}"
-
-	if ! journals="$(rg --files --sortr=modified "$journal_dir" |
-		rg "\.journal$" |
-		fzf --delimiter="$journal_dir/?" \
-		    --multi \
-		    --preview='cat {}' \
-		    --print-query \
-		    --query="$*" \
-		    --with-nth=2..)"; then
-		echo "${FUNCNAME[0]}: '$journals': No such journal" 1>&2
-
-		return 1
-	fi
-
-	vim -c 'wincmd b' -O $(echo "$journals" | tail --lines=+2)
 }
 
 # -- Various --

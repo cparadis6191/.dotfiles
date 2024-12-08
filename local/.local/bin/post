@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Postfix
+post() {
+	cat - | sed --expression="s/$/$*/g"
+}
+
+post "$@"

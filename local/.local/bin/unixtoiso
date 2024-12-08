@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+
+import datetime
+import sys
+
+
+utcTzInfo = datetime.timezone.utc
+print(
+    datetime.datetime.utcfromtimestamp(int(sys.stdin.readline()))
+    .replace(tzinfo=utcTzInfo)
+    .isoformat()
+)

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+journal() {
+	local journal_dir="${JOURNAL_DIR:-$DEFAULT_JOURNAL_DIR}"
+
+	vim $(mkjournals "$journal_dir" "${@:-0}")
+}
+
+journal "$@"

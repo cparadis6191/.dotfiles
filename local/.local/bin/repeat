@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Repeat
+repeat() {
+	local count="$1"
+
+	shift
+
+	for _ in $(seq 1 "$count"); do
+		echo -n "$@"
+	done
+
+	echo
+}
+
+repeat "$@"

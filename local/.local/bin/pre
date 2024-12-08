@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# Prefix
+pre() {
+	cat - | sed --expression="s/^/$*/g"
+}
+
+pre "$@"

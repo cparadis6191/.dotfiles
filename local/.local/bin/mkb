@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Make bookmark
+mkb() {
+	if [[ ! -d "$*" ]]; then
+		echo "${FUNCNAME[0]}: cannot create bookmark '$*': No such file or directory" 1>&2
+
+		return 1
+	fi
+
+	realpath --canonicalize-existing --no-symlinks -- "$@" >> "${XDG_DATA_HOME:-$HOME/.local/share}/bookmarks"
+}
+
+mkb "$@"
