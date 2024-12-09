@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if command -v exa > /dev/null 2>&1; then
-	la --binary --classify --long $*
+	la --binary --classify --long "$@"
 else
-	la --classify --format=long --human-readable $*
+	la --classify --format=long --human-readable "$@"
 fi
