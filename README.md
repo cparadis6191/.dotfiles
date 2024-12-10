@@ -55,6 +55,7 @@ $ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile
 * curl
 * ctags
 * fdfind
+* fish
 * fzf
 * git
 * lsof
