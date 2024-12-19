@@ -95,21 +95,7 @@ bash_remain() {
 
 # Change directory to bookmark
 cdb() {
-	if [[ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}/bookmarks" ]]; then
-		echo "${FUNCNAME[0]}: No bookmarks available" 1>&2
-
-		return 1
-	fi
-
-	local bookmark
-
-	if ! bookmark="$(fzf --preview='ls {}' --print-query --query="$*" < "${XDG_DATA_HOME:-$HOME/.local/share}/bookmarks")"; then
-		echo "${FUNCNAME[0]}: '$bookmark': No such bookmark" 1>&2
-
-		return 2
-	fi
-
-	cd -- "$(echo "$bookmark" | tail --lines=1)" || return 3
+	cd -- "$(cdb-impl "$@")" || return 1
 }
 
 # Note

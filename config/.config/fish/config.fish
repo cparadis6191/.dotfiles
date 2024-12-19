@@ -1,6 +1,11 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+	# Change directory to bookmark
+	function cdb
+		cd -- (cdb-impl $argv) || return 1
+	end
+
     # bat
     if command -v batcat > /dev/null 2>&1
         function bat
