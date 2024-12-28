@@ -330,7 +330,7 @@ set directory^=$VIMFILES/swap//
 
 " -- command line editing --
 " Make autocomplete more like bash
-set wildmode=longest:full
+set wildmode=longest,list
 
 set undofile
 if empty(glob($VIMFILES.'/undo'))
