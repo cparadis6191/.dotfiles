@@ -49,6 +49,12 @@ call plug#begin()
 
 	" Note
 	Plug '~/.vim/plugin/note'
+
+	" Tree-sitter
+	if has('nvim')
+		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+		Plug '~/.config/nvim/plugin/treesitter.vim'
+	endif
 call plug#end()
 
 " vim-neovim-defaults
