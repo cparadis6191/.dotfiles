@@ -18,6 +18,18 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.ctags
+    pkgs.curl
+    pkgs.fd
+    pkgs.fish
+    pkgs.fzf
+    pkgs.git
+    pkgs.lsof
+    pkgs.neovim
+    pkgs.ripgrep
+    pkgs.stow
+    pkgs.unzip
+    pkgs.virtualenv
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
