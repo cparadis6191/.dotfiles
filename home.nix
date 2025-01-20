@@ -20,6 +20,7 @@
   home.packages = [
     pkgs.ctags
     pkgs.curl
+    pkgs.diff-so-fancy
     pkgs.fd
     pkgs.fish
     pkgs.fzf
