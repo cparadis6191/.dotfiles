@@ -138,5 +138,13 @@
         run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile"
       fi
     '';
+
+    createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -d "$HOME/.virtualenv" ]; then
+        run ${pkgs.virtualenv}/bin/virtualenv --download "$HOME/.virtualenv"
+        run echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bash_profile"
+        run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bash_profile"
+      fi
+    '';
   };
 }
