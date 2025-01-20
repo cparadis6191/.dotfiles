@@ -113,6 +113,28 @@
       fi
     '';
 
+    tmuxAttachDuringBashLogin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -e "$HOME/.local/etc/.tmux_attach_during_bash_login" ]; then
+      	# Quoting or escaping the "limit string" at the head of a here document
+      	# disables parameter substitution within its body.
+      	run cat << 'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
+# Attach to an existing tmux session if no client is attached, otherwise start
+# a new session.
+if [[ $TMUX == ''' && $(command -v 'tmux') != ''' ]]; then
+	delim=$'\t'
+	tmux_detached_session="$(tmux list-sessions -F "#{session_id}$delim#{session_attached}" 2> /dev/null |
+		grep --basic-regexp --regexp='0$' |
+		head --lines=1 |
+		cut --fields=1)"
+	if [[ $tmux_detached_session != ''' ]]; then
+		exec tmux attach-session -t "$tmux_detached_session" \; unbind-key d
+	else
+		exec tmux new-session \; unbind-key d
+	fi
+fi
+HEREDOC
+
+      	touch "$HOME/.local/etc/.tmux_attach_during_bash_login"
       fi
     '';
 
