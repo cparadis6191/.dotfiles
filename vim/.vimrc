@@ -277,7 +277,6 @@ set hidden
 set title
 
 " -- using the mouse --
-behave xterm
 set mouse=nv
 set mousemodel=extend
 
