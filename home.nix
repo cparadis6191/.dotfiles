@@ -18,6 +18,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    (pkgs.callPackage ./local/.local/bin/flake.nix { })
+
     pkgs.ctags
     pkgs.curl
     pkgs.diff-so-fancy
@@ -80,27 +82,6 @@
     ".vim/plugin/search/plugin/search.vim".source = ./vim/.vim/plugin/search/plugin/search.vim;
     ".vim/plugin/visual_selection/autoload/visual_selection.vim".source = ./vim/.vim/plugin/visual_selection/autoload/visual_selection.vim;
     ".vimrc".source = ./vim/.vimrc;
-
-    ".local/bin/binxxd".source = ./local/.local/bin/binxxd;
-    ".local/bin/calc".source = ./local/.local/bin/calc;
-    ".local/bin/cdb".source = ./local/.local/bin/cdb-impl;
-    ".local/bin/cxxd".source = ./local/.local/bin/cxxd;
-    ".local/bin/hexxd".source = ./local/.local/bin/hexxd;
-    ".local/bin/isotounix".source = ./local/.local/bin/isotounix;
-    ".local/bin/journal".source = ./local/.local/bin/journal;
-    ".local/bin/journals".source = ./local/.local/bin/journals;
-    ".local/bin/la".source = ./local/.local/bin/la;
-    ".local/bin/ll".source = ./local/.local/bin/ll;
-    ".local/bin/mkb".source = ./local/.local/bin/mkb;
-    ".local/bin/post".source = ./local/.local/bin/post;
-    ".local/bin/pre".source = ./local/.local/bin/pre;
-    ".local/bin/repeat".source = ./local/.local/bin/repeat;
-    ".local/bin/stopwatch".source = ./local/.local/bin/stopwatch;
-    ".local/bin/texxd".source = ./local/.local/bin/texxd;
-    ".local/bin/unixtoiso".source = ./local/.local/bin/unixtoiso;
-    ".local/bin/unixtolocaliso".source = ./local/.local/bin/unixtolocaliso;
-    ".local/bin/vim".source = ./local/.local/bin/vim;
-    ".local/bin/vrep".source = ./local/.local/bin/vrep;
   };
 
   # Home Manager can also manage your environment variables through
@@ -133,10 +114,6 @@
       fi
     '';
 
-    makeLocalBin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      if [ ! -d "$HOME/.local/bin" ]; then
-        run mkdir --parents "$HOME/.local/bin"
-        run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile"
       fi
     '';
 
