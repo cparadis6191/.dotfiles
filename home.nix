@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -124,4 +124,19 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.activation = {
+    makeLocalEtc = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -d "$HOME/.local/etc" ]; then
+        run mkdir --parents "$HOME/.local/etc"
+      fi
+    '';
+
+    makeLocalBin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -d "$HOME/.local/bin" ]; then
+        run mkdir --parents "$HOME/.local/bin"
+        run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile"
+      fi
+    '';
+  };
 }
