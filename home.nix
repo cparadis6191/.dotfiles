@@ -53,7 +53,6 @@
 
     ".config/bat/config".source = ./config/.config/bat/config;
 
-    ".config/fish/.gitignore".source = ./config/.config/fish/.gitignore;
     ".config/fish/config.fish".source = ./config/.config/fish/config.fish;
     ".config/fish/functions/fish_prompt.fish".source = ./config/.config/fish/functions/fish_prompt.fish;
     ".config/fish/functions/fish_title.fish".source = ./config/.config/fish/functions/fish_title.fish;
