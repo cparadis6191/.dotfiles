@@ -13,26 +13,26 @@ stdenv.mkDerivation {
 
     mkdir --parents $out/bin/
 
-    cp ./binxxd         $out/bin/
-    cp ./calc           $out/bin/
-    cp ./cdb-impl       $out/bin/
-    cp ./cxxd           $out/bin/
-    cp ./hexxd          $out/bin/
-    cp ./isotounix      $out/bin/
-    cp ./journal        $out/bin/
-    cp ./journals       $out/bin/
-    cp ./la             $out/bin/
-    cp ./ll             $out/bin/
-    cp ./mkb            $out/bin/
-    cp ./post           $out/bin/
-    cp ./pre            $out/bin/
-    cp ./repeat         $out/bin/
-    cp ./stopwatch      $out/bin/
-    cp ./texxd          $out/bin/
-    cp ./unixtoiso      $out/bin/
-    cp ./unixtolocaliso $out/bin/
-    cp ./vim            $out/bin/
-    cp ./vrep           $out/bin/
+    install ./binxxd         $out/bin/
+    install ./calc           $out/bin/
+    install ./cdb-impl       $out/bin/
+    install ./cxxd           $out/bin/
+    install ./hexxd          $out/bin/
+    install ./isotounix      $out/bin/
+    install ./journal        $out/bin/
+    install ./journals       $out/bin/
+    install ./la             $out/bin/
+    install ./ll             $out/bin/
+    install ./mkb            $out/bin/
+    install ./post           $out/bin/
+    install ./pre            $out/bin/
+    install ./repeat         $out/bin/
+    install ./stopwatch      $out/bin/
+    install ./texxd          $out/bin/
+    install ./unixtoiso      $out/bin/
+    install ./unixtolocaliso $out/bin/
+    install ./vim            $out/bin/
+    install ./vrep           $out/bin/
 
     runHook postInstall
   '';
