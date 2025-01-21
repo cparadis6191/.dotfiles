@@ -31,6 +31,7 @@
     pkgs.neovim
     pkgs.ripgrep
     pkgs.stow
+    pkgs.tmux
     pkgs.unzip
     pkgs.virtualenv
 
