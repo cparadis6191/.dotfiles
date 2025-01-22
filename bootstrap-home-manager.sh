@@ -5,7 +5,7 @@ sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
 # See https://nix-community.github.io/home-manager/#sec-install-standalone for
 # more information.
-echo 'experimental-features = nix-command flakes' > "$HOME/.config/nix/nix.conf"
+echo 'experimental-features = nix-command flakes' >> "$HOME/.config/nix/nix.conf"
 
 source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
