@@ -1,4 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+# See https://nixos.org/download/ for more information.
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
 # See https://nix-community.github.io/home-manager/#sec-install-standalone for
 # more information.
