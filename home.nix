@@ -31,6 +31,7 @@
     pkgs.lsof
     pkgs.neovim
     pkgs.nixpkgs-fmt
+    pkgs.python3
     pkgs.ripgrep
     pkgs.stow
     pkgs.tmux
