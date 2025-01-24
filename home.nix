@@ -23,6 +23,7 @@
     pkgs.ctags
     pkgs.curl
     pkgs.diff-so-fancy
+    pkgs.eza
     pkgs.fd
     pkgs.fish
     pkgs.fzf
