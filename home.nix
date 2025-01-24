@@ -30,6 +30,7 @@
     pkgs.git
     pkgs.lsof
     pkgs.neovim
+    pkgs.nixpkgs-fmt
     pkgs.ripgrep
     pkgs.stow
     pkgs.tmux
