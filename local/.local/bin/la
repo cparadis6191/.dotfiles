@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if command -v exa > /dev/null 2>&1; then
-	ls --all "$@"
+	exa --all "$@"
 else
 	ls --almost-all "$@"
 fi
