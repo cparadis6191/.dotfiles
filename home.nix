@@ -138,7 +138,7 @@
       fi
       HEREDOC
 
-      	touch "$HOME/.local/etc/.tmux_attach_during_bash_login"
+      	run touch "$HOME/.local/etc/.tmux_attach_during_bash_login"
       fi
     '';
 
