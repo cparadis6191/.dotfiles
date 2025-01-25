@@ -1,4 +1,4 @@
-{ eza, stdenv, ... }:
+{ eza, python3, stdenv, xxd, ... }:
 
 stdenv.mkDerivation {
   pname = "local/.local/bin";
@@ -7,6 +7,12 @@ stdenv.mkDerivation {
   src = ./.;
 
   dontBuild = true;
+
+  buildInputs = [
+    eza
+    python3
+    xxd
+  ];
 
   installPhase = ''
     runHook preInstall
