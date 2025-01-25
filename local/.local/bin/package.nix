@@ -1,4 +1,4 @@
-{ stdenv, ... }:
+{ eza, stdenv, ... }:
 
 stdenv.mkDerivation {
   pname = "local/.local/bin";
