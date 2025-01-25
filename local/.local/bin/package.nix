@@ -39,6 +39,7 @@ stdenv.mkDerivation {
     install ./unixtolocaliso $out/bin/
     install ./vim            $out/bin/
     install ./vrep           $out/bin/
+    install ./yedit          $out/bin/
 
     runHook postInstall
   '';
