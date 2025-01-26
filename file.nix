@@ -13,6 +13,7 @@
     ".config/bat/config".source = ./config/.config/bat/config;
 
     ".config/fish/config.fish".source = ./config/.config/fish/config.fish;
+    ".config/fish/functions/fish_greeting.fish".source = ./config/.config/fish/functions/fish_greeting.fish;
     ".config/fish/functions/fish_prompt.fish".source = ./config/.config/fish/functions/fish_prompt.fish;
     ".config/fish/functions/fish_title.fish".source = ./config/.config/fish/functions/fish_title.fish;
     ".config/fish/functions/fish_user_key_bindings.fish".source = ./config/.config/fish/functions/fish_user_key_bindings.fish;
