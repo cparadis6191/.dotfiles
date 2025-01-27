@@ -5,6 +5,7 @@
   # environment.
   home.packages = [
     (pkgs.callPackage ./local/.local/bin/default.nix { })
+    (pkgs.callPackage ./local/.local/bin/win32yank/default.nix { })
 
     pkgs.ctags
     pkgs.curl
