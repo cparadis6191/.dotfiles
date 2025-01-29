@@ -20,6 +20,7 @@
     pkgs.neovim
     pkgs.nixpkgs-fmt
     pkgs.python3
+    pkgs.renameutils
     pkgs.ripgrep
     pkgs.stow
     pkgs.tmux
