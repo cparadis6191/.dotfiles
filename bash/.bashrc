@@ -14,9 +14,9 @@ export SUDO_EDITOR
 export DEFAULT_NOTE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/notes"
 export DEFAULT_JOURNAL_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/journals"
 
-export FZF_DEFAULT_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=file'
+export FZF_DEFAULT_COMMAND='fd --color=always --exclude=.git --hidden --strip-cwd-prefix --type=file'
 export FZF_DEFAULT_OPTS='--ansi --height=40% --layout=reverse'
-export FZF_ALT_C_COMMAND='fdfind --color=always --exclude=.git --hidden --strip-cwd-prefix --type=directory'
+export FZF_ALT_C_COMMAND='fd --color=always --exclude=.git --hidden --strip-cwd-prefix --type=directory'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export LESS='--ignore-case --LONG-PROMPT --mouse --no-init --RAW-CONTROL-CHARS --wheel-lines=3'
