@@ -1,11 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
+in
 {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     (pkgs.callPackage ./local/.local/bin/default.nix { })
-    (pkgs.callPackage ./local/.local/bin/win32yank/default.nix { })
+
+    local_bin_win32yank
 
     pkgs.bat
     pkgs.ctags
