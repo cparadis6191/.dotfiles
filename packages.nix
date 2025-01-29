@@ -7,6 +7,7 @@
     (pkgs.callPackage ./local/.local/bin/default.nix { })
     (pkgs.callPackage ./local/.local/bin/win32yank/default.nix { })
 
+    pkgs.bat
     pkgs.ctags
     pkgs.curl
     pkgs.diff-so-fancy
