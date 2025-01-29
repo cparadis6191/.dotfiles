@@ -22,6 +22,8 @@
     pkgs.python3
     pkgs.renameutils
     pkgs.ripgrep
+    pkgs.shellcheck
+    pkgs.shfmt
     pkgs.stow
     pkgs.tmux
     pkgs.unzip
