@@ -11,6 +11,7 @@ in
 
     local_bin_win32yank
     (pkgs.callPackage ./local/.local/bin/win32yank/yeet-impl/default.nix { inherit local_bin_win32yank; })
+    (pkgs.callPackage ./local/.local/bin/win32yank/yoink/default.nix { inherit local_bin_win32yank; })
 
     pkgs.bat
     pkgs.ctags
