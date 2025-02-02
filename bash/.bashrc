@@ -90,50 +90,6 @@ cdb() {
 	cd -- "$(cdb-impl "$@")" || return 1
 }
 
-# Note
-note() {
-	local note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
-
-	if [[ $# -gt 1 ]]; then
-		if [[ -z $note_dir ]]; then
-			note_dir="$1"
-		else
-			note_dir="$note_dir/$1"
-		fi
-
-		shift
-	fi
-
-	NOTE_DIR="$note_dir" vim -c "Note $*"
-}
-
-# Sticky note
-snote() {
-	NOTE_DIR=. note "$@"
-}
-
-# Notes
-notes() {
-	local notes
-
-	local note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
-
-	if ! notes="$(rg --files --sortr=modified "$note_dir" |
-		rg "\.md$" |
-		fzf --delimiter="$note_dir/?" \
-			--multi \
-			--preview='cat {}' \
-			--print-query \
-			--query="$*" \
-			--with-nth=2..)"; then
-		echo "${FUNCNAME[0]}: '$notes': No such note" 1>&2
-
-		return 1
-	fi
-
-	vim $(echo "$notes" | tail --lines=+2)
-}
-
 # -- Various --
 # Source local bashrc if it exists
 if [[ -f "$HOME/.local/etc/.bashrc" ]]; then
