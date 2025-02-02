@@ -1,7 +1,7 @@
 { stdenv, local_bin_win32yank, ... }:
 
 stdenv.mkDerivation {
-  pname = "local/.local/bin/yoink";
+  pname = "local bin yoink";
   version = "0.0.1";
 
   src = ./.;

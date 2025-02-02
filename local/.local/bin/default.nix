@@ -1,7 +1,7 @@
 { eza, python3, stdenv, xxd, ... }:
 
 stdenv.mkDerivation {
-  pname = "local/.local/bin";
+  pname = "local bin";
   version = "0.0.1";
 
   src = ./.;

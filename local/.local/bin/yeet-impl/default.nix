@@ -1,7 +1,7 @@
 { stdenv, local_bin_win32yank, ... }:
 
 stdenv.mkDerivation {
-  pname = "local/.local/bin/yeet-impl";
+  pname = "local bin yeet-impl";
   version = "0.0.1";
 
   src = ./.;
