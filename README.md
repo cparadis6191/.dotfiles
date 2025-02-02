@@ -1,5 +1,9 @@
 # .dotfiles
 
+## Install Using Nix Home Manager
+
+To install *most* of what follows, simply run `./bootstrap-home-manager.sh`.
+
 ## Set Up Local etc
 
 Run the following commands to create a local etc directory:
