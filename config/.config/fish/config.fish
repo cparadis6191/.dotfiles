@@ -7,11 +7,6 @@ if status is-interactive
 	end
 
     # bat
-    if command -v batcat > /dev/null 2>&1
-        function bat
-            batcat $argv
-        end
-    end
     if command -v bat > /dev/null 2>&1
         function cat
             bat --paging never $argv
