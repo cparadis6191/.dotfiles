@@ -61,11 +61,6 @@ fi
 # cp
 alias cp='cp --interactive'
 
-# fd
-if command -v fdfind > /dev/null 2>&1; then
-	alias fd='fdfind'
-fi
-
 # grep
 alias grep='grep --color=auto'
 
