@@ -23,13 +23,6 @@ if status is-interactive
         command cp --interactive $argv
     end
 
-    # fd
-    if command -v fdfind > /dev/null 2>&1
-        function fd
-            fdfind $argv
-        end
-    end
-
     # grep
     function grep
         command grep --color=auto $argv
