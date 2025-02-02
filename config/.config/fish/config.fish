@@ -1,11 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
-	# Change directory to bookmark
-	function cdb
-		cd -- (cdb-impl $argv) || return 1
-	end
-
     # bat
     if command -v bat > /dev/null 2>&1
         function cat
@@ -48,6 +43,11 @@ if status is-interactive
     function rm
         command rm --interactive=once $argv
     end
+
+	# Change directory to bookmark
+	function cdb
+		cd -- (cdb-impl $argv) || return 1
+	end
 
     # Source local config.fish if it exists
     if test -f ~/.local/etc/.config/fish/config.fish
