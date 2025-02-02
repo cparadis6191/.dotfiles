@@ -23,6 +23,7 @@ stdenv.mkDerivation {
     install ./calc           $out/bin/
     install ./cdb-impl       $out/bin/
     install ./cxxd           $out/bin/
+    install ./fdfind         $out/bin/
     install ./hexxd          $out/bin/
     install ./isotounix      $out/bin/
     install ./journal        $out/bin/
