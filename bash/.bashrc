@@ -21,9 +21,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export LESS='--ignore-case --LONG-PROMPT --mouse --no-init --RAW-CONTROL-CHARS --wheel-lines=3'
 
-if command -v batcat > /dev/null 2>&1; then
+if command -v bat > /dev/null 2>&1; then
 	export MANROFFOPT='-c'
-	export MANPAGER='sh -c "col --no-backspaces --spaces | batcat --language man --plain"'
+	export MANPAGER='sh -c "col --no-backspaces --spaces | bat --language man --plain"'
 fi
 
 # Set title if running in a GUI terminal emulator
