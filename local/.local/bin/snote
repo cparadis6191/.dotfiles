@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Sticky note
+snote() {
+	NOTE_DIR=. note "$@"
+}
+
+snote "$@"

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Notes
+notes() {
+	local notes
+
+	local note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
+
+	if ! notes="$(rg --files --sortr=modified "$note_dir" |
+		rg "\.md$" |
+		fzf --delimiter="$note_dir/?" \
+			--multi \
+			--preview='cat {}' \
+			--print-query \
+			--query="$*" \
+			--with-nth=2..)"; then
+		echo "${FUNCNAME[0]}: '$notes': No such note" 1>&2
+
+		return 1
+	fi
+
+	vim $(echo "$notes" | tail --lines=+2)
+}
+
+notes "$@"

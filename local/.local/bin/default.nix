@@ -31,9 +31,12 @@ stdenv.mkDerivation {
     install ./la             $out/bin/
     install ./ll             $out/bin/
     install ./mkb            $out/bin/
+    install ./note           $out/bin/
+    install ./notes          $out/bin/
     install ./post           $out/bin/
     install ./pre            $out/bin/
     install ./repeat         $out/bin/
+    install ./snote          $out/bin/
     install ./stopwatch      $out/bin/
     install ./texxd          $out/bin/
     install ./unixtoiso      $out/bin/

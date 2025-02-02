@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Note
+note() {
+	local note_dir="${NOTE_DIR:-$DEFAULT_NOTE_DIR}"
+
+	if [[ $# -gt 1 ]]; then
+		if [[ -z $note_dir ]]; then
+			note_dir="$1"
+		else
+			note_dir="$note_dir/$1"
+		fi
+
+		shift
+	fi
+
+	NOTE_DIR="$note_dir" vim -c "Note $*"
+}
+
+note "$@"
