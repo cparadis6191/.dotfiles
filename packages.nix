@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
