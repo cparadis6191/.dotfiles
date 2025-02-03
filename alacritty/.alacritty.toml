@@ -30,3 +30,8 @@ mouse = "Right"
 
 [selection]
 save_to_clipboard = true
+
+[general]
+import = [
+	"~/.local/etc/alacritty.toml"
+]
