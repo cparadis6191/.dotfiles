@@ -3,6 +3,9 @@
 # See https://nixos.org/download/ for more information.
 sh <(curl -L https://nixos.org/nix/install) --no-daemon
 
+# Do not source `nix.fish` in fish.
+sed --expression='/# added by Nix installer/d' --in-place "$HOME/.config/fish/conf.d/nix.fish"
+
 # See https://nix-community.github.io/home-manager/#sec-install-standalone for
 # more information.
 echo 'experimental-features = nix-command flakes' >> "$HOME/.config/nix/nix.conf"
