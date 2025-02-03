@@ -44,10 +44,10 @@ if status is-interactive
         command rm --interactive=once $argv
     end
 
-	# Change directory to bookmark
-	function cdb
-		cd -- (cdb-impl $argv) || return 1
-	end
+    # Change directory to bookmark
+    function cdb
+        cd -- (cdb-impl $argv) || return 1
+    end
 
     # Source local config.fish if it exists
     if test -f ~/.local/etc/.config/fish/config.fish
