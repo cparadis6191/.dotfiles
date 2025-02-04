@@ -6,8 +6,4 @@ import sys
 
 
 utcTzInfo = datetime.timezone.utc
-print(
-    datetime.datetime.utcfromtimestamp(int(sys.stdin.readline()))
-    .replace(tzinfo=utcTzInfo)
-    .isoformat()
-)
+print(datetime.datetime.fromtimestamp(int(sys.stdin.readline()), utcTzInfo).isoformat())
