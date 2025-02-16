@@ -50,6 +50,10 @@ call plug#begin()
 	" Note
 	Plug '~/.vim/plugin/note'
 
+	" Color schemes
+	Plug 'flazz/vim-colorschemes'
+	Plug 'rafi/awesome-vim-colorschemes'
+
 	" Tree-sitter
 	if has('nvim')
 		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
