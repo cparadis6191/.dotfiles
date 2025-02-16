@@ -161,9 +161,6 @@ xnoremap <Leader>c `.
 
 nnoremap <Leader>d :silent call <SID>DiffUnwrittenChanges()<CR>
 
-" Open alternate file
-nnoremap <Leader>ea :edit <C-R>=expand('%:r')<CR>.
-
 " Repeat the previous recording
 " Note that this mapping supports a count
 nnoremap Q @@
