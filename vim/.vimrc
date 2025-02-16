@@ -228,15 +228,6 @@ augroup RestoreCursorGroup
 	autocmd BufReadPost * call <SID>RestoreCursor()
 augroup END
 
-" Workaround for poor Neovim undercurl/underline support
-if has('nvim')
-	augroup SpellBadGroup
-		autocmd!
-		autocmd ColorScheme * highlight SpellBad guibg=Red
-		autocmd ColorScheme * highlight SpellCap guibg=Blue
-	augroup END
-endif
-
 " -- options --
 " -- important --
 " Don't overwrite a readonly file
