@@ -5,7 +5,6 @@
   # plain files is through 'home.file'.
   home.file = {
     ".alacritty.toml".source = ./alacritty/.alacritty.toml;
-    ".alacritty.yml".source = ./alacritty/.alacritty.yml;
 
     ".bash_profile".source = ./bash/.bash_profile;
     ".bashrc".source = ./bash/.bashrc;
