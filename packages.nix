@@ -24,6 +24,7 @@ in
     pkgs.fzf
     pkgs.git
     pkgs.lsof
+    pkgs.moreutils
     pkgs.neovim
     pkgs.nixpkgs-fmt
     pkgs.python3
