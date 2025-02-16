@@ -200,15 +200,6 @@ xnoremap [q :<C-U><C-R>=(v:count ? v:count : '')<CR>cprevious<CR>``gv``
 nnoremap ]Q :<C-U><C-R>=(v:count ? v:count : '')<CR>cnfile<CR>
 nnoremap [Q :<C-U><C-R>=(v:count ? v:count : '')<CR>cpfile<CR>
 
-if exists(':terminal')
-	tnoremap <Esc><Esc> <C-\><C-N>
-	if !has('nvim')
-		nnoremap <Leader>t :terminal<CR>
-	else
-		nnoremap <Leader>t :split <Bar> terminal<CR>
-	endif
-endif
-
 " Highlight the last search more permanently
 nnoremap <Leader>/ :<C-U><C-R>=(v:count ? v:count : '')<CR>match Search /<C-R>=@/<CR>/<CR>
 
