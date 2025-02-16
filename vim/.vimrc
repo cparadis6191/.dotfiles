@@ -122,9 +122,9 @@ function! s:DiffUnwrittenChanges()
 	diffthis
 	rightbelow vnew
 	" Set modifiable so the scratch buffer can be used again
-	set modifiable
+	setlocal modifiable
 	read ++edit # | 1delete _
-	let &filetype = l:filetype | set bufhidden=wipe buftype=nofile nomodifiable nomodified
+	let &filetype = l:filetype | setlocal bufhidden=wipe buftype=nofile nomodifiable nomodified
 	diffthis
 	wincmd p
 endfunction
