@@ -38,6 +38,13 @@ in
     pkgs.virtualenv
     pkgs.xclip
 
+    pkgs.charasay
+    pkgs.cowsay
+    pkgs.dotacat
+    pkgs.figlet
+    pkgs.fortune
+    pkgs.toilet
+
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
