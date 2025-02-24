@@ -39,6 +39,7 @@ in
     pkgs.unzip
     pkgs.virtualenv
     pkgs.xclip
+    pkgs.xxd
 
     pkgs.charasay
     pkgs.cowsay
