@@ -1,4 +1,4 @@
-{ fd, python3, stdenv, ... }:
+{ python3, stdenv, ... }:
 
 stdenv.mkDerivation {
   pname = "local bin";
@@ -9,7 +9,6 @@ stdenv.mkDerivation {
   dontBuild = true;
 
   buildInputs = [
-    fd
     python3
   ];
 
@@ -20,7 +19,6 @@ stdenv.mkDerivation {
 
     install ./calc           $out/bin/
     install ./cdb-impl       $out/bin/
-    install ./fdfind         $out/bin/
     install ./isotounix      $out/bin/
     install ./journal        $out/bin/
     install ./journals       $out/bin/
