@@ -1,4 +1,4 @@
-{ eza, python3, stdenv, ... }:
+{ eza, fd, python3, stdenv, ... }:
 
 stdenv.mkDerivation {
   pname = "local bin";
@@ -10,6 +10,7 @@ stdenv.mkDerivation {
 
   buildInputs = [
     eza
+    fd
     python3
   ];
 
