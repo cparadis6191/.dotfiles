@@ -1,4 +1,4 @@
-{ eza, python3, stdenv, xxd, ... }:
+{ eza, python3, stdenv, ... }:
 
 stdenv.mkDerivation {
   pname = "local bin";
@@ -11,7 +11,6 @@ stdenv.mkDerivation {
   buildInputs = [
     eza
     python3
-    xxd
   ];
 
   installPhase = ''
@@ -19,12 +18,9 @@ stdenv.mkDerivation {
 
     mkdir --parents $out/bin/
 
-    install ./binxxd         $out/bin/
     install ./calc           $out/bin/
     install ./cdb-impl       $out/bin/
-    install ./cxxd           $out/bin/
     install ./fdfind         $out/bin/
-    install ./hexxd          $out/bin/
     install ./isotounix      $out/bin/
     install ./journal        $out/bin/
     install ./journals       $out/bin/
@@ -38,7 +34,6 @@ stdenv.mkDerivation {
     install ./repeat         $out/bin/
     install ./snote          $out/bin/
     install ./stopwatch      $out/bin/
-    install ./texxd          $out/bin/
     install ./unixtoiso      $out/bin/
     install ./unixtolocaliso $out/bin/
     install ./vim            $out/bin/
