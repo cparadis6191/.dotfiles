@@ -8,6 +8,7 @@ in
   # environment.
   home.packages = [
     (pkgs.callPackage ./local/.local/bin/default.nix { })
+    (pkgs.callPackage ./local/.local/bin/ls/default.nix { })
 
     local_bin_win32yank
     (pkgs.callPackage ./local/.local/bin/win32yank/yeet-impl/default.nix { inherit local_bin_win32yank; })

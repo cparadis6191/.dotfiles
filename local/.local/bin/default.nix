@@ -1,4 +1,4 @@
-{ eza, fd, python3, stdenv, ... }:
+{ fd, python3, stdenv, ... }:
 
 stdenv.mkDerivation {
   pname = "local bin";
@@ -9,7 +9,6 @@ stdenv.mkDerivation {
   dontBuild = true;
 
   buildInputs = [
-    eza
     fd
     python3
   ];
@@ -25,8 +24,6 @@ stdenv.mkDerivation {
     install ./isotounix      $out/bin/
     install ./journal        $out/bin/
     install ./journals       $out/bin/
-    install ./la             $out/bin/
-    install ./ll             $out/bin/
     install ./mkb            $out/bin/
     install ./note           $out/bin/
     install ./notes          $out/bin/
