@@ -35,7 +35,7 @@
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [merge]
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 	tool = vimdiff
 [mergetool]
 	prompt = false
