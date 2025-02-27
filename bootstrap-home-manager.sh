@@ -8,6 +8,7 @@ sed --expression='/# added by Nix installer/d' --in-place "$HOME/.config/fish/co
 
 # See https://nix-community.github.io/home-manager/#sec-install-standalone for
 # more information.
+mkdir --parents "$HOME/.config/nix"
 echo 'experimental-features = nix-command flakes' >> "$HOME/.config/nix/nix.conf"
 
 source "$HOME/.nix-profile/etc/profile.d/nix.sh"
