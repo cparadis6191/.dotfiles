@@ -27,6 +27,7 @@ in
     pkgs.fish
     pkgs.fzf
     pkgs.git
+    pkgs.hyperfine
     pkgs.lsof
     pkgs.moreutils
     pkgs.neovim
