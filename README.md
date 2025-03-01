@@ -191,32 +191,6 @@ $ git clone --depth 1 https://github.com/so-fancy/diff-so-fancy.git "$HOME/.loca
 $ ln --symbolic "$HOME/.local/bin/diff-so-fancy.git/diff-so-fancy" "$HOME/.local/bin/"
 ```
 
-## tmux Attach During bash Login
-
-Run the following command to allow a new bash login shell to attach to an
-existing tmux session if no client is attached, otherwise start a new session:
-
-```
-$ # Quoting or escaping the "limit string" at the head of a here document
-$ # disables parameter substitution within its body.
-$ cat << 'HEREDOC' >> "$HOME/.local/etc/.bash_profile"
-> # Attach to an existing tmux session if no client is attached, otherwise start
-> # a new session.
-> if [[ $TMUX == '' && $(command -v 'tmux') != '' ]]; then
-> 	delim=$'\t'
-> 	tmux_detached_session="$(tmux list-sessions -F "#{session_id}$delim#{session_attached}" 2> /dev/null |
-> 		grep --basic-regexp --regexp='0$' |
-> 		head --lines=1 |
-> 		cut --fields=1)"
-> 	if [[ $tmux_detached_session != '' ]]; then
-> 		exec tmux attach-session -t "$tmux_detached_session" \; unbind-key d
-> 	else
-> 		exec tmux new-session \; unbind-key d
-> 	fi
-> fi
-> HEREDOC
-```
-
 ## Configure Alacritty on Windows
 
 Run the following command to copy .alacritty.toml to where Alacritty expects it
