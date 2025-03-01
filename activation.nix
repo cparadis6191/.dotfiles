@@ -17,8 +17,11 @@
       # a new session.
       if [[ $TMUX == ''' && $(command -v 'tmux') != ''' ]]; then
       	delim=$'\t'
-      	tmux_detached_session="$(tmux list-sessions -F "#{session_id}$delim#{session_attached}" 2> /dev/null |
-      		grep --basic-regexp --regexp='0$' |
+      	tmux_detached_session="$(tmux list-sessions -F "#{session_id}$delim#{session_name}$delim#{session_attached}" 2> /dev/null |
+      		sed --expression="/''\${delim}git fugit''\${delim}/d" \
+      			--expression="/''\${delim}python''\${delim}/d" \
+      			--expression="/''\${delim}yedit''\${delim}/d" |
+      		grep --basic-regexp --regexp="''\${delim}0$" |
       		head --lines=1 |
       		cut --fields=1)"
       	if [[ $tmux_detached_session != ''' ]]; then
