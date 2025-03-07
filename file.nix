@@ -17,6 +17,9 @@
     ".config/fish/functions/fish_title.fish".source = ./config/.config/fish/functions/fish_title.fish;
     ".config/fish/functions/fish_user_key_bindings.fish".source = ./config/.config/fish/functions/fish_user_key_bindings.fish;
 
+    ".config/nvim/init.vim".source = ./config/.config/nvim/init.vim;
+    ".config/nvim/plugin/treesitter.vim".source = ./config/.config/nvim/plugin/treesitter.vim;
+
     ".git_template/hooks/post-checkout".source = ./git/.git_template/hooks/post-checkout;
     ".git_template/hooks/post-commit".source = ./git/.git_template/hooks/post-commit;
     ".git_template/hooks/post-merge".source = ./git/.git_template/hooks/post-merge;
