@@ -310,12 +310,7 @@ endif
 set undodir^=$VIMFILES/undo//
 
 " -- executing external commands --
-
 " -- running make and jumping to errors --
-if executable('rg')
-	let &grepprg = 'rg --vimgrep'
-endif
-
 " -- language specific --
 " -- multi-byte characters --
 
