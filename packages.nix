@@ -35,6 +35,7 @@ in
     pkgs.python3
     pkgs.renameutils
     pkgs.ripgrep
+    pkgs.ruff
     pkgs.shellcheck
     pkgs.shfmt
     pkgs.stow
