@@ -10,6 +10,15 @@ let
     })
     { };
 
+  github_fzf_tmux = pkgs.callPackage
+    (pkgs.fetchFromGitHub {
+      owner = "cparadis6191";
+      repo = "fzf-tmux";
+      rev = "455d79e11c09437771f5176bb6c01703e8d14658";
+      hash = "sha256-++iM6jOdq/5a49jmFyMKv8A4MHxEFLwqaihrh3F7+Qg=";
+    })
+    { };
+
   local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
 in
 {
@@ -17,6 +26,7 @@ in
   # environment.
   home.packages = [
     github_fzf_git_sh
+    github_fzf_tmux
 
     (pkgs.callPackage ./local/.local/bin/default.nix { })
     (pkgs.callPackage ./local/.local/bin/fdfind/default.nix { })
