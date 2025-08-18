@@ -1,12 +1,23 @@
 { pkgs, ... }:
 
 let
+  github_fzf_git_sh = pkgs.callPackage
+    (pkgs.fetchFromGitHub {
+      owner = "cparadis6191";
+      repo = "fzf-git.sh";
+      rev = "faecaec7ac599ceccf0a03f6d01e1ffab23a7fba";
+      hash = "sha256-owuw1O/LjnNzIzaUogXcDVogOYdZzBkr0Nq9fLs3xc8=";
+    })
+    { };
+
   local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
 in
 {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    github_fzf_git_sh
+
     (pkgs.callPackage ./local/.local/bin/default.nix { })
     (pkgs.callPackage ./local/.local/bin/fdfind/default.nix { })
     (pkgs.callPackage ./local/.local/bin/ls/default.nix { })
