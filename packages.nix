@@ -19,6 +19,15 @@ let
     })
     { };
 
+  github_tools = pkgs.callPackage
+    (pkgs.fetchFromGitHub {
+      owner = "cparadis6191";
+      repo = "tools";
+      rev = "24018a23fcd1f045064aab66d90f7802010882cc";
+      hash = "sha256-Rhn7t1SmM66AQQBXza5Swxphskla3Wla4VOCn4mEnH8=";
+    })
+    { };
+
   local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
 in
 {
@@ -27,6 +36,7 @@ in
   home.packages = [
     github_fzf_git_sh
     github_fzf_tmux
+    github_tools
 
     (pkgs.callPackage ./local/.local/bin/default.nix { })
     (pkgs.callPackage ./local/.local/bin/fdfind/default.nix { })
