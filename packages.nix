@@ -50,7 +50,6 @@ in
     pkgs.git
     pkgs.hyperfine
     pkgs.lsof
-    pkgs.moreutils
     pkgs.neovim
     pkgs.nixpkgs-fmt
     pkgs.python3
