@@ -5,8 +5,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "cparadis6191";
       repo = "fzf-git.sh";
-      rev = "faecaec7ac599ceccf0a03f6d01e1ffab23a7fba";
-      hash = "sha256-owuw1O/LjnNzIzaUogXcDVogOYdZzBkr0Nq9fLs3xc8=";
+      rev = "b1d8304a46f10ace7d429100c7ad16e98c363d6c";
+      hash = "sha256-EOoqtXnBdPXOrtohYz34XSVe6/fyavGh2eRlf+aTfIo=";
     })
     { };
 
@@ -14,8 +14,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "cparadis6191";
       repo = "fzf-tmux";
-      rev = "455d79e11c09437771f5176bb6c01703e8d14658";
-      hash = "sha256-++iM6jOdq/5a49jmFyMKv8A4MHxEFLwqaihrh3F7+Qg=";
+      rev = "a9d871735f3602e64b8c0689981268c1a1b709bc";
+      hash = "sha256-/Uy0bdJ4KbR0nFyvkPvJ6vtfLfKxZt6K2rbOqMw5pik=";
     })
     { };
 
