@@ -6,6 +6,10 @@
       if [ ! -d "$HOME/.local/bin" ]; then
       	run mkdir --parents "$HOME/.local/bin"
       fi
+
+      if [ "$(grep -c 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile"
+      fi
     '';
 
     makeLocalEtc = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
