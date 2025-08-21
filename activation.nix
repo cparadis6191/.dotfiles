@@ -46,6 +46,16 @@
       fi
     '';
 
+    makeLocalVimInitializationFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -d "$HOME/.local/etc/.config/nvim" ]; then
+      	run mkdir --parents "$HOME/.local/etc/.config/nvim"
+      fi
+
+      if [ ! -f "$HOME/.local/etc/.vimrc" ]; then
+      	run touch "$HOME/.local/etc/.vimrc"
+      fi
+    '';
+
     tmuxAttachDuringBashLogin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if [ ! -e "$HOME/.local/etc/.tmux_attach_during_bash_login" ]; then
       	# Quoting or escaping the "limit string" at the head of a here document
