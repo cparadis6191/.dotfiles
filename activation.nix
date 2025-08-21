@@ -4,7 +4,7 @@
   home.activation = {
     makeLocalEtc = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if [ ! -d "$HOME/.local/etc" ]; then
-        run mkdir --parents "$HOME/.local/etc"
+      	run mkdir --parents "$HOME/.local/etc"
       fi
     '';
 
