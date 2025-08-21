@@ -2,6 +2,12 @@
 
 {
   home.activation = {
+    makeLocalBin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -d "$HOME/.local/bin" ]; then
+      	run mkdir --parents "$HOME/.local/bin"
+      fi
+    '';
+
     makeLocalEtc = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if [ ! -d "$HOME/.local/etc" ]; then
       	run mkdir --parents "$HOME/.local/etc"
