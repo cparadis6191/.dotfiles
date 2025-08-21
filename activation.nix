@@ -24,6 +24,12 @@
       fi
     '';
 
+    makeLocalGitconfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -f "$HOME/.local/etc/.gitconfig" ]; then
+      	run touch "$HOME/.local/etc/.gitconfig"
+      fi
+    '';
+
     tmuxAttachDuringBashLogin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if [ ! -e "$HOME/.local/etc/.tmux_attach_during_bash_login" ]; then
       	# Quoting or escaping the "limit string" at the head of a here document
