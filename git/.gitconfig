@@ -12,7 +12,7 @@
 	message = !"message() { git log --format='%B' ${1:-HEAD~..HEAD}; }; message"
 	mktags = !"$(git rev-parse --git-path hooks)/tags"
 	mt = mergetool
-	rifh = rebase --interactive FETCH_HEAD
+	rifh = rebase --interactive --update-refs FETCH_HEAD
 	twig = branch --sort=-committerdate --verbose
 [commit]
 	verbose = true
