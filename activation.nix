@@ -36,6 +36,28 @@
       fi
     '';
 
+    makeFishInitializationFile = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+      if [ ! -d "$HOME/.local/etc/.config/fish" ]; then
+      	run mkdir --parents "$HOME/.local/etc/.config/fish"
+      fi
+
+      if [ ! -f "$HOME/.local/etc/.config/fish/config.fish" ]; then
+      	run touch "$HOME/.local/etc/.config/fish/config.fish"
+      fi
+
+      if [ "$(grep -c 'fzf --fish | source' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      	run echo 'fzf --fish | source' >> "$HOME/.local/etc/.config/fish/config.fish"
+      fi
+
+      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      	run echo 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.fish"' >> "$HOME/.local/etc/.config/fish/config.fish"
+      fi
+
+      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-tmux/fzf-tmux.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      	run echo 'source "$HOME/.nix-profile/share/fzf-tmux/fzf-tmux.fish"' >> "$HOME/.local/etc/.config/fish/config.fish"
+      fi
+    '';
+
     makeLocalGitconfig = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
       if [ ! -f "$HOME/.local/etc/.gitconfig" ]; then
       	run touch "$HOME/.local/etc/.gitconfig"
