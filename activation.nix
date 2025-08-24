@@ -2,7 +2,7 @@
 
 {
   home.activation = {
-    makeLocalBin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    makeLocalBin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
       if [ ! -d "$HOME/.local/bin" ]; then
       	run mkdir --parents "$HOME/.local/bin"
       fi
@@ -18,7 +18,7 @@
       fi
     '';
 
-    makeLocalBashStartupFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    makeLocalBashStartupFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
       if [ ! -f "$HOME/.local/etc/.bash_profile" ]; then
       	run touch "$HOME/.local/etc/.bash_profile"
       fi
@@ -36,19 +36,19 @@
       fi
     '';
 
-    makeLocalGitconfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    makeLocalGitconfig = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
       if [ ! -f "$HOME/.local/etc/.gitconfig" ]; then
       	run touch "$HOME/.local/etc/.gitconfig"
       fi
     '';
 
-    makeLocalInputrc = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    makeLocalInputrc = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
       if [ ! -f "$HOME/.local/etc/.inputrc" ]; then
       	run touch "$HOME/.local/etc/.inputrc"
       fi
     '';
 
-    makeLocalNeovimInitializationFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    makeLocalNeovimInitializationFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
       if [ ! -d "$HOME/.local/etc/.config/nvim" ]; then
       	run mkdir --parents "$HOME/.local/etc/.config/nvim"
       fi
@@ -58,7 +58,7 @@
       fi
     '';
 
-    makeLocalVimInitializationFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    makeLocalVimInitializationFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
       if [ ! -d "$HOME/.local/etc/.config/nvim" ]; then
       	run mkdir --parents "$HOME/.local/etc/.config/nvim"
       fi
@@ -68,7 +68,7 @@
       fi
     '';
 
-    tmuxAttachDuringBashLogin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    tmuxAttachDuringBashLogin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
       # Quoting or escaping the "limit string" at the head of a here document
       # disables parameter substitution within its body.
       run cat << 'HEREDOC' > "$HOME/.local/etc/.tmux_attach_during_bash_login"
@@ -96,7 +96,7 @@
       fi
     '';
 
-    createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
       if [ ! -d "$HOME/.virtualenv" ]; then
       	run ${pkgs.virtualenv}/bin/virtualenv --download "$HOME/.virtualenv"
       	run echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bash_profile"
