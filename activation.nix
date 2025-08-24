@@ -18,6 +18,12 @@
       fi
     '';
 
+    makeLocalAlacrittyConfigurationFile = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+      if [ ! -f "$HOME/.local/etc/alacritty.toml" ]; then
+      	run touch "$HOME/.local/etc/alacritty.toml"
+      fi
+    '';
+
     makeLocalBashStartupFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
       if [ ! -f "$HOME/.local/etc/.bash_profile" ]; then
       	run touch "$HOME/.local/etc/.bash_profile"
