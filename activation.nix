@@ -68,6 +68,10 @@
       if [ ! -f "$HOME/.local/etc/.inputrc" ]; then
       	run touch "$HOME/.local/etc/.inputrc"
       fi
+
+      if [ "$(grep -c '$include ~/.nix-profile/share/fzf-tmux/fzf-tmux.inputrc' "$HOME/.local/etc/.inputrc")" -eq 0 ]; then
+      	run echo '$include ~/.nix-profile/share/fzf-tmux/fzf-tmux.inputrc' >> "$HOME/.local/etc/.inputrc"
+      fi
     '';
 
     makeLocalNeovimInitializationFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
