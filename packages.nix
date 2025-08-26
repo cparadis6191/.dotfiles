@@ -14,8 +14,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "cparadis6191";
       repo = "fzf-tmux";
-      rev = "b141eae15d467e6916cd558c5ca0606cc1f515d9";
-      hash = "sha256-eQXrZvQYoypiFISSY+q1fSli8jzweVRxMgt71VCSXL8=";
+      rev = "d99305a6c197e4f626a94336ee3b4f39bd872d40";
+      hash = "sha256-9QSAPEEKCBEjmdFr2mMfnRn2taqjJdWnaMqr/InjrXk=";
     })
     { };
 
