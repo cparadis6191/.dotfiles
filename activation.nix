@@ -7,8 +7,8 @@
       	run mkdir --parents "$HOME/.local/bin"
       fi
 
-      if [ "$(grep -c 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
-      	run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile"
+      if [ "$(grep -c 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
+      	run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bashrc"
       fi
     '';
 
@@ -131,8 +131,8 @@
     createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
       if [ ! -d "$HOME/.virtualenv" ]; then
       	run ${pkgs.virtualenv}/bin/virtualenv --download "$HOME/.virtualenv"
-      	run echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bash_profile"
-      	run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bash_profile"
+      	run echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bashrc"
+      	run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bashrc"
       fi
     '';
   };
