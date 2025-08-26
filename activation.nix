@@ -131,7 +131,13 @@
     createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
       if [ ! -d "$HOME/.virtualenv" ]; then
       	run ${pkgs.virtualenv}/bin/virtualenv --download "$HOME/.virtualenv"
+      fi
+
+      if [ "$(grep -c 'VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
       	run echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bashrc"
+      fi
+
+      if [ "$(grep -c 'source "$HOME/.virtualenv/bin/activate"' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
       	run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bashrc"
       fi
     '';
