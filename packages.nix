@@ -5,8 +5,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "cparadis6191";
       repo = "fzf-git.sh";
-      rev = "32237f1fc8feba2204eb8031b91be810bb67b637";
-      hash = "sha256-OnwMV3LVkXEqQNp1puYefFh0nfk3M1LAyWBhpmDC0Yo=";
+      rev = "5dc6d7af4b424ceaaf56bdfff43b35f2e8a6d070";
+      hash = "sha256-UGXqTlhg04xtOc0jjwqjWop+awF0U6/f6rJQnukkD90=";
     })
     { };
 
