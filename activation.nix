@@ -29,12 +29,12 @@
       	run touch "$HOME/.local/etc/.bash_profile"
       fi
 
-      if [ "$(grep -c 'eval "$(fzf --bash)"' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
-      	run echo 'eval "$(fzf --bash)"' >> "$HOME/.local/etc/.bashrc"
+      if [ "$(grep -c 'eval "$(fzf --bash)"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'eval "$(fzf --bash)"' >> "$HOME/.local/etc/.bash_profile"
       fi
 
-      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
-      	run echo 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' >> "$HOME/.local/etc/.bashrc"
+      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' >> "$HOME/.local/etc/.bash_profile"
       fi
 
       if [ ! -f "$HOME/.local/etc/.bashrc" ]; then
