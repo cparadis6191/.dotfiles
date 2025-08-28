@@ -106,9 +106,9 @@
       run cat << 'HEREDOC' > "$HOME/.local/etc/.tmux_attach_during_bash_login"
       # Attach to an existing tmux session if no client is attached, otherwise start
       # a new session.
-      if [[ $TMUX == ''' && $(command -v 'tmux') != ''' ]]; then
+      if [[ $TMUX == ''' && $(command -v "$HOME/.nix-profile/bin/tmux") != ''' ]]; then
       	delim=$'\t'
-      	tmux_detached_session="$(tmux list-sessions -F "#{session_id}$delim#{session_name}$delim#{session_attached}" 2> /dev/null |
+      	tmux_detached_session="$("$HOME/.nix-profile/bin/tmux" list-sessions -F "#{session_id}$delim#{session_name}$delim#{session_attached}" 2> /dev/null |
       		sed --expression="/''\${delim}git fugit''\${delim}/d" \
       			--expression="/''\${delim}python''\${delim}/d" \
       			--expression="/''\${delim}yedit''\${delim}/d" |
@@ -116,9 +116,9 @@
       		head --lines=1 |
       		cut --fields=1)"
       	if [[ $tmux_detached_session != ''' ]]; then
-      		exec tmux attach-session -t "$tmux_detached_session" \; unbind-key d
+      		exec "$HOME/.nix-profile/bin/tmux" attach-session -t "$tmux_detached_session" \; unbind-key d
       	else
-      		exec tmux new-session \; unbind-key d
+      		exec "$HOME/.nix-profile/bin/tmux" new-session \; unbind-key d
       	fi
       fi
       HEREDOC
