@@ -7,8 +7,8 @@
       	run mkdir --parents "$HOME/.local/bin"
       fi
 
-      if [ "$(grep -c 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
-      	run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bashrc"
+      if [ "$(grep -c 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile"
       fi
     '';
 
@@ -133,12 +133,12 @@
       	run ${pkgs.virtualenv}/bin/virtualenv --download "$HOME/.virtualenv"
       fi
 
-      if [ "$(grep -c 'VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
-      	run echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bashrc"
+      if [ "$(grep -c 'VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bash_profile"
       fi
 
-      if [ "$(grep -c 'source "$HOME/.virtualenv/bin/activate"' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
-      	run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bashrc"
+      if [ "$(grep -c 'source "$HOME/.virtualenv/bin/activate"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bash_profile"
       fi
     '';
   };
