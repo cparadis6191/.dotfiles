@@ -133,8 +133,8 @@
       	run ${pkgs.virtualenv}/bin/virtualenv --download "$HOME/.virtualenv"
       fi
 
-      if [ "$(grep -c 'VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
-      	run echo 'VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bash_profile"
+      if [ "$(grep -c 'export VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bash_profile"
       fi
 
       if [ "$(grep -c 'source "$HOME/.virtualenv/bin/activate"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
