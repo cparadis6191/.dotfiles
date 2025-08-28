@@ -29,8 +29,8 @@
       	run touch "$HOME/.local/etc/.bash_profile"
       fi
 
-      if [ "$(grep -c 'eval "$(fzf --bash)"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
-      	run echo 'eval "$(fzf --bash)"' >> "$HOME/.local/etc/.bash_profile"
+      if [ "$(grep -c 'eval "$("$HOME/.nix-profile/bin/fzf" --bash)"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'eval "$("$HOME/.nix-profile/bin/fzf" --bash)"' >> "$HOME/.local/etc/.bash_profile"
       fi
 
       if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
@@ -51,8 +51,8 @@
       	run touch "$HOME/.local/etc/.config/fish/config.fish"
       fi
 
-      if [ "$(grep -c 'fzf --fish | source' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
-      	run echo 'fzf --fish | source' >> "$HOME/.local/etc/.config/fish/config.fish"
+      if [ "$(grep -c '"$HOME/.nix-profile/bin/fzf" --fish | source' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      	run echo '"$HOME/.nix-profile/bin/fzf" --fish | source' >> "$HOME/.local/etc/.config/fish/config.fish"
       fi
 
       if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
