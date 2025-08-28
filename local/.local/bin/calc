@@ -3,6 +3,7 @@
 
 from math import *
 from random import *
+from statistics import *
 from sys import argv
 
 
