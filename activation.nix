@@ -130,7 +130,7 @@
 
     createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
       if [ ! -d "$HOME/.virtualenv" ]; then
-      	run ${pkgs.virtualenv}/bin/virtualenv --download "$HOME/.virtualenv"
+      	run $HOME/.nix-profile/bin/virtualenv --download "$HOME/.virtualenv"
       fi
 
       if [ "$(grep -c 'export VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
