@@ -19,8 +19,12 @@
     '';
 
     makeLocalAlacrittyConfigurationFile = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
-      if [ ! -f "$HOME/.local/etc/alacritty.toml" ]; then
-      	run touch "$HOME/.local/etc/alacritty.toml"
+      if [ ! -d "$HOME/.local/etc/.config/alacritty" ]; then
+      	run mkdir --parents "$HOME/.local/etc/.config/alacritty"
+      fi
+
+      if [ ! -f "$HOME/.local/etc/.config/alacritty/alacritty.toml" ]; then
+      	run touch "$HOME/.local/etc/.config/alacritty/alacritty.toml"
       fi
     '';
 

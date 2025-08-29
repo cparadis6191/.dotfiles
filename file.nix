@@ -4,10 +4,10 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".alacritty.toml".source = ./alacritty/.alacritty.toml;
-
     ".bash_profile".source = ./bash/.bash_profile;
     ".bashrc".source = ./bash/.bashrc;
+
+    ".config/alacritty/alacritty.toml".source = ./config/.config/alacritty/alacritty.toml;
 
     ".config/bat/config".source = ./config/.config/bat/config;
 

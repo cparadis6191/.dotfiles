@@ -32,5 +32,5 @@ save_to_clipboard = true
 
 [general]
 import = [
-	"~/.local/etc/alacritty.toml"
+	"~/.local/etc/.config/alacritty/alacritty.toml"
 ]
