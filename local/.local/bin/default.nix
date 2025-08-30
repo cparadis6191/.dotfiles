@@ -19,8 +19,6 @@ stdenv.mkDerivation {
 
     install ./calc           $out/bin/
     install ./isotounix      $out/bin/
-    install ./journal        $out/bin/
-    install ./journals       $out/bin/
     install ./note           $out/bin/
     install ./notes          $out/bin/
     install ./post           $out/bin/

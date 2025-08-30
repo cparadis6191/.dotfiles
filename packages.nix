@@ -41,6 +41,7 @@ in
     (pkgs.callPackage ./local/.local/bin/bookmark/default.nix { })
     (pkgs.callPackage ./local/.local/bin/default.nix { })
     (pkgs.callPackage ./local/.local/bin/fdfind/default.nix { })
+    (pkgs.callPackage ./local/.local/bin/journal/default.nix { })
     (pkgs.callPackage ./local/.local/bin/ls/default.nix { })
 
     local_bin_win32yank
