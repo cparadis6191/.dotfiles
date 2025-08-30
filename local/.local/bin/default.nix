@@ -18,11 +18,9 @@ stdenv.mkDerivation {
     mkdir --parents $out/bin/
 
     install ./calc           $out/bin/
-    install ./cdb-impl       $out/bin/
     install ./isotounix      $out/bin/
     install ./journal        $out/bin/
     install ./journals       $out/bin/
-    install ./mkb            $out/bin/
     install ./note           $out/bin/
     install ./notes          $out/bin/
     install ./post           $out/bin/
