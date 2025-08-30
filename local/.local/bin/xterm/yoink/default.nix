@@ -1,7 +1,7 @@
 { stdenv, xclip, ... }:
 
 stdenv.mkDerivation {
-  pname = "local bin xterm yoink";
+  pname = "local-bin-xterm-yoink";
   version = "0.0.1";
 
   src = ./.;

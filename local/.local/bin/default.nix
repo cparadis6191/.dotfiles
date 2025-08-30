@@ -1,7 +1,7 @@
 { python3, stdenv, ... }:
 
 stdenv.mkDerivation {
-  pname = "local bin";
+  pname = "local-bin";
   version = "0.0.1";
 
   src = ./.;

@@ -1,7 +1,7 @@
 { eza, stdenv, ... }:
 
 stdenv.mkDerivation {
-  pname = "local bin ls";
+  pname = "local-bin-ls";
   version = "0.0.1";
 
   src = ./.;

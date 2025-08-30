@@ -1,7 +1,7 @@
 { stdenv, xclip, ... }:
 
 stdenv.mkDerivation {
-  pname = "local bin xterm yeet-impl";
+  pname = "local-bin-xterm-yeet-impl";
   version = "0.0.1";
 
   src = ./.;

@@ -1,7 +1,7 @@
 { stdenv, xxd, ... }:
 
 stdenv.mkDerivation {
-  pname = "local bin xxd";
+  pname = "local-bin-xxd";
   version = "0.0.1";
 
   src = ./.;

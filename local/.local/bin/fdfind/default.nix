@@ -1,7 +1,7 @@
 { fd, stdenv, ... }:
 
 stdenv.mkDerivation {
-  pname = "local bin fdfind";
+  pname = "local-bin-fdfind";
   version = "0.0.1";
 
   src = ./.;
