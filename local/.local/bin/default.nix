@@ -19,9 +19,6 @@ stdenv.mkDerivation {
 
     install ./calc           $out/bin/
     install ./isotounix      $out/bin/
-    install ./post           $out/bin/
-    install ./pre            $out/bin/
-    install ./repeat         $out/bin/
     install ./stopwatch      $out/bin/
     install ./unixtoiso      $out/bin/
     install ./unixtolocaliso $out/bin/
