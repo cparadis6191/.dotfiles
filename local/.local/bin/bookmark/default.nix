@@ -1,4 +1,4 @@
-{ stdenv, ... }:
+{ fzf, stdenv, ... }:
 
 stdenv.mkDerivation {
   pname = "local-bin-bookmark";
@@ -7,6 +7,10 @@ stdenv.mkDerivation {
   src = ./.;
 
   dontBuild = true;
+
+  buildInputs = [
+    fzf
+  ];
 
   installPhase = ''
     runHook preInstall
