@@ -1,4 +1,4 @@
-{ stdenv, ... }:
+{ fzf, ripgrep, stdenv, ... }:
 
 stdenv.mkDerivation {
   pname = "local-bin-note";
@@ -7,6 +7,11 @@ stdenv.mkDerivation {
   src = ./.;
 
   dontBuild = true;
+
+  buildInputs = [
+    fzf
+    ripgrep
+  ];
 
   installPhase = ''
     runHook preInstall
