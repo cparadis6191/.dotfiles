@@ -23,8 +23,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "cparadis6191";
       repo = "tools";
-      rev = "3719d963bead63d035e9f89cd2370cb201105936";
-      hash = "sha256-fOwDKTec/9rof7MMIiW1E3ZD02XxThw2kzXCry00Te4=";
+      rev = "b9db3c1973bcee52e4c2200d525585ab5154a0b4";
+      hash = "sha256-g4n4mfllB1JuKRT5GXWCUv8bBZcLkGglwnmuwVxCZbg=";
     })
     { };
 
