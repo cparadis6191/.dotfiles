@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -29,6 +29,14 @@
     ".gitignore_global".source = ./git/.gitignore_global;
 
     ".inputrc".source = ./inputrc/.inputrc;
+
+    ".pandoc/filters/diagram.lua".source = (pkgs.fetchFromGitHub
+      {
+        owner = "pandoc-ext";
+        repo = "diagram";
+        rev = "985ff8299caf4fe0d11ce94de507765bc6eb1c10";
+        hash = "sha256-XQFc3suy3vfu4nxBN6MllgyG73Q43oXjxDyw9KUaWv0=";
+      } + "/_extensions/diagram/diagram.lua");
 
     ".tmux.conf".source = ./tmux/.tmux.conf;
 
