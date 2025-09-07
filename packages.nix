@@ -1,23 +1,12 @@
 { pkgs, ... }:
 
 let
-  github_tools = pkgs.callPackage
-    (pkgs.fetchFromGitHub {
-      owner = "cparadis6191";
-      repo = "tools";
-      rev = "b9db3c1973bcee52e4c2200d525585ab5154a0b4";
-      hash = "sha256-g4n4mfllB1JuKRT5GXWCUv8bBZcLkGglwnmuwVxCZbg=";
-    })
-    { };
-
   local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
 in
 {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    github_tools
-
     (pkgs.callPackage ./local/.local/bin/bookmark/default.nix { })
     (pkgs.callPackage ./local/.local/bin/default.nix { })
     (pkgs.callPackage ./local/.local/bin/fdfind/default.nix { })
@@ -35,6 +24,7 @@ in
 
     (pkgs.callPackage ./nix/pkgs/fzf-git.sh/default.nix { })
     (pkgs.callPackage ./nix/pkgs/fzf-tmux.sh/default.nix { })
+    (pkgs.callPackage ./nix/pkgs/tools/default.nix { })
 
     pkgs.alacritty-theme
     pkgs.bat
