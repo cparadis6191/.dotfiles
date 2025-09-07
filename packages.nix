@@ -1,15 +1,6 @@
 { pkgs, ... }:
 
 let
-  github_fzf_git_sh = pkgs.callPackage
-    (pkgs.fetchFromGitHub {
-      owner = "cparadis6191";
-      repo = "fzf-git.sh";
-      rev = "5dc6d7af4b424ceaaf56bdfff43b35f2e8a6d070";
-      hash = "sha256-UGXqTlhg04xtOc0jjwqjWop+awF0U6/f6rJQnukkD90=";
-    })
-    { };
-
   github_fzf_tmux_sh = pkgs.callPackage
     (pkgs.fetchFromGitHub {
       owner = "cparadis6191";
@@ -34,7 +25,6 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    github_fzf_git_sh
     github_fzf_tmux_sh
     github_tools
 
@@ -52,6 +42,8 @@ in
     (pkgs.callPackage ./local/.local/bin/win32yank/yoink/default.nix { inherit local_bin_win32yank; })
 
     (pkgs.callPackage ./local/.local/bin/xxd/default.nix { })
+
+    (pkgs.callPackage ./nix/pkgs/fzf-git.sh/default.nix { })
 
     pkgs.alacritty-theme
     pkgs.bat
