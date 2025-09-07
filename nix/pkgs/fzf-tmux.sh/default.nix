@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "cparadis6191";
     repo = "fzf-tmux.sh";
-    rev = "4290be539d8afa24c66354fe07d475ea05196ec4";
-    hash = "sha256-8wnho3ZKg67ysi9kC+SeHR6D0F/oiw6Sn09ZkuFm30w=";
+    rev = "9f830f6e5af7532dc85bcd3fdce132cfcdcf1642";
+    hash = "sha256-uNz0wboq3XmnmtgF9MXenbLnDYNHupon3iwzFDXjZ40=";
   };
 
   buildInputs = [ fzf tmux ];
