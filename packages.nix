@@ -10,12 +10,12 @@ let
     })
     { };
 
-  github_fzf_tmux = pkgs.callPackage
+  github_fzf_tmux_sh = pkgs.callPackage
     (pkgs.fetchFromGitHub {
       owner = "cparadis6191";
-      repo = "fzf-tmux";
-      rev = "af28e3e8fe5329063998bbdd9bdd10f8c6d6f004";
-      hash = "sha256-KClzh1dAJTw/2NzD/X0gR8pIUYw+JaSlbOkD3GYtWXc=";
+      repo = "fzf-tmux.sh";
+      rev = "4290be539d8afa24c66354fe07d475ea05196ec4";
+      hash = "sha256-8wnho3ZKg67ysi9kC+SeHR6D0F/oiw6Sn09ZkuFm30w=";
     })
     { };
 
@@ -35,7 +35,7 @@ in
   # environment.
   home.packages = [
     github_fzf_git_sh
-    github_fzf_tmux
+    github_fzf_tmux_sh
     github_tools
 
     (pkgs.callPackage ./local/.local/bin/bookmark/default.nix { })

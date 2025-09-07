@@ -63,8 +63,8 @@
       	run echo 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.fish"' >> "$HOME/.local/etc/.config/fish/config.fish"
       fi
 
-      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-tmux/fzf-tmux.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
-      	run echo 'source "$HOME/.nix-profile/share/fzf-tmux/fzf-tmux.fish"' >> "$HOME/.local/etc/.config/fish/config.fish"
+      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      	run echo 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.fish"' >> "$HOME/.local/etc/.config/fish/config.fish"
       fi
     '';
 
