@@ -1,15 +1,6 @@
 { pkgs, ... }:
 
 let
-  github_fzf_tmux_sh = pkgs.callPackage
-    (pkgs.fetchFromGitHub {
-      owner = "cparadis6191";
-      repo = "fzf-tmux.sh";
-      rev = "4290be539d8afa24c66354fe07d475ea05196ec4";
-      hash = "sha256-8wnho3ZKg67ysi9kC+SeHR6D0F/oiw6Sn09ZkuFm30w=";
-    })
-    { };
-
   github_tools = pkgs.callPackage
     (pkgs.fetchFromGitHub {
       owner = "cparadis6191";
@@ -25,7 +16,6 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    github_fzf_tmux_sh
     github_tools
 
     (pkgs.callPackage ./local/.local/bin/bookmark/default.nix { })
@@ -44,6 +34,7 @@ in
     (pkgs.callPackage ./local/.local/bin/xxd/default.nix { })
 
     (pkgs.callPackage ./nix/pkgs/fzf-git.sh/default.nix { })
+    (pkgs.callPackage ./nix/pkgs/fzf-tmux.sh/default.nix { })
 
     pkgs.alacritty-theme
     pkgs.bat
