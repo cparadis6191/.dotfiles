@@ -18,4 +18,4 @@ nix-channel --update
 
 nix-shell '<home-manager>' --attr install
 
-home-manager switch --flake "$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
+home-manager switch -b bak --flake "$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
