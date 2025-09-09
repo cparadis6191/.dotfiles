@@ -7,7 +7,7 @@
       	run mkdir --parents "$HOME/.local/bin"
       fi
 
-      if [ "$(grep -c 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      if [ "$(grep --count 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
       	run echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.local/etc/.bash_profile"
       fi
     '';
@@ -33,11 +33,11 @@
       	run touch "$HOME/.local/etc/.bash_profile"
       fi
 
-      if [ "$(grep -c 'eval "$("$HOME/.nix-profile/bin/fzf" --bash)"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      if [ "$(grep --count 'eval "$("$HOME/.nix-profile/bin/fzf" --bash)"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
       	run echo 'eval "$("$HOME/.nix-profile/bin/fzf" --bash)"' >> "$HOME/.local/etc/.bash_profile"
       fi
 
-      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      if [ "$(grep --count 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
       	run echo 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' >> "$HOME/.local/etc/.bash_profile"
       fi
 
@@ -55,15 +55,15 @@
       	run touch "$HOME/.local/etc/.config/fish/config.fish"
       fi
 
-      if [ "$(grep -c '"$HOME/.nix-profile/bin/fzf" --fish | source' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      if [ "$(grep --count '"$HOME/.nix-profile/bin/fzf" --fish | source' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
       	run echo '"$HOME/.nix-profile/bin/fzf" --fish | source' >> "$HOME/.local/etc/.config/fish/config.fish"
       fi
 
-      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      if [ "$(grep --count 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
       	run echo 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.fish"' >> "$HOME/.local/etc/.config/fish/config.fish"
       fi
 
-      if [ "$(grep -c 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      if [ "$(grep --count 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.fish"' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
       	run echo 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.fish"' >> "$HOME/.local/etc/.config/fish/config.fish"
       fi
     '';
@@ -79,7 +79,7 @@
       	run touch "$HOME/.local/etc/.inputrc"
       fi
 
-      if [ "$(grep -c '$include ~/.nix-profile/share/fzf-tmux/fzf-tmux.inputrc' "$HOME/.local/etc/.inputrc")" -eq 0 ]; then
+      if [ "$(grep --count '$include ~/.nix-profile/share/fzf-tmux/fzf-tmux.inputrc' "$HOME/.local/etc/.inputrc")" -eq 0 ]; then
       	run echo '$include ~/.nix-profile/share/fzf-tmux/fzf-tmux.inputrc' >> "$HOME/.local/etc/.inputrc"
       fi
     '';
@@ -127,7 +127,7 @@
       fi
       HEREDOC
 
-      if [ "$(grep -c 'source "$HOME/.local/etc/.tmux_attach_during_bash_login"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      if [ "$(grep --count 'source "$HOME/.local/etc/.tmux_attach_during_bash_login"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
       	run echo 'source "$HOME/.local/etc/.tmux_attach_during_bash_login"' >> "$HOME/.local/etc/.bash_profile"
       fi
     '';
@@ -137,11 +137,11 @@
       	run $HOME/.nix-profile/bin/virtualenv --download --python "$HOME/.nix-profile/bin/python3" "$HOME/.virtualenv"
       fi
 
-      if [ "$(grep -c 'export VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      if [ "$(grep --count 'export VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
       	run echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >> "$HOME/.local/etc/.bash_profile"
       fi
 
-      if [ "$(grep -c 'source "$HOME/.virtualenv/bin/activate"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      if [ "$(grep --count 'source "$HOME/.virtualenv/bin/activate"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
       	run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bash_profile"
       fi
     '';
