@@ -49,7 +49,7 @@ in
     pkgs.stow
     pkgs.tmux
     pkgs.unzip
-    pkgs.virtualenv
+    pkgs.uv
     pkgs.xclip
     pkgs.xxd
 

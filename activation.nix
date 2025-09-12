@@ -134,7 +134,7 @@
 
     createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
       if [ ! -d "$HOME/.virtualenv" ]; then
-      	run $HOME/.nix-profile/bin/virtualenv --download --python "$HOME/.nix-profile/bin/python3" "$HOME/.virtualenv"
+      	run $HOME/.nix-profile/bin/uv venv --no-project --python "$HOME/.nix-profile/bin/python3" --seed "$HOME/.virtualenv"
       fi
 
       if [ "$(grep --count 'export VIRTUAL_ENV_DISABLE_PROMPT=1' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
