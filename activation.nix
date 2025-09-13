@@ -132,7 +132,7 @@
       fi
     '';
 
-    createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
+    createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "installPackages" "makeLocalBashStartupFiles" ] ''
       if [ ! -d "$HOME/.virtualenv" ]; then
       	run "$HOME/.nix-profile/bin/uv" venv --no-project --python "$HOME/.nix-profile/bin/python3" --seed "$HOME/.virtualenv"
       fi
