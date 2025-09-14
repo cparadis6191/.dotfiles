@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "cparadis6191";
     repo = "tools";
-    rev = "b9db3c1973bcee52e4c2200d525585ab5154a0b4";
-    hash = "sha256-g4n4mfllB1JuKRT5GXWCUv8bBZcLkGglwnmuwVxCZbg=";
+    rev = "f5ab1f409df93851bbbb67372c3aeb333bb97312";
+    hash = "sha256-moteiHPuafa5NCUyxCpwheEFx8NzBhcb2YxaAtEjSw8=";
   };
 
   dontBuild = true;
