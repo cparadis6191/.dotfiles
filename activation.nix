@@ -41,6 +41,10 @@
       	run echo 'source "$HOME/.nix-profile/share/fzf-git.sh/fzf-git.sh"' >> "$HOME/.local/etc/.bash_profile"
       fi
 
+      if [ "$(grep --count 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.sh"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.sh"' >> "$HOME/.local/etc/.bash_profile"
+      fi
+
       if [ ! -f "$HOME/.local/etc/.bashrc" ]; then
       	run touch "$HOME/.local/etc/.bashrc"
       fi
@@ -77,10 +81,6 @@
     makeLocalInputrc = lib.hm.dag.entryAfter [ "makeLocalEtc" "writeBoundary" ] ''
       if [ ! -f "$HOME/.local/etc/.inputrc" ]; then
       	run touch "$HOME/.local/etc/.inputrc"
-      fi
-
-      if [ "$(grep --count '$include ~/.nix-profile/share/fzf-tmux/fzf-tmux.inputrc' "$HOME/.local/etc/.inputrc")" -eq 0 ]; then
-      	run echo '$include ~/.nix-profile/share/fzf-tmux/fzf-tmux.inputrc' >> "$HOME/.local/etc/.inputrc"
       fi
     '';
 
