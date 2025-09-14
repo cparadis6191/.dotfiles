@@ -2,7 +2,7 @@
 
 {
   home.activation = {
-    makeLocalBin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
+    makeLocalBin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" "writeBoundary" ] ''
       if [ ! -d "$HOME/.local/bin" ]; then
       	run mkdir --parents "$HOME/.local/bin"
       fi
@@ -18,7 +18,7 @@
       fi
     '';
 
-    makeLocalAlacrittyConfigurationFile = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+    makeLocalAlacrittyConfigurationFile = lib.hm.dag.entryAfter [ "makeLocalEtc" "writeBoundary" ] ''
       if [ ! -d "$HOME/.local/etc/.config/alacritty" ]; then
       	run mkdir --parents "$HOME/.local/etc/.config/alacritty"
       fi
@@ -28,7 +28,7 @@
       fi
     '';
 
-    makeLocalBashStartupFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+    makeLocalBashStartupFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" "writeBoundary" ] ''
       if [ ! -f "$HOME/.local/etc/.bash_profile" ]; then
       	run touch "$HOME/.local/etc/.bash_profile"
       fi
@@ -46,7 +46,7 @@
       fi
     '';
 
-    makeFishInitializationFile = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+    makeFishInitializationFile = lib.hm.dag.entryAfter [ "makeLocalEtc" "writeBoundary" ] ''
       if [ ! -d "$HOME/.local/etc/.config/fish" ]; then
       	run mkdir --parents "$HOME/.local/etc/.config/fish"
       fi
@@ -68,13 +68,13 @@
       fi
     '';
 
-    makeLocalGitconfig = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+    makeLocalGitconfig = lib.hm.dag.entryAfter [ "makeLocalEtc" "writeBoundary" ] ''
       if [ ! -f "$HOME/.local/etc/.gitconfig" ]; then
       	run touch "$HOME/.local/etc/.gitconfig"
       fi
     '';
 
-    makeLocalInputrc = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+    makeLocalInputrc = lib.hm.dag.entryAfter [ "makeLocalEtc" "writeBoundary" ] ''
       if [ ! -f "$HOME/.local/etc/.inputrc" ]; then
       	run touch "$HOME/.local/etc/.inputrc"
       fi
@@ -84,7 +84,7 @@
       fi
     '';
 
-    makeLocalNeovimInitializationFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+    makeLocalNeovimInitializationFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" "writeBoundary" ] ''
       if [ ! -d "$HOME/.local/etc/.config/nvim" ]; then
       	run mkdir --parents "$HOME/.local/etc/.config/nvim"
       fi
@@ -94,7 +94,7 @@
       fi
     '';
 
-    makeLocalVimInitializationFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" ] ''
+    makeLocalVimInitializationFiles = lib.hm.dag.entryAfter [ "makeLocalEtc" "writeBoundary" ] ''
       if [ ! -d "$HOME/.local/etc/.config/nvim" ]; then
       	run mkdir --parents "$HOME/.local/etc/.config/nvim"
       fi
@@ -104,7 +104,7 @@
       fi
     '';
 
-    tmuxAttachDuringBashLogin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" ] ''
+    tmuxAttachDuringBashLogin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" "writeBoundary" ] ''
       # Quoting or escaping the "limit string" at the head of a here document
       # disables parameter substitution within its body.
       run cat << 'HEREDOC' > "$HOME/.local/etc/.tmux_attach_during_bash_login"
@@ -132,7 +132,7 @@
       fi
     '';
 
-    createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "installPackages" "makeLocalBashStartupFiles" ] ''
+    createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "installPackages" "makeLocalBashStartupFiles" "writeBoundary" ] ''
       if [ ! -d "$HOME/.virtualenv" ]; then
       	run "$HOME/.nix-profile/bin/uv" venv --no-project --python "$HOME/.nix-profile/bin/python3" --seed "$HOME/.virtualenv"
       fi
