@@ -51,6 +51,7 @@ call plug#begin()
 	Plug '~/.vim/plugin/note'
 
 	" Color schemes
+	Plug 'chriskempson/base16-vim'
 	Plug 'flazz/vim-colorschemes'
 	Plug 'rafi/awesome-vim-colorschemes'
 
@@ -83,6 +84,9 @@ let g:dirvish_relative_paths = 1
 " Only allow signify to use Git. Note that this can greatly reduce startup
 " time.
 let g:signify_skip = {'vcs': {'allow': ['git']}}
+
+" Access colors present in 256 colorspace
+let g:base16colorspace=256
 
 " -- plugin mappings --
 " mapleader must be set BEFORE <Leader> mappings are used
