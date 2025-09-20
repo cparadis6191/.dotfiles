@@ -144,6 +144,8 @@
       if [ "$(grep --count 'source "$HOME/.virtualenv/bin/activate"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
       	run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bash_profile"
       fi
+
+      source "$HOME/.virtualenv/bin/activate"
     '';
   };
 }
