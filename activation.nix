@@ -1,7 +1,17 @@
 { lib, pkgs, ... }:
 
+let
+  alacritty_terminfo = (pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/alacritty/alacritty/a2334ff494a26a38f66685d0f950a9b589ac84a9/extra/alacritty.info";
+    hash = "sha256-j9PDn6Yn0/YxK/dxDzADDOItUVjkDfwq6JOLXpH/vjQ=";
+  });
+in
 {
   home.activation = {
+    compileAlacrittyTerminfo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      tic -e alacritty,alacritty-direct -o "$HOME/.terminfo" -x "${alacritty_terminfo}"
+    '';
+
     makeLocalBin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" "writeBoundary" ] ''
       if [ ! -d "$HOME/.local/bin" ]; then
       	run mkdir --parents "$HOME/.local/bin"
