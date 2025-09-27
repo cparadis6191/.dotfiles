@@ -51,7 +51,7 @@ call plug#begin()
 	Plug '~/.vim/plugin/note'
 
 	" Color schemes
-	Plug 'chriskempson/base16-vim'
+	Plug 'tinted-theming/tinted-vim'
 	Plug 'flazz/vim-colorschemes'
 	Plug 'rafi/awesome-vim-colorschemes'
 
