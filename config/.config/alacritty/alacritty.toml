@@ -1,6 +1,9 @@
 [cursor]
 thickness = 0.25
 
+[env]
+TERM = "alacritty"
+
 [font.normal]
 style = "Bold"
 
