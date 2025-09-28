@@ -143,6 +143,10 @@ in
     '';
 
     createAndActivateVirtualenv = lib.hm.dag.entryAfter [ "installPackages" "makeLocalBashStartupFiles" "writeBoundary" ] ''
+      if [ "$(grep --count 'export PYTHONPATH="$HOME/.nix-profile/lib/python3.13/site-packages:$PYTHONPATH"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'export PYTHONPATH="$HOME/.nix-profile/lib/python3.13/site-packages:$PYTHONPATH"' >> "$HOME/.local/etc/.bash_profile"
+      fi
+
       if [ ! -d "$HOME/.virtualenv" ]; then
       	run "$HOME/.nix-profile/bin/uv" venv --no-project --python "$HOME/.nix-profile/bin/python3" --seed --system-site-packages "$HOME/.virtualenv"
       fi
