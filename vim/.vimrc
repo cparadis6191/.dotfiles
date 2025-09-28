@@ -85,6 +85,7 @@ let g:dirvish_relative_paths = 1
 " time.
 let g:signify_skip = {'vcs': {'allow': ['git']}}
 
+" Tinted
 " Access colors present in 256 colorspace
 let g:tinted_colorspace=256
 let g:tinted_italic = 0
