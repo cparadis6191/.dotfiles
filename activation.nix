@@ -43,6 +43,10 @@ in
       	run touch "$HOME/.local/etc/.bash_profile"
       fi
 
+      if [ ! -f "$HOME/.local/etc/.bashrc" ]; then
+      	run touch "$HOME/.local/etc/.bashrc"
+      fi
+
       if [ "$(grep --count 'eval "$("$HOME/.nix-profile/bin/fzf" --bash)"' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
       	run echo 'eval "$("$HOME/.nix-profile/bin/fzf" --bash)"' >> "$HOME/.local/etc/.bashrc"
       fi
@@ -53,10 +57,6 @@ in
 
       if [ "$(grep --count 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.sh"' "$HOME/.local/etc/.bashrc")" -eq 0 ]; then
       	run echo 'source "$HOME/.nix-profile/share/fzf-tmux.sh/fzf-tmux.sh"' >> "$HOME/.local/etc/.bashrc"
-      fi
-
-      if [ ! -f "$HOME/.local/etc/.bashrc" ]; then
-      	run touch "$HOME/.local/etc/.bashrc"
       fi
     '';
 
