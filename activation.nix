@@ -5,6 +5,13 @@ let
     url = "https://raw.githubusercontent.com/alacritty/alacritty/a2334ff494a26a38f66685d0f950a9b589ac84a9/extra/alacritty.info";
     hash = "sha256-j9PDn6Yn0/YxK/dxDzADDOItUVjkDfwq6JOLXpH/vjQ=";
   });
+
+  tinted_shell = pkgs.fetchFromGitHub {
+    owner = "tinted-theming";
+    repo = "tinted-shell";
+    rev = "1099c2e60b2240f843d1b7ee3aef55617472c99c";
+    hash = "sha256-WQ8jPUZzTWY5ITO8WRQ0kOZv1hq1XSujaG4Bl5bvwDU=";
+  };
 in
 {
   home.activation = {
@@ -111,6 +118,24 @@ in
 
       if [ ! -f "$HOME/.local/etc/.vimrc" ]; then
       	run touch "$HOME/.local/etc/.vimrc"
+      fi
+    '';
+
+    setTintedShellThemeDuringBashLogin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" "writeBoundary" ] ''
+      # Quoting or escaping the "limit string" at the head of a here document
+      # disables parameter substitution within its body.
+      run cat << 'HEREDOC' > "$HOME/.local/etc/.tinted_shell_during_bash_login"
+      # Tinted Shell
+      BASE16_SHELL_PATH="${tinted_shell}"
+      [ -n "$PS1" ] && \
+      	[ -s "$BASE16_SHELL_PATH/profile_helper.sh" ] && \
+      		source "$BASE16_SHELL_PATH/profile_helper.sh"
+
+      base16_atelier-dune-light
+      HEREDOC
+
+      if [ "$(grep --count 'source "$HOME/.local/etc/.tinted_shell_during_bash_login"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
+      	run echo 'source "$HOME/.local/etc/.tinted_shell_during_bash_login"' >> "$HOME/.local/etc/.bash_profile"
       fi
     '';
 
