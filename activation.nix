@@ -139,6 +139,21 @@ in
       fi
     '';
 
+    loadTintedVimColorschemeInLocalVimrc = lib.hm.dag.entryAfter [ "makeLocalVimInitializationFiles" "writeBoundary" ] ''
+      # Quoting or escaping the "limit string" at the head of a here document
+      # disables parameter substitution within its body.
+      run cat << 'HEREDOC' > "$HOME/.local/etc/.tinted.vim"
+      if exists('$BASE16_THEME') &&
+      			\ (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
+      	colorscheme base16-$BASE16_THEME
+      endif
+      HEREDOC
+
+      if [ "$(grep --count 'source $HOME/.local/etc/.tinted.vim' "$HOME/.local/etc/.vimrc")" -eq 0 ]; then
+      	run echo 'source $HOME/.local/etc/.tinted.vim' >> "$HOME/.local/etc/.vimrc"
+      fi
+    '';
+
     tmuxAttachDuringBashLogin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" "writeBoundary" ] ''
       # Quoting or escaping the "limit string" at the head of a here document
       # disables parameter substitution within its body.
