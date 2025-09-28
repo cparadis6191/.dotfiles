@@ -245,7 +245,6 @@ set linebreak
 
 if exists('+breakindent')
 	set breakindent
-	let &showbreak = '  > '
 endif
 
 set lazyredraw
