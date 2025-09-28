@@ -87,6 +87,7 @@ let g:signify_skip = {'vcs': {'allow': ['git']}}
 
 " Access colors present in 256 colorspace
 let g:base16colorspace=256
+let g:tinted_italic = 0
 
 " -- plugin mappings --
 " mapleader must be set BEFORE <Leader> mappings are used
