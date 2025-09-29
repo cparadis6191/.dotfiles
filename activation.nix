@@ -131,7 +131,7 @@ in
       	[ -s "$BASE16_SHELL_PATH/profile_helper.sh" ] && \
       		source "$BASE16_SHELL_PATH/profile_helper.sh"
 
-      base16_atelier-dune-light
+      base16_ayu-light
       HEREDOC
 
       if [ "$(grep --count 'source "$HOME/.local/etc/.tinted_shell_during_bash_login"' "$HOME/.local/etc/.bash_profile")" -eq 0 ]; then
