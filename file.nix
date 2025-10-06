@@ -31,8 +31,8 @@
     ".inputrc".source = ./inputrc/.inputrc;
 
     ".pandoc/filters/diagram.lua".source = (pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/pandoc-ext/diagram/985ff8299caf4fe0d11ce94de507765bc6eb1c10/_extensions/diagram/diagram.lua";
-      hash = "sha256-0Gh/jfuD7V8PfiKLbwnF5ifyK7OV8+Eu33AevjkF5LQ=";
+      url = "https://raw.githubusercontent.com/cparadis6191/diagram/e2d0fe818152fb024e158313aed0609869d77dfc/_extensions/diagram/diagram.lua";
+      hash = "sha256-hWqVf10Yiqrraw8IABEJK4xa2/+wDwICO0benyl0bO8=";
     });
 
     ".tmux.conf".source = ./tmux/.tmux.conf;
