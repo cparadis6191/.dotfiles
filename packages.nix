@@ -38,6 +38,7 @@ in
     pkgs.git
     pkgs.hyperfine
     pkgs.lsof
+    pkgs.nb
     pkgs.neovim
     pkgs.nixpkgs-fmt
     pkgs.python3
