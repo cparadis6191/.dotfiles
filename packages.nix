@@ -2,6 +2,15 @@
 
 let
   local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
+
+  nb = pkgs.nb.overrideAttrs {
+    src = pkgs.fetchFromGitHub {
+      owner = "cparadis6191";
+      repo = "nb";
+      rev = "806d235b500dfd8aa9cb01367c17f6439f7401dc";
+      hash = "sha256-wbBUYS4yt6Bhizsb+PeUzvnwh77gAN37qiSGl0cO4Ek=";
+    };
+  };
 in
 {
   # The home.packages option allows you to install Nix packages into your
@@ -26,6 +35,8 @@ in
     (pkgs.callPackage ./nix/pkgs/fzf-tmux.sh/default.nix { })
     (pkgs.callPackage ./nix/pkgs/tools/default.nix { })
 
+    nb
+
     pkgs.alacritty-theme
     pkgs.bat
     pkgs.ctags
@@ -38,7 +49,6 @@ in
     pkgs.git
     pkgs.hyperfine
     pkgs.lsof
-    pkgs.nb
     pkgs.neovim
     pkgs.nixpkgs-fmt
     pkgs.python3
