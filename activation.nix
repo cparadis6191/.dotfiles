@@ -199,6 +199,30 @@ in
       	run echo 'source "$HOME/.virtualenv/bin/activate"' >> "$HOME/.local/etc/.bash_profile"
       fi
 
+      run cat << 'HEREDOC' > "$HOME/.virtualenv/lib/python3.13/site-packages/usercustomize.py"
+      #!/usr/bin/env python3
+
+
+      import os
+      import pathlib
+      import sys
+
+
+      nix_profiles = map(pathlib.Path, os.environ.get("NIX_PROFILES", "").split(" "))
+      nix_profiles_site_packages = filter(
+          pathlib.Path.exists,
+          map(
+              lambda nix_profile: nix_profile
+              / "lib"
+              / f"python{sys.version_info.major}.{sys.version_info.minor}"
+              / "site-packages",
+              nix_profiles,
+          ),
+      )
+
+      sys.path = list(map(str, nix_profiles_site_packages)) + sys.path
+      HEREDOC
+
       source "$HOME/.virtualenv/bin/activate"
     '';
   };
