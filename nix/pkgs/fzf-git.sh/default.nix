@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "cparadis6191";
     repo = "fzf-git.sh";
-    rev = "a6426e615fb9966b99999ae0668847c36e8f53c2";
-    hash = "sha256-oMtOCdexNh37Y9kvxzKsjuKM+Dw3r7zbNm9U8O9gpxg=";
+    rev = "954c8dad83ddabcdf1806bc250b2bccd8efc7f07";
+    hash = "sha256-j2chBp9O54gprT0rdALYo+NMDmE13/fydpFsPaKJG+A=";
   };
 
   buildInputs = [ fzf git ];
