@@ -19,3 +19,5 @@ nix-channel --update
 nix-shell '<home-manager>' --attr install
 
 home-manager switch -b bak --flake "$(realpath "$(dirname "${BASH_SOURCE[0]}")")#chad"
+
+echo 'source "$HOME/.nix-profile/etc/profile.d/nix.sh"' >> "$HOME/.local/etc/.bash_profile"
