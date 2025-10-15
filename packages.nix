@@ -7,8 +7,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "cparadis6191";
       repo = "nb";
-      rev = "806d235b500dfd8aa9cb01367c17f6439f7401dc";
-      hash = "sha256-wbBUYS4yt6Bhizsb+PeUzvnwh77gAN37qiSGl0cO4Ek=";
+      rev = "0f5a70fc559225640e524cc74b10f7a4387ee989";
+      hash = "sha256-HC4Yo7lmSa42ASkxNLkxidABQMCAoJuQb+g5ZbqBjfg=";
     };
   };
 in
