@@ -42,6 +42,7 @@ in
     pkgs.ctags
     pkgs.curl
     pkgs.diff-so-fancy
+    pkgs.direnv
     pkgs.eza
     pkgs.fd
     pkgs.fish

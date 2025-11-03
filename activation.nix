@@ -76,6 +76,10 @@ in
       	run touch "$HOME/.local/etc/.config/fish/config.fish"
       fi
 
+      if [ "$(grep --count '"$HOME/.nix-profile/bin/direnv" hook fish | source' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
+      	run echo '"$HOME/.nix-profile/bin/direnv" hook fish | source' >> "$HOME/.local/etc/.config/fish/config.fish"
+      fi
+
       if [ "$(grep --count '"$HOME/.nix-profile/bin/fzf" --fish | source' "$HOME/.local/etc/.config/fish/config.fish")" -eq 0 ]; then
       	run echo '"$HOME/.nix-profile/bin/fzf" --fish | source' >> "$HOME/.local/etc/.config/fish/config.fish"
       fi
