@@ -9,7 +9,7 @@ highlight JournalCanceled ctermfg=Red        guifg=Red
 highlight JournalEvent    ctermfg=Cyan       guifg=Cyan
 highlight JournalMoved    ctermfg=DarkGray   guifg=DarkGray
 highlight JournalNote     ctermfg=Yellow     guifg=Yellow
-highlight JournalTask     ctermfg=LightGreen guifg=LightGreen
+highlight JournalTask     ctermfg=Green      guifg=Green
 highlight JournalToday    ctermfg=Magenta    guifg=Magenta
 highlight JournalTomorrow ctermfg=Magenta    guifg=Magenta
 highlight JournalWeek     ctermfg=Magenta    guifg=Magenta
