@@ -2,8 +2,9 @@
 " Quickfix
 function! s:QuickfixToFzfEntry(key, val)
 	let l:file = expand('#'.a:val.bufnr)
+	let l:shortened_file_path = pathshorten(l:file)
 	let l:error_number = printf('%2d', a:key)
-	return [l:error_number, ' ', l:file, ':', a:val.lnum, ':', a:val.col, ':', a:val.text]
+	return [l:error_number, ' ', l:shortened_file_path, ':', l:file, ':', a:val.lnum, ':', a:val.col, ':', a:val.text]
 endfunction
 
 function! s:CcToFirstFzfEntry(fzf_entries)
@@ -25,12 +26,12 @@ function! s:QuickfixGetWithPreview()
 	" Note that fzf fields include the trailing delimiter so matching the
 	" entire field and the trailing delimiter is the same as matching just the
 	" trailing delimiter.
-	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{3}-/2', '--prompt', 'Quickfix> '], 'placeholder': '{2..}'})
+	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{4}-/2', '--prompt', 'Quickfix> ', '--with-nth', '{..2,4..}'], 'placeholder': '{3..}'})
 endfunction
 
 " Quickfix files
 function! s:FzfEntryToFile(fzf_entry)
-	return a:fzf_entry[2]
+	return a:fzf_entry[4]
 endfunction
 
 function! s:QuickfixFilesGetSourceSink()
