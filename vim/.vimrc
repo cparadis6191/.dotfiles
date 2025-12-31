@@ -57,7 +57,7 @@ call plug#begin()
 
 	" Tree-sitter
 	if has('nvim')
-		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'tag': 'v0.10.0'}
 		Plug '~/.config/nvim/plugin/treesitter.vim'
 	endif
 call plug#end()
