@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # See https://nixos.org/download/ for more information.
-sh <(curl -L https://nixos.org/nix/install) --no-daemon
+sh <(curl -L https://releases.nixos.org/nix/nix-2.33.0/install) --no-daemon
 
 # Do not source `nix.fish` in fish.
 sed --expression='/# added by Nix installer/d' --in-place "$HOME/.config/fish/conf.d/nix.fish"
