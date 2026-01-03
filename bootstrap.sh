@@ -13,7 +13,7 @@ echo 'experimental-features = nix-command flakes' >> "$HOME/.config/nix/nix.conf
 
 source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/1cfa305fba94468f665de1bd1b62dddf2e0cb012.tar.gz home-manager
 nix-channel --update
 
 nix-shell '<home-manager>' --attr install
