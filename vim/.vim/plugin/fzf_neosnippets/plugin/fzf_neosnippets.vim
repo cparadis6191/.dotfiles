@@ -6,7 +6,7 @@ function! s:InsertNeosnippet(fzf_entry)
 endfunction
 
 function! s:NeosnippetsToFzfEntry(key, val)
-	return [a:key, '[[:delim:]]', a:val.action__path, '[[:delim:]]', a:val.action__line)]
+	return [a:key, '[[:delim:]]', a:val.action__path, '[[:delim:]]', a:val.action__line, '[[:delim:]]', printf('%s%s', (!empty(a:val.menu_abbr) ? ': ' : ''), a:val.menu_abbr)]
 endfunction
 
 function! s:NeosnippetsGetSourceSink()
@@ -16,7 +16,7 @@ function! s:NeosnippetsGetSourceSink()
 endfunction
 
 function! s:NeosnippetsGetOptionsWithPreview(query)
-	return fzf#vim#with_preview({'options': ['--delimiter', '[[:delim:]]', '--preview-window', '+{3}', '--with-nth', '{1}', '--prompt', 'Snippets> ', '--query', a:query], 'placeholder': '{2}:{3}'})
+	return fzf#vim#with_preview({'options': ['--delimiter', '[[:delim:]]', '--preview-window', '+{3}', '--with-nth', '{1}{4}', '--prompt', 'Snippets> ', '--query', a:query], 'placeholder': '{2}:{3}'})
 endfunction
 
 " neosnippet
