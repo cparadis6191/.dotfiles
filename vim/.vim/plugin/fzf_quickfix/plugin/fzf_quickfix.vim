@@ -26,7 +26,7 @@ function! s:QuickfixGetWithPreview()
 	" Note that fzf fields include the trailing delimiter so matching the
 	" entire field and the trailing delimiter is the same as matching just the
 	" trailing delimiter.
-	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{4}-/2', '--prompt', 'Quickfix> ', '--with-nth', '{..2,4..5}'], 'placeholder': '{3..}'})
+	return fzf#vim#with_preview({'options': ['--delimiter', '^\s*\d+\s+|:', '--preview-window', '+{4}-/2', '--prompt', 'Quickfix> ', '--with-nth', '{..2,4..}'], 'placeholder': '{3..}'})
 endfunction
 
 " Quickfix files
