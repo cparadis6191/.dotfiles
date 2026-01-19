@@ -16,7 +16,7 @@ function! s:NeosnippetsGetSourceSink()
 endfunction
 
 function! s:NeosnippetsGetOptionsWithPreview(query)
-	return fzf#vim#with_preview({'options': ['--delimiter', ':', '--preview-window', '+{3}', '--with-nth', '{1}', '--prompt', 'Snippets> ', '--query', a:query], 'placeholder': '{2..}'})
+	return fzf#vim#with_preview({'options': ['--delimiter', ':', '--preview-window', '+{3}', '--with-nth', '{1}', '--prompt', 'Snippets> ', '--query', a:query], 'placeholder': '{2}:{3}'})
 endfunction
 
 " neosnippet
