@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 let
+  unfree_pkgs = import pkgs.path { system = pkgs.stdenv.hostPlatform.system; config = { allowUnfree = true; }; };
+
   local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
 
   nb = pkgs.nb.overrideAttrs {
