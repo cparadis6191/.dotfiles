@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   local_bin_win32yank = pkgs.callPackage ./local/.local/bin/win32yank/default.nix { };
@@ -13,6 +13,11 @@ let
   };
 in
 {
+  # Configure a predicate to allow specific unfree packages.
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    # "github-copilot-cli"
+  ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
