@@ -6,6 +6,11 @@ let
     hash = "sha256-j9PDn6Yn0/YxK/dxDzADDOItUVjkDfwq6JOLXpH/vjQ=";
   });
 
+  wezterm_terminfo = (pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/wezterm/wezterm/main/termwiz/data/wezterm.terminfo";
+    hash = "sha256-XjhvsUmyoWtxtNmjc8VHN8nlaU62f+ONk7JHBbk0N+0=";
+  });
+
   tinted_shell = pkgs.fetchFromGitHub {
     owner = "tinted-theming";
     repo = "tinted-shell";
@@ -17,6 +22,10 @@ in
   home.activation = {
     compileAlacrittyTerminfo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       tic -e alacritty,alacritty-direct -o "$HOME/.terminfo" -x "${alacritty_terminfo}"
+    '';
+
+    compileWezTermTerminfo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      tic -e wezterm -o "$HOME/.terminfo" -x "${wezterm_terminfo}"
     '';
 
     makeLocalBin = lib.hm.dag.entryAfter [ "makeLocalBashStartupFiles" "writeBoundary" ] ''
