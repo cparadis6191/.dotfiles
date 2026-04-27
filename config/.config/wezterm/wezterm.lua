@@ -22,5 +22,10 @@ config.initial_rows = 28
 config.font_size = 10
 config.color_scheme = 'AdventureTime'
 
+-- You can specify some parameters to influence the font selection;
+-- for example, this selects a Bold font variant.
+config.font =
+  wezterm.font('JetBrains Mono', { weight = 'Bold' })
+
 -- Finally, return the configuration to wezterm:
 return config
