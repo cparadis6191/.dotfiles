@@ -27,5 +27,13 @@ config.color_scheme = 'AdventureTime'
 config.font =
   wezterm.font('JetBrains Mono', { weight = 'Bold' })
 
+-- Controls the amount of padding between the window border and the terminal cells.
+config.window_padding = {
+  left = '0cell',
+  right = '0cell',
+  top = '0cell',
+  bottom = '0cell',
+}
+
 -- Finally, return the configuration to wezterm:
 return config
