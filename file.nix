@@ -48,5 +48,7 @@
     ".vim/plugin/search/plugin/search.vim".source = ./vim/.vim/plugin/search/plugin/search.vim;
     ".vim/plugin/visual_selection/autoload/visual_selection.vim".source = ./vim/.vim/plugin/visual_selection/autoload/visual_selection.vim;
     ".vimrc".source = ./vim/.vimrc;
+
+    ".config/wezterm/wezterm.lua".source = ./config/.config/wezterm/wezterm.lua;
   };
 }
