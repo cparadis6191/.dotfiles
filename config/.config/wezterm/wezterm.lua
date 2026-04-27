@@ -10,6 +10,10 @@ local config = wezterm.config_builder()
 -- `background` colors.
 config.force_reverse_video_cursor = true
 
+-- If set to true, when there is only a single tab, the tab bar is hidden from
+-- the display.
+config.hide_tab_bar_if_only_one_tab = true
+
 -- For example, changing the initial geometry for new windows:
 config.initial_cols = 120
 config.initial_rows = 28
