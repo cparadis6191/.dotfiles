@@ -48,6 +48,7 @@ in
     pkgs.ctags
     pkgs.curl
     pkgs.diff-so-fancy
+    pkgs.difftastic
     pkgs.direnv
     pkgs.eza
     pkgs.fd
