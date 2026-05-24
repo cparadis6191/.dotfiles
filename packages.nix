@@ -43,6 +43,7 @@ in
     nb
 
     pkgs.alacritty-theme
+    pkgs.ast-grep
     pkgs.bat
     pkgs.ctags
     pkgs.curl
